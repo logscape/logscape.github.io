@@ -18,10 +18,13 @@
 	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
 	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
 }
-img {
-    border: 1px solid #d4d4d4;
-    -webkit-box-shadow: 3px 3px 3px #7C7C7C;
-    box-shadow: 3px 3px 3px #7C7C7C;
+img.shadow {
+//    border: 1px solid #d4d4d4;
+//    -webkit-box-shadow: 3px 3px 3px #7C7C7C;
+//    box-shadow: 3px 3px 3px #7C7C7C;
+	-webkit-box-shadow: 2px 2px 8px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    2px 2px 8px rgba(50, 50, 50, 0.75);
+	box-shadow:         2px 2px 8px rgba(50, 50, 50, 0.75);
     }
 
 .image {
