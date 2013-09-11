@@ -1,0 +1,8 @@
+#!/bin/bash
+
+while true
+do 
+	jekyll build
+	sleep 7s;
+	kill %1
+done

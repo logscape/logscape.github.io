@@ -30,8 +30,18 @@ img.shadow {
 .image {
 padding: 15px;
 }
-
-
+code.width{
+	width:60%
+}
 ul.list{
 	list-style-type:square;
+}
+
+
+.example {
+	background-color:#fafafa;
+	border: 1px solid gray;
+	margin: 10px 10px 10px 10px;
+	padding-left:15px;
+	padding-top:15px;
 }
