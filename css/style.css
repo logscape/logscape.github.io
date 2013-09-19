@@ -37,6 +37,24 @@ ul.list{
 	list-style-type:square;
 }
 
+.block{
+	margin-bottom:10px;
+	padding-left:10px;
+	padding-top:10px;
+	padding-right:10px;
+	padding-bottom:10px;
+	background-color:#cfcfcc;
+	width:80%
+}
+
+.block-clear{
+	margin-bottom:10px;
+	padding-left:10px;
+	padding-top:10px;
+	padding-right:10px;
+	padding-bottom:10px;
+	width:80%
+}
 
 .example {
 	background-color:#fafafa;
