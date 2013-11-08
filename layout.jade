@@ -18,10 +18,12 @@ html(lang="en")
 							li 
 								a(href="") Download 
 					h3 Logscape 2.0  
-
 					a(href="apps.html")  Applications   	|
 					a(href="http://support.liquidlabs.co.uk")  Older Versions (1.3x)
-		.container
+
+//
+					a(href="monitoring-start.html") Monitoring Guide |  
+		.container-fluid
 			p 
 			p 
 			br
@@ -30,10 +32,10 @@ html(lang="en")
 			p 
 			p 
 			.row
-				.col-md-3
+				.col-md-2.nav-padding
 					
 					p 
-						|Overview 
+						h3 Getting Started
 					ul
 						li 
 							a(href="index.html") Getting Started
@@ -42,6 +44,9 @@ html(lang="en")
 									a(href="searching-video.html") Quick Search Video
 								li 
 									a(href="workspaces.html") Create a Workspace Video 
+							//- 
+								li
+									a(href="patterns.html") Creating custom datatypes 
 						li	
 							a(href="searching-overview.html")	Search Overview
 							ul
@@ -53,7 +58,9 @@ html(lang="en")
 								li 
 									a(href="ds-syslog.html") Syslog Devices 
 						li 
-							a(href="deploy.html") How to deploy Apps 
+							a(href="deploy.html") How to deploy Apps
+						li
+							a(href="alerting.html") Alerting  
 						li
 							a(href="releasenotes.html") Release Notes 
 					p 
@@ -61,6 +68,8 @@ html(lang="en")
 					ul
 						li	
 							a(href="install-prerequisites.html") Prerequisites
+						li
+							a(href="install-components.html") Components
 						li  
 							a(href="install-manager.html") Manager Installation
 						li 
@@ -70,13 +79,23 @@ html(lang="en")
 						li	
 							a(href="install-updating.html") Updating Logscape 
 
-					p
+					p	
 						|Common Deployment Scenarios
 					ul
 						li
-							a(href="using-forwarders.html") Using Forwarders 
+							a(href="using-forwarders.html") Default Scenario 
 						li
-							a(href="using-indexers.html") Using IndexStores 
+							a(href="using-forwarders-failover.html") Forwarders + Failover 
+						li
+							a(href="using-indexstores.html") Multiple IndexStores + Failover
+
+						li
+							a(href="using-indexstores-zones.html") Multiple IndexStores + Zones 
+
+						li
+							a(href="using-indexstores-zones-tenured.html") Multiple IndexStores + Zones + Tenured
+
+
 
 					p 
 						a(href="apps.html") Logscape Apps
@@ -106,7 +125,7 @@ html(lang="en")
 							span twitter: 
 								a(href="https://twitter.com/logscape")@logscape
 
-				.col-md-9
+				.col-md-10
 					block content
 
 		script(src="js/ga.js") 
