@@ -134,3 +134,65 @@ hr.fadeds {
       rgb(255,255,255) 100%
   );
 }
+
+/* Table Styles */
+
+
+
+#hor-zebra
+
+{
+
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+
+	font-size: 16px;
+`
+	margin: 45px;
+
+//	width: 480px;
+
+	text-align: left;
+
+	border-collapse: collapse;
+
+}
+
+#hor-zebra th
+
+{
+
+	font-size: 14px;
+
+	font-weight: normal;
+
+	padding: 10px 8px;
+
+	color: #039;
+
+}
+
+#hor-zebra .category
+{
+	background-image:initial;background-color:rgb(68,103,133);padding-top:3px;padding-right:0px;padding-bottom:3px;padding-left:0px;margin-bottom:12px
+	;color:#FCFCFC	
+}
+
+#hor-zebra td
+
+{
+
+	padding: 8px;
+
+	color: #252525
+i
+}
+
+#hor-zebra .odd
+
+{
+
+	background: #e8edff; 
+
+}
+
+
