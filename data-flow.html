@@ -1,5 +1,70 @@
-<!DOCTYPE html><html lang="en"><head><title>	Logscape 2.0 	</title><link href="css/bootstrap.min.css" rel="stylesheet"><link href="css/style.css" rel="stylesheet"><script src="js/bootstrap.min.js"></script><script src="js/jquery.js"></script></head><body><div class="container">		<div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="nav-collapse collapse"><ul class="nav navbar-nav"><li class="active"> Main Support Site </li><li>Explore Logscape Apps </li><li> <a href="">Download </a></li></ul></div><h3>Logscape 2.0  </h3><a href="apps.html"> Applications   	|</a><a href="http://support.liquidlabs.co.uk"> Older Versions (1.3x)</a></div></div></div></body></html><!--<a href="monitoring-start.html">Monitoring Guide |  </a>--><div class="container-fluid"><p> </p><p> </p><br><br><br><p> </p><p> </p><div class="row"><div class="col-md-2 nav-padding"><p> <h3>Getting Started</h3></p><ul><li> <a href="index.html">Getting Started</a><ul><li><a href="searching-video.html">Quick Search Video</a></li><li> <a href="workspaces.html">Create a Workspace Video </a></li><li><a href="data-flow.html">Data Flow </a></li></ul></li><li>	<a href="searching-overview.html">	Search Overview</a><ul><li><a href="searching-cheatsheet.html">Cheat Sheet </a></li><li><a href="searching-functions.html">Function Index</a></li><li><a href="searching-heatmaps.html">Heatmaps</a></li><li><a href="searching-geoip.html">GeoIP </a></li></ul></li><li><a href="ds-add.html">How to add data </a><ul><li> <a href="ds-syslog.html">Syslog Devices </a></li></ul></li><li><a href="datatypes.html">Data Types  </a></li><li> <a href="deploy.html">How to deploy Apps</a></li><li><a href="ldap.html">LDAP</a></li><li><a href="alerting.html">Alerting  </a></li><li><a href="releasenotes.html">Release Notes </a></li></ul><p> 
-Installation Guide </p><ul><li>	<a href="install-prerequisites.html">Prerequisites</a></li><li><a href="install-components.html">Components</a></li><li> <a href="install-manager.html">Manager Installation</a></li><li> <a href="install-forwarder.html">Install a Forwarder</a></li><li> <a href="install-indexer.html">Install an Indexer		</a></li><li>	<a href="install-updating.html">Updating Logscape </a></li></ul><p>	
-Common Deployment Scenarios</p><ul><li><a href="using-forwarders.html">Default Scenario </a></li><li><a href="using-forwarders-failover.html">Forwarders + Failover </a></li><li><a href="using-indexstores.html">Multiple IndexStores + Failover</a></li><li><a href="using-indexstores-zones.html">Multiple IndexStores + Zones </a></li><li><a href="using-indexstores-zones-tenured.html">Multiple IndexStores + Zones + Tenured</a></li></ul><p> <a href="apps.html">Logscape Apps</a></p><ul><li> <a href="https://github.com/logscape/windowsapp#windowsapp-10">WindowsApp</a></li><li> <a href="https://github.com/logscape/unixapp#unixapp-10">UnixApp</a></li><li> <a href="https://github.com/logscape/coherenceapp#oraclecoherenceapp-10">Oracle Coherence App</a></li><li> <a href="https://github.com/logscape/javaapp#javaapp-10">JavaApp</a></li><li> <a href="https://github.com/logscape/ciscoapp#ciscoapp-10">Syslog Devices </a></li></ul><p> 
-Contact</p><div><strong> <span>email: <a href="mailto:support@logscape.com">support@logscape.com</a></span></strong><br><strong><span>twitter: <a href="https://twitter.com/logscape">@logscape</a></span></strong></div></div><div class="col-md-10"><h2>Data Flow Overview </h2><div class="image"><img src="images/data-flow.png"></div><p>Using the search example above, we can see that the search is filtered to the datasource tagged <strong> <em>iis</em></strong>.This tag points to data located in<em> C:\inetpub\logs\</em><br>or whereever the data for IIS web access logs have been configured.</p><p>The iis web access log data has been assigned the type<strong> <em>www </em></strong>  The <em>www</em>  Datatype extracts fields such as <ul><li>request</li><li>,httpCode</li><li>,userAgent </li><li>,host</li><li>,bytes</li><li>.... </li></ul>from the web log data. </p><p> 
-The <em>UserAgent </em>&nbsp; field is in the example filters the results to consider only the user agents that contain the substring 'Safari'..<br> The _tag field narrows the search to data defined by the<em>iis </em>&nbsp;tag.  Any text before the '|' symbol is interpreted as a keyword filter.<br> In this example we look for failed web requests</p></div></div></div><script src="js/ga.js"> </script>
+<!DOCTYPE html><html lang="en"><head><title>	Logscape 2.0 	</title><link href="css/bootstrap.min.css" rel="stylesheet"><link href="css/style.css" rel="stylesheet"><script src="js/jquery-1.11.0.js"></script><script src="js/bootstrap.min.js"></script><script>function appendSite(q){
+ var newQuery="site:logscape.github.io " + q;
+ return(newQuery);
+}
+(function() {
+var cx = 'partner-pub-2789521296837340:9402765321';
+var gcse = document.createElement('script');
+gcse.type = 'text/javascript';
+gcse.async = true;
+gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx;
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(gcse, s);
+})();</script></head><body><div class="container-fluid navbar"><div class="row navbar-inner"><div style="width:10px" class="col-md-1"> </div><div class="col-md-11"><form id="cse-search-box" action="http://google.com/cse" style="position:right;padding-top:5px;padding-bottom:5px"><img src="images/logo.png" style="padding-top:0px,padding-right:15px" width="150"><input type="hidden" name="cx" value="partner-pub-2789521296837340:9402765321"><input type="hidden" name="ie" value="UTF-8"><input id="searchBox" type="text" name="q" size="31" style="margin-left:15px"><input id="cseSubmit" type="submit" value=" " class="btn-search">&nbsp;&nbsp;<a href="http://apps.logscape.com">Apps |  </a><a href="http://support.liquidlabs.co.uk">Release 1.3 		</a></form></div></div><div class="row"></div><!--<hr class="dark">--></div><div class="container-fluid"><div class="row"><div style="width:10px" class="col-md-1"><p></p></div><div class="col-md-2 nav-padding"><p> </p><ul class="nav nav-tabs nav-stacked"> <li>	</li><a href="index.html"><h4>Start Here</h4></a><hr><li><a href="search.html">Search</a></li><li> <a href="workspaces.html">WorkSpaces</a></li><li> <a href="ds.html">Add Data </a></li><li> <a href="types.html">Types </a></li><li>	<a href="deploy.html">Deployment </a></li><li>	<a href="users.html">Users </a></li><li> <a href="alerts.html">Alerts 	</a></li></ul><!--<li> <a href="index.html">Getting Started</a><ul><li><a href="searching-video.html">Quick Search Video</a></li><li> <a href="workspaces.html">Create a Workspace Video </a></li><li><a href="data-flow.html">Data Flow </a></li></ul></li>--><!--<li>	<a href="searching-overview.html">	Search Overview</a><ul><li><a href="searching-cheatsheet.html">Cheat Sheet </a></li><li><a href="searching-functions.html">Function Index</a></li><li><a href="searching-heatmaps.html">Heatmaps</a></li><li><a href="searching-geoip.html">GeoIP </a></li></ul></li>--><!--<li><a href="ds-add.html">How to add data </a><ul><li> <a href="ds-syslog.html">Syslog Devices </a></li></ul></li><li><a href="datatypes.html">Data Types  </a></li><li> <a href="deploy.html">How to deploy Apps</a></li><li><a href="users.html">LDAP</a></li><li><a href="alerting.html">Alerting  </a></li><li><a href="releasenotes.html">Release Notes </a></li>--></div><!--<p> 
+Installation Guide </p>--><!--<ul><li>	<a href="install-prerequisites.html">Prerequisites</a></li><li><a href="install-components.html">Components</a></li><li> <a href="install-manager.html">Manager Installation</a></li><li> <a href="install-forwarder.html">Install a Forwarder</a></li><li> <a href="install-indexer.html">Install an Indexer		</a></li><li>	<a href="install-updating.html">Updating Logscape </a></li></ul>--><!--<p>	
+Common Deployment Scenarios</p>--><!--<ul><li><a href="using-forwarders.html">Default Scenario </a></li><li><a href="using-forwarders-failover.html">Forwarders + Failover </a></li><li><a href="using-indexstores.html">Multiple IndexStores + Failover</a></li><li><a href="using-indexstores-zones.html">Multiple IndexStores + Zones </a></li><li><a href="using-indexstores-zones-tenured.html">Multiple IndexStores + Zones + Tenured</a></li></ul>--><!--<p> <a href="apps.html">Logscape Apps</a></p>--><!--	<ul><li> <a href="https://github.com/logscape/windowsapp#windowsapp-10">WindowsApp</a></li><li> <a href="https://github.com/logscape/unixapp#unixapp-10">UnixApp</a></li><li> <a href="https://github.com/logscape/coherenceapp#oraclecoherenceapp-10">Oracle Coherence App</a></li><li> <a href="https://github.com/logscape/javaapp#javaapp-10">JavaApp</a></li><li> <a href="https://github.com/logscape/ciscoapp#ciscoapp-10">Syslog Devices </a></li></ul>--><!--<p> 
+Contact</p>--><!--<div><strong> <span>email: <a href="mailto:support@logscape.com">support@logscape.com</a></span></strong><br><strong><span>twitter: <a href="https://twitter.com/logscape">@logscape</a></span></strong></div>--><div class="col-md-9 content-area"> <a href="ds.html"> <h1>Data Sources > </h1></a><h2>Data Flow Overview </h2><div> <div> <object id="svgDoc" type="image/svg+xml" data="images/data_flow_diagram.svg"></object></div><div id="card-sources" class="card"><h3>Sources</h3><p> Data Sources pull in log data from various locations , from your filesystems, network storage and applications.</p><a href="ds.html"></a></div><div id="card-services" class="card"><h3>Services</h3><p>Services collect data from using application apis. Services are executed by each Forwarder or Indexer collecting OS KPIs, Database metrics or Applicatin Service API data </p><a href="http://apps.logscape.com">Learn More </a></div><div id="card-default" class="card">	<h3>Default Moo</h3></div><div id="card-syslog" class="card"><h3>Syslog</h3><p>Syslog Clients forward application data to a Logscape Syslog Server.Lorem ipsum dolor sit amet, in iuvaret volumus atomorum his, te aliquid splendide sed. Sed an eleifend disputando appellantur, quo cu tale paulo viderer, cum at habemus salutandi interesset. Eu aeque iudico appareat has</p><a href="">Learn More </a></div><div id="card-filesystem" class="card"><h3>File Systems </h3><p> Filesystem blah blah Clients forward application data to a Logscape Syslog Server.Lorem ipsum dolor sit amet,
+ in iuvaret volumus atomorum his, te aliquid splendide sed. Sed an eleifend disputando appellantur, quo cu tale paulo viderer, cum at habemus salutandi interesset. Eu aeque iudico appareat has</p><a href="">Learn More </a></div><div id="card-indexing" class="card"><h3>Indexing </h3><p> Logscape ingests the data and indexes, optimizing for search. As the data is ingested Logscape learns the structure of the data and extracts known Key Value patterns </p></div></div><div><div><object id="ingestDoc" type="image/svg+xml" data="images/data_flow_ingest.svg"></object></div><div id="card0-default" class="card0"> <p></p></div><div id="card-ingestion" class="card0"><h3>Ingestion</h3><p>When a data source is created files are ingested. This is a process where data is imported and indexed. During this process Logscape will extract common Key Value patterns and making these fields available at search. Typically json and xml data is recognised but other types of attributes are supported. </p><a href="">Learn More </a></div><div id="card-type" class="card0"><h3>Data Types </h3><p>Types are assigned to incoming data. A type is a loose schema that is applied on top of log or application data. The schema exposes fields which can be used at search time. </p><a href="datatypes.html">Learn More. </a></div><div id="card-ds" class="card0"> <h3>Data Sources</h3><p>Data Sources describe the location of incoming data. Each data source in the system will have at least on 'tag' assigned to it. Think of a tag as a categorization or a label for your data. Multiple tags can be assigned to each data sources allowing a rich taxonomy to be modelled around the data. </p><a href="">Learn More </a></div></div><div><div><object id="searchDoc" type="image/svg+xml" data="images/data_flow_search.svg"></object></div></div><hr><p>Using the search example above, we can see that the search is filtered to the datasource tagged <strong> <em>iis</em></strong>.This tag points to data located in<em> C:\inetpub\logs\</em><br>or whereever the data for IIS web access logs have been configured.</p><p>The iis web access log data has been assigned the type<strong> <em>www </em></strong>  The <em>www</em>  Datatype extracts fields such as <ul><li>request</li><li>,httpCode</li><li>,userAgent </li><li>,host</li><li>,bytes</li><li>.... </li></ul>from the web log data. </p><p> 
+The <em>UserAgent </em>&nbsp; field is in the example filters the results to consider only the user agents that contain the substring 'Safari'..<br> The _tag field narrows the search to data defined by the<em>iis </em>&nbsp;tag.  Any text before the '|' symbol is interpreted as a keyword filter.<br> In this example we look for failed web requests</p><script>$(window).load(function() { 
+ function go(url){ document.location.href=url;} 
+ var svg=$("#svgDoc")[0];
+ var doc=svg.getSVGDocument()
+ 
+ var ingestDoc=$("#ingestDoc")[0].getSVGDocument(); 
+ 
+ function connect(doc,event,id,href){
+  $(id,doc).on(event,function(evt){document.location.href=href;});
+ }
+ 
+ //connect(doc,"click","#sources","/ds-add.html"); 
+ //connect(doc,"click","#search","/search.html");
+ //connect(doc,"datatypes","#datatypes","/datatypes.html");
+ 
+ function hideAll(cards){
+  for(i=0;i<cards.length;i++){
+   $(cards[i]).hide();
+  }
+ }	
+ 
+ function flip(doc,id,targetDiv,cards){
+  $(id,doc).on("mouseenter",function(evt){
+   // hide all cards 
+  hideAll(cards); 
+   $(targetDiv).show();
+   console.log("Showing " +  targetDiv);
+  });
+  
+ }
+ //# Sources	
+ var deck=["#card-indexing","#card-sources","#card-syslog","#card-filesystem","#card-services","#card-default"];
+ hideAll(deck) 
+ flip(doc,"#sources","#card-sources",deck);
+ flip(doc,"#services","#card-services",deck);
+ flip(doc,"#syslog","#card-syslog",deck);
+ flip(doc,"#filesystem","#card-filesystem",deck);
+ flip(doc,"#indexing","#card-indexing",deck);
+ 
+ //# Ingestion 
+ deck="#card-ingestion,#card-ds,#card-type,#card-default".split();
+ hideAll(deck) 
+ flip(ingestDoc,"#ingestion","#card-ingestion",deck);
+ flip(ingestDoc,"#ds","#card-ds",deck);
+ flip(ingestDoc,"#type","#card-type",deck);
+ //#Searching 
+});
+</script></div></div></div><script>$( document ).ready(function() {
+
+$("#searchBox").on("keypress",function(e){ if (e.keyCode == 13) { var q=$("#searchBox").val(); $("#searchBox").val(appendSite(q)); } } ); 
+$("#cseSubmit").on("click",function(e){  var q=$("#searchBox").val(); $("#searchBox").val(appendSite(q));  } ); 
+});
+</script><script src="js/ga.js"> </script></body></html>

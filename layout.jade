@@ -4,39 +4,72 @@ html(lang="en")
 		title	Logscape 2.0 	
 		link(href="css/bootstrap.min.css",rel="stylesheet")
 		link(href="css/style.css",rel="stylesheet")
+		script(src="js/jquery-1.11.0.js")
 		script(src="js/bootstrap.min.js")
-		script(src="js/jquery.js")
+		script.
+			function appendSite(q){
+				var newQuery="site:logscape.github.io " + q;
+				return(newQuery);
+			}
+			(function() {
+			var cx = 'partner-pub-2789521296837340:9402765321';
+			var gcse = document.createElement('script');
+			gcse.type = 'text/javascript';
+			gcse.async = true;
+			gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx;
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(gcse, s);
+			})();
 	body
 
-		.container		
-			.navbar.navbar-fixed-top
-				.navbar-inner
-					.nav-collapse.collapse
-						ul.nav.navbar-nav
-							li.active  Main Support Site 
-							li Explore Logscape Apps 
-							li 
-								a(href="") Download 
-					h3 Logscape 2.0  
-					a(href="apps.html")  Applications   	|
-					a(href="http://support.liquidlabs.co.uk")  Older Versions (1.3x)
+		.container-fluid.navbar
+			.row.navbar-inner
+					
+				.col-md-1(style="width:10px") 
+					
+				.col-md-11
 
-//
-					a(href="monitoring-start.html") Monitoring Guide |  
-		.container-fluid
-			p 
-			p 
-			br
-			br
-			br
-			p 
-			p 
+					form#cse-search-box(action="http://google.com/cse",style="position:right;padding-top:5px;padding-bottom:5px")
+						img(src="images/logo.png",style="padding-top:0px,padding-right:15px",width="150") 
+						input(type="hidden",name="cx",value="partner-pub-2789521296837340:9402765321")
+						input(type="hidden",name="ie",value="UTF-8")
+						input#searchBox(type="text",name="q",size="31",style="margin-left:15px")
+						input.btn-search#cseSubmit(type="submit",value=" ")
+						&nbsp;&nbsp;
+						a(href="http://apps.logscape.com") Apps |  
+						a(href="http://support.liquidlabs.co.uk") Release 1.3 		
+
 			.row
+			//
+				hr.dark 	
+
+		.container-fluid
+			.row
+				.col-md-1(style="width:10px")
+					p
 				.col-md-2.nav-padding
 					
 					p 
-						h3 Getting Started
-					ul
+					ul.nav.nav-tabs.nav-stacked 
+						li	
+						a(href="index.html")
+							h4 Start Here
+						hr
+						li
+							a(href="search.html") Search
+						li 
+							a(href="workspaces.html") WorkSpaces
+						li 
+							a(href="ds.html") Add Data 
+						li 
+							a(href="types.html") Types 
+						li	
+							a(href="deploy.html") Deployment 
+						li	
+							a(href="users.html") Users 
+						li 
+							a(href="alerts.html") Alerts 	
+					//
 						li 
 							a(href="index.html") Getting Started
 							ul
@@ -49,6 +82,7 @@ html(lang="en")
 							//- 
 								li
 									a(href="patterns.html") Creating custom datatypes 
+					//
 						li	
 							a(href="searching-overview.html")	Search Overview
 							ul
@@ -60,7 +94,7 @@ html(lang="en")
 									a(href="searching-heatmaps.html") Heatmaps
 								li
 									a(href="searching-geoip.html") GeoIP 
-
+					//
 						li
 							a(href="ds-add.html") How to add data 
 							ul
@@ -72,13 +106,15 @@ html(lang="en")
 						li 
 							a(href="deploy.html") How to deploy Apps
 						li
-							a(href="ldap.html") LDAP
+							a(href="users.html") LDAP
 						li
 							a(href="alerting.html") Alerting  
 						li
 							a(href="releasenotes.html") Release Notes 
+				//
 					p 
 						|Installation Guide 
+				//
 					ul
 						li	
 							a(href="install-prerequisites.html") Prerequisites
@@ -92,9 +128,10 @@ html(lang="en")
 							a(href="install-indexer.html") Install an Indexer		
 						li	
 							a(href="install-updating.html") Updating Logscape 
-
+				//
 					p	
 						|Common Deployment Scenarios
+				//
 					ul
 						li
 							a(href="using-forwarders.html") Default Scenario 
@@ -109,10 +146,10 @@ html(lang="en")
 						li
 							a(href="using-indexstores-zones-tenured.html") Multiple IndexStores + Zones + Tenured
 
-
-
+				//
 					p 
 						a(href="apps.html") Logscape Apps
+				//	
 					ul
 						li 
 							a(href="https://github.com/logscape/windowsapp#windowsapp-10") WindowsApp
@@ -127,9 +164,10 @@ html(lang="en")
 							a(href="https://github.com/logscape/javaapp#javaapp-10") JavaApp
 						li 
 							a(href="https://github.com/logscape/ciscoapp#ciscoapp-10") Syslog Devices 
-
+				//
 					p 
 						|Contact
+				//
 					div
 						strong 
 							span email: 
@@ -139,7 +177,14 @@ html(lang="en")
 							span twitter: 
 								a(href="https://twitter.com/logscape")@logscape
 
-				.col-md-10
+				.col-md-9.content-area 
 					block content
+
+		script.
+			$( document ).ready(function() {
+
+			$("#searchBox").on("keypress",function(e){ if (e.keyCode == 13) { var q=$("#searchBox").val(); $("#searchBox").val(appendSite(q)); } } ); 
+			$("#cseSubmit").on("click",function(e){  var q=$("#searchBox").val(); $("#searchBox").val(appendSite(q));  } ); 
+			});
 
 		script(src="js/ga.js") 
