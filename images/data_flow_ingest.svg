@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="739.22137"
+   height="278.68887"
+   id="svg8357">
+  <defs
+     id="defs8359" />
+  <metadata
+     id="metadata8362">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-16.977544,-162.04001)"
+     id="layer1">
+    <g
+       transform="translate(526.91124,-293.21129)"
+       id="ds"
+       style="display:inline">
+      <rect
+         width="265.07568"
+         height="45.249687"
+         ry="5.2683358"
+         x="-426.40805"
+         y="492.59448"
+         id="rect3844"
+         style="fill:none;stroke:#000000;stroke-width:1.35154808;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.35154814, 4.05464441;stroke-dashoffset:0" />
+      <text
+         x="-400.98694"
+         y="522.81512"
+         id="text3110-1-4"
+         xml:space="preserve"
+         style="font-size:22px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#008080;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+           x="-400.98694"
+           y="522.81512"
+           id="tspan5304"
+           style="font-weight:bold;fill:#008080">Data Source (tag)</tspan></text>
+    </g>
+    <rect
+       width="189.17258"
+       height="45.456863"
+       ry="5.2924566"
+       x="136.51923"
+       y="345.0285"
+       id="type"
+       style="fill:none;stroke:#000000;stroke-width:1.14437294;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.14437297, 3.43311891;stroke-dashoffset:0;display:inline" />
+    <text
+       x="203.47246"
+       y="372.49561"
+       id="text3110-1-4-4"
+       xml:space="preserve"
+       style="font-size:22px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#008080;fill-opacity:1;stroke:none;display:inline;font-family:Sans"><tspan
+         x="203.47246"
+         y="372.49561"
+         id="tspan5304-9"
+         style="font-weight:bold;fill:#008080">Type</tspan></text>
+    <path
+       d="m 226.66893,253.71037 -0.41399,81.96981"
+       id="path9325"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 1;stroke-dashoffset:0;display:inline" />
+    <path
+       d="m 237.8717,328.35658 -11.61676,6.81853 -11.36421,-6.31346"
+       id="path9690"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline" />
+    <text
+       x="190.61769"
+       y="438.19763"
+       id="text6186"
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Ume UI Gothic O5;-inkscape-font-specification:Ume UI Gothic O5"><tspan
+         x="190.61769"
+         y="438.19763"
+         id="tspan6188"
+         style="font-style:italic">types are assigned to files</tspan></text>
+    <text
+       x="276.97574"
+       y="270.91138"
+       id="text6186-7"
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Ume UI Gothic O5;-inkscape-font-specification:Ume UI Gothic O5"><tspan
+         x="276.97574"
+         y="270.91138"
+         id="tspan6188-3"
+         style="font-style:italic">(optional)</tspan></text>
+    <text
+       x="14.958013"
+       y="178.75485"
+       id="ingestion"
+       xml:space="preserve"
+       style="font-size:22px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#2d8fff;fill-opacity:1;stroke:none;display:inline;font-family:Sans"><tspan
+         x="14.958013"
+         y="178.75485"
+         id="tspan5304-1-4-6-47-7"
+         style="font-weight:bold;fill:#2d8fff;fill-opacity:1">Ingestion</tspan></text>
+    <g
+       transform="matrix(1.0577885,0,0,1,80.505285,63.54785)"
+       id="g4055-0"
+       style="display:inline">
+      <rect
+         width="309.82803"
+         height="108.62302"
+         ry="8.9517965"
+         x="274.05835"
+         y="134.9705"
+         id="rect3241-4"
+         style="fill:#e6e6e6;fill-opacity:0.71090046;stroke:none" />
+      <g
+         transform="matrix(0.8749705,0,0,0.83182035,34.660531,20.292679)"
+         id="g4044-3">
+        <text
+           x="283.384"
+           y="160.75021"
+           id="text9256-5"
+           xml:space="preserve"
+           style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Ume UI Gothic O5;-inkscape-font-specification:Ume UI Gothic O5"><tspan
+             x="283.384"
+             y="160.75021"
+             id="tspan3161-5">Data is assigned a <tspan
+   id="tspan4126"
+   style="font-style:italic;font-weight:normal">type. a type </tspan>is the structure of </tspan><tspan
+             x="283.384"
+             y="177.00021"
+             id="tspan4132">your data defined by field extractions. The field names </tspan><tspan
+             x="283.384"
+             y="193.25021"
+             id="tspan4134">and types are available as search terms. </tspan><tspan
+             x="283.384"
+             y="209.50021"
+             id="tspan4142" /><tspan
+             x="283.384"
+             y="225.75021"
+             id="tspan4140">* type=www ; tag=iis ; _filename=c:\inetpub\logs\ex131111.log</tspan><tspan
+             x="283.384"
+             y="242.00021"
+             id="tspan4144">* type=syslog; tag=syslog ; filename=/var/log/messages</tspan><tspan
+             x="283.384"
+             y="258.25021"
+             id="tspan3153-4" /><tspan
+             x="283.384"
+             y="274.50021"
+             id="tspan3157-3" /><tspan
+             x="283.384"
+             y="290.75021"
+             id="tspan3155-6" /><tspan
+             x="283.384"
+             y="307.00021"
+             id="tspan3151-4" /></text>
+      </g>
+      <rect
+         width="2.4839125"
+         height="8.2797079"
+         ry="1.2419562"
+         x="644.16132"
+         y="275.72556"
+         transform="translate(-7.8657115,-125.85365)"
+         id="rect4174"
+         style="fill:#e6e6e6;fill-opacity:0.71090046;stroke:none" />
+    </g>
+    <g
+       transform="translate(188.64019,-257.25081)"
+       id="g5341-0"
+       style="fill:#666666;display:inline">
+      <path
+         d="m 1.5296655,423.72497 0,25.25381"
+         id="path9325-2-5"
+         style="fill:#666666;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline" />
+      <path
+         d="m 13.146425,441.65518 -11.6167595,6.81853 -11.36421,-6.31346"
+         id="path9690-2-9"
+         style="fill:#666666;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline" />
+    </g>
+    <g
+       transform="translate(221.80655,-257.27222)"
+       id="g5341-0-0"
+       style="fill:#666666;display:inline">
+      <path
+         d="m 1.5296655,423.72497 0,25.25381"
+         id="path9325-2-5-9"
+         style="fill:#666666;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline" />
+      <path
+         d="m 13.146425,441.65518 -11.6167595,6.81853 -11.36421,-6.31346"
+         id="path9690-2-9-9"
+         style="fill:#666666;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline" />
+    </g>
+    <g
+       transform="translate(248.57591,-257.57082)"
+       id="g5341-0-0-7"
+       style="fill:#666666;display:inline">
+      <path
+         d="m 1.5296655,423.72497 0,25.25381"
+         id="path9325-2-5-9-3"
+         style="fill:#666666;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline" />
+      <path
+         d="m 13.146425,441.65518 -11.6167595,6.81853 -11.36421,-6.31346"
+         id="path9690-2-9-9-4"
+         style="fill:#666666;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline" />
+    </g>
+  </g>
+</svg>
