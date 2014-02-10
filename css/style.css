@@ -1,3 +1,11 @@
+
+.side-box {
+	width:220px;
+	border-left: 2px solid #495B69;
+	float: right;
+	padding-left:5px;
+}
+
 .topic-list li a {
 	color:#1F3D5C
 }
@@ -5,6 +13,12 @@
 .nolist, .nolist ul, .nolist ol {
 list-style: none;
 margin-left: 0;
+}
+
+.resource-list {
+        padding-left:0px;
+        margin-left:5px;
+	text-align:left;
 }
 
 .btn-search{
@@ -18,11 +32,15 @@ margin-left: 0;
 }
 
 .breadcrumbs {
+	padding-left:40px;
 
-	font-weight:300;
-	font-size:14px; 
 }
 
+.breadcrumbs a{
+	font-weight:300;
+	font-size:18px; 
+	color:#999;
+}
 
  .dark {
 	border:0;
@@ -52,7 +70,7 @@ margin-left: 0;
 }
 
 .panel-info  a {
-	color:#EC1E0C;
+ color:#ffa31c;
 }
 
 .second-level a {
@@ -96,7 +114,11 @@ h2{
 h3{
 	//color:#1C2E53;
 //	color:#CECECE;
-	color:#92B3C0
+	color:#92B3C0;
+}
+
+h3 > a {
+	color:#92B3C0;
 }
 H4{
 

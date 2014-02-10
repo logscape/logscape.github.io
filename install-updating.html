@@ -1,4 +1,73 @@
-<!DOCTYPE html><html lang="en"><head><title>	Logscape 2.0 	</title><link href="css/bootstrap.min.css" rel="stylesheet"><link href="css/style.css" rel="stylesheet"><script src="js/jquery-1.11.0.js"></script><script src="js/bootstrap.min.js"></script><script>function appendSite(q){
+<!DOCTYPE html><html lang="en"><head><title>	Logscape 2.0 	</title><link href="css/bootstrap.min.css" rel="stylesheet"><link href="css/style.css" rel="stylesheet"><script src="js/jquery-1.11.0.js"></script><script src="js/bootstrap.min.js"></script><script>var breadcrumbs={
+ "searching":"Search"
+  ,"kv":"Data Discovery"
+  ,"offsets":"Using Offsets"
+  ,"geoip":"Geo IP"
+  ,"pattern":"Using Search Patterns"
+  ,"video":"tutorials"
+  ,"overlays":"Overlaying Searches" 
+  
+  
+ ,"ds":"Data Sources"
+  ,"add":" Add a New Data Source" 
+  ,"multitags":" Using Multi-Tags"
+  ,"syslog":" Connect Syslog Clients" 
+  ,"tags": " Sources and Tags" 
+ ,"types":"Data Types"
+ 
+ ,"deploy":"Deployment" 
+  ,"app":" Logscape Apps"
+  ,"agents": "Agents "
+  ,"architectures_default": " Default Deployment"
+  ,"architectures_failover": "Failover" 
+  ,"architectures_indexstores": " Index Stores" 
+  ,"architectures_tenured":"Tenured Data"
+  ,"architectures_zones":" Zones" 
+  ,"Backup": "Backup" 
+   ,"home":" The Home WorkspacE"
+   ,"import":" Restoring from Backup"
+   ,"partial": " Selective Import"
+   
+ ,"users":"Users"
+  ,"datagroups": "Data Groups"
+   ,"nested": "Nested Groups"
+ ,"ldap":"Active Directory" 
+};
+$(window).load(function(){
+ function genLink(arr,idx){
+  if (idx<0) { return "/"; } 
+  var l="/"
+  for(i=0;i<=idx;i++){
+   l=l +  arr[i] + "-" ;
+  }
+  return l.substring(0,l.length-1) + ".html";
+ }
+ 
+ function renderCrumbs(page){
+  var parts=page.split("-");
+  var idx=0;
+  console.log("rendering  " + parts);
+  var html="<a href='"+genLink(parts,-1)+"'> / Home </a>";
+  for(idx=0;idx<parts.length;idx++){
+   k=parts[idx];
+   html=html + "<a href="+ genLink(parts,idx) + ">";
+   if (breadcrumbs.hasOwnProperty(k)){
+    html=html + " / " + breadcrumbs[k];
+   }else{
+    html=html + " / " + k;
+   }
+   console.log(".");
+  }
+  console.log("this far!!!");
+  return html
+ }
+ var elems=window.location.href.split('?')[0].split('/');
+ var currentPage=elems[elems.length-1].split('.')[0]
+ console.log("crumb>" + renderCrumbs(currentPage));	
+ $('#widget-bc').html(renderCrumbs(currentPage));
+});
+
+</script><script>function appendSite(q){
  var newQuery="site:logscape.github.io " + q;
  return(newQuery);
 }
@@ -10,10 +79,33 @@ gcse.async = true;
 gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx;
 var s = document.getElementsByTagName('script')[0];
 s.parentNode.insertBefore(gcse, s);
-})();</script></head><body><div class="container-fluid navbar"><div class="row navbar-inner"><div style="width:10px" class="col-md-1"> </div><div class="col-md-11"><form id="cse-search-box" action="http://google.com/cse" style="position:right;padding-top:5px;padding-bottom:5px"><img src="images/logo.png" style="padding-top:0px,padding-right:15px" width="150"><input type="hidden" name="cx" value="partner-pub-2789521296837340:9402765321"><input type="hidden" name="ie" value="UTF-8"><input id="searchBox" type="text" name="q" size="31" style="margin-left:15px"><input id="cseSubmit" type="submit" value=" " class="btn-search">&nbsp;&nbsp;<a href="http://apps.logscape.com">Apps |  </a><a href="http://support.liquidlabs.co.uk">Release 1.3 		</a></form></div></div><div class="row"></div><!--<hr class="dark">--></div><div class="container-fluid"><div class="row"><div style="width:10px" class="col-md-1"><p></p></div><div class="col-md-2 nav-padding"><p> </p><ul class="nav nav-tabs nav-stacked"> <li>	</li><a href="index.html"><h4>Start Here</h4></a><hr><li><a href="search.html">Search</a></li><li> </li><!--<a href="workspaces.html">WorkSpaces</a>--><li> <a href="ds.html">Add Data </a></li><li> <a href="types.html">Types </a></li><li>	<a href="deploy.html">Deployment </a></li><li>	<a href="users.html">Users </a></li><li> <a href="alerts.html">Alerts 	</a></li></ul><!--<li> <a href="index.html">Getting Started</a><ul><li><a href="searching-video.html">Quick Search Video</a></li><li> <a href="workspaces.html">Create a Workspace Video </a></li><li><a href="data-flow.html">Data Flow </a></li></ul></li>--><!--<li>	<a href="searching-overview.html">	Search Overview</a><ul><li><a href="searching-cheatsheet.html">Cheat Sheet </a></li><li><a href="searching-functions.html">Function Index</a></li><li><a href="searching-heatmaps.html">Heatmaps</a></li><li><a href="searching-geoip.html">GeoIP </a></li></ul></li>--><!--<li><a href="ds-add.html">How to add data </a><ul><li> <a href="ds-syslog.html">Syslog Devices </a></li></ul></li><li><a href="datatypes.html">Data Types  </a></li><li> <a href="deploy.html">How to deploy Apps</a></li><li><a href="users.html">LDAP</a></li><li><a href="alerting.html">Alerting  </a></li><li><a href="releasenotes.html">Release Notes </a></li>--></div><!--<p> 
-Installation Guide </p>--><!--<ul><li>	<a href="install-prerequisites.html">Prerequisites</a></li><li><a href="install-components.html">Components</a></li><li> <a href="install-manager.html">Manager Installation</a></li><li> <a href="install-forwarder.html">Install a Forwarder</a></li><li> <a href="install-indexer.html">Install an Indexer		</a></li><li>	<a href="install-updating.html">Updating Logscape </a></li></ul>--><!--<p>	
-Common Deployment Scenarios</p>--><!--<ul><li><a href="using-forwarders.html">Default Scenario </a></li><li><a href="using-forwarders-failover.html">Forwarders + Failover </a></li><li><a href="using-indexstores.html">Multiple IndexStores + Failover</a></li><li><a href="using-indexstores-zones.html">Multiple IndexStores + Zones </a></li><li><a href="using-indexstores-zones-tenured.html">Multiple IndexStores + Zones + Tenured</a></li></ul>--><!--<p> <a href="apps.html">Logscape Apps</a></p>--><!--	<ul><li> <a href="https://github.com/logscape/windowsapp#windowsapp-10">WindowsApp</a></li><li> <a href="https://github.com/logscape/unixapp#unixapp-10">UnixApp</a></li><li> <a href="https://github.com/logscape/coherenceapp#oraclecoherenceapp-10">Oracle Coherence App</a></li><li> <a href="https://github.com/logscape/javaapp#javaapp-10">JavaApp</a></li><li> <a href="https://github.com/logscape/ciscoapp#ciscoapp-10">Syslog Devices </a></li></ul>--><!--<p> 
-Contact</p>--><!--<div><strong> <span>email: <a href="mailto:support@logscape.com">support@logscape.com</a></span></strong><br><strong><span>twitter: <a href="https://twitter.com/logscape">@logscape</a></span></strong></div>--><div class="col-md-9 content-area"> <br><h2>Updating Logscape </h2><br><p>Logscape is updated by uploading packages from the deployment page. 
+})();
+</script><script>var blogFeed;
+function parseRSS(url, callback) {
+ $.ajax({
+  url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(url),
+  dataType: 'json',
+  success: function(data) {
+   callback(data.responseData.feed);
+  }});
+}
+$(window).load(function() { 
+ parseRSS("http://blog.logscape.com/feed",function(feed){
+  var num = feed.entries.length;
+  for(i=0;i< num;i++){
+   var title=feed.entries[i].title;
+   //var link=feed.entries[i].
+   link=feed.entries[i].link;
+   $(".resource-list ul").append("<li><a href='"+link+"'>"+title+"</a> </li>")
+   blogFeed=feed;
+  }
+ });
+});
+</script><script>$(window).bind("pageshow",function(){
+ var $form= $("form")[0];
+ $form.reset(); 
+});
+</script></head><body><div style="min-height:30px;margin-bottom:5px;" class="container-fluid navbar"><div style="height:5px" class="row"> </div><div class="row navbar-inner"><div style="width:10px" class="col-md-1"> </div><div class="col-md-11"><form id="cse-search-box" action="http://google.com/cse" style="position:right;padding-top:5px;padding-bottom:5px"><a href="/"><img src="images/logo.png" style="padding-top:0px,padding-right:15px" width="150"></a><input type="hidden" name="cx" value="partner-pub-2789521296837340:9402765321"><input type="hidden" name="ie" value="UTF-8"><input id="searchBox" type="text" name="q" size="31" style="margin-left:15px"><input id="cseSubmit" type="submit" value=" " class="btn-search">&nbsp;&nbsp;<a href="http://apps.logscape.com">Apps |  </a><a href="http://support.liquidlabs.co.uk">Release 1.3 		</a></form></div></div></div><div class="container-fluid"><div class="row"><div class="col-md-2"></div><div class="col-md-5"><div id="widget-bc" padding-left:150px class="breadcrumbs style">&nbsp;</div></div><!--<p> <a href="">>> Home </a><a href=""> / Searches</a><a href=""> / Overlaying Searches </a></p>--></div><div class="row"><div style="width:10px" class="col-md-1"><p></p></div><div class="col-md-2 nav-padding"><ul class="nav nav-tabs nav-stacked"> <li><a href="searching.html">Search</a></li><li> </li><!--<a href="workspaces.html">WorkSpaces</a>--><li> <a href="ds.html">Data Sources</a></li><li> <a href="types.html">Data Types </a></li><li>	<a href="deploy.html">Deployment </a></li><li>	<a href="users.html">Users </a></li><li> <a href="alerts.html">Alerts 	</a></li></ul><div class="resource-list"><ul style="list-style:none;padding-left:0px"> <h4>Blog Feed</h4></ul></div></div><div class="col-md-9 content-area"> <br><h2>Updating Logscape </h2><br><p>Logscape is updated by uploading packages from the deployment page. 
 The update procedure is the same for all Operating Systems. </p><ul><li>	Bounce your system before beginning and check that all your agents have come back without any problems. 
 To check if any Agents have been lost after restarting the system, go to the Agents page and then click Lost </li><li>	Download and unzip the latest zip archive. </li><br><div class="alert alert-warning">Note: Do not use the MSI when updating Logscape</div><li>On the deployment page, click 'upload' and browse to the downloads folder and select all the files .<br><p><div class="image"><img src="images/install_upgrading_downloadsfolder.png"></div></p><br></li><li>The downloads will be uploaded to the manager and then pushed to all the agents installed in your deployment</li><li>Once all the downloads are finished, bounce the system. </li><div class="alert alert-warning">After each update make sure that you clear your browser cache.</div><li>Once the system has restarted. Login and check that all your agents are up and running on the Agents page. <div class="image"><img src="images/install-lostagents.png"></div></li></ul></div></div></div><script>$( document ).ready(function() {
 

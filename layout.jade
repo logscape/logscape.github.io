@@ -7,6 +7,79 @@ html(lang="en")
 		script(src="js/jquery-1.11.0.js")
 		script(src="js/bootstrap.min.js")
 		script.
+			var breadcrumbs={
+				"searching":"Search"
+					,"kv":"Data Discovery"
+					,"offsets":"Using Offsets"
+					,"geoip":"Geo IP"
+					,"pattern":"Using Search Patterns"
+					,"video":"tutorials"
+					,"overlays":"Overlaying Searches" 
+
+
+				,"ds":"Data Sources"
+					,"add":" Add a New Data Source" 
+					,"multitags":" Using Multi-Tags"
+					,"syslog":" Connect Syslog Clients" 
+					,"tags": " Sources and Tags" 
+				,"types":"Data Types"
+
+				,"deploy":"Deployment" 
+					,"app":" Logscape Apps"
+					,"agents": "Agents "
+					,"architectures_default": " Default Deployment"
+					,"architectures_failover": "Failover" 
+					,"architectures_indexstores": " Index Stores" 
+					,"architectures_tenured":"Tenured Data"
+					,"architectures_zones":" Zones" 
+					,"Backup": "Backup" 
+						,"home":" The Home WorkspacE"
+						,"import":" Restoring from Backup"
+						,"partial": " Selective Import"
+
+				,"users":"Users"
+					,"datagroups": "Data Groups"
+						,"nested": "Nested Groups"
+				,"ldap":"Active Directory" 
+			};
+			$(window).load(function(){
+				function genLink(arr,idx){
+					if (idx<0) { return "/"; } 
+					var l="/"
+					for(i=0;i<=idx;i++){
+						l=l +  arr[i] + "-" ;
+					}
+					return l.substring(0,l.length-1) + ".html";
+				}
+
+				function renderCrumbs(page){
+					var parts=page.split("-");
+					var idx=0;
+					console.log("rendering  " + parts);
+					var html="<a href='"+genLink(parts,-1)+"'> / Home </a>";
+					for(idx=0;idx<parts.length;idx++){
+						k=parts[idx];
+					
+						html=html + "<a href="+ genLink(parts,idx) + ">";
+						if (breadcrumbs.hasOwnProperty(k)){
+							html=html + " / " + breadcrumbs[k];
+						}else{
+							html=html + " / " + k;
+						}
+						console.log(".");
+					}
+					console.log("this far!!!");
+					return html
+				}
+				
+				var elems=window.location.href.split('?')[0].split('/');
+				var currentPage=elems[elems.length-1].split('.')[0]
+				console.log("crumb>" + renderCrumbs(currentPage));	
+				$('#widget-bc').html(renderCrumbs(currentPage));
+			});
+
+
+		script.
 			function appendSite(q){
 				var newQuery="site:logscape.github.io " + q;
 				return(newQuery);
@@ -20,9 +93,42 @@ html(lang="en")
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(gcse, s);
 			})();
+
+		script.
+			var blogFeed;
+			function parseRSS(url, callback) {
+				$.ajax({
+					url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(url),
+					dataType: 'json',
+					success: function(data) {
+						callback(data.responseData.feed);
+					}});
+			}
+			
+			$(window).load(function() { 
+				parseRSS("http://blog.logscape.com/feed",function(feed){
+					var num = feed.entries.length;
+					for(i=0;i< num;i++){
+						var title=feed.entries[i].title;
+						//var link=feed.entries[i].
+						link=feed.entries[i].link;
+						$(".resource-list ul").append("<li><a href='"+link+"'>"+title+"</a> </li>")
+						blogFeed=feed;
+					}
+				});
+			});
+
+		script.
+			$(window).bind("pageshow",function(){
+				var $form= $("form")[0];
+				$form.reset(); 
+			});
+			
+
 	body
 
-		.container-fluid.navbar
+		.container-fluid.navbar(style="min-height:30px;margin-bottom:5px;")
+			.row(style="height:5px") 
 			.row.navbar-inner
 					
 				.col-md-1(style="width:10px") 
@@ -30,7 +136,8 @@ html(lang="en")
 				.col-md-11
 
 					form#cse-search-box(action="http://google.com/cse",style="position:right;padding-top:5px;padding-bottom:5px")
-						img(src="images/logo.png",style="padding-top:0px,padding-right:15px",width="150") 
+						a(href="/")
+							img(src="images/logo.png",style="padding-top:0px,padding-right:15px",width="150") 
 						input(type="hidden",name="cx",value="partner-pub-2789521296837340:9402765321")
 						input(type="hidden",name="ie",value="UTF-8")
 						input#searchBox(type="text",name="q",size="31",style="margin-left:15px")
@@ -38,148 +145,47 @@ html(lang="en")
 						&nbsp;&nbsp;
 						a(href="http://apps.logscape.com") Apps |  
 						a(href="http://support.liquidlabs.co.uk") Release 1.3 		
+		.container-fluid
 
 			.row
-			//
-				hr.dark 	
+				.col-md-2
+				.col-md-5
+					#widget-bc.breadcrumbs.style("padding-left:150px")
+						&nbsp;
+				//
+					p 
+						a(href="") >> Home 
+						a(href="")  / Searches
+						a(href="")  / Overlaying Searches 
 
-		.container-fluid
+
 			.row
 				.col-md-1(style="width:10px")
 					p
 				.col-md-2.nav-padding
-					
-					p 
 					ul.nav.nav-tabs.nav-stacked 
-						li	
-						a(href="index.html")
-							h4 Start Here
-						hr
 						li
-							a(href="search.html") Search
+							a(href="searching.html") Search
 						
 						li 
 						//
 							a(href="workspaces.html") WorkSpaces
 						li 
-							a(href="ds.html") Add Data 
+							a(href="ds.html") Data Sources
 						li 
-							a(href="types.html") Types 
+							a(href="types.html") Data Types 
 						li	
 							a(href="deploy.html") Deployment 
 						li	
 							a(href="users.html") Users 
 						li 
 							a(href="alerts.html") Alerts 	
-					//
-						li 
-							a(href="index.html") Getting Started
-							ul
-								li
-									a(href="searching-video.html") Quick Search Video
-								li 
-									a(href="workspaces.html") Create a Workspace Video 
-								li
-									a(href="data-flow.html") Data Flow 
-							//- 
-								li
-									a(href="patterns.html") Creating custom datatypes 
-					//
-						li	
-							a(href="searching-overview.html")	Search Overview
-							ul
-								li
-									a(href="searching-cheatsheet.html") Cheat Sheet 
-								li
-									a(href="searching-functions.html") Function Index
-								li
-									a(href="searching-heatmaps.html") Heatmaps
-								li
-									a(href="searching-geoip.html") GeoIP 
-					//
-						li
-							a(href="ds-add.html") How to add data 
-							ul
-								li 
-									a(href="ds-syslog.html") Syslog Devices 
-						li
-							a(href="datatypes.html") Data Types  
-
-						li 
-							a(href="deploy.html") How to deploy Apps
-						li
-							a(href="users.html") LDAP
-						li
-							a(href="alerting.html") Alerting  
-						li
-							a(href="releasenotes.html") Release Notes 
-				//
-					p 
-						|Installation Guide 
-				//
-					ul
-						li	
-							a(href="install-prerequisites.html") Prerequisites
-						li
-							a(href="install-components.html") Components
-						li  
-							a(href="install-manager.html") Manager Installation
-						li 
-							a(href="install-forwarder.html") Install a Forwarder
-						li 
-							a(href="install-indexer.html") Install an Indexer		
-						li	
-							a(href="install-updating.html") Updating Logscape 
-				//
-					p	
-						|Common Deployment Scenarios
-				//
-					ul
-						li
-							a(href="using-forwarders.html") Default Scenario 
-						li
-							a(href="using-forwarders-failover.html") Forwarders + Failover 
-						li
-							a(href="using-indexstores.html") Multiple IndexStores + Failover
-
-						li
-							a(href="using-indexstores-zones.html") Multiple IndexStores + Zones 
-
-						li
-							a(href="using-indexstores-zones-tenured.html") Multiple IndexStores + Zones + Tenured
-
-				//
-					p 
-						a(href="apps.html") Logscape Apps
-				//	
-					ul
-						li 
-							a(href="https://github.com/logscape/windowsapp#windowsapp-10") WindowsApp
-						li 
-							a(href="https://github.com/logscape/unixapp#unixapp-10") UnixApp
-
-						li 
-							a(href="https://github.com/logscape/coherenceapp#oraclecoherenceapp-10") Oracle Coherence App
-
-
-						li 
-							a(href="https://github.com/logscape/javaapp#javaapp-10") JavaApp
-						li 
-							a(href="https://github.com/logscape/ciscoapp#ciscoapp-10") Syslog Devices 
-				//
-					p 
-						|Contact
-				//
-					div
-						strong 
-							span email: 
-								a(href="mailto:support@logscape.com") support@logscape.com
-						br
-						strong
-							span twitter: 
-								a(href="https://twitter.com/logscape")@logscape
-
+				
+					.resource-list
+						ul(style="list-style:none;padding-left:0px") 
+							h4 Blog Feed
 				.col-md-9.content-area 
+
 					block content
 
 		script.
