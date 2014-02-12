@@ -22,11 +22,11 @@
 }
 
 .side-box {
-	width:100px;
 	border-left: 2px solid #495B69;
 	float: right;
 	padding-left:5px;
 }
+.side-box h3 { margin-top:1px;}
 
 .topic-list li a {
 	color:#1F3D5C
