@@ -15,7 +15,7 @@ html(lang="en")
 					,"pattern":"Using Search Patterns"
 					,"video":"tutorials"
 					,"overlays":"Overlaying Searches" 
-
+				,"starthere":""
 
 				,"ds":"Data Sources"
 					,"add":" Add a New Data Source" 
@@ -23,7 +23,7 @@ html(lang="en")
 					,"syslog":" Connect Syslog Clients" 
 					,"tags": " Sources and Tags" 
 				,"types":"Data Types"
-
+					,"system_fields":"System Fields" 
 				,"deploy":"Deployment" 
 					,"app":" Logscape Apps"
 					,"agents": "Agents "
@@ -64,7 +64,8 @@ html(lang="en")
 						if (breadcrumbs.hasOwnProperty(k)){
 							html=html + " / " + breadcrumbs[k];
 						}else{
-							html=html + " / " + k;
+							
+							html=html + " / " + k[0].toUpperCase() + k.substring(1,k.length);
 						}
 						console.log(".");
 					}
@@ -144,7 +145,8 @@ html(lang="en")
 						input.btn-search#cseSubmit(type="submit",value=" ")
 						&nbsp;&nbsp;
 						a(href="http://apps.logscape.com") Apps |  
-						a(href="http://support.liquidlabs.co.uk") Release 1.3 		
+						a(href="http://support.liquidlabs.co.uk") Release 1.3 | 
+						a(href="http://logscape.activeboard.com/") Forums 
 		.container-fluid
 
 			.row
@@ -187,7 +189,10 @@ html(lang="en")
 				.col-md-9.content-area 
 
 					block content
-
+			.row
+				hr.dark 
+				.col-md-3
+				Logscape Copyright 2014(c) Registered Trademark 
 		script.
 			$( document ).ready(function() {
 
