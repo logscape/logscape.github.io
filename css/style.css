@@ -32,6 +32,11 @@
 	color:#1F3D5C
 }
 
+.panel-info  a {
+ color:#ffa31c;
+}
+
+
 .nolist, .nolist ul, .nolist ol {
 list-style: none;
 margin-left: 0;
@@ -43,6 +48,10 @@ margin-left: 0;
 	text-align:left;
 }
 
+
+.purplelinks a {
+	color:#1B2168;
+}
 .btn-search{
     background: url(/images/icons.png) -99px 0px  no-repeat;
     width:30px;
@@ -90,11 +99,6 @@ margin-left: 0;
 	z-index:1;
 	border: 1px; 
 }
-
-.panel-info  a {
- color:#ffa31c;
-}
-
 .second-level a {
 
 } 
