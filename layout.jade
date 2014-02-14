@@ -8,7 +8,8 @@ html(lang="en")
 		script(src="js/bootstrap.min.js")
 		script.
 			var breadcrumbs={
-				"searching":"Search"
+				"gettingstarted":"Getting Started" 
+				,"searching":"Search"
 					,"kv":"Data Discovery"
 					,"offsets":"Using Offsets"
 					,"geoip":"Geo IP"
@@ -37,6 +38,15 @@ html(lang="en")
 						,"import":" Restoring from Backup"
 						,"partial": " Selective Import"
 
+					,"arch_zoning":"Distributed Topology" 
+					,"arch_clm":"Centralized Monitoring Topology" 
+					,"arch_indexstores":"Multiple Index Store Topology" 
+
+					,"rawtcpserver": "Tcp Server"
+					,"syslogserer":"Syslog Server"
+					,"centralconfigs":"Centralized Configuration"
+					,"boot_properties":"Boot Properties"
+
 				,"users":"Users"
 					,"datagroups": "Data Groups"
 						,"nested": "Nested Groups"
@@ -53,6 +63,10 @@ html(lang="en")
 				}
 
 				function renderCrumbs(page){
+					console.log("rendering breadcrumbs for page:" + page)
+					if (page.indexOf("-") < 0){
+						return ""
+					}
 					var parts=page.split("-");
 					var idx=0;
 					console.log("rendering  " + parts);
@@ -182,6 +196,8 @@ html(lang="en")
 							a(href="users.html") Users 
 						li 
 							a(href="alerts.html") Alerts 	
+						li
+							a(href="technology.html") Technology
 				
 					.resource-list
 						ul(style="list-style:none;padding-left:0px") 
