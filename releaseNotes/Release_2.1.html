@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Release 2.1</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <script type="/text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+    <script type="/text/javascript" async="" src="http://www.google.com/cse/cse.js?cx=partner-pub-2789521296837340:9402765321"></script>
+    <script src="/js/jquery-1.11.0.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body style="margin:14px;">
+<div>
+    <h3>February 14, 2013</h3>
+    <h3><a name="TOC-Comments"></a>Comments</h3>
+    <div>
+        <ul><li>Re-Architected FieldDiscovery DB to use dictionary map and reduce size while improving performance</li>
+            <li>Introduced Grokit - regex pattern based field discovery</li>
+            <li>Added support for mult-tags on DataSources</li>
+            <li>Change chart navigation to use mouse-wheel, drag events</li>
+            <li>Improved behaviour of LogViewer to add support for nudging back and forth (5 lines) using mouse wheel or cursor keys</li>
+            <li>Many performance changes to reduce heap requirements and improve efficiency</li>
+            <li>Exposed FieldDiscovery flags on DataSource/Advanced tag</li>
+            <li>Removed FieldDiscovery from logscape-logs datasources</li></ul>
+        <div><br>
+        </div>
+    </div>
+    <div><span style="font-size:1.4em;line-height:1.6">Tickets</span></div>
+</div>
+<div><br>
+</div>
+<div>
+<table style="clear:both;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(215,215,215);border-collapse:collapse;border-spacing:0px;margin-top:1em;width:1503px;color:rgb(0,0,0);font-family:Verdana,Arial,Bitstream Vera Sans,Helvetica,sans-serif;line-height:normal">
+<thead>
+<tr style="background-color:rgb(247,247,240)">
+    <th style="font-size:11px;padding:2px 0.5em;border-top-width:1px;border-right-width:1px;border-left-width:1px;border-top-style:solid;border-right-style:solid;border-left-style:solid;border-color:rgb(215,215,215) rgb(215,215,215) rgb(153,153,153);vertical-align:bottom;white-space:nowrap;background-color:rgb(247,247,240);text-transform:capitalize"><a href="https://xp-dev.com/trac/logscape/query?status=accepted&amp;status=assigned&amp;status=new&amp;status=reopened&amp;version=2.1&amp;col=id&amp;col=summary&amp;col=type&amp;report=10&amp;order=id" style="text-decoration:none;color:rgb(187,0,0);border:none;padding-right:12px" title="Sort by Ticket (ascending)">Ticket</a></th>
+    <th style="font-size:11px;padding:2px 0.5em;border-top-width:1px;border-right-width:1px;border-left-width:1px;border-top-style:solid;border-right-style:solid;border-left-style:solid;border-color:rgb(215,215,215) rgb(215,215,215) rgb(153,153,153);vertical-align:bottom;white-space:nowrap;background-color:rgb(247,247,240);text-transform:capitalize"><a href="https://xp-dev.com/trac/logscape/query?status=accepted&amp;status=assigned&amp;status=new&amp;status=reopened&amp;version=2.1&amp;col=id&amp;col=summary&amp;col=type&amp;report=10&amp;order=summary" style="text-decoration:none;color:rgb(187,0,0);border:none;padding-right:12px" title="Sort by Summary (ascending)">Summary</a></th>
+    <th style="font-size:11px;padding:2px 0.5em;border-top-width:1px;border-right-width:1px;border-left-width:1px;border-top-style:solid;border-right-style:solid;border-left-style:solid;border-color:rgb(215,215,215) rgb(215,215,215) rgb(153,153,153);vertical-align:bottom;white-space:nowrap;background-color:rgb(247,247,240);text-transform:capitalize"><a href="https://xp-dev.com/trac/logscape/query?status=accepted&amp;status=assigned&amp;status=new&amp;status=reopened&amp;version=2.1&amp;col=id&amp;col=summary&amp;col=type&amp;report=10&amp;order=type" style="text-decoration:none;color:rgb(187,0,0);border:none;padding-right:12px" title="Sort by Type (ascending)">Type</a></th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;background-color:rgb(246,246,246)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/847" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#847</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/847" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">WindowsApp: Cpu Utilization</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(221,221,221);border-top-width:1px;border-top-style:solid;background-color:rgb(251,251,251)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/809" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#809</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/809" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Change chart pan/zoom to use mouse wheel semantics</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">enhancement</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;background-color:rgb(246,246,246)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/811" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#811</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/811" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">heatmap support for cpu.avg()</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(221,221,221);border-top-width:1px;border-top-style:solid;background-color:rgb(251,251,251)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/812" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#812</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/812" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">logscape-sched is being included in search results</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;background-color:rgb(246,246,246)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/814" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#814</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/814" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">LDAP group filter is broken against non-AD</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(221,221,221);border-top-width:1px;border-top-style:solid;background-color:rgb(251,251,251)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/815" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#815</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/815" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Alerts - Datagroups not applied</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;background-color:rgb(246,246,246)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/816" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#816</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/816" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">[AGN] - Delayed Type Assigment</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(221,221,221);border-top-width:1px;border-top-style:solid;background-color:rgb(251,251,251)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/820" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#820</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/820" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">[AGN] - Data Source Reindex indicators</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;background-color:rgb(246,246,246)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/821" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#821</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/821" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">[AGN] - Data Source - mutliple tag names not exposed</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(221,221,221);border-top-width:1px;border-top-style:solid;background-color:rgb(251,251,251)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/822" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#822</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/822" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">[AGN] - Indexing folders with large file counts</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;background-color:rgb(246,246,246)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/824" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#824</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/824" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">[AGN] - Log Viewer line number one or two lines off</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(221,221,221);border-top-width:1px;border-top-style:solid;background-color:rgb(251,251,251)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/825" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#825</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/825" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Resource and Data Groups - Not exported with config</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;background-color:rgb(246,246,246)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/827" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#827</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/827" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">[KNL] SysLogServer removing files after 2 weeks</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(221,221,221);border-top-width:1px;border-top-style:solid;background-color:rgb(251,251,251)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/830" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#830</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/830" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">LogViewer - go back a 5 lines</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">enhancement</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;background-color:rgb(246,246,246)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/833" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#833</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/833" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">reinstate line tips(true)</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(221,221,221);border-top-width:1px;border-top-style:solid;background-color:rgb(251,251,251)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/835" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#835</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/835" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">[AGN] - Forwarders are installed with 1Gb of RAM instead of 128MB</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;background-color:rgb(246,246,246)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/836" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#836</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/836" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Tailing hangs on random files [Performance Enhancement and tunning][Move Indexes to Persistit]</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(221,221,221);border-top-width:1px;border-top-style:solid;background-color:rgb(251,251,251)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/838" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#838</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/838" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">[DD] SummaryStats incorrect.</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;background-color:rgb(246,246,246)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/840" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#840</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/840" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Pan Zoom dragging showing js errors</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(221,221,221);border-top-width:1px;border-top-style:solid;background-color:rgb(251,251,251)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/843" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#843</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/843" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Change Fixed pools to Fixed Cached pools</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">enhancement</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;background-color:rgb(246,246,246)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/844" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#844</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/844" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Tidy boot.properties settings (remove redundant)</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">enhancement</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(221,221,221);border-top-width:1px;border-top-style:solid;background-color:rgb(251,251,251)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/845" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#845</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/845" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">New files sometimes not being detected</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;background-color:rgb(246,246,246)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/848" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#848</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/848" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Default SysLogServer and SocketServer source dirs invalid - need /*/* appended</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(221,221,221);border-top-width:1px;border-top-style:solid;background-color:rgb(251,251,251)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/849" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#849</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/849" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Show discovered fields on DataTypes editor result page</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;background-color:rgb(246,246,246)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/851" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#851</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/851" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Workspace auto-refresh to wait until previous is complete</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(221,221,221);border-top-width:1px;border-top-style:solid;background-color:rgb(251,251,251)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/852" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#852</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/852" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Agent shutdown/suspend while low disk &lt; 100MB</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">enhancement</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;background-color:rgb(246,246,246)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/853" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#853</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/853" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Improve Field Discovery Disk Util</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">enhancement</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(221,221,221);border-top-width:1px;border-top-style:solid;background-color:rgb(251,251,251)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/856" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#856</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/856" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">[AGN] Expose certAlias for WebServer ssl certificate selection</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">enhancement</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;background-color:rgb(246,246,246)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/857" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#857</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/857" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Import 100K+ files with 1GB heap [Pipeline model]</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">enhancement</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(221,221,221);border-top-width:1px;border-top-style:solid;background-color:rgb(251,251,251)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/858" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#858</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/858" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Dashboard: Logout Redirect on IE11 broken.</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;background-color:rgb(246,246,246)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/859" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#859</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/859" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Dashboard: Login Redirect on Firefox broken.</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(221,221,221);border-top-width:1px;border-top-style:solid;background-color:rgb(251,251,251)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/860" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#860</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/860" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Search CSV Export broken [AGN]</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;background-color:rgb(246,246,246)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/861" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#861</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/861" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Improve chart swatch (hover) [AGN]</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">enhancement</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(221,221,221);border-top-width:1px;border-top-style:solid;background-color:rgb(251,251,251)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/862" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#862</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/862" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Add standard pattern rules for universal extraction (Grokit)</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">enhancement</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;background-color:rgb(246,246,246)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/863" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#863</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/863" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Expose field-discovery enablers on DataSource page</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">enhancement</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(221,221,221);border-top-width:1px;border-top-style:solid;background-color:rgb(251,251,251)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/818" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#818</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/818" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">[AGN] - top(N) search term not applied in some cases</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;background-color:rgb(246,246,246)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/837" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#837</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/837" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">[AGN] - Tabs are converted to spaces breaking search term filters</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(221,221,221);border-top-width:1px;border-top-style:solid;background-color:rgb(251,251,251)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/834" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#834</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/834" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Doc: Update</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;background-color:rgb(246,246,246)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/846" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#846</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/846" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">Infrastructure: Document Infrastucture Layout</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+<tr style="border-bottom-width:1px;border-bottom-style:solid;border-color:rgb(221,221,221);border-top-width:1px;border-top-style:solid;background-color:rgb(251,251,251)">
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/817" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none;font-weight:bold" title="View ticket">#817</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)"><a href="https://xp-dev.com/trac/logscape/ticket/817" style="text-decoration:none;color:rgb(187,0,0);border-bottom-style:none" title="View ticket">[AGN] - Empty chart after filtering on a field value</a></td>
+    <td style="padding:0.3em 0.5em;border:1px dotted rgb(221,221,221)">defect</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+</body>
+</html>
