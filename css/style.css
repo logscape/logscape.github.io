@@ -12,7 +12,7 @@
 ul.list-wdiget {
 	list-style:none;
 }
-.list-widgets li {
+.list-widgets div {
 	height:110px; 
 }
 .image-left{
