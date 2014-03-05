@@ -82,19 +82,6 @@ $(window).load(function(){
  $('#widget-bc').html(renderCrumbs(currentPage));
 });
 
-</script><script>function appendSite(q){
- var newQuery="site:logscape.github.io " + q;
- return(newQuery);
-}
-(function() {
-var cx = 'partner-pub-2789521296837340:9402765321';
-var gcse = document.createElement('script');
-gcse.type = 'text/javascript';
-gcse.async = true;
-gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx;
-var s = document.getElementsByTagName('script')[0];
-s.parentNode.insertBefore(gcse, s);
-})();
 </script><script>var blogFeed;
 function parseRSS(url, callback) {
  $.ajax({
@@ -120,7 +107,12 @@ $(window).load(function() {
  var $form= $("form")[0];
  $form.reset(); 
 });
-</script></head><body><div style="min-height:30px;margin-bottom:5px;" class="container-fluid navbar"><div style="height:5px" class="row"> </div><div class="row navbar-inner"><div style="width:10px" class="col-md-1"> </div><div class="col-md-11"><form id="cse-search-box" action="http://google.com/cse" style="position:right;padding-top:5px;padding-bottom:5px"><a href="/"><img src="images/logo.png" style="padding-top:0px,padding-right:15px" width="150"></a><input type="hidden" name="cx" value="partner-pub-2789521296837340:9402765321"><input type="hidden" name="ie" value="UTF-8"><input id="searchBox" type="text" name="q" size="31" style="margin-left:15px"><input id="cseSubmit" type="submit" value=" " class="btn-search">&nbsp;&nbsp;<a href="http://apps.logscape.com">Apps |  </a><a href="http://support.liquidlabs.co.uk">Release 1.3 | </a><a href="http://logscape.activeboard.com/">Forums </a></form></div></div></div><div class="container-fluid"><div class="row"><div class="col-md-2"></div><div class="col-md-5"><div id="widget-bc" padding-left:150px class="breadcrumbs style">&nbsp;</div></div><!--<p> <a href="">>> Home </a><a href=""> / Searches</a><a href=""> / Overlaying Searches </a></p>--></div><div class="row"><div style="width:10px" class="col-md-1"><p></p></div><div class="col-md-2 nav-padding"><ul class="nav nav-tabs nav-stacked"> <li><a href="searching.html">Search</a></li><li> </li><!--<a href="workspaces.html">WorkSpaces</a>--><li> <a href="ds.html">Data Sources</a></li><li> <a href="types.html">Data Types </a></li><li>	<a href="deploy.html">Deployment </a></li><li>	<a href="users.html">Users </a></li><li> <a href="alerts.html">Alerts 	</a></li><li><a href="technology.html">Technology</a></li></ul><div class="resource-list"><ul style="list-style:none;padding-left:0px"> <h4>Blog Feed</h4></ul></div></div><div class="col-md-9 content-area"> <div class="container-fluid"><div class="row"><div class="col-md-8"><h3>Data Discovery  </h3><p>Logscape makes it easy to work with unstructured data. Logscape learns the structure of your data as it is importing it using the Key-Value Discovery feature. This features detects the presence of common valuepairs that exist in widespread formats such as xml and json. A wide range of key value types are supported by Logscape. </p><div class="image"><img src="/images/searching-kv-fields.png"></div><p> It happens automatically without any intervention from the user. </p><h3>Configuration</h3><p> Data Discovery happens at index time and is configured on the Data Source for the data. See <a href="/ds-intelligent_field_discovery.html">Data Source Config Page  </a>for more. </p><h3>Facets and Key  Values </h3><p>Any discovered data is listed under the discovered fields and can be searched using the UI or using Logscape Search Syntax directly. </p><h4>Example of XML Exception in a log4j </h4><p>Some applications will log errors wrapped in an XML snippet <pre>Feb 23 18:39:01 occular-sentinel CRON[6249]: (root) CMD (  [ -x /usr/lib/php5/maxlifetime ] && [ -x /usr/lib/php5/sessionclean ] && [ -d /var/lib/php5 ] && /usr/lib/php5/sessionclean /var/lib/php5 $(/usr/lib/php5/maxlifetime)) &lt; error id="0x00023" host="10.28.1.170" type="Exception">
+</script><script>function submit_form(){
+ var q=$("#searchBox").val() 
+ q=encodeURIComponent(q)
+ var query="https://www.google.com/?gws_rd=cr&q=site:logscape.github.io++"+q+"#q=site:logscape.github.io++"+q
+ window.location.replace(query)
+}</script></head><body><div style="min-height:30px;margin-bottom:5px;" class="container-fluid navbar"><div style="height:5px" class="row"> </div><div class="row navbar-inner"><div style="width:10px" class="col-md-1"> </div><div class="col-md-11"><form id="cse-search-box" action="" style="position:right;padding-top:5px;padding-bottom:5px" onSubmit="submit_form()"><a href="/"><img src="images/logo.png" style="padding-top:0px,padding-right:15px" width="150"></a><input type="hidden" name="cx" value="partner-pub-2789521296837340:9402765321"><input type="hidden" name="ie" value="UTF-8"><input id="searchBox" type="text" name="q" size="31" style="margin-left:15px"><input id="cseSubmit" type="submit" value=" " class="btn-search">&nbsp;&nbsp;<a href="http://apps.logscape.com">Apps |  </a><a href="http://support.liquidlabs.co.uk">Release 1.3 | </a><a href="http://logscape.activeboard.com/">Forums </a></form></div></div></div><div class="container-fluid"><div class="row"><div class="col-md-2"></div><div class="col-md-5"><div id="widget-bc" padding-left:150px class="breadcrumbs style">&nbsp;</div></div><!--<p> <a href="">>> Home </a><a href=""> / Searches</a><a href=""> / Overlaying Searches </a></p>--></div><div class="row"><div style="width:10px" class="col-md-1"><p></p></div><div class="col-md-2 nav-padding"><ul class="nav nav-tabs nav-stacked"> <li><a href="searching.html">Search</a></li><li> </li><!--<a href="workspaces.html">WorkSpaces</a>--><li> <a href="ds.html">Data Sources</a></li><li> <a href="types.html">Data Types </a></li><li>	<a href="deploy.html">Deployment </a></li><li>	<a href="users.html">Users </a></li><li> <a href="alerts.html">Alerts 	</a></li><li><a href="technology.html">Technology</a></li></ul><div class="resource-list"><ul style="list-style:none;padding-left:0px"> <h4>Blog Feed</h4></ul></div></div><div class="col-md-9 content-area"> <div class="container-fluid"><div class="row"><div class="col-md-8"><h3>Data Discovery  </h3><p>Logscape makes it easy to work with unstructured data. Logscape learns the structure of your data as it is importing it using the Key-Value Discovery feature. This features detects the presence of common valuepairs that exist in widespread formats such as xml and json. A wide range of key value types are supported by Logscape. </p><div class="image"><img src="/images/searching-kv-fields.png"></div><p> It happens automatically without any intervention from the user. </p><h3>Configuration</h3><p> Data Discovery happens at index time and is configured on the Data Source for the data. See <a href="/ds-intelligent_field_discovery.html">Data Source Config Page  </a>for more. </p><h3>Facets and Key  Values </h3><p>Any discovered data is listed under the discovered fields and can be searched using the UI or using Logscape Search Syntax directly. </p><h4>Example of XML Exception in a log4j </h4><p>Some applications will log errors wrapped in an XML snippet <pre>Feb 23 18:39:01 occular-sentinel CRON[6249]: (root) CMD (  [ -x /usr/lib/php5/maxlifetime ] && [ -x /usr/lib/php5/sessionclean ] && [ -d /var/lib/php5 ] && /usr/lib/php5/sessionclean /var/lib/php5 $(/usr/lib/php5/maxlifetime)) &lt; error id="0x00023" host="10.28.1.170" type="Exception">
 java.io.FileNotFoundException: fred.txt
 at java.io.FileInputStream.<init>(FileInputStream.java)
 at java.io.FileInputStream.<init>(FileInputStream.java)
@@ -135,7 +127,15 @@ Feb 23 18:40:39 occular-sentinel whoopsie[1124]: online</pre></p><p>The XML attr
  }
  }</pre></p><p>The attributes: <em>title, </em><em>description </em>and <em>categories </em>will be extracted. Collection will not be extracted because its value is another json object. </p></div></div></div></div></div><div class="row"><hr class="dark"><div class="col-md-3"></div><Logscape>Copyright 2014(c) Registered Trademark </Logscape></div></div><script>$( document ).ready(function() {
 
-$("#searchBox").on("keypress",function(e){ if (e.keyCode == 13) { var q=$("#searchBox").val(); $("#searchBox").val(appendSite(q)); } } ); 
-$("#cseSubmit").on("click",function(e){  var q=$("#searchBox").val(); $("#searchBox").val(appendSite(q));  } ); 
+ $("#cseSubmit").on("click",function(e){
+  e.preventDefault();
+  submit_form(); 
+ });
+ $("#searchBox").on("keypress",function(e){ 
+  if (e.keyCode == 13) { 
+   e.preventDefault();
+   submit_form() 
+  }
+ }); 
 });
 </script><script src="js/ga.js"> </script></body></html>
