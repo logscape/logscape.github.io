@@ -98,21 +98,6 @@ html(lang="en")
 
 
 		script.
-			function appendSite(q){
-				var newQuery="site:logscape.github.io " + q;
-				return(newQuery);
-			}
-			(function() {
-			var cx = 'partner-pub-2789521296837340:9402765321';
-			var gcse = document.createElement('script');
-			gcse.type = 'text/javascript';
-			gcse.async = true;
-			gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx;
-			var s = document.getElementsByTagName('script')[0];
-			s.parentNode.insertBefore(gcse, s);
-			})();
-
-		script.
 			var blogFeed;
 			function parseRSS(url, callback) {
 				$.ajax({
@@ -141,8 +126,15 @@ html(lang="en")
 				var $form= $("form")[0];
 				$form.reset(); 
 			});
-			
 
+		script.
+			function submit_form(){
+				var q=$("#searchBox").val() 
+				q=encodeURIComponent(q)
+				var query="https://www.google.com/?gws_rd=cr&q=site:logscape.github.io++"+q+"#q=site:logscape.github.io++"+q
+				window.location.replace(query)
+			}
+			
 	body
 
 		.container-fluid.navbar(style="min-height:30px;margin-bottom:5px;")
@@ -153,7 +145,7 @@ html(lang="en")
 					
 				.col-md-11
 
-					form#cse-search-box(action="http://google.com/cse",style="position:right;padding-top:5px;padding-bottom:5px")
+					form#cse-search-box(action="",style="position:right;padding-top:5px;padding-bottom:5px",onSubmit="submit_form()")
 						a(href="/")
 							img(src="images/logo.png",style="padding-top:0px,padding-right:15px",width="150") 
 						input(type="hidden",name="cx",value="partner-pub-2789521296837340:9402765321")
@@ -212,11 +204,20 @@ html(lang="en")
 				hr.dark 
 				.col-md-3
 				Logscape Copyright 2014(c) Registered Trademark 
+	
 		script.
 			$( document ).ready(function() {
 
-			$("#searchBox").on("keypress",function(e){ if (e.keyCode == 13) { var q=$("#searchBox").val(); $("#searchBox").val(appendSite(q)); } } ); 
-			$("#cseSubmit").on("click",function(e){  var q=$("#searchBox").val(); $("#searchBox").val(appendSite(q));  } ); 
+				$("#cseSubmit").on("click",function(e){
+					e.preventDefault();
+					submit_form(); 
+				});
+				$("#searchBox").on("keypress",function(e){ 
+					if (e.keyCode == 13) { 
+						e.preventDefault();
+						submit_form() 
+					}
+				}); 
 			});
 
 		script(src="js/ga.js") 
