@@ -1,0 +1,129 @@
+<!DOCTYPE html><html lang="en"><head><title>	Logscape 2.0 	</title><link href="css/bootstrap.min.css" rel="stylesheet"><link href="css/style.css" rel="stylesheet"><link href="css/style.css" rel="stylesheet"><link href="css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet"><script src="js/jquery-1.11.0.js"></script><script src="js/bootstrap.min.js"></script><script>var breadcrumbs={
+ "gettingstarted":"Getting Started" 
+ ,"searching":"Search"
+  ,"kv":"Data Discovery"
+  ,"offsets":"Using Offsets"
+  ,"geoip":"Geo IP"
+  ,"pattern":"Using Search Patterns"
+  ,"video":"tutorials"
+  ,"overlays":"Overlaying Searches" 
+ ,"starthere":""
+ 
+ ,"ds":"Data Sources"
+  ,"add":" Add a New Data Source" 
+  ,"multitags":" Using Multi-Tags"
+  ,"syslog":" Connect Syslog Clients" 
+  ,"tags": " Sources and Tags" 
+  ,"intelligent_field_discovery":" Intelligent Field Discovery" 
+ ,"types":"Data Types"
+  ,"system_fields":"System Fields" 
+ ,"deploy":"Deployment" 
+  ,"app":" Logscape Apps"
+  ,"agents": "Agents "
+  ,"architectures_default": " Default Deployment"
+  ,"architectures_failover": "Failover" 
+  ,"architectures_indexstores": " Index Stores" 
+  ,"architectures_tenured":"Tenured Data"
+  ,"architectures_zones":" Zones" 
+  ,"Backup": "Backup" 
+   ,"home":" The Home WorkspacE"
+   ,"import":" Restoring from Backup"
+   ,"partial": " Selective Import"
+   
+  ,"arch_zoning":"Distributed Topology" 
+  ,"arch_clm":"Centralized Monitoring Topology" 
+  ,"arch_indexstores":"Multiple Index Store Topology" 
+  
+  ,"rawtcpserver": "Tcp Server"
+  ,"syslogserer":"Syslog Server"
+  ,"centralconfigs":"Centralized Configuration"
+  ,"boot_properties":"Boot Properties"
+  
+ ,"users":"Users"
+  ,"datagroups": "Data Groups"
+   ,"nested": "Nested Groups"
+ ,"ldap":"Active Directory" 
+};
+$(window).load(function(){
+ function genLink(arr,idx){
+  if (idx<0) { return "/"; } 
+  var l="/"
+  for(i=0;i<=idx;i++){
+   l=l +  arr[i] + "-" ;
+  }
+  return l.substring(0,l.length-1) + ".html";
+ }
+ 
+ function renderCrumbs(page){
+  console.log("rendering breadcrumbs for page:" + page)
+  if (page.indexOf("-") < 0){
+   return ""
+  }
+  var parts=page.split("-");
+  var idx=0;
+  console.log("rendering  " + parts);
+  var html="<a href='"+genLink(parts,-1)+"'> / Home </a>";
+  for(idx=0;idx<parts.length;idx++){
+   k=parts[idx];
+   html=html + "<a href="+ genLink(parts,idx) + ">";
+   if (breadcrumbs.hasOwnProperty(k)){
+    html=html + " / " + breadcrumbs[k];
+   }else{
+    html=html + " / " + k[0].toUpperCase() + k.substring(1,k.length);
+   }
+   console.log(".");
+  }
+  console.log("this far!!!");
+  return html
+ }
+ var elems=window.location.href.split('?')[0].split('/');
+ var currentPage=elems[elems.length-1].split('.')[0]
+ console.log("crumb>" + renderCrumbs(currentPage));	
+ $('#widget-bc').html(renderCrumbs(currentPage));
+});
+
+</script><script>var blogFeed;
+function parseRSS(url, callback) {
+ $.ajax({
+  url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(url),
+  dataType: 'json',
+  success: function(data) {
+   callback(data.responseData.feed);
+  }});
+}
+$(window).load(function() { 
+ parseRSS("http://blog.logscape.com/feed",function(feed){
+  var num = feed.entries.length;
+  for(i=0;i< num;i++){
+   var title=feed.entries[i].title;
+   //var link=feed.entries[i].
+   link=feed.entries[i].link;
+   $(".resource-list ul").append("<li><a href='"+link+"'>"+title+"</a> </li>")
+   blogFeed=feed;
+  }
+ });
+});
+</script><script>$(window).bind("pageshow",function(){
+ var $form= $("form")[0];
+ $form.reset(); 
+});
+</script><script>function submit_form(){
+ var q=$("#searchBox").val() 
+ q=encodeURIComponent(q)
+ var query="https://www.google.com/?gws_rd=cr&q=site:logscape.github.io++"+q+"#q=site:logscape.github.io++"+q
+ window.location.replace(query)
+}</script></head><body><div style="min-height:30px;margin-bottom:5px;" class="container-fluid navbar"><div style="height:5px" class="row"> </div><div class="row navbar-inner"><div style="width:10px" class="col-md-1"> </div><div class="col-md-11"><form id="cse-search-box" action="" style="position:right;padding-top:5px;padding-bottom:5px" onSubmit="submit_form()"><a href="/"><img src="images/logo.png" style="padding-top:0px,padding-right:15px" width="150"></a><input type="hidden" name="cx" value="partner-pub-2789521296837340:9402765321"><input type="hidden" name="ie" value="UTF-8"><input id="searchBox" type="text" name="q" size="31" style="margin-left:15px"><input id="cseSubmit" type="submit" value=" " class="btn-search">&nbsp;&nbsp;<a href="http://apps.logscape.com">Apps |  </a><a href="http://support.liquidlabs.co.uk">Release 1.3 | </a><a href="http://logscape.activeboard.com/">Forums </a></form></div></div></div><div class="container-fluid"><div class="row"><div class="col-md-2"></div><div class="col-md-5"><div id="widget-bc" padding-left:150px class="breadcrumbs style">&nbsp;</div></div><!--<p> <a href="">>> Home </a><a href=""> / Searches</a><a href=""> / Overlaying Searches </a></p>--></div><div class="row"><div style="width:10px" class="col-md-1"><p></p></div><div class="col-md-2 nav-padding"><ul class="nav nav-tabs nav-stacked"> <li><a href="searching.html">Search</a></li><li> </li><!--<a href="workspaces.html">WorkSpaces</a>--><li> <a href="ds.html">Data Sources</a></li><li> <a href="types.html">Data Types </a></li><li>	<a href="deploy.html">Deployment </a></li><li>	<a href="users.html">Users </a></li><li> <a href="alerts.html">Alerts 	</a></li><li><a href="technology.html">Technology</a></li></ul><div class="resource-list"><ul style="list-style:none;padding-left:0px"> <h4>Blog Feed</h4></ul></div></div><div class="col-md-9 content-area"> <div class="container-fluid"><div class="row"><div class="col-md-11"><h3>General Tab </h3><p>To create an alert fill in the form on the General section of the Alerts Config page. It is open by default when you first land on this page. <div class="image"><center> <img src="images/alerts-general_tab-form.png"></center></div></p><p>	<strong>Name </strong>The name of the Alert. This will appear in the logscape logs and in the Subject line of all emails sent by this alert.</p><p><strong> The Search (optional) - </strong>Specifies the search used to trigger the Alert. The trigger search is executed retrospectively. <blockquote> <em>The Trigger Search duration should be equal to the cron tab interval.</em></blockquote>If this field is left blank. The Alert will execute any alert actions defined with out checking the trigger conditions. This is useful when an hourly or daily report is required without executing a trigger search. This is achieved by leaving the Search field blank, and setting up an email action. </p><p>	<strong>Schedule </strong>The schedule defines when the trigger search is executed. When it is time to fire the alert, the trigger search is executed. Trigger events that occur within the last N minutes specified are used to trigger the alert. Cron schedule examples: <blockquote>	5 * * * * </blockquote>This patterns executes the trigger search on the 5th minute of every hour. <blockquote>	*/5 * * * * </blockquote>This pattern executes the trigger search every 5 minutes </p><p><strong>Real-time - </strong>A real-time alert is refreshed according to the cron schedule. A real time trigger search is left open and fires as it comes across any events that satisfy the trigger condition. This provides alerting in real-time. This behaviour is different from the standard alerts which execute going retrospectively.  </p><p><strong>Enabled -</strong>This option simply enables or disables the alert.</p><p>	strong Data Group - 
+defines the scope of the trigger search. Use this option to restrict the events search to a particular set of tags or group. </p><h3> Alerts Summary Table </h3><p>The table below the alert settings gives the last execution of each alert available within Logscape. The Trigger column displays the minimum number of events required to fire the alert, the Last Run field shows the last time the schedule executed the alert search and the Last Run gives the last time an alert was triggered. <div class="image"> <center> <img src="images/alerts-general_tab-table.png"></center></div></p></div></div></div></div></div><div class="row"><hr class="dark"><div class="col-md-3"></div><Logscape>Copyright 2014(c) Registered Trademark </Logscape></div></div><script>$( document ).ready(function() {
+
+ $("#cseSubmit").on("click",function(e){
+  e.preventDefault();
+  submit_form(); 
+ });
+ $("#searchBox").on("keypress",function(e){ 
+  if (e.keyCode == 13) { 
+   e.preventDefault();
+   submit_form() 
+  }
+ }); 
+});
+</script><script src="js/ga.js"> </script></body></html>

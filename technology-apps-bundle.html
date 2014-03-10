@@ -1,0 +1,148 @@
+<!DOCTYPE html><html lang="en"><head><title>	Logscape 2.0 	</title><link href="css/bootstrap.min.css" rel="stylesheet"><link href="css/style.css" rel="stylesheet"><link href="css/style.css" rel="stylesheet"><link href="css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet"><script src="js/jquery-1.11.0.js"></script><script src="js/bootstrap.min.js"></script><script>var breadcrumbs={
+ "gettingstarted":"Getting Started" 
+ ,"searching":"Search"
+  ,"kv":"Data Discovery"
+  ,"offsets":"Using Offsets"
+  ,"geoip":"Geo IP"
+  ,"pattern":"Using Search Patterns"
+  ,"video":"tutorials"
+  ,"overlays":"Overlaying Searches" 
+ ,"starthere":""
+ 
+ ,"ds":"Data Sources"
+  ,"add":" Add a New Data Source" 
+  ,"multitags":" Using Multi-Tags"
+  ,"syslog":" Connect Syslog Clients" 
+  ,"tags": " Sources and Tags" 
+  ,"intelligent_field_discovery":" Intelligent Field Discovery" 
+ ,"types":"Data Types"
+  ,"system_fields":"System Fields" 
+ ,"deploy":"Deployment" 
+  ,"app":" Logscape Apps"
+  ,"agents": "Agents "
+  ,"architectures_default": " Default Deployment"
+  ,"architectures_failover": "Failover" 
+  ,"architectures_indexstores": " Index Stores" 
+  ,"architectures_tenured":"Tenured Data"
+  ,"architectures_zones":" Zones" 
+  ,"Backup": "Backup" 
+   ,"home":" The Home WorkspacE"
+   ,"import":" Restoring from Backup"
+   ,"partial": " Selective Import"
+   
+  ,"arch_zoning":"Distributed Topology" 
+  ,"arch_clm":"Centralized Monitoring Topology" 
+  ,"arch_indexstores":"Multiple Index Store Topology" 
+  
+  ,"rawtcpserver": "Tcp Server"
+  ,"syslogserer":"Syslog Server"
+  ,"centralconfigs":"Centralized Configuration"
+  ,"boot_properties":"Boot Properties"
+  
+ ,"users":"Users"
+  ,"datagroups": "Data Groups"
+   ,"nested": "Nested Groups"
+ ,"ldap":"Active Directory" 
+};
+$(window).load(function(){
+ function genLink(arr,idx){
+  if (idx<0) { return "/"; } 
+  var l="/"
+  for(i=0;i<=idx;i++){
+   l=l +  arr[i] + "-" ;
+  }
+  return l.substring(0,l.length-1) + ".html";
+ }
+ 
+ function renderCrumbs(page){
+  console.log("rendering breadcrumbs for page:" + page)
+  if (page.indexOf("-") < 0){
+   return ""
+  }
+  var parts=page.split("-");
+  var idx=0;
+  console.log("rendering  " + parts);
+  var html="<a href='"+genLink(parts,-1)+"'> / Home </a>";
+  for(idx=0;idx<parts.length;idx++){
+   k=parts[idx];
+   html=html + "<a href="+ genLink(parts,idx) + ">";
+   if (breadcrumbs.hasOwnProperty(k)){
+    html=html + " / " + breadcrumbs[k];
+   }else{
+    html=html + " / " + k[0].toUpperCase() + k.substring(1,k.length);
+   }
+   console.log(".");
+  }
+  console.log("this far!!!");
+  return html
+ }
+ var elems=window.location.href.split('?')[0].split('/');
+ var currentPage=elems[elems.length-1].split('.')[0]
+ console.log("crumb>" + renderCrumbs(currentPage));	
+ $('#widget-bc').html(renderCrumbs(currentPage));
+});
+
+</script><script>var blogFeed;
+function parseRSS(url, callback) {
+ $.ajax({
+  url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(url),
+  dataType: 'json',
+  success: function(data) {
+   callback(data.responseData.feed);
+  }});
+}
+$(window).load(function() { 
+ parseRSS("http://blog.logscape.com/feed",function(feed){
+  var num = feed.entries.length;
+  for(i=0;i< num;i++){
+   var title=feed.entries[i].title;
+   //var link=feed.entries[i].
+   link=feed.entries[i].link;
+   $(".resource-list ul").append("<li><a href='"+link+"'>"+title+"</a> </li>")
+   blogFeed=feed;
+  }
+ });
+});
+</script><script>$(window).bind("pageshow",function(){
+ var $form= $("form")[0];
+ $form.reset(); 
+});
+</script><script>function submit_form(){
+ var q=$("#searchBox").val() 
+ q=encodeURIComponent(q)
+ var query="https://www.google.com/?gws_rd=cr&q=site:logscape.github.io++"+q+"#q=site:logscape.github.io++"+q
+ window.location.replace(query)
+}</script></head><body><div style="min-height:30px;margin-bottom:5px;" class="container-fluid navbar"><div style="height:5px" class="row"> </div><div class="row navbar-inner"><div style="width:10px" class="col-md-1"> </div><div class="col-md-11"><form id="cse-search-box" action="" style="position:right;padding-top:5px;padding-bottom:5px" onSubmit="submit_form()"><a href="/"><img src="images/logo.png" style="padding-top:0px,padding-right:15px" width="150"></a><input type="hidden" name="cx" value="partner-pub-2789521296837340:9402765321"><input type="hidden" name="ie" value="UTF-8"><input id="searchBox" type="text" name="q" size="31" style="margin-left:15px"><input id="cseSubmit" type="submit" value=" " class="btn-search">&nbsp;&nbsp;<a href="http://apps.logscape.com">Apps |  </a><a href="http://support.liquidlabs.co.uk">Release 1.3 | </a><a href="http://logscape.activeboard.com/">Forums </a></form></div></div></div><div class="container-fluid"><div class="row"><div class="col-md-2"></div><div class="col-md-5"><div id="widget-bc" padding-left:150px class="breadcrumbs style">&nbsp;</div></div><!--<p> <a href="">>> Home </a><a href=""> / Searches</a><a href=""> / Overlaying Searches </a></p>--></div><div class="row"><div style="width:10px" class="col-md-1"><p></p></div><div class="col-md-2 nav-padding"><ul class="nav nav-tabs nav-stacked"> <li><a href="searching.html">Search</a></li><li> </li><!--<a href="workspaces.html">WorkSpaces</a>--><li> <a href="ds.html">Data Sources</a></li><li> <a href="types.html">Data Types </a></li><li>	<a href="deploy.html">Deployment </a></li><li>	<a href="users.html">Users </a></li><li> <a href="alerts.html">Alerts 	</a></li><li><a href="technology.html">Technology</a></li></ul><div class="resource-list"><ul style="list-style:none;padding-left:0px"> <h4>Blog Feed</h4></ul></div></div><div class="col-md-9 content-area"> <div class="container-fluid"><div class="row"><div class="col-md-11"><h3>Application Bundle</h3><p>This section will present the application bundle xml file. Every App containing services has a bundle. 
+The application bundle is an xml file containing descriptors of services to be executed when the application is deployed.
+Each service descriptor describes where and how often they are to be executed.<blockquote>e.g A bundle that runs that will execute myScript.vbs on any windows host.</blockquote><pre>&lt;Bundle system="false">
+   &lt;status>UNINSTALLED</status>
+   &lt;owner>demo@liquidlabs.co.uk</owner>
+   &lt;services>
+       &lt;service>
+           &lt;name>MyService</name>
+           &lt;resourceSelection>hostname contains WINDOWS</resourceSelection>
+           &lt;fork>true</fork>
+           &lt;background>&lt;true</&lt;background>
+           &lt;instanceCount>-&lt;1</&lt;instanceCount>
+           &lt;pauseSeconds>&lt;60</&lt;pauseSeconds>
+           &lt;script>myScript.&lt;vbs</&lt;script>
+       /&lt;service>
+&lt;/Bundle></pre></p><p>Each service is represented by a service element, composed of the following attributes:<div class="image"> </div><table class="table-striped table-bordered"><tr><th>Element </th><th>Value</th><th>Description </th></tr><tr class="grey"><td>Name</td><td>String  </td><td>The name of the service, as it will appear on the VScape panel.</td></tr><tr><td>resourceSelection</td><td>resource query </td><td>Determines where the service will be executed. The expression can be tested on the Agent listing page:
+Some examples:
+ type contains Agent
+ osName contains LINUX</td></tr><tr><td> fork	</td><td>true or false </td><td>Creates the process as child process</td></tr><tr><td> background	</td><td> true or false </td><td>Run the service as background task (generally set to true)</td></tr><tr><td> instanceCount	</td><td>Integer</td><td> Maximum number of services to be created across all matching hosts<blockquote> Note: background=false and -1 will have the service run on every matching host</blockquote></td></tr><tr><td>pauseSeconds </td><td>Integer</td><td> Duration in milliseconds in between two service runs
+ Note: 0 means run continuously</td></tr><tr><td>script</td><td>String or CDATA</td><td>Path to the script (.vbs, .sh, groovy) or the script itself within CDATA block. <blockquote>Note: you can create processes using groovy script to query SQL, run java, etc. See the cookbook below for more examples.</blockquote></td></tr></table></p><h3>Bundle Overrides </h3><p>You can overwrite the properties of the bundle file using an override file.
+An override file has the same name as the app (without .zip), followed by -override.properties.For example</p><blockquote> MyLogScapeApp-1.0-override.properties</blockquote><p>is the override for <em> MyLogScapeApp-1.0.zip </em></p><blockquote>	 bundle.service.[ServiceName].[attribute]=[value]</blockquote><p>Changes the values specified in the xml file for a specific service. </p></div></div></div></div></div><div class="row"><hr class="dark"><div class="col-md-3"></div><Logscape>Copyright 2014(c) Registered Trademark </Logscape></div></div><script>$( document ).ready(function() {
+
+ $("#cseSubmit").on("click",function(e){
+  e.preventDefault();
+  submit_form(); 
+ });
+ $("#searchBox").on("keypress",function(e){ 
+  if (e.keyCode == 13) { 
+   e.preventDefault();
+   submit_form() 
+  }
+ }); 
+});
+</script><script src="js/ga.js"> </script></body></html>
