@@ -1,0 +1,131 @@
+<!DOCTYPE html><html lang="en"><head><title>	Logscape 2.0 	</title><link href="css/bootstrap.min.css" rel="stylesheet"><link href="css/style.css" rel="stylesheet"><link href="css/style.css" rel="stylesheet"><link href="css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet"><script src="js/jquery-1.11.0.js"></script><script src="js/bootstrap.min.js"></script><script>var breadcrumbs={
+ "gettingstarted":"Getting Started" 
+ ,"searching":"Search"
+  ,"kv":"Data Discovery"
+  ,"offsets":"Using Offsets"
+  ,"geoip":"Geo IP"
+  ,"pattern":"Using Search Patterns"
+  ,"video":"tutorials"
+  ,"overlays":"Overlaying Searches" 
+ ,"starthere":""
+ 
+ ,"ds":"Data Sources"
+  ,"add":" Add a New Data Source" 
+  ,"multitags":" Using Multi-Tags"
+  ,"syslog":" Connect Syslog Clients" 
+  ,"tags": " Sources and Tags" 
+  ,"intelligent_field_discovery":" Intelligent Field Discovery" 
+ ,"types":"Data Types"
+  ,"system_fields":"System Fields" 
+ ,"deploy":"Deployment" 
+  ,"app":" Logscape Apps"
+  ,"agents": "Agents "
+  ,"architectures_default": " Default Deployment"
+  ,"architectures_failover": "Failover" 
+  ,"architectures_indexstores": " Index Stores" 
+  ,"architectures_tenured":"Tenured Data"
+  ,"architectures_zones":" Zones" 
+  ,"Backup": "Backup" 
+   ,"home":" The Home WorkspacE"
+   ,"import":" Restoring from Backup"
+   ,"partial": " Selective Import"
+   
+  ,"arch_zoning":"Distributed Topology" 
+  ,"arch_clm":"Centralized Monitoring Topology" 
+  ,"arch_indexstores":"Multiple Index Store Topology" 
+  
+  ,"rawtcpserver": "Tcp Server"
+  ,"syslogserer":"Syslog Server"
+  ,"centralconfigs":"Centralized Configuration"
+  ,"boot_properties":"Boot Properties"
+  
+ ,"users":"Users"
+  ,"datagroups": "Data Groups"
+   ,"nested": "Nested Groups"
+ ,"ldap":"Active Directory" 
+};
+$(window).load(function(){
+ function genLink(arr,idx){
+  if (idx<0) { return "/"; } 
+  var l="/"
+  for(i=0;i<=idx;i++){
+   l=l +  arr[i] + "-" ;
+  }
+  return l.substring(0,l.length-1) + ".html";
+ }
+ 
+ function renderCrumbs(page){
+  console.log("rendering breadcrumbs for page:" + page)
+  if (page.indexOf("-") < 0){
+   return ""
+  }
+  var parts=page.split("-");
+  var idx=0;
+  console.log("rendering  " + parts);
+  var html="<a href='"+genLink(parts,-1)+"'> / Home </a>";
+  for(idx=0;idx<parts.length;idx++){
+   k=parts[idx];
+   html=html + "<a href="+ genLink(parts,idx) + ">";
+   if (breadcrumbs.hasOwnProperty(k)){
+    html=html + " / " + breadcrumbs[k];
+   }else{
+    html=html + " / " + k[0].toUpperCase() + k.substring(1,k.length);
+   }
+   console.log(".");
+  }
+  console.log("this far!!!");
+  return html
+ }
+ var elems=window.location.href.split('?')[0].split('/');
+ var currentPage=elems[elems.length-1].split('.')[0]
+ console.log("crumb>" + renderCrumbs(currentPage));	
+ $('#widget-bc').html(renderCrumbs(currentPage));
+});
+
+</script><script>var blogFeed;
+function parseRSS(url, callback) {
+ $.ajax({
+  url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(url),
+  dataType: 'json',
+  success: function(data) {
+   callback(data.responseData.feed);
+  }});
+}
+$(window).load(function() { 
+ parseRSS("http://blog.logscape.com/feed",function(feed){
+  var num = feed.entries.length;
+  for(i=0;i< num;i++){
+   var title=feed.entries[i].title;
+   //var link=feed.entries[i].
+   link=feed.entries[i].link;
+   $(".resource-list ul").append("<li><a href='"+link+"'>"+title+"</a> </li>")
+   blogFeed=feed;
+  }
+ });
+});
+</script><script>$(window).bind("pageshow",function(){
+ var $form= $("form")[0];
+ $form.reset(); 
+});
+</script><script>function submit_form(){
+ var q=$("#searchBox").val() 
+ q=encodeURIComponent(q)
+ var query="https://www.google.com/?gws_rd=cr&q=site:logscape.github.io++"+q+"#q=site:logscape.github.io++"+q
+ var location = window.location.href;
+ console.log("back:" + location);
+ history.pushState({},"",location); 
+ window.location.replace(query);
+}</script></head><body><div style="min-height:30px;margin-bottom:5px;" class="container-fluid navbar"><div style="height:5px" class="row"> </div><div class="row navbar-inner"><div style="width:10px" class="col-md-1"> </div><div class="col-md-11"><form id="cse-search-box" action="" style="position:right;padding-top:5px;padding-bottom:5px" onSubmit="submit_form()"><a href="/"><img src="images/logo.png" style="padding-top:0px,padding-right:15px" width="150"></a><input type="hidden" name="cx" value="partner-pub-2789521296837340:9402765321"><input type="hidden" name="ie" value="UTF-8"><input id="searchBox" type="text" name="q" size="31" style="margin-left:15px"><input id="cseSubmit" type="submit" value=" " class="btn-search">&nbsp;&nbsp;<a href="http://apps.logscape.com">Apps |  </a><a href="http://support.liquidlabs.co.uk">Release 1.3 | </a><a href="http://logscape.activeboard.com/">Forums </a></form></div></div></div><div class="container-fluid"><div class="row"><div class="col-md-2"></div><div class="col-md-5"><div id="widget-bc" padding-left:150px class="breadcrumbs style">&nbsp;</div></div><!--<p> <a href="">>> Home </a><a href=""> / Searches</a><a href=""> / Overlaying Searches </a></p>--></div><div class="row"><div style="width:10px" class="col-md-1"><p></p></div><div class="col-md-2 nav-padding"><ul class="nav nav-tabs nav-stacked"> <li><a href="searching.html">Search</a></li><li> </li><!--<a href="workspaces.html">WorkSpaces</a>--><li> <a href="ds.html">Data Sources</a></li><li> <a href="types.html">Data Types </a></li><li>	<a href="deploy.html">Deployment </a></li><li>	<a href="users.html">Users </a></li><li> <a href="alerts.html">Alerts 	</a></li><li><a href="technology.html">Technology</a></li></ul></div><!--<div class="resource-list"><ul style="list-style:none;padding-left:0px"> <h4>Blog Feed</h4></ul></div>--><div class="col-md-9 content-area"> <div class="container-fluid"><div class="row"><div class="col-md-11"><h3>Centralized Deployment </h3><p>The Agents boot.properties can be uploaded from the Deploy Page. The agent boot.properties will be copied to all agents matching the role given. When the agents or the system are bounced the new boot.properties will be applied. The centrally administered boot properties file follows this naming scheme</p><blockquote> $ROLE.boot.properties</blockquote><p>The $ROLE can be any valid role within your deployment. All agents matching this role will pickup the new configuration. Examples of boot.properties and how they will be applied</p><table class="table"><tr> <td> <p>dev.boot.properties</p></td><td><p>All agents matchin dev.* will match. Examples:</p><ul><li>dev.Indexer</li><li>dev.Forwarder</li></ul></td></tr><tr> <td> <p>IndexStore.boot.properties</p></td><td>	All IndexStores in the deployment will pick up this boot.properties</td></tr><tr><td><p>dev.uk.Forwarder.boot.properties</p></td><td> <All>forwarders in the uk sub zone will use this properties file</All></td></tr></table></div></div></div></div></div><div class="row"><hr class="dark"><div class="col-md-3"></div><Logscape>Copyright 2014(c) Registered Trademark </Logscape></div></div><script>$( document ).ready(function() {
+
+ $("#cseSubmit").on("click",function(e){
+  e.preventDefault();
+  submit_form(); 
+ });
+ $("#searchBox").on("keypress",function(e){ 
+  if (e.keyCode == 13) { 
+   e.preventDefault();
+   submit_form() 
+  }
+ }); 
+});
+</script><script src="js/ga.js"> </script></body></html>
