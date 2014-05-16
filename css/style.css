@@ -1,8 +1,41 @@
 .content-area {
-
 	border-left: 1px solid #CCC; 
+}
+
+.block-light {
+ background-color:#778899;
+ color:#FFF;
+ padding:5px 5px 5px 5px 
+}
+
+.text{
+ margin-left:10px;
+}
+.warning{
+ margin-left:10px;
+ background-color:#CCC 
+}
+
+.block-dark {
+ color:#778899;
+ background-color:#FFF;
+ padding:5px 5px 5px 5px 
+}
+
+
+.h1 {
 
 }
+
+
+
+.heading {
+	font-size:15px;
+	font-weight:600
+}
+
+/* positioning style name */ 
+/* controller positioning style name */
 
 .panel-info  a {
  color:#ffa31c;
