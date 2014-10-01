@@ -1,0 +1,22 @@
+
+
+div(ng-repeat="doc in documents | filter:filterByCategory | filter:query")
+	div(style="width:800px;float:left;margin: 5px 5px 5px 5px")
+		div(style="border: 1px solid #FFF;width:100px;height:130px;float:left;padding: 10px 10px 10px 10px") 
+			div(style="float:center") 
+				//img(src="images/apps-doc-logo.png",style="width:80px") 
+				img(src="{{doc.logoURL}}",style="width:80px") 
+
+		div(style="border: 1px solid #FFF;width:700px;float:left") 
+			h1 {{doc.name}}
+
+			//span.categoy  >> {{doc.docType}}
+			p(style="padding-left:10px") {{doc.description}} 
+
+				img(src="{{doc.imgURL}}",style="align:right;padding: 10px 10px 10px 10px ")
+
+			div(style="float:left;padding-left:10px")
+				a(href="") Documentation  | 
+			div(style="float:left;padding-left:10px")
+				a(href="{{doc.zipURL}}") Download 
+
