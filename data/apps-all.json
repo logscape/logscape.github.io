@@ -1,0 +1,107 @@
+[{"name":"Windows App", "docType":"App" 
+	, "intro":"Get monitoring of Windows Events and server health. Find charts, alerts and Workspaces to give you a view on your Windows server estate. "
+	, "description":""
+	,"category":"databases"
+	,"docURL":"https://github.com/logscape/windowsapp#windowsapp-10"
+	,"zipURL":"https://github.com/logscape/windowsapp/raw/master/dist/WindowsApp-1.0.zip" 
+	,"imgURL":"images/postgres_chart.png"
+	,"logoURL":"images/windows_logo.png" 
+}
+
+,{
+	"name":"Unix Operating Systems",  "docType":"App" , 
+	"intro":"Monitor Unix, Solaris and OS X oeparting systems. Get insights on operating system KPIs with detailed charts and alerts " , 
+	"description":"",
+	"category":"java", 
+	"zipURL":"https://github.com/logscape/unixapp/raw/master/dist/UnixApp-1.1.zip" ,
+	"docURL": "https://github.com/logscape/unixapp#unixapp-11-" , 
+	"imgURL":"images/postgres_chart.png" 
+	,"logoURL":"images/unix_logo.gif" 
+}
+
+
+
+,{"name":"Cassandra", 
+	"docType":"App" , 
+	"intro":"Collect Cassandra connection, cache and perofrmance metrics. Visualize and monitor your cassandra instances" 
+	, "description":""
+	, "category":"databases"
+	,"docURL":"https://github.com/logscape/cassandraapp#intro"
+	,"zipURL":"https://github.com/logscape/cassandraapp/raw/master/CassandraApp-1.0.zip" 
+	,"imgURL":"images/postgres_chart.png" 
+	,"logoURL":"images/cassandra_logo.png" 
+}
+
+,{"name":"Apache Http Server" , "docType":"App" ,  "intro":"Monitor Apache HTTP workers, bandwidth and connections" , "description":"","category":"webServers","zipURL":"https://github.com/logscape/apache2app/raw/master/dist/Apache2App-1.0.zip" ,"imgURL":"images/postgres_chart.png" 
+,"imgURL":"images/postgres_chart.png"
+
+
+,"logoURL":"images/apache_logo.png" }
+
+
+,{"name":"Nginx Web Server", "docType":"App", "intro":"Monitor Nginx server health and track connections statistics " , "description":"","category":"webServers", "zipURL":"https://github.com/logscape/nginxapp/raw/master/NginxApp-1.0.zip" ,"imgURL":"images/postgres_chart.png" 
+, "docURL": "https://github.com/logscape/nginxapp#nginxapp-10" 
+,"logoURL":"images/nginx_logo.png" }
+
+
+,{"name":"Java", "docType":"App", "intro":"Monitor the JVM, java application logs and garbage collection. Visualize custom metrics through JMX" , "description":"","category":"java", "zipURL":"https://github.com/logscape/javaapp/blob/master/dist/JavaApp-1.0.zip?raw=true","imgURL":"images/postgres_chart.png"  
+
+,"logoURL":"images/java_logo.jpg" 
+}
+
+,{"name":"Windows",  "docType":"App" , "intro":"Monitoring Operationg System KPIs, track application performance, disk utilization, cpu and memory" , "description":"","category":"os", "zipURL":"https://github.com/logscape/windowsapp/raw/master/dist/WindowsApp-1.0.zip"},{"name":"Tomcat",  "docType":"App" , "intro":"Monitoring db engines  , tables, connection throughput and performance" , "description":"","category":"java", "zipURL":""  ,"imgURL":"images/postgres_chart.png" 
+
+,"logoURL":"images/tomcat_logo.gif" 
+}
+
+
+,{"name":"HAProxy", "docType":"Article" , "intro":"Monitor the performance of your HAProxy web farm. Get a detailed view connections, requests and queues" , "description":"","category":"webServers","zipURL":"https://github.com/logscape/haproxyapp/raw/master/dist/HAProxyApp-1.0.zip" ,"imgURL":"images/postgres_chart.png" 
+	,"logoURL":"images/haproxy_logo.png" 
+}
+
+
+,{"name":"Cisco ASA Routers", "docType":"App" , "intro":"Analyse Cisco ASA syslog messages, track and measure bandwidth usage and connection throughput and alert on suspicious traffic", "description":"","category":"webServers","zipURL":"https://github.com/logscape/ciscoapp/raw/master/dist/CiscoApp-1.0.zip" ,"imgURL":"images/cisco_chart.png" 
+	,"logoURL":"images/cisco_logo.jpg" 
+}
+
+
+
+
+,{"name":"Oracle Coherence Cache", "docType":"App" , "intro":"Monitor the performance of your caches, proxies and Coherence nodes" , "description":"","category":"middleware","zipURL":"https://github.com/logscape/coherenceapp/raw/master/dist/OracleCoherenceApp-1.0.zip" ,"imgURL":"images/postgres_chart.png"  }
+,{"name":"Cisco ASA", "docType":"App" , "intro":"Monitor your Cisco network traffic" , "description":"","category":"networking","zipURL":"https://github.com/logscape/ciscoapp" ,"imgURL":"images/postgres_chart.png" }
+,{"name":"Docker", "docType":"App" , "intro":"Monitor and track Docker containers and application logs" , "description":"","category":"networking","zipURL":"https://github.com/logscape/dockerapp" ,"imgURL":"images/postgres_chart.png" }
+
+
+,{"name":"Analyze Weblogs",  "docType":"App" , "intro":"Visualize visitors, bandwidth and other metrics for your IIS,Apache and Nginx web logs. Provides support for common web log formats CLF,XLF and custom. " , "description":"","category":"java", "zipURL":"https://github.com/logscape/weblogsapp/raw/master/dist/WebLogsApp-1.0.zip" ,"imgURL":"images/postgres_chart.png" }
+
+
+
+
+, {"name":"PostgresSQL",  
+	"docType":"App", 
+	"intro":"", 
+	"description":"Monitoring caches , tables, connection throughput and performance. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit." , 		"category":"databases", 
+	  "text":"moo" 
+	, "zipURL":"" 
+	,  "imgURL":"images/postgres_chart.png"
+	,"logoURL":"images/postgres_logo.png" 
+}
+
+,{"name":"MySQL", "docType":"App" ,  "intro":"Monitoring  db engines  , tables, connection throughput and performance" , "description":"","category":"databases","zipURL":"" ,"imgURL":"images/postgres_chart.png"
+
+,"logoURL":"images/mysql_logo.png" 
+}
+
+
+,{"name":"DotNet",  "docType":"App" , "intro":"Monitoring db engines  , tables, connection throughput and performance" , "description":"","category":"dotnet", "zipURL":"" ,"imgURL":"images/postgres_chart.png"
+
+,"logoURL":"images/dotnet_logo.jpg" 
+}
+
+
+,{"name":"Connecting to JBoss", "docType":"Article" , "intro":"Monitoring db engines  , tables, connection throughput and performance" , "description":"","category":"webServers","zipURL":"" ,"imgURL":"images/postgres_chart.png" 
+
+,"logoURL":"images/jboss_logo.png" 
+}
+
+]
