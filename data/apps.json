@@ -82,7 +82,7 @@
 
 
 ,{"name":"Cisco ASA Routers", "docType":"App" , "intro":"Analyse Cisco ASA syslog messages, track and measure bandwidth usage and connection throughput and alert on suspicious traffic", "description":"","category":"webServers","zipURL":"https://github.com/logscape/ciscoapp/raw/master/dist/CiscoApp-1.0.zip" ,"imgURL":"images/cisco_chart.png" 
-	,"logoURL":"images/cisco_logo.jpg" 
+	,"logoURL":"images/cisco_logo.png" 
 }
 
 
