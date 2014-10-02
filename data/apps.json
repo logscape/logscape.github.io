@@ -10,7 +10,7 @@
 
 ,{
 	"name":"Unix Operating Systems",  "docType":"App" , 
-	"intro":"Monitor Unix, Solaris and OS X oeparting systems. Get insights on operating system KPIs with detailed charts and alerts " , 
+	"intro":"Monitor Unix, Solaris and OS X operating systems. Get insights on operating system KPIs with detailed charts and alerts " , 
 	"description":"",
 	"category":"java", 
 	"zipURL":"https://github.com/logscape/unixapp/raw/master/dist/UnixApp-1.1.zip" ,
@@ -45,7 +45,8 @@
 }
 
 
-,{"name":"Visualize Collectd Metrics",  "docType":"App" , "intro":"Visualize visitors, bandwidth and other metrics for your IIS,Apache and Nginx web logs. Provides support for common web log formats CLF,XLF and custom. " 
+,{"name":"Visualize Collectd Metrics",  "docType":"App" 
+	, "intro":"Monitor and alert on collectd plugins. Collectd has over 90 plugins that collect low-level resource metrics. Create alerts and charts on your Unix server estate " 
 	, "description":""
 	,"category":"java" 
 	,"docURL":"https://github.com/logscape/CollectdApp" 
