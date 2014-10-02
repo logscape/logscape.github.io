@@ -46,7 +46,7 @@
 
 
 ,{"name":"Visualize Collectd Metrics",  "docType":"App" 
-	, "intro":"Monitor and alert on collectd plugins. Collectd has over 90 plugins that collect low-level resource metrics. Create alerts and charts on your Unix server estate " 
+	, "intro":"Aggregate collectd metrics across several hosts and visualize system health and performance metrics on custom Collectd Workspaces." 
 	, "description":""
 	,"category":"java" 
 	,"docURL":"https://github.com/logscape/CollectdApp" 
