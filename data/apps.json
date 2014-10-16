@@ -52,7 +52,7 @@
 	,"description":""
 	,"category":"databases"
 	,"docURL":"https://github.com/logscape/mysqlapp#intro"
-	,"zipURL":"https://github.com/logscape/mysqlapp/raw/master/dist/MysqlApp-1.0.zip" 
+	,"zipURL":"https://github.com/logscape/mysqlapp/raw/master/dist/MySQLApp-1.0.zip" 
 	,"imgURL":"images/mysql_chart.png" 
 	,"logoURL":"images/mysql_logo.png" 
 }
