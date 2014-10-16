@@ -45,6 +45,21 @@
 }
 
 
+
+,{"name":"Mysql", 
+	"docType":"App" , 
+	"intro":"Monitor the health of mysql instances, track cache, buffers and slow queries" 
+	,"description":""
+	,"category":"databases"
+	,"docURL":"https://github.com/logscape/mysqlapp#intro"
+	,"zipURL":"https://github.com/logscape/mysqlapp/raw/master/dist/MysqlApp-1.0.zip" 
+	,"imgURL":"images/mysql_chart.png" 
+	,"logoURL":"images/mysql_logo.png" 
+}
+
+
+
+
 ,{"name":"Visualize Collectd Metrics",  "docType":"App" 
 	, "intro":"Aggregate collectd metrics across several hosts and visualize system health and performance metrics on custom Collectd Workspaces." 
 	, "description":""
