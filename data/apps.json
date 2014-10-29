@@ -58,7 +58,16 @@
 }
 
 
-
+, {"name":"PostgresSQL",  
+	"docType":"App", 
+	"docURL":"https://github.com/logscape/postgresapp",
+	"intro":"Monitor your Postgres databases and processes. Get views on your tables, indexes and buffers. ", 
+	"description":"Monitoring caches , tables, connection throughput and performance. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit." , 		"category":"databases", 
+	  "text":"moo" 
+	, "zipURL":"https://github.com/logscape/postgresapp/raw/master/dist/PostgresqlApp-1.0.zip" 
+	,  "imgURL":"images/postgres_chart.png"
+	,"logoURL":"images/postgres_logo.png" 
+}
 
 ,{"name":"Visualize Collectd Metrics",  "docType":"App" 
 	, "intro":"Aggregate collectd metrics across several hosts and visualize system health and performance metrics on custom Collectd Workspaces." 
