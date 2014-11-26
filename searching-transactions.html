@@ -1,0 +1,176 @@
+<!DOCTYPE html ><html lang="en"><head><title>	Logscape 2.0 </title><script src="js/kiss.js"></script><link href="css/bootstrap.min.css" rel="stylesheet"/><link href="css/style.css" rel="stylesheet"/><link href="css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet"/><link href="css/style-app.css" rel="stylesheet"/><link href="css/app.css" rel="stylesheet"/><link href="//vjs.zencdn.net/4.9/video-js.css" rel="stylesheet"/><script src="//vjs.zencdn.net/4.9/video.js"></script><script src="js/jquery-1.11.0.js"></script><script src="js/bootstrap.min.js"></script><script>var breadcrumbs={
+ "gettingstarted":"Getting Started" 
+ ,"searching":"Search"
+  ,"kv":"Data Discovery"
+  ,"offsets":"Using Offsets"
+  ,"geoip":"Geo IP"
+  ,"pattern":"Using Search Patterns"
+  ,"video":"tutorials"
+  ,"overlays":"Overlaying Searches" 
+ ,"starthere":""
+ 
+ ,"ds":"Data Sources"
+  ,"add":" Add a New Data Source" 
+  ,"multitags":" Using Multi-Tags"
+  ,"syslog":" Connect Syslog Clients" 
+  ,"tags": " Sources and Tags" 
+  ,"intelligent_field_discovery":" Intelligent Field Discovery" 
+ ,"types":"Data Types"
+  ,"system_fields":"System Fields" 
+ ,"deploy":"Deployment" 
+  ,"app":" Logscape Apps"
+  ,"agents": "Agents "
+  ,"architectures_default": " Default Deployment"
+  ,"architectures_failover": "Failover" 
+  ,"architectures_indexstores": " Index Stores" 
+  ,"architectures_tenured":"Tenured Data"
+  ,"architectures_zones":" Zones" 
+  ,"Backup": "Backup" 
+   ,"home":" The Home Workspace"
+   ,"import":" Restoring from Backup"
+   ,"partial": " Selective Import"
+   
+  ,"arch_zoning":"Distributed Topology" 
+  ,"arch_clm":"Centralized Monitoring Topology" 
+  ,"arch_indexstores":"Multiple Index Store Topology" 
+  
+  ,"rawtcpserver": "Tcp Server"
+  ,"syslogserer":"Syslog Server"
+  ,"centralconfigs":"Centralized Configuration"
+  ,"boot_properties":"Boot Properties"
+  
+ ,"users":"Users"
+  ,"datagroups": "Data Groups"
+   ,"nested": "Nested Groups"
+  ,"faq":"Frequently Asked Questions" 
+ ,"ldap":"Active Directory" 
+};
+$(window).load(function(){
+ function genLink(arr,idx){
+  if (idx<0) { return "/"; } 
+  var l="/"
+  for(i=0;i<=idx;i++){
+   l=l +  arr[i] + "-" ;
+  }
+  return l.substring(0,l.length-1) + ".html";
+ }
+ 
+ function renderCrumbs(page){
+  console.log("rendering breadcrumbs for page:" + page)
+  if (page.indexOf("-") < 0){
+   return ""
+  }
+  var parts=page.split("-");
+  var idx=0;
+  console.log("rendering  " + parts);
+  var html="<a href='"+genLink(parts,-1)+"'> / Home </a>";
+  for(idx=0;idx<parts.length;idx++){
+   k=parts[idx];
+   html=html + "<a href="+ genLink(parts,idx) + ">";
+   if (breadcrumbs.hasOwnProperty(k)){
+    html=html + " / " + breadcrumbs[k];
+   }else{
+    html=html + " / " + k[0].toUpperCase() + k.substring(1,k.length);
+   }
+   console.log(".");
+  }
+  console.log("this far!!!");
+  return html
+ }
+ var elems=window.location.href.split('?')[0].split('/');
+ var currentPage=elems[elems.length-1].split('.')[0]
+ console.log("crumb>" + renderCrumbs(currentPage));	
+ $('#widget-bc').html(renderCrumbs(currentPage));
+});
+
+</script><script>var blogFeed;
+function parseRSS(url, callback) {
+ $.ajax({
+  url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(url),
+  dataType: 'json',
+  success: function(data) {
+   callback(data.responseData.feed);
+  }});
+}
+$(window).load(function() { 
+ parseRSS("http://blog.logscape.com/feed",function(feed){
+  var num = feed.entries.length;
+  for(i=0;i< num;i++){
+   var title=feed.entries[i].title;
+   //var link=feed.entries[i].
+   link=feed.entries[i].link;
+   $(".resource-list ul").append("<li><a href='"+link+"'>"+title+"</a> </li>")
+   blogFeed=feed;
+  }
+ });
+});
+</script><script>$(window).bind("pageshow",function(){
+ var $form= $("form")[0];
+ $form.reset(); 
+});
+</script><script>function submit_form(){
+ var q=$("#searchBox").val() 
+ q=encodeURIComponent(q)
+ var query="https://www.google.com/?gws_rd=cr&q=site:logscape.github.io++"+q+"#q=site:logscape.github.io++"+q
+ var location = window.location.href;
+ console.log("back:" + location);
+ history.pushState({},"",location); 
+ window.location.replace(query);
+}</script></head><body><div style="width:100%;height:85px;background-color:#333;"><!--diva(href="/") Documentation
+a(href="")  Forums 	| 
+a(href="") Getting Started	|
+a(href="") Logscape  	| 
+
+--><div style="padding-left:100px;padding-top:25px"><img src="images/logscape-apps-logo.png" style="height:45px"/><div style="float:right" class="col-md-3"><form id="cse-search-box" action="" style="position:right;padding-top:5px;padding-bottom:5px" onSubmit="submit_form()"><input type="hidden" name="cx" value="partner-pub-2789521296837340:9402765321"/><input type="hidden" name="ie" value="UTF-8"/><input id="searchBox" type="text" name="q" size="31" style="margin-left:15px"/><input id="cseSubmit" type="submit" value=" " class="btn-search"/></form></div></div></div><div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;"><div style="padding-left:140px;padding-top:10px;font-size:14px"><a href="http://apps.logscape.com">Apps |  </a><!--a(href="http://support.liquidlabs.co.uk") Release 1.3 | --><a href="http://logscape.activeboard.com/">Forums  | </a><a href="gettingstarted.html">Getting Started </a><img style="height:0;width:0" src="http://logscape.com/images/track.png?version=support"/></div></div><!--.container-fluid.navbar(style="min-height:30px;margin-bottom:5px;").row(style="height:5px") 
+.row
+ .col-md-8
+ .col-md-1--><div class="container-fluid"><!--.row.col-md-7
+ form#cse-search-box(action="",style="position:right;padding-top:5px;padding-bottom:5px",onSubmit="submit_form()")
+  a(href="/")
+   img(src="images/logo.png",style="padding-top:0px,padding-right:15px",width="150") 
+  input(type="hidden",name="cx",value="partner-pub-2789521296837340:9402765321")
+  input(type="hidden",name="ie",value="UTF-8")
+  input#searchBox(type="text",name="q",size="31",style="margin-left:15px")
+  input.btn-search#cseSubmit(type="submit",value=" ")
+  &nbsp;&nbsp;
+  a(href="http://apps.logscape.com") Apps |  
+  a(href="http://support.liquidlabs.co.uk") Release 1.3 | 
+  a(href="http://logscape.activeboard.com/") Forums  | 
+  a(href="gettingstarted.html") Getting Started 
+  --><div class="row"><div class="col-md-1"></div><div class="col-md-2"></div><div class="col-md-5"><div id="widget-bc" padding-left:150px="padding-left:150px" class="breadcrumbs style">&nbsp;</div></div></div><div class="row"><div style="width:100px" class="col-md-1"><p></p></div><div class="col-md-2 nav-padding"><ul class="nav nav-tabs nav-stacked"><li><a href="searching.html">Search</a></li><li><a href="workspaces.html">WorkSpaces</a></li><li><a href="ds.html">Data Sources</a></li><li><a href="types.html">Data Types </a></li><li><a href="deploy.html">Deployment</a></li><li><a href="users.html">Users </a></li><li><a href="alerts.html">Alerts 	</a></li><li><a href="technology.html">Technology</a></li><li><a href="https://twitter.com/logscape" data-show-count="false" data-size="large" class="twitter-follow-button">Follow @logscape</a><script>=!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></li></ul><div style="padding-left:50px"><h4>Articles </h4></div><hr/><div class="resource-list"><ul style="list-style:none;padding-left:10px;background-color:#FFFEE7"></ul></div></div><div class="col-md-9 content-area"><div class="container-fluid"><div class="row"><div class="col-md-11"><h1>Transactions (txn function)</h1><p>A transaction can be traced through your data by a unique identifier(uid). The transaction is traced through the logs produced by different modules and components of your system, giving you an end-to-end view. Logscape provides the txn function which plots the durations of a transaction trace and counts the volume of concurrent transactions. </p><blockquote>	UID.txn(PARAMETER)</blockquote><ul><li>UID - 
+Any field that can be used as a unique identifier in your system. An example is a user session identified by it's client ip address.</li><li>PARAMETER - The parameter can be set to <em>elapsed </em> or <em>volume. </em>The elapsed, will give you the duration of a transaction. The volume parameter, will count the number of concurrent transactions.</li></ul><p><strong>Example -</strong> In the sample data below our uid is the field <em>user.  </em>Each user has an event associated with an event: start,calc, and end. As the system processes requests the user id is traced through the jobdispatcher and calcengine components. </p><p>jobdispatcher.log<pre>2014-11-24 11:00:00	user=usr_100 event=start  val=67.343
+2014-11-24 11:10:00	user=usr_101 event=start  val=320 
+2014-11-24 11:13:00	user=usr_102 event=start  val=600</pre>calcengine.log<pre>2014-11-24 11:13:00	user=usr_102 event=calc  val=600
+2014-11-24 11:13:00	user=usr_102 event=calc  val=321
+2014-11-24 11:17:00	user=usr_102 event=end  val=775
+2014-11-24 12:00:00	user=usr_101 event=end  val=340
+2014-11-24 12:20:00	user=usr_100 event=end  val=212
+2014-11-24 12:30:00	user=usr_100 event=end  val=212</pre></p><p>The <em>elapsed </em>parameter is used in a search expression to find the duration of each transaction in the system <blockquote>| user.txn(elapsed) chart(line-connect) </blockquote><div class="image"><img src="images/searching-transactions-elapsed.png"/></div>The <em>volume </em>option gives a different view of the transactions in a system. It provides a count of the concurrent transactions being traced. This can be used to show users that have successefully been processed from end to end. </p></div></div><div class="row"><div class="col-md-11"><br/><br/><br/><div id="disqus_thread"><script>/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+ var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script></div></div></div></div></div></div><!--hr.dark 
+.col-md-3
+Logscape Copyright 2014(c) Registered Trademark --></div><script>$( document ).ready(function() {
+
+ $("#cseSubmit").on("click",function(e){
+  e.preventDefault();
+  submit_form(); 
+ });
+ $("#searchBox").on("keypress",function(e){ 
+  if (e.keyCode == 13) { 
+   e.preventDefault();
+   submit_form() 
+  }
+ }); 
+});
+</script><script>(function(g,i,a,n,t,s){g['SeeYourVisitors']=n;g[n]=g[n]||function(){
+(g[n].q=g[n].q||[]).push(arguments)},g[n].l=1*new Date();t=i.createElement(a),
+s=i.getElementsByTagName(a)[0];t.async=1;t.src='//seeyourvisitors2.appspot.com/gg.js';
+s.parentNode.insertBefore(t,s)})(window,document,'script','gg');
+gg('create', 'd1a8b082-8806-4793-936f-35f5e41b3592');
+gg('track');</script><script src="js/ga.js"></script></body></html>
