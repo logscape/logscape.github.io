@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="en"><head><title>Logscape Apps	</title><link href="css/bootstrap.min.css" rel="stylesheet"><link href="css/style-app.css" rel="stylesheet"><link href="css/app.css" rel="stylesheet"><script src="js/bootstrap.min.js"></script><script src="js/jquery.js"></script><script src="js/angular-1.2.9/angular.min.js"></script><script src="js/angular-1.2.9/angular-animate.min.js"></script><script src="js/angular-1.2.9/angular-route.min.js"></script><script src="js/app/controllers.js"></script></head><body><div style="width:100%;height:85px;background-color:#333;"><!--diva(href="/") Documentation
+a(href="")  Forums 	| 
+a(href="") Getting Started	|
+a(href="") Logscape  	| --><div style="padding-left:100px;padding-top:20px"><img src="images/logscape-apps-logo.png" style="height:45px"></div></div><div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;"><div style="padding-left:140px;padding-top:10px"><a href="/">Documentation  | </a><a href="http://logscape.com">Main Website  | </a><a href="http://logscape.com/get.html">Download  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a></div></div><div class="row"><div class="col-md-1"></div><div class="col-md-12"><div ng-app="docBrowserApp" class="row"><div class="col-md-9"><div class="row"><div class="col-md-11 apps"><h3>Logscape in the Cloud </h3><h1>Syslog </h1><hr><p>Syslog is a universal log format supported by network devices and Linux applications. Windows applications can also send log data in the syslog format using tools like Windows Snare and <a href="http://nxlog.org/products/nxlog-community-edition">nxLog. </a>Many network devices like routers, load balancers and intrusion detection system export logs using the syslog protocol. Syslog can be set up to use UDP or TCP. Sending data over UDP is not reliable, for this reason Logscape Cloud accepts data via TCP only. </p><strong>1.)  Configure Rsyslog </strong><p>You will need a syslog daemon  to collect log data from your various devices and applications. The instructions below show you how to set up rsyslog to forward log data into Logscape.</p><p>Edit your rsyslog.conf using your favourite editor</p><div class="image"><pre>sudo nano /etc/rsyslog.conf </pre></div><p>The LOGSCAPETOKEN refers to your security token which you received on signup and the LOGSCAPETAG is an identifier for the log data. </p><p></p><div class="image"><pre>template Cloud,"LOGSCAPETOKEN:SECURITY_TOKEN LOGSCAPETAG:syslog <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% %msg%"<br>*.* @@collector.logscape.com:1468;Cloud</pre></div><p>Paste the snippet into your rsyslog.conf and replace only the SECURITY_TOKEN from your account. </p><p></p><strong>2.) Restart the daemon</strong><p>Restart your rsyslog daemon. </p><pre>	sudo service rsyslog restart </pre><p></p><strong>3.) Send a test message</strong><p>You can test your configuration is correct by sending a test message. </p><pre>	logger THIS IS A TEST MESSAGE</pre><p>This message will appear in your Logscape account. </p><p></p><strong>4.) Search your syslog data from logscape.</strong><p>Log into your account at <a href="http://cloud.logscape.com:8080/">cloud.logscape.com </a>and type 'test message' into the search bar, and search the last hour. Your test message will appear in the table below the chart.</p><div class="image"><img src="images/cloud-syslog-logscape.png"></div></div></div></div></div></div></div></body></html><!--.container		
+//		
+ .navbar.navbar-fixed-top
+  .navbar-inner
+   .nav-collapse.collapse
+    ul.nav
+     li.active  Main Support Site 
+     li Explore Logscape Apps 
+     li 
+      a(href="") Download 
+   h3 Logscape Apps 
+   a(href="index.html") Getting Started | 
+   a(href="http://support.liquidlabs.co.uk")  Older Versions 1.3x Docs   
+   
+.container-fluid
+ br
+ br 
+ br
+ br
+ br
+ .row 
+  .col-md-11(style="padding-left:100px")
+   block content 
+script(src="js/ga.js") --><!--//
+ .row
+  .col-md-2.nav-padding
+   br
+   ul
+    li
+     a(href="https://github.com/logscape/windowsapp#windowsapp-10") WindowsApp
+    li 
+     a(href="https://github.com/logscape/unixapp#unixapp-10") UnixApp
+     
+    li 
+     a(href="https://github.com/logscape/coherenceapp#oraclecoherenceapp-10") Oracle Coherence App
+     
+    li 
+     a(href="https://github.com/logscape/javaapp#javaapp-10") JavaApp
+     
+    li 
+     a(href="https://github.com/logscape/vmwareapp#vmwareapp-10") VMWareApp
+     
+    li
+     a(href="https://github.com/logscape/ciscoapp#ciscoapp-10") Cisco Devices
+     
+     
+     
+     
+  .col-md-10
+   block content
+   
+   -->
