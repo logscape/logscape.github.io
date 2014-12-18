@@ -1,0 +1,19 @@
+
+.apps {
+	border-left: 1px solid #CCC; 
+	margin-top:15px;
+}
+
+.apps h3 {
+	color:#892d25;
+}
+
+h3 {
+	color:#892d25;
+}
+
+
+
+.grid * a {
+	color:#fe4800;
+}
