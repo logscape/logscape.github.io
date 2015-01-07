@@ -4,32 +4,12 @@ a(href="") Getting Started	|
 a(href="") Logscape  	| --><div style="padding-left:100px;padding-top:20px"><img src="images/logscape-apps-logo.png" style="height:45px"></div></div><div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;"><div style="padding-left:140px;padding-top:10px"><a href="/">Documentation  | </a><a href="http://logscape.com">Main Website  | </a><a href="http://logscape.com/get.html">Download  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a></div></div><div class="row"><div style="margin-left:10px" class="col-md-2 nav-padding"><hr><ul class="nav nav-tabs nav-stacked"><p>Start Here </p><li><a href="/apps-intro.html">What is an App </a></li><li><a href="/apps-deploy.html">How to Deploy </a></li><li><!--a(href="") How to Configure An App --></li><li><a href="apps-style.html">Style Guidelines  </a></li><p>Service Guides  </p><li><a href="/apps-groovy.html">Groovy </a></li><li><a href="/apps-shell.html">Shell Commands </a></li></ul><!--li
  a(href="/apps-sql.html") SQL 
 li
- a(href="/apps-jmx.html") JMX --></div><div class="col-md-9"><div ng-app="docBrowserApp" class="row"><div class="col-md-9"><div class="row"><div class="col-md-11 apps"><h3>What is an App ? </h3><a href="">Shell Commands 	 | </a><a href="">Groovy Scripts 	 | </a><a href="">SQL 	 |</a><a href="">Jmx  </a><p></p></div></div><hr><div style="padding-left:25px" class="row"><div class="col-md-11"></div><h4><strong>App </strong></h4><p>	Logscape Apps are custom application which run on the Logscape platform. They extend the monitoring capabilities of the system by integrating with custom application interfaces. A Logscape App is an archive containing a </p><div class="image"><img src="images/apps-intro.png" width="350" style="box-shadow: 0 0 2px #CCC"><!--ul li Service Descriptor ( also known as the bundle ) 
-li config file 
-li scripts --><!--.side-box(style="width=200px") h3 Services 
-a(href="technology-apps-bundle.html") Shell commands 
-br
-a(href="technology-apps-services.html") Groovy script 
-br 
-a(href="technology-apps-config.html") Python or Ruby 
---><div class="side-box"><h3>Related Links</h3><a href="technology-apps-bundle.html">Application Bundle</a><br><a href="technology-apps-services.html">Services </a><br><a href="technology-apps-config.html">Config </a></div></div><p><strong> The Bundle - </strong>Is an xml document that contains a description of what services a Logscape App will execute. In each service description there is a schedule parameter which controls when the Apps service is executed. This example describes a service that executes a script every 60 seconds.<pre>     &lt;Service>
-       &lt;name>_sys_appmetrics_</&lt;name>
-       &lt;resourceSelection>osName &lt;contains &lt;Linux</&lt;resourceSelection>
-       &lt;fork>true</&lt;fork>
-       &lt;background>true</&lt;background>
-       &lt;instanceCount>1</&lt;instanceCount>
-       &lt;pauseSeconds>20</&lt;pauseSeconds>
-       &lt;resourceSelection>hostName &lt;containsAny &lt;battle </&lt;resourceSelection>
-       &lt;script>_sys_appmetrics.&lt;groovy  _filter=mysql,mysqld_safe,mysqld &lt;/script>
-   </&lt;Service> </pre></p><p><strong>Config File</strong> - The config file contains all the Searches, Workspaces, types and sources that the App needs to run. </p><p><strong>Services </strong> These are the programs or scripts that are executed by the service sections in the bundle file. 
- </p><!--.image
- .info-box
-  h3 Useful Links
-  a() Service Descriptor 
- center 
-  img(img="images/moo.png",width="800") 
-a(href="") Apps Intro 	
---><h3>Deployment </h3><p>Each App installed and deployed must follow the naming scheme</p><blockquote>.$NAMEApp-1.0.zip</blockquote>When an App is deployed, the archive is replicated to all Agents that are part of the Logscape environment. When the status of the App is changed from UINSTALLED to INSTALLED, the archive is unpacked on each Agent and stored in the following folder <blockquote>	$LOGSCAPE_HOME/deployed-bundle/$NAMEApp-1.0.zip </blockquote></div></div></div><div class="row"><div class="col-md-9"><br><br><br><div id="disqus_thread"><script>/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+ a(href="/apps-jmx.html") JMX --></div><div class="col-md-9"><div class="container-fluid"><div class="row"><div class="col-md-11"></div><h3>Groovy Services </h3><p>A groovy service is instantiated using the following service descriptor </p><pre>&lt;service> 
+	&lt;background>true&lt;/background>
+	&lt;fork>true&lt;/fork>
+	&lt;script> myscript.groovy propA=valuea propB=B &lt;/script> 
+&lt;/service> </pre><h5><strong>Passing Parameters </strong></h5><p>Parameters can be passed to a groovy service using:</p><ul><li>override properties file,</li><li>Command-line arguments </li></ul><p> </p><h5><strong>1.) Properties File.</strong></h5><p>A property file has the following format </p><pre>propertyA=value1
+propertyB=value2</pre><p>Each property is available to your groovy service as a variable. This places the same restrictions on groovy variable naming on the properties override file. </p><h5><strong>2.) Command-line arguments </strong></h5><p>Any parameters passed to your groovy script in the script tag can be accessed in the <em>args </em>variable. If you had the following arguments:<blockquote>myscript -host localhost -port 33600</blockquote></p><p>The <em>args </em>contains the arguments as they appear. For the example above the args list will have the following values<pre>["-host","localhost","-port","33600"]</pre>The same values can be automatically created in your groovy service as variables using the key value syntax. <blockquote>myscript host=localhost port=33600 </blockquote>The same mechanism that is used to bind values to variables for the properties override file can is used for command line values. </p></div><div class="row"><div class="col-md-11"><br><br><br><div id="disqus_thread"><script>/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
 /* * * DON'T EDIT BELOW THIS LINE * * */
 (function() {
@@ -37,7 +17,7 @@ var disqus_shortname = 'logscape'; // required: replace example with your forum 
  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
-</script></div></div></div></div></div></body></html><!--.container		
+</script></div></div></div></div></div></div></body></html><!--.container		
 //		
  .navbar.navbar-fixed-top
   .navbar-inner
