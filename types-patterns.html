@@ -1,168 +1,154 @@
-<!DOCTYPE html ><html lang="en"><head><title>	Logscape 2.0 </title><script src="js/kiss.js"></script><link href="css/bootstrap.min.css" rel="stylesheet"/><link href="css/style.css" rel="stylesheet"/><link href="css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet"/><link href="css/style-app.css" rel="stylesheet"/><link href="css/app.css" rel="stylesheet"/><link href="//vjs.zencdn.net/4.9/video-js.css" rel="stylesheet"/><script src="//vjs.zencdn.net/4.9/video.js"></script><script src="js/jquery-1.11.0.js"></script><script src="js/bootstrap.min.js"></script><script>var breadcrumbs={
- "gettingstarted":"Getting Started" 
- ,"searching":"Search"
-  ,"kv":"Data Discovery"
-  ,"offsets":"Using Offsets"
-  ,"geoip":"Geo IP"
-  ,"pattern":"Using Search Patterns"
-  ,"video":"tutorials"
-  ,"overlays":"Overlaying Searches" 
- ,"starthere":""
- 
- ,"ds":"Data Sources"
-  ,"add":" Add a New Data Source" 
-  ,"multitags":" Using Multi-Tags"
-  ,"syslog":" Connect Syslog Clients" 
-  ,"tags": " Sources and Tags" 
-  ,"intelligent_field_discovery":" Intelligent Field Discovery" 
- ,"types":"Data Types"
-  ,"system_fields":"System Fields" 
- ,"deploy":"Deployment" 
-  ,"app":" Logscape Apps"
-  ,"agents": "Agents "
-  ,"architectures_default": " Default Deployment"
-  ,"architectures_failover": "Failover" 
-  ,"architectures_indexstores": " Index Stores" 
-  ,"architectures_tenured":"Tenured Data"
-  ,"architectures_zones":" Zones" 
-  ,"Backup": "Backup" 
-   ,"home":" The Home Workspace"
-   ,"import":" Restoring from Backup"
-   ,"partial": " Selective Import"
-   
-  ,"arch_zoning":"Distributed Topology" 
-  ,"arch_clm":"Centralized Monitoring Topology" 
-  ,"arch_indexstores":"Multiple Index Store Topology" 
-  
-  ,"rawtcpserver": "Tcp Server"
-  ,"syslogserer":"Syslog Server"
-  ,"centralconfigs":"Centralized Configuration"
-  ,"boot_properties":"Boot Properties"
-  
- ,"users":"Users"
-  ,"datagroups": "Data Groups"
-   ,"nested": "Nested Groups"
-  ,"faq":"Frequently Asked Questions" 
- ,"ldap":"Active Directory" 
+<!DOCTYPE html ><html lang="en"><head><title>	Logscape Knowledge Base</title><script src="js/kiss.js"> </script><link href="css/bootstrap.min.css" rel="stylesheet"/><link href="css/style.css" rel="stylesheet"/><link href="css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet"/><script src="js/jquery-1.11.0.js"></script><script src="js/bootstrap.min.js"></script><script>var breadcrumbs={
+	"gettingstarted":"Getting Started" 
+	,"searching":"Search"
+		,"kv":"Data Discovery"
+		,"offsets":"Using Offsets"
+		,"geoip":"Geo IP"
+		,"pattern":"Using Search Patterns"
+		,"video":"tutorials"
+		,"overlays":"Overlaying Searches" 
+	,"starthere":""
+
+	,"ds":"Data Sources"
+		,"add":" Add a New Data Source" 
+		,"multitags":" Using Multi-Tags"
+		,"syslog":" Connect Syslog Clients" 
+		,"tags": " Sources and Tags" 
+		,"intelligent_field_discovery":" Intelligent Field Discovery" 
+	,"types":"Data Types"
+		,"system_fields":"System Fields" 
+	,"deploy":"Deployment" 
+		,"app":" Logscape Apps"
+		,"agents": "Agents "
+		,"architectures_default": " Default Deployment"
+		,"architectures_failover": "Failover" 
+		,"architectures_indexstores": " Index Stores" 
+		,"architectures_tenured":"Tenured Data"
+		,"architectures_zones":" Zones" 
+		,"Backup": "Backup" 
+			,"home":" The Home WorkspacE"
+			,"import":" Restoring from Backup"
+			,"partial": " Selective Import"
+
+		,"arch_zoning":"Distributed Topology" 
+		,"arch_clm":"Centralized Monitoring Topology" 
+		,"arch_indexstores":"Multiple Index Store Topology" 
+
+		,"rawtcpserver": "Tcp Server"
+		,"syslogserer":"Syslog Server"
+		,"centralconfigs":"Centralized Configuration"
+		,"boot_properties":"Boot Properties"
+
+	,"users":"Users"
+		,"datagroups": "Data Groups"
+			,"nested": "Nested Groups"
+	,"ldap":"Active Directory" 
 };
 $(window).load(function(){
- function genLink(arr,idx){
-  if (idx<0) { return "/"; } 
-  var l="/"
-  for(i=0;i<=idx;i++){
-   l=l +  arr[i] + "-" ;
-  }
-  return l.substring(0,l.length-1) + ".html";
- }
- 
- function renderCrumbs(page){
-  console.log("rendering breadcrumbs for page:" + page)
-  if (page.indexOf("-") < 0){
-   return ""
-  }
-  var parts=page.split("-");
-  var idx=0;
-  console.log("rendering  " + parts);
-  var html="<a href='"+genLink(parts,-1)+"'> / Home </a>";
-  for(idx=0;idx<parts.length;idx++){
-   k=parts[idx];
-   html=html + "<a href="+ genLink(parts,idx) + ">";
-   if (breadcrumbs.hasOwnProperty(k)){
-    html=html + " / " + breadcrumbs[k];
-   }else{
-    html=html + " / " + k[0].toUpperCase() + k.substring(1,k.length);
-   }
-   console.log(".");
-  }
-  console.log("this far!!!");
-  return html
- }
- var elems=window.location.href.split('?')[0].split('/');
- var currentPage=elems[elems.length-1].split('.')[0]
- console.log("crumb>" + renderCrumbs(currentPage));	
- $('#widget-bc').html(renderCrumbs(currentPage));
+	function genLink(arr,idx){
+		if (idx<0) { return "/"; } 
+		var l="/"
+		for(i=0;i<=idx;i++){
+			l=l +  arr[i] + "-" ;
+		}
+		return l.substring(0,l.length-1) + ".html";
+	}
+
+	function renderCrumbs(page){
+		console.log("rendering breadcrumbs for page:" + page)
+		if (page.indexOf("-") < 0){
+			return ""
+		}
+		var parts=page.split("-");
+		var idx=0;
+		console.log("rendering  " + parts);
+		var html="<a href='"+genLink(parts,-1)+"'> / Home </a>";
+		for(idx=0;idx<parts.length;idx++){
+			k=parts[idx];
+		
+			html=html + "<a href="+ genLink(parts,idx) + ">";
+			if (breadcrumbs.hasOwnProperty(k)){
+				html=html + " / " + breadcrumbs[k];
+			}else{
+				
+				html=html + " / " + k[0].toUpperCase() + k.substring(1,k.length);
+			}
+			console.log(".");
+		}
+		console.log("this far!!!");
+		return html
+	}
+	
+	var elems=window.location.href.split('?')[0].split('/');
+	var currentPage=elems[elems.length-1].split('.')[0]
+	console.log("crumb>" + renderCrumbs(currentPage));	
+	$('#widget-bc').html(renderCrumbs(currentPage));
 });
 
 </script><script>var blogFeed;
 function parseRSS(url, callback) {
- $.ajax({
-  url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(url),
-  dataType: 'json',
-  success: function(data) {
-   callback(data.responseData.feed);
-  }});
+	$.ajax({
+		url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(url),
+		dataType: 'json',
+		success: function(data) {
+			callback(data.responseData.feed);
+		}});
 }
+
 $(window).load(function() { 
- parseRSS("http://blog.logscape.com/feed",function(feed){
-  var num = feed.entries.length;
-  for(i=0;i< num;i++){
-   var title=feed.entries[i].title;
-   //var link=feed.entries[i].
-   link=feed.entries[i].link;
-   $(".resource-list ul").append("<li><a href='"+link+"'>"+title+"</a> </li>")
-   blogFeed=feed;
-  }
- });
+	parseRSS("http://blog.logscape.com/feed",function(feed){
+		var num = feed.entries.length;
+		for(i=0;i< num;i++){
+			var title=feed.entries[i].title;
+			//var link=feed.entries[i].
+			link=feed.entries[i].link;
+			$(".resource-list ul").append("<li><a href='"+link+"'>"+title+"</a> </li>")
+			blogFeed=feed;
+		}
+	});
 });
 </script><script>$(window).bind("pageshow",function(){
- var $form= $("form")[0];
- $form.reset(); 
+	var $form= $("form")[0];
+	$form.reset(); 
 });
 </script><script>function submit_form(){
- var q=$("#searchBox").val() 
- q=encodeURIComponent(q)
- var query="https://www.google.com/?gws_rd=cr&q=site:logscape.github.io++"+q+"#q=site:logscape.github.io++"+q
- var location = window.location.href;
- console.log("back:" + location);
- history.pushState({},"",location); 
- window.location.replace(query);
-}</script></head><body><div style="width:100%;height:85px;background-color:#333;"><!--diva(href="/") Documentation
-a(href="")  Forums 	| 
-a(href="") Getting Started	|
-a(href="") Logscape  	| 
-
---><div style="padding-left:100px;padding-top:25px"><img src="images/logscape-apps-logo.png" style="height:45px"/><div style="float:right" class="col-md-3"><form id="cse-search-box" action="" style="position:right;padding-top:5px;padding-bottom:5px" onSubmit="submit_form()"><input type="hidden" name="cx" value="partner-pub-2789521296837340:9402765321"/><input type="hidden" name="ie" value="UTF-8"/><input id="searchBox" type="text" name="q" size="31" style="margin-left:15px"/><input id="cseSubmit" type="submit" value=" " class="btn-search"/></form></div></div></div><div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;"><div style="padding-left:140px;padding-top:10px;font-size:14px"><a href="http://apps.logscape.com">Apps |  </a><a href="/cloud.html">Cloud |  </a><!--a(href="http://support.liquidlabs.co.uk") Release 1.3 | --><a href="http://logscape.activeboard.com/">Forums  | </a><a href="gettingstarted.html">Getting Started </a><img style="height:0;width:0" src="http://logscape.com/images/track.png?version=support"/></div></div><!--.container-fluid.navbar(style="min-height:30px;margin-bottom:5px;").row(style="height:5px") 
-.row
- .col-md-8
- .col-md-1--><div class="container-fluid"><!--.row.col-md-7
- form#cse-search-box(action="",style="position:right;padding-top:5px;padding-bottom:5px",onSubmit="submit_form()")
-  a(href="/")
-   img(src="images/logo.png",style="padding-top:0px,padding-right:15px",width="150") 
-  input(type="hidden",name="cx",value="partner-pub-2789521296837340:9402765321")
-  input(type="hidden",name="ie",value="UTF-8")
-  input#searchBox(type="text",name="q",size="31",style="margin-left:15px")
-  input.btn-search#cseSubmit(type="submit",value=" ")
-  &nbsp;&nbsp;
-  a(href="http://apps.logscape.com") Apps |  
-  a(href="http://support.liquidlabs.co.uk") Release 1.3 | 
-  a(href="http://logscape.activeboard.com/") Forums  | 
-  a(href="gettingstarted.html") Getting Started 
-  --><div class="row"><div class="col-md-1"></div><div class="col-md-2"></div><div class="col-md-5"><div id="widget-bc" padding-left:150px="padding-left:150px" class="breadcrumbs style">&nbsp;</div></div></div><div class="row"><div style="width:100px" class="col-md-1"><p></p></div><div class="col-md-2 nav-padding"><ul class="nav nav-tabs nav-stacked"><li><a href="searching.html">Search</a></li><li><a href="workspaces.html">WorkSpaces</a></li><li><a href="ds.html">Data Sources</a></li><li><a href="types.html">Data Types </a></li><li><a href="deploy.html">Deployment</a></li><li><a href="users.html">Users </a></li><li><a href="alerts.html">Alerts 	</a></li><li><a href="technology.html">Technology</a></li><li><a href="https://twitter.com/logscape" data-show-count="false" data-size="large" class="twitter-follow-button">Follow @logscape</a><script>=!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></li></ul><div style="padding-left:50px"><h4>Articles </h4></div><hr/><div class="resource-list"><ul style="list-style:none;padding-left:10px;background-color:#FFFEE7"></ul></div></div><div class="col-md-9 content-area"><div class="container-fluid"><div class="row"><div class="col-md-11"><h3>Extracting Text Patterns</h3><p>	There are two ways of extracting information from a line of log data. You can use a regular expression pattern on normal  data  or use the split function when you come across more structured text data like csv files. The split function and regex pattern can be used on the search  or data types page. Each group that is extracted is numbered and can be assigned to a field name  when used on the Data types page or be used as a search term as part of a search expression. </p><h3>The Search Page </h3><p>Here are a few example searches of patterns being used on the search page </p><strong>Example 1 -  Search with a regex pattern </strong><p>Each group defined in the regex pattern is labelled with a number. <blockquote>cpu=(\d+)%   |  1.max() chart(line) </blockquote></p><p>The number representing the group can then be used as a search term. In this example the cpu percentage  is extracted and plotted as a line chart. <pre>2014-03-11 11:23:00 HPCSVR0001 Server Health Metrics cpu=34% mem=26% diskUtilization=0.1% 
+	var q=$("#searchBox").val() 
+	q=encodeURIComponent(q)
+	var query="https://www.google.com/?gws_rd=cr&q=site:logscape.github.io++"+q+"#q=site:logscape.github.io++"+q
+	var location = window.location.href;
+	console.log("back:" + location);
+	history.pushState({},"",location); 
+	window.location.replace(query);
+}
+</script></head><body><img style="height:0;width:0" src="http://logscape.com/images/track.png?version=support"/><div style="min-height:30px;margin-bottom:5px;" class="container-fluid navbar"><div style="height:5px" class="row"> </div><div class="row navbar-inner"><div style="width:10px" class="col-md-1"> </div><div class="col-md-11"><form id="cse-search-box" action="" style="position:right;padding-top:5px;padding-bottom:5px" onSubmit="submit_form()"><a href="/"><img src="images/logo.png" style="padding-top:0px,padding-right:15px" width="150"/></a><input type="hidden" name="cx" value="partner-pub-2789521296837340:9402765321"/><input type="hidden" name="ie" value="UTF-8"/><input id="searchBox" type="text" name="q" size="31" style="margin-left:15px"/><input id="cseSubmit" type="submit" value=" " class="btn-search"/>&nbsp;&nbsp;<a href="http://apps.logscape.com">Apps |  </a><a href="http://support.liquidlabs.co.uk">Release 1.3 | </a><a href="http://logscape.activeboard.com/">Forums  | </a><a href="gettingstarted.html">Getting Started </a></form></div></div></div><div class="container-fluid"><div class="row"><div class="col-md-2"></div><div class="col-md-5"><div id="widget-bc" padding-left:150px="padding-left:150px" class="breadcrumbs style">&nbsp;</div></div></div><div class="row"><div style="width:10px" class="col-md-1"><p></p></div><div class="col-md-2 nav-padding"><ul class="nav nav-tabs nav-stacked"> <li><a href="searching.html">Search</a></li><li> <a href="workspaces.html">WorkSpaces</a></li><li> <a href="ds.html">Data Sources</a></li><li> <a href="types.html">Data Types </a></li><li><a href="deploy.html">Deployment</a></li><li><a href="users.html">Users </a></li><li> <a href="alerts.html">Alerts 	</a></li><li><a href="technology.html">Technology</a></li><li><a href="https://twitter.com/logscape" data-show-count="false" data-size="large" class="twitter-follow-button">Follow @logscape</a><script>=!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></li></ul><div class="resource-list"><ul style="list-style:none;padding-left:0px"> <h4>Blog Feed</h4></ul></div></div><div class="col-md-9 content-area"> <div class="container-fluid"><div class="row"><div class="col-md-11"><h3>Extracting Text Patterns</h3><p>There are two ways of extracting information from a line of log data. You can use a regular expression pattern on normal  data  or use the split function when you come across more structured text data like csv files. The split function and regex pattern can be used on the search  or data types page. Each group that is extracted is numbered and can be assigned to a field name  when used on the Data types page or be used as a search term as part of a search expression. </p><blockquote>A useful tool for generating REGEX strings is <a href="https://www.debuggex.com">DEBUGGEX</a></blockquote><h3>The Search Page </h3><p>Here are a few example searches of patterns being used on the search page </p><strong>Example 1 -  Search with a regex pattern </strong><p>Each group defined in the regex pattern is labelled with a number. <blockquote>cpu=(\d+)%   |  1.max() chart(line) </blockquote></p><p>Here is an example of how regular expression breaks <a href="https://www.debuggex.com/r/f95nVvuJunVZc4xw">the data down.</a></p><p>The number representing the group can then be used as a search term. In this example the cpu percentage  is extracted and plotted as a line chart. <pre> 
+2014-03-11 11:23:00 HPCSVR0001 Server Health Metrics cpu=34% mem=26% diskUtilization=0.1% 
 2014-03-11 11:23:10 HPCSVR0001 Adding Node 0001 to cluster BigDataNode 
 2014-03-11 11:23:12 HPCSVR0001 Adding Node 0002 to cluster BigDataNode 
-2014-03-11 11:23:17 HPCSVR0001 Adding Node 0003 to cluster BigDataNode </pre></p><strong>Example 2 - Search with the split function </strong><p>The split function is handy when working with delimited or CSV data. Often it is the simpler option when it comes to more structured text.<blockquote>split(\|,7)  | 7.avg(3,cpuMS) chart(stacked) </blockquote></p><p>Each column is mapped or labelled with a number and can be used as a search term. Column 7 represents the cpu time of a task and column 3 is the node Id.   The resulting chart plots the average cpu time of each nodeId. <pre>#datetime|server|nodeId|taskname|startTime|endTime|avgCpuTImeMs
+2014-03-11 11:23:17 HPCSVR0001 Adding Node 0003 to cluster BigDataNode </pre></p><strong>Example 2 - Search with the split function </strong><p>The split function is handy when working with delimited or CSV data. Often it is the simpler option when it comes to more structured text.<blockquote>split(\|,7)  | 7.avg(3,cpuMS) chart(stacked) </blockquote></p><p>Each column is mapped or labelled with a number and can be used as a search term. Column 7 represents the cpu time of a task and column 3 is the node Id.   The resulting chart plots the average cpu time of each nodeId. <pre> 
+#datetime|server|nodeId|taskname|startTime|endTime|avgCpuTImeMs
 2014-03-11 11:23:00|HPCSVR0001|00abc0343da|riskcalc001|2014-03-11 11:20:00||300
 2014-03-11 11:23:10|HPCSVR0001|007dfa333a2|riskcacl002|2014-03-11 11:20:00||370
 2014-03-11 11:23:12|HPCSVR0001|001aaabe453|IRriskCalc002|2014-03-11 11:20:00||450
 2014-03-11 11:23:17|HPCSVR0001|0022abefeaa|IRriskCal002|2014-03-11 11:20:00||600</pre></p><h3>The Datatypes Page</h3><p>Any data extracted from a log line can be assigned to a field name in a datatype. A type at its simplest is a collection of named field extractions. 
-A regex pattern or the split function can be used on this page. Here are few data type mappings using a pattern or a split expression. </p><strong>Example 1 - Datatype for a log4j style log </strong><p>Each matched group is mapped sequentially to the field names defined in the data type. The example uses the perl regex syntax. The ^ symbol is optional.<blockquote><strong> Pattern:   </strong>^(2*)\s+(INFO|DEBUG|WARN|ERROR|FATAL)\s+(*)\s+(*)\s+(**)            </blockquote></p><p>Each <div class="image"><img src="images/types-tutorial-log4j.png"/></div></p><strong>Example 2 - Split function</strong><p>The split function works on csv data. This example splits the text 7 times with the delimiter '|' and then maps the values sequentially to a field name<blockquote>split(\|,7)</blockquote></p><p>The first column is mapped to the datetime field, the second to the server name, the third to the nodeId field and so on. <div class="image"><img src="images/types-patterns-datatype-split-example.png"/></div></p><h3>Regex Shortcuts </h3><p>Logscape provides a few regex shortcuts to make them easier to read when used on the search or data type page. Here is a summary of the shortcuts and what they translate to. <ul><li>	(*) - (\S+) matches a block of text </li><li>	(d) - Matches a numerical expression. This expression will capture numbers with decimal points in them too. </li><li>	(**) - Matches the remaining text on a line. It translates to (.*)</li><li>	(*,) - Matches all the characters until it reaches the ',' character </li></ul></p></div></div></div></div></div><!--hr.dark 
+A regex pattern or the split function can be used on this page. Here are few data type mappings using a pattern or a split expression. </p><strong>Example 1 - Datatype for a log4j style log </strong><p>Each matched group is mapped sequentially to the field names defined in the data type. The example uses the perl regex syntax. The ^ symbol is optional.<blockquote> <strong> Pattern:   </strong>^(2*)\s+(INFO|DEBUG|WARN|ERROR|FATAL)\s+(*)\s+(*)\s+(**)            </blockquote></p><p>Each <div class="image"> <img src="images/types-tutorial-log4j.png"/></div></p><strong>Example 2 - Split function</strong><p>The split function works on csv data. This example splits the text 7 times with the delimiter '|' and then maps the values sequentially to a field name<blockquote>split(\|,7)</blockquote></p><p>The first column is mapped to the datetime field, the second to the server name, the third to the nodeId field and so on. <div class="image"><img src="images/types-patterns-datatype-split-example.png"/></div></p><h3>Regex Shortcuts </h3><p>Logscape provides a few regex shortcuts to make them easier to read when used on the search or data type page. Here is a summary of the shortcuts and what they translate to. <ul><li>	(*) - (\S+) matches a block of text </li><li>	(d) - Matches a numerical expression. This expression will capture numbers with decimal points in them too. </li><li>	(**) - Matches the remaining text on a line. It translates to (.*)</li><li>	(*,) - Matches all the characters until it reaches the ',' character </li></ul></p></div></div></div></div></div><!--hr.dark 
 .col-md-3
-Logscape Copyright 2014(c) Registered Trademark --></div><script>$( document ).ready(function() {
+Logscape Copyright 2014(c) Registered Trademark 
+--></div><script>$( document ).ready(function() {
 
- $("#cseSubmit").on("click",function(e){
-  e.preventDefault();
-  submit_form(); 
- });
- $("#searchBox").on("keypress",function(e){ 
-  if (e.keyCode == 13) { 
-   e.preventDefault();
-   submit_form() 
-  }
- }); 
+	$("#cseSubmit").on("click",function(e){
+		e.preventDefault();
+		submit_form(); 
+	});
+	$("#searchBox").on("keypress",function(e){ 
+		if (e.keyCode == 13) { 
+			e.preventDefault();
+			submit_form() 
+		}
+	}); 
 });
 </script><script>(function(g,i,a,n,t,s){g['SeeYourVisitors']=n;g[n]=g[n]||function(){
 (g[n].q=g[n].q||[]).push(arguments)},g[n].l=1*new Date();t=i.createElement(a),
 s=i.getElementsByTagName(a)[0];t.async=1;t.src='//seeyourvisitors2.appspot.com/gg.js';
 s.parentNode.insertBefore(t,s)})(window,document,'script','gg');
 gg('create', 'd1a8b082-8806-4793-936f-35f5e41b3592');
-gg('track');</script><script src="js/ga.js"></script></body></html>
+gg('track');</script><script src="js/ga.js"> </script></body></html>
