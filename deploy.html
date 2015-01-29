@@ -1,188 +1,406 @@
-<!DOCTYPE html ><html lang="en"><head><title>	Logscape 2.0 </title><script src="js/kiss.js"></script><link href="css/bootstrap.min.css" rel="stylesheet"/><link href="css/style.css" rel="stylesheet"/><link href="css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet"/><link href="css/style-app.css" rel="stylesheet"/><link href="css/app.css" rel="stylesheet"/><link href="//vjs.zencdn.net/4.9/video-js.css" rel="stylesheet"/><script src="//vjs.zencdn.net/4.9/video.js"></script><script src="js/jquery-1.11.0.js"></script><script src="js/bootstrap.min.js"></script><script>var breadcrumbs={
- "gettingstarted":"Getting Started" 
- ,"searching":"Search"
-  ,"kv":"Data Discovery"
-  ,"offsets":"Using Offsets"
-  ,"geoip":"Geo IP"
-  ,"pattern":"Using Search Patterns"
-  ,"video":"tutorials"
-  ,"overlays":"Overlaying Searches" 
- ,"starthere":""
- 
- ,"ds":"Data Sources"
-  ,"add":" Add a New Data Source" 
-  ,"multitags":" Using Multi-Tags"
-  ,"syslog":" Connect Syslog Clients" 
-  ,"tags": " Sources and Tags" 
-  ,"intelligent_field_discovery":" Intelligent Field Discovery" 
- ,"types":"Data Types"
-  ,"system_fields":"System Fields" 
- ,"deploy":"Deployment" 
-  ,"app":" Logscape Apps"
-  ,"agents": "Agents "
-  ,"architectures_default": " Default Deployment"
-  ,"architectures_failover": "Failover" 
-  ,"architectures_indexstores": " Index Stores" 
-  ,"architectures_tenured":"Tenured Data"
-  ,"architectures_zones":" Zones" 
-  ,"Backup": "Backup" 
-   ,"home":" The Home WorkspacE"
-   ,"import":" Restoring from Backup"
-   ,"partial": " Selective Import"
-   
-  ,"arch_zoning":"Distributed Topology" 
-  ,"arch_clm":"Centralized Monitoring Topology" 
-  ,"arch_indexstores":"Multiple Index Store Topology" 
-  
-  ,"rawtcpserver": "Tcp Server"
-  ,"syslogserer":"Syslog Server"
-  ,"centralconfigs":"Centralized Configuration"
-  ,"boot_properties":"Boot Properties"
-  
- ,"users":"Users"
-  ,"datagroups": "Data Groups"
-   ,"nested": "Nested Groups"
- ,"ldap":"Active Directory" 
-};
-$(window).load(function(){
- function genLink(arr,idx){
-  if (idx<0) { return "/"; } 
-  var l="/"
-  for(i=0;i<=idx;i++){
-   l=l +  arr[i] + "-" ;
-  }
-  return l.substring(0,l.length-1) + ".html";
- }
- 
- function renderCrumbs(page){
-  console.log("rendering breadcrumbs for page:" + page)
-  if (page.indexOf("-") < 0){
-   return ""
-  }
-  var parts=page.split("-");
-  var idx=0;
-  console.log("rendering  " + parts);
-  var html="<a href='"+genLink(parts,-1)+"'> / Home </a>";
-  for(idx=0;idx<parts.length;idx++){
-   k=parts[idx];
-   html=html + "<a href="+ genLink(parts,idx) + ">";
-   if (breadcrumbs.hasOwnProperty(k)){
-    html=html + " / " + breadcrumbs[k];
-   }else{
-    html=html + " / " + k[0].toUpperCase() + k.substring(1,k.length);
-   }
-   console.log(".");
-  }
-  console.log("this far!!!");
-  return html
- }
- var elems=window.location.href.split('?')[0].split('/');
- var currentPage=elems[elems.length-1].split('.')[0]
- console.log("crumb>" + renderCrumbs(currentPage));	
- $('#widget-bc').html(renderCrumbs(currentPage));
-});
-
-</script><script>var blogFeed;
-function parseRSS(url, callback) {
- $.ajax({
-  url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(url),
-  dataType: 'json',
-  success: function(data) {
-   callback(data.responseData.feed);
-  }});
-}
-$(window).load(function() { 
- parseRSS("http://blog.logscape.com/feed",function(feed){
-  var num = feed.entries.length;
-  for(i=0;i< num;i++){
-   var title=feed.entries[i].title;
-   //var link=feed.entries[i].
-   link=feed.entries[i].link;
-   $(".resource-list ul").append("<li><a href='"+link+"'>"+title+"</a> </li>")
-   blogFeed=feed;
-  }
- });
-});
-</script><script>$(window).bind("pageshow",function(){
- var $form= $("form")[0];
- $form.reset(); 
-});
-</script><script>function submit_form(){
- var q=$("#searchBox").val() 
- q=encodeURIComponent(q)
- var query="https://www.google.com/?gws_rd=cr&q=site:logscape.github.io++"+q+"#q=site:logscape.github.io++"+q
- var location = window.location.href;
- console.log("back:" + location);
- history.pushState({},"",location); 
- window.location.replace(query);
-}</script></head><body><div style="width:100%;height:85px;background-color:#333;"><!--diva(href="/") Documentation
-a(href="")  Forums 	| 
-a(href="") Getting Started	|
-a(href="") Logscape  	| 
-
---><div style="padding-left:100px;padding-top:25px"><img src="images/logscape-apps-logo.png" style="height:45px"/><div style="float:right" class="col-md-3"><form id="cse-search-box" action="" style="position:right;padding-top:5px;padding-bottom:5px" onSubmit="submit_form()"><input type="hidden" name="cx" value="partner-pub-2789521296837340:9402765321"/><input type="hidden" name="ie" value="UTF-8"/><input id="searchBox" type="text" name="q" size="31" style="margin-left:15px"/><input id="cseSubmit" type="submit" value=" " class="btn-search"/></form></div></div></div><div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;"><div style="padding-left:140px;padding-top:10px;font-size:14px"><a href="http://apps.logscape.com">Apps |  </a><!--a(href="http://support.liquidlabs.co.uk") Release 1.3 | --><a href="http://logscape.activeboard.com/">Forums  | </a><a href="gettingstarted.html">Getting Started </a><img style="height:0;width:0" src="http://logscape.com/images/track.png?version=support"/></div></div><!--.container-fluid.navbar(style="min-height:30px;margin-bottom:5px;").row(style="height:5px") 
-.row
- .col-md-8
- .col-md-1--><div class="container-fluid"><!--.row.col-md-7
- form#cse-search-box(action="",style="position:right;padding-top:5px;padding-bottom:5px",onSubmit="submit_form()")
-  a(href="/")
-   img(src="images/logo.png",style="padding-top:0px,padding-right:15px",width="150") 
-  input(type="hidden",name="cx",value="partner-pub-2789521296837340:9402765321")
-  input(type="hidden",name="ie",value="UTF-8")
-  input#searchBox(type="text",name="q",size="31",style="margin-left:15px")
-  input.btn-search#cseSubmit(type="submit",value=" ")
-  &nbsp;&nbsp;
-  a(href="http://apps.logscape.com") Apps |  
-  a(href="http://support.liquidlabs.co.uk") Release 1.3 | 
-  a(href="http://logscape.activeboard.com/") Forums  | 
-  a(href="gettingstarted.html") Getting Started 
-  --><div class="row"><div class="col-md-1"></div><div class="col-md-2"></div><div class="col-md-5"><div id="widget-bc" padding-left:150px="padding-left:150px" class="breadcrumbs style">&nbsp;</div></div></div><div class="row"><div style="width:100px" class="col-md-1"><p></p></div><div class="col-md-2 nav-padding"><ul class="nav nav-tabs nav-stacked"><li><a href="searching.html">Search</a></li><li><a href="workspaces.html">WorkSpaces</a></li><li><a href="ds.html">Data Sources</a></li><li><a href="types.html">Data Types </a></li><li><a href="deploy.html">Deployment</a></li><li><a href="users.html">Users </a></li><li><a href="alerts.html">Alerts 	</a></li><li><a href="technology.html">Technology</a></li><li><a href="https://twitter.com/logscape" data-show-count="false" data-size="large" class="twitter-follow-button">Follow @logscape</a><script>=!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></li></ul><div style="padding-left:50px"><h4>Articles </h4></div><hr/><div class="resource-list"><ul style="list-style:none;padding-left:10px;background-color:#FFFEE7"></ul></div></div><div class="col-md-9 content-area"><div class="container-fluid"><div class="row"><div class="col-md-11"><h3>Deploying Logscape </h3><p>To view the components of your Logscape Deployment go to Agents in the Configuration section of Logscape. 
-To view the components of your Logscape Deployment go to Agents in the Configuration section of Logscape. </p><a href="deploy-agents.html">Learn More </a><div class="side-box"><h4>Deployment Scenarios </h4><a href="deploy-arch_failover.html">High Availability Mode</a><br/><a href="deploy-arch_clm.html">Centralized Log Management</a><br/><a href="deploy-arch_indexstores.html">Scale with  Index Stores </a><br/><a href="deploy-arch_zoning.html">Distributed Topology (Zoning) </a><br/><a href="deploy-zones.html">Zones </a><h5>Quick Links </h5><a href="apps-intro.html">Logscape Apps </a><br/><a href="deploy-update_partial.html">Incremental Update </a><br/><a href="deploy-update.html">Full Logscape Update</a><br/><a href="deploy-update_app.html">Update an App</a></div><div class="image"><center><img src="images/deploy-intro.png"/></center></div></div><div class="col-md-2 panel-info"></div><!--h3 Admin Tasks 
-h4 Update Logscape 
-p Logscape updates can be applied through the deployment page. 
-a(href="deploy-updating.html") Learn More.
-
-h4 Deploy an App 
-p Logscape Apps provide integration with custom application APIs and collect import monitoring metrics. 
-a(href="deploy-app.html") Learn More. 
-
-h4 Backup 
-p Logscape Apps provide integration with custom application APIs and collect import monitoring metrics. 
-a(href="deploy-app.html") Learn More. 
---></div><div class="row">	<div class="col-md-9 panel-info"><h3>Logscape Components</h3><hr class="dark"/></div></div><div class="row"><div class="col-md-10"><div class="row"><div class="col-md-4 panel-info"><h4>Manager </h4><p>The Manager is the main component of Logscape. This component provides the web dashboard and orchestrates the services running on Forwarders and Indexers. </p><a href="deploy-manager.html">How to Install </a></div><div class="col-md-4 panel-info"><h4>Index Store </h4><p>The Index Store accepts data from Forwarders provides the data for indexing and searching services for the data retrieved from these hosts. Multiple Index Stores can be used in Logscape deployment. </p><a href="deploy-indexstore.html">How to Install </a></div><div class="col-md-4 panel-info"><h4>Forwarder </h4><p>A Forwarder is a lightweight Logscape copes whose sole responsibility is to ship data on its host to an Index Store or the Manager. </p><a href="deploy-forwarder.html">How to Install </a></div></div><div class="row"><div class="col-md-4 panel-info"><h4>Failover </h4><p>The Failover continues provide users with services if users fail to connect to the Manager. </p><a href="deploy-failover.html">How to Install</a></div><div class="col-md-4 panel-info"><h4>Indexer </h4><p>An Indexer provides indexing and search capabilities to the data on its host. </p><a href="deploy-indexer.html">How to Install </a></div><div class="col-md-4"><div class="relatedlinks"><div style="background-color:#CCC;padding-top:5px;margin-bottom:10px;" class="text-center panel-gray"></div><div><h4>Sub Components </h4></div><a href="ds-syslog.html">Syslog Server </a><br/><a href="deploy-rawtcpserver.html">Raw Tcp Server </a><br/><a href="deploy-dashboard.html">Dashboard </a></div><!--hr.dark 
-a(href="deploy-zones.html") Zones 
---></div></div></div><div class="col-md-1"></div><!--h3 Software Components 
-ul
- li boot.properties
- li Agent boot config 
- li Adding the Failover 
- li Home Config  File 
- li Resource Utilization --></div><div class="row"><div class="col-md-10"><div class="row"><div class="col-md-4 panel-info"><h3>Boot Properties </h3><hr class="dark"/><p>Each Logscape component can be configured through the boot.properties. </p><a href="deploy-boot_properties.html">Learn More </a></div><div class="col-md-4 panel-info"><h3>Centralized Configuration</h3><hr class="dark"/><p>The Agents boot settings can be managed centrally depending on their role </p><a href="deploy-centralconfigs.html">Learn More </a><p>The Logscape configuration can be exported and restored to facilitate migrations to new hardware or environments. There are many ways of managing a Logscape Configuration.</p><p>Here are a few helpful links</p><ul><li><a href="deploy-backup.html">Export Configuration </a></li><li><a href="deploy-config-modular.html">Modular Configurations </a></li></ul></div><div class="col-md-4"><h3>Securing Endpoints </h3><hr class="dark"/><p>Logscape uses standards wherever possible when securing endpoints, ensuring that that client is talking to the right Manager and the manager has verified that it is talking to a legitimate client. </p><a href="deploy-security.html">Learn More. </a><br/><strong style="color:#333">Quick Links  </strong><ul><li><a href="deploy-security.html#hostfilter">Explicit Host Lists </a></li><li>	<a href="deploy-security.html#authtokens">Auth Tokens </a></li><li><a href="deploy-security-keystores.html">Keystore Cheatsheet </a></li></ul></div></div></div></div></div><row><div class="col-md-11"></div><br/><br/><br/><div id="disqus_thread"><script>/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
-/* * * DON'T EDIT BELOW THIS LINE * * */
-(function() {
- var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
- dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
- (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script></div></row></div></div><!--hr.dark 
-.col-md-3
-Logscape Copyright 2014(c) Registered Trademark --></div><script>$( document ).ready(function() {
-
- $("#cseSubmit").on("click",function(e){
-  e.preventDefault();
-  submit_form(); 
- });
- $("#searchBox").on("keypress",function(e){ 
-  if (e.keyCode == 13) { 
-   e.preventDefault();
-   submit_form() 
-  }
- }); 
-});
-</script><script>(function(g,i,a,n,t,s){g['SeeYourVisitors']=n;g[n]=g[n]||function(){
-(g[n].q=g[n].q||[]).push(arguments)},g[n].l=1*new Date();t=i.createElement(a),
-s=i.getElementsByTagName(a)[0];t.async=1;t.src='//seeyourvisitors2.appspot.com/gg.js';
-s.parentNode.insertBefore(t,s)})(window,document,'script','gg');
-gg('create', 'd1a8b082-8806-4793-936f-35f5e41b3592');
-gg('track');</script><script src="js/ga.js"></script></body></html>
+<!DOCTYPE html >
+<html lang="en">
+  <head>
+    <title>	Logscape 2.0 </title>
+    <script src="js/kiss.js"> </script>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="css/style-app.css" rel="stylesheet"/>
+    <link href="css/app.css" rel="stylesheet"/>
+    <link href="//vjs.zencdn.net/4.9/video-js.css" rel="stylesheet"/>
+    <script src="//vjs.zencdn.net/4.9/video.js"></script>
+    <script src="js/jquery-1.11.0.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+      var breadcrumbs={
+      	"gettingstarted":"Getting Started" 
+      	,"searching":"Search"
+      		,"kv":"Data Discovery"
+      		,"offsets":"Using Offsets"
+      		,"geoip":"Geo IP"
+      		,"pattern":"Using Search Patterns"
+      		,"video":"tutorials"
+      		,"overlays":"Overlaying Searches" 
+      	,"starthere":""
+      
+      	,"ds":"Data Sources"
+      		,"add":" Add a New Data Source" 
+      		,"multitags":" Using Multi-Tags"
+      		,"syslog":" Connect Syslog Clients" 
+      		,"tags": " Sources and Tags" 
+      		,"intelligent_field_discovery":" Intelligent Field Discovery" 
+      	,"types":"Data Types"
+      		,"system_fields":"System Fields" 
+      	,"deploy":"Deployment" 
+      		,"app":" Logscape Apps"
+      		,"agents": "Agents "
+      		,"architectures_default": " Default Deployment"
+      		,"architectures_failover": "Failover" 
+      		,"architectures_indexstores": " Index Stores" 
+      		,"architectures_tenured":"Tenured Data"
+      		,"architectures_zones":" Zones" 
+      		,"Backup": "Backup" 
+      			,"home":" The Home Workspace"
+      			,"import":" Restoring from Backup"
+      			,"partial": " Selective Import"
+      
+      		,"arch_zoning":"Distributed Topology" 
+      		,"arch_clm":"Centralized Monitoring Topology" 
+      		,"arch_indexstores":"Multiple Index Store Topology" 
+      
+      		,"rawtcpserver": "Tcp Server"
+      		,"syslogserer":"Syslog Server"
+      		,"centralconfigs":"Centralized Configuration"
+      		,"boot_properties":"Boot Properties"
+      
+      	,"users":"Users"
+      		,"datagroups": "Data Groups"
+      			,"nested": "Nested Groups"
+      		,"faq":"Frequently Asked Questions" 
+      	,"ldap":"Active Directory" 
+      };
+      $(window).load(function(){
+      	function genLink(arr,idx){
+      		if (idx<0) { return "/"; } 
+      		var l="/"
+      		for(i=0;i<=idx;i++){
+      			l=l +  arr[i] + "-" ;
+      		}
+      		return l.substring(0,l.length-1) + ".html";
+      	}
+      
+      	function renderCrumbs(page){
+      		console.log("rendering breadcrumbs for page:" + page)
+      		if (page.indexOf("-") < 0){
+      			return ""
+      		}
+      		var parts=page.split("-");
+      		var idx=0;
+      		console.log("rendering  " + parts);
+      		var html="<a href='"+genLink(parts,-1)+"'> / Home </a>";
+      		for(idx=0;idx<parts.length;idx++){
+      			k=parts[idx];
+      		
+      			html=html + "<a href="+ genLink(parts,idx) + ">";
+      			if (breadcrumbs.hasOwnProperty(k)){
+      				html=html + " / " + breadcrumbs[k];
+      			}else{
+      				
+      				html=html + " / " + k[0].toUpperCase() + k.substring(1,k.length);
+      			}
+      			console.log(".");
+      		}
+      		console.log("this far!!!");
+      		return html
+      	}
+      	
+      	var elems=window.location.href.split('?')[0].split('/');
+      	var currentPage=elems[elems.length-1].split('.')[0]
+      	console.log("crumb>" + renderCrumbs(currentPage));	
+      	$('#widget-bc').html(renderCrumbs(currentPage));
+      });
+      
+      
+    </script>
+    <script>
+      var blogFeed;
+      function parseRSS(url, callback) {
+      	$.ajax({
+      		url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(url),
+      		dataType: 'json',
+      		success: function(data) {
+      			callback(data.responseData.feed);
+      		}});
+      }
+      
+      $(window).load(function() { 
+      	parseRSS("http://blog.logscape.com/feed",function(feed){
+      		var num = feed.entries.length;
+      		for(i=0;i< num;i++){
+      			var title=feed.entries[i].title;
+      			//var link=feed.entries[i].
+      			link=feed.entries[i].link;
+      			$(".resource-list ul").append("<li><a href='"+link+"'>"+title+"</a> </li>")
+      			blogFeed=feed;
+      		}
+      	});
+      });
+      
+    </script>
+    <script>
+      $(window).bind("pageshow",function(){
+      	var $form= $("form")[0];
+      	$form.reset(); 
+      });
+      
+    </script>
+    <script>
+      function submit_form(){
+      	var q=$("#searchBox").val() 
+      	q=encodeURIComponent(q)
+      	var query="https://www.google.com/?gws_rd=cr&q=site:logscape.github.io+#q=site:logscape.github.io+"+q
+      	var location = window.location.href;
+      	console.log("back:" + location);
+      	history.pushState({},"",location); 
+      	window.location.replace(query);
+      }
+      
+    </script>
+  </head>
+  <body>
+    <div style="width:100%;height:85px;background-color:#333;">
+      <!--div
+      a(href="/") Documentation
+      a(href="")  Forums 	| 
+      a(href="") Getting Started	|
+      a(href="") Logscape  	| 
+      
+      
+      -->
+      <div style="padding-left:100px;padding-top:25px"><img src="images/logscape-apps-logo.png" style="height:45px"/>
+        <div style="float:right" class="col-md-3">
+          <form id="cse-search-box" action="" style="position:right;padding-top:5px;padding-bottom:5px" onSubmit="submit_form()">
+            <input type="hidden" name="cx" value="015161349156186070243:ktxh8djpql8"/>
+            <input type="hidden" name="ie" value="UTF-8"/>
+            <input id="searchBox" type="text" name="q" size="31" style="margin-left:15px"/>
+            <input id="cseSubmit" type="submit" value=" " class="btn-search"/>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;">
+      <div style="padding-left:140px;padding-top:10px;font-size:14px"><a href="http://apps.logscape.com">Apps |  </a><a href="/cloud.html">Cloud |  </a>
+        <!--a(href="http://support.liquidlabs.co.uk") Release 1.3 | --><a href="http://logscape.activeboard.com/">Forums  | </a><a href="gettingstarted.html">Getting Started </a><img style="height:0;width:0" src="http://logscape.com/images/track.png?version=support"/>
+      </div>
+    </div>
+    <!--.container-fluid.navbar(style="min-height:30px;margin-bottom:5px;")
+    .row(style="height:5px") 
+    .row
+    	.col-md-8
+    	.col-md-1
+    -->
+    <div class="container-fluid">
+      <!--.row
+      .col-md-7
+      	form#cse-search-box(action="",style="position:right;padding-top:5px;padding-bottom:5px",onSubmit="submit_form()")
+      		a(href="/")
+      			img(src="images/logo.png",style="padding-top:0px,padding-right:15px",width="150") 
+      		input(type="hidden",name="cx",value="partner-pub-2789521296837340:9402765321")
+      		input(type="hidden",name="ie",value="UTF-8")
+      		input#searchBox(type="text",name="q",size="31",style="margin-left:15px")
+      		input.btn-search#cseSubmit(type="submit",value=" ")
+      		&nbsp;&nbsp;
+      		a(href="http://apps.logscape.com") Apps |  
+      		a(href="http://support.liquidlabs.co.uk") Release 1.3 | 
+      		a(href="http://logscape.activeboard.com/") Forums  | 
+      		a(href="gettingstarted.html") Getting Started 
+      
+      -->
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-5">
+          <div id="widget-bc" padding-left:150px="padding-left:150px" class="breadcrumbs style">&nbsp;</div>
+        </div>
+      </div>
+      <div class="row">
+        <div style="width:100px" class="col-md-1">
+          <p></p>
+        </div>
+        <div class="col-md-2 nav-padding">
+          <ul class="nav nav-tabs nav-stacked"> 
+            <li><a href="searching.html">Search</a></li>
+            <li> <a href="workspaces.html">WorkSpaces</a></li>
+            <li> <a href="ds.html">Data Sources</a></li>
+            <li> <a href="types.html">Data Types </a></li>
+            <li><a href="deploy.html">Deployment</a></li>
+            <li><a href="users.html">Users </a></li>
+            <li> <a href="alerts.html">Alerts 	</a></li>
+            <li><a href="technology.html">Technology</a></li>
+            <li><a href="https://twitter.com/logscape" data-show-count="false" data-size="large" class="twitter-follow-button">Follow @logscape</a>
+              <script>=!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            </li>
+          </ul>
+          <div style="padding-left:50px"> 
+            <h4>Articles </h4>
+          </div>
+          <hr/>
+          <div class="resource-list">
+            <ul style="list-style:none;padding-left:10px;background-color:#FFFEE7"> </ul>
+          </div>
+        </div>
+        <div class="col-md-9 content-area"> 
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-11">
+                <h3>Deploying Logscape </h3>
+                <p>To view the components of your Logscape Deployment go to Agents in the Configuration section of Logscape.  </p><a href="deploy-agents.html">Learn More </a>
+                <div class="side-box"> 
+                  <h4>Deployment Scenarios </h4><a href="deploy-arch_clm.html">Centralized Log Management</a><br/><a href="deploy-arch_indexstores.html">Scale with  Index Stores </a><br/><a href="deploy-arch_zoning.html">Distributed Topology (Zoning) </a>
+                  <h5>Quick Links </h5><a href="apps-intro.html">Logscape Apps </a><br/><a href="deploy-update.html">Update Logscape </a><br/><a href="deploy-zones.html">Zones </a>
+                </div>
+                <div class="image">
+                  <center><img src="images/deploy-intro.png"/></center>
+                </div>
+              </div>
+              <div class="col-md-2 panel-info"></div>
+              <!--
+              h3 Admin Tasks 
+              h4 Update Logscape 
+              p Logscape updates can be applied through the deployment page. 
+              a(href="deploy-updating.html") Learn More.
+              
+              h4 Deploy an App 
+              p Logscape Apps provide integration with custom application APIs and collect import monitoring metrics. 
+              a(href="deploy-app.html") Learn More. 
+              
+              h4 Backup 
+              p Logscape Apps provide integration with custom application APIs and collect import monitoring metrics. 
+              a(href="deploy-app.html") Learn More. 
+              
+              
+              -->
+            </div>
+            <div class="row">	
+              <div class="col-md-9 panel-info">
+                <h3>Logscape Components</h3>
+                <hr class="dark"/>
+              </div>
+            </div>
+            <div class="row"> 
+              <div class="col-md-10">
+                <div class="row">
+                  <div class="col-md-4 panel-info">
+                    <h4>Manager </h4>
+                    <p>The Manager is the main component of Logscape. This component provides the web dashboard and orchestrates the services running on Forwarders and Indexers. </p><a href="deploy-manager.html">How to Install </a>
+                  </div>
+                  <div class="col-md-4 panel-info"> 
+                    <h4>Index Store </h4>
+                    <p>The Index Store accepts data from Forwarders provides the data for indexing and searching services for the data retrieved from these hosts. Multiple Index Stores can be used in Logscape deployment. </p><a href="deploy-indexstore.html">How to Install </a>
+                  </div>
+                  <div class="col-md-4 panel-info"> 
+                    <h4>Forwarder </h4>
+                    <p>A Forwarder is a lightweight Logscape copes whose sole responsibility is to ship data on its host to an Index Store or the Manager. </p><a href="deploy-forwarder.html">How to Install </a>
+                  </div>
+                </div>
+                <div class="row"> 
+                  <div class="col-md-4 panel-info"> 
+                    <h4>Failover </h4>
+                    <p>The Failover continues provide users with services if users fail to connect to the Manager. </p><a href="deploy-failover.html">How to Install</a>
+                  </div>
+                  <div class="col-md-4 panel-info"> 
+                    <h4>Indexer </h4>
+                    <p>An Indexer provides indexing and search capabilities to the data on its host. </p><a href="deploy-indexer.html">How to Install </a>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="relatedlinks">
+                      <div style="background-color:#CCC;padding-top:5px;margin-bottom:10px;" class="text-center panel-gray"></div>
+                      <div> 
+                        <h4>Sub Components </h4>
+                      </div><a href="ds-syslog.html">Syslog Server </a><br/><a href="deploy-rawtcpserver.html">Raw Tcp Server </a><br/><a href="deploy-dashboard.html">Dashboard </a>
+                    </div>
+                    <!--
+                    hr.dark 
+                    a(href="deploy-zones.html") Zones 
+                    
+                    
+                    -->
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1"> </div>
+              <!--
+              h3 Software Components 
+              ul
+              	li boot.properties
+              	li Agent boot config 
+              	li Adding the Failover 
+              	li Home Config  File 
+              	li Resource Utilization 
+              -->
+            </div>
+            <div class="row">
+              <div class="col-md-10"> 
+                <div class="row">
+                  <div class="col-md-4 panel-info">
+                    <h3>Boot Properties </h3>
+                    <hr class="dark"/>
+                    <p>Each Logscape component can be configured through the boot.properties. </p><a href="deploy-boot_properties.html">Learn More </a>
+                  </div>
+                  <div class="col-md-4 panel-info">
+                    <h3>Centralized Configuration</h3>
+                    <hr class="dark"/>
+                    <p>The Agents boot settings can be managed centrally depending on their role </p><a href="deploy-centralconfigs.html">Learn More </a>
+                    <p>The Logscape configuration can be exported and restored to facilitate migrations to new hardware or environments. There are many ways of managing a Logscape Configuration.</p>
+                    <p>Here are a few helpful links</p>
+                    <ul>
+                      <li> <a href="deploy-backup.html">Export Configuration </a></li>
+                      <li> <a href="deploy-config-modular.html">Modular Configurations </a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-4">
+                    <h3>Securing Endpoints </h3>
+                    <hr class="dark"/>
+                    <p>Logscape uses standards wherever possible when securing endpoints, ensuring that that client is talking to the right Manager and the manager has verified that it is talking to a legitimate client. </p><a href="deploy-security.html">Learn More. </a><br/><strong style="color:#333">Quick Links  </strong>
+                    <ul>
+                      <li><a href="deploy-security.html#hostfilter">Explicit Host Lists </a></li>
+                      <li>	<a href="deploy-security.html#authtokens">Auth Tokens </a></li>
+                      <li> <a href="deploy-security-keystores.html">Keystore Cheatsheet </a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <row>
+            <div class="col-md-11"></div><br/><br/><br/>
+            <div id="disqus_thread">
+              <script>
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+              </script>
+            </div>
+          </row>
+        </div>
+      </div>
+      <!--
+      hr.dark 
+      .col-md-3
+      Logscape Copyright 2014(c) Registered Trademark 
+      
+      -->
+    </div>
+    <script>
+      $( document ).ready(function() {
+      
+      	$("#cseSubmit").on("click",function(e){
+      		e.preventDefault();
+      		submit_form(); 
+      	});
+      	$("#searchBox").on("keypress",function(e){ 
+      		if (e.keyCode == 13) { 
+      			e.preventDefault();
+      			submit_form() 
+      		}
+      	}); 
+      });
+      
+    </script>
+    <script>
+      (function(g,i,a,n,t,s){g['SeeYourVisitors']=n;g[n]=g[n]||function(){
+      (g[n].q=g[n].q||[]).push(arguments)},g[n].l=1*new Date();t=i.createElement(a),
+      s=i.getElementsByTagName(a)[0];t.async=1;t.src='//seeyourvisitors2.appspot.com/gg.js';
+      s.parentNode.insertBefore(t,s)})(window,document,'script','gg');
+      gg('create', 'd1a8b082-8806-4793-936f-35f5e41b3592');
+      gg('track');
+    </script>
+    <script src="js/ga.js"> </script>
+  </body>
+</html>
