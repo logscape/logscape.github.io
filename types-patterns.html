@@ -114,7 +114,7 @@ $(window).load(function() {
 </script><script>function submit_form(){
 	var q=$("#searchBox").val() 
 	q=encodeURIComponent(q)
-	var query="https://www.google.com/?gws_rd=cr&q=site:logscape.github.io++"+q+"#q=site:logscape.github.io++"+q
+	var query="https://www.google.com/?gws_rd=cr&q=site:logscape.github.io+#q=site:logscape.github.io+"+q
 	var location = window.location.href;
 	console.log("back:" + location);
 	history.pushState({},"",location); 
