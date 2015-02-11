@@ -1,72 +1,171 @@
-<!DOCTYPE html><html lang="en"><head><title>Logscape Apps	</title><link href="css/bootstrap.min.css" rel="stylesheet"><link href="css/style-app.css" rel="stylesheet"><link href="css/cloud-app.css" rel="stylesheet"><script src="js/bootstrap.min.js"></script><script src="js/jquery.js"></script><script src="js/angular-1.2.9/angular.min.js"></script><script src="js/angular-1.2.9/angular-animate.min.js"></script><script src="js/angular-1.2.9/angular-route.min.js"></script><script src="js/app/controllers.js"></script></head><body><div style="width:100%;height:85px;background-color:#333;"><!--diva(href="/") Documentation
-a(href="")  Forums 	| 
-a(href="") Getting Started	|
-a(href="") Logscape  	| --><div style="padding-left:100px;padding-top:20px"><img src="images/logscape-apps-logo.png" style="height:45px"></div></div><div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;"><div style="padding-left:140px;padding-top:10px"><a href="/">Documentation  | </a><a href="http://logscape.com">Main Website  | </a><a href="http://logscape.com/get.html">Download  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a></div></div><div class="row"><div style="margin-left:10px" class="col-md-2 nav-padding"><hr><ul class="nav nav-tabs nav-stacked"><p>Start Here </p><li><a href="cloud.html">Home </a></li><li><a href="cloud-signup.html">Sign Up </a></li><p>Importing Your Data </p><li><a href="cloud-syslog.html">Syslog </a></li><li><a href="cloud-nxlog.html">Nxlog </a></li><li><a href="cloud-collector.html">Collector </a></li></ul></div><div class="col-md-9"><div ng-app="docBrowserApp" class="row"><div class="col-md-9"><div class="row"><div class="col-md-11 apps"><h3>Logscape in the Cloud </h3><p>To ship applications logs and windows event logs use NXLOG. NXLOG is a cross-platform log shipper which you can download from here: <a href="http://nxlog.org/products/nxlog-community-edition/download">nxlog download page</a></p><p>To send data into Logscape Cloud edit the nxlog.conf and update your out section ( or equivalent ) in your config. </p><pre>&lt;Output out>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Logscape Apps	</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style-app.css" rel="stylesheet">
+    <link href="css/cloud-app.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/angular-1.2.9/angular.min.js"></script>
+    <script src="js/angular-1.2.9/angular-animate.min.js"></script>
+    <script src="js/angular-1.2.9/angular-route.min.js"></script>
+    <script src="js/app/controllers.js"> </script>
+  </head>
+  <body>
+    <div style="width:100%;height:85px;background-color:#333;">
+      <!--div
+      a(href="/") Documentation
+      a(href="")  Forums 	| 
+      a(href="") Getting Started	|
+      a(href="") Logscape  	| 
+      -->
+      <div style="padding-left:100px;padding-top:20px"><img src="images/logscape-apps-logo.png" style="height:45px"></div>
+    </div>
+    <div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;">
+      <div style="padding-left:140px;padding-top:10px"><a href="/">Documentation  | </a><a href="http://logscape.com">Main Website  | </a><a href="http://logscape.com/get.html">Download  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a></div>
+    </div>
+    <div class="row">
+      <div style="margin-left:10px" class="col-md-2 nav-padding"> 
+        <hr>
+        <ul class="nav nav-tabs nav-stacked">
+          <p>Introduction</p>
+          <li><a href="cloud-starthere.html">Getting Started </a></li>
+          <li><a href="cloud-signup.html">Use Cases </a></li>
+          <p>Stream Your Data </p>
+          <li><a href="cloud-syslog.html">Syslog</a>
+            <!--div 
+            ul.nav.nav-tabs.nav-stacked
+            	li 
+            		a(href="cloud-syslog-ng.html") Syslog-NG
+            	li 
+            		a(href="") System Logs 					
+            	li 
+            		a(href="") Application Logs 
+            -->
+          </li>
+          <li><a href="cloud-nxlog.html">Nxlog </a></li>
+          <li><a href="cloud-collector.html">Collector </a></li>
+          <p>System Data </p>
+          <li> <a href="cloud-system-unix.html">Unix System Logs </a></li>
+          <!--li a(href="cloud-system-unix-audit.html") Unix Audit Logs 	
+          -->
+          <li> <a href="cloud-system-windows.html">Windows System Logs </a></li>
+          <li> <a href="cloud-system-windows-audit.html">Windows Audit Logs 	</a></li>
+          <p>Application Data</p>
+          <li> <a href="cloud-java-logs.html">Java Logs </a></li>
+          <!--li a(href="cloud-dotnet-logs.html") DotNet Logs 
+          -->
+          <!--li 
+          a(href="cloud-aws-logs.html") Amazon AWS 
+          
+          -->
+          <!--lia(href="cloud-iis-logs.html") IIS Logs 
+          -->
+          <!--p Web Data-->
+          <li><a href="cloud-apache-logs.html">Apache Logs</a></li>
+          <li><a href="cloud-nginx-logs.html">Nginx Logs</a></li>
+          <li><a href="cloud-web-logs.html">Web Logs</a></li>
+          <p>Network Devices</p>
+          <li><a href="cloud-juniper-logs.html">Juniper</a></li>
+          <li> <a href="cloud-cisco-logs.html">Cisco ASA				</a></li>
+        </ul>
+      </div>
+      <div class="col-md-9 apps">
+        <div ng-app="docBrowserApp" class="row"> 
+          <div>
+            <h3>Nxlog </h3>
+            <p>To ship applications logs and windows event logs use NXLOG. NXLOG is a cross-platform log shipper which you can download from here: <a href="http://nxlog.org/products/nxlog-community-edition/download">nxlog download page</a></p><strong>1) Edit the nxlog.conf</strong>
+            <p>To send data into Logscape Cloud edit the nxlog.conf and update your out section ( or equivalent ) in your config. </p>
+            <pre> 
+&lt;Output out>
    Module      om_tcp
    Host        collector.logscape.com 
    Port        9991
 	
-&lt;/Output></pre><p>Make sure that for any nxlog log inputs that you prepend your security token. Here's an example for the apache2 logs </p><pre>&lt;Input in_apache2>
+&lt;/Output></pre><strong>2) Set up input routes</strong>
+            <p>Make sure that for any nxlog log inputs that you prepend your security token. Here's an example for the apache2 logs </p>
+            <pre> 
+&lt;Input in_apache2>
    Module      im_file
 	File		"C:\\Bitnami\\wampstack-5.4.35-0\\apache2\\logs\\access.log"
 	Exec		$raw_event = "LOGSCAPETOKEN:11ecbd6b:14a2f14e68c:-7fe1 LOGSCAPETAG:www " + $raw_event; 
-&lt;/Input></pre><p>Make sure that you also add an appropriate tag to your data. The tag will allow you to identify the data from the search page. For the Apache2 example all its data is tagged  <em>www   </em></p><h1>NXLOG</h1><hr><div class="image"><img src="images/cloud-syslog-logscape.png" class="shadow"></div></div></div><div class="row"><hr><br><br><br><div id="disqus_thread"><script>/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
-/* * * DON'T EDIT BELOW THIS LINE * * */
-(function() {
- var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
- dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
- (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script></div></div></div></div></div></div></body></html><!--.container		
+&lt;/Input></pre><strong>3) Test your connectivity</strong>
+            <p>Make sure that you also add an appropriate tag to your data. The tag will allow you to identify the data from the search page. For the Apache2 example all its data is tagged  <em>www   </em></p>
+            <div class="image"> <img src="images/cloud-syslog-logscape.png" class="shadow"></div>
+          </div><br><br><br>
+          <div id="disqus_thread">
+            <script>
+              /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+              var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function() {
+              	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<!--
+.container		
 //		
- .navbar.navbar-fixed-top
-  .navbar-inner
-   .nav-collapse.collapse
-    ul.nav
-     li.active  Main Support Site 
-     li Explore Logscape Apps 
-     li 
-      a(href="") Download 
-   h3 Logscape Apps 
-   a(href="index.html") Getting Started | 
-   a(href="http://support.liquidlabs.co.uk")  Older Versions 1.3x Docs   
-   
+	.navbar.navbar-fixed-top
+		.navbar-inner
+			.nav-collapse.collapse
+				ul.nav
+					li.active  Main Support Site 
+					li Explore Logscape Apps 
+					li 
+						a(href="") Download 
+			h3 Logscape Apps 
+			a(href="index.html") Getting Started | 
+			a(href="http://support.liquidlabs.co.uk")  Older Versions 1.3x Docs   
+
 .container-fluid
- br
- br 
- br
- br
- br
- .row 
-  .col-md-11(style="padding-left:100px")
-   block content 
-script(src="js/ga.js") --><!--//
- .row
-  .col-md-2.nav-padding
-   br
-   ul
-    li
-     a(href="https://github.com/logscape/windowsapp#windowsapp-10") WindowsApp
-    li 
-     a(href="https://github.com/logscape/unixapp#unixapp-10") UnixApp
-     
-    li 
-     a(href="https://github.com/logscape/coherenceapp#oraclecoherenceapp-10") Oracle Coherence App
-     
-    li 
-     a(href="https://github.com/logscape/javaapp#javaapp-10") JavaApp
-     
-    li 
-     a(href="https://github.com/logscape/vmwareapp#vmwareapp-10") VMWareApp
-     
-    li
-     a(href="https://github.com/logscape/ciscoapp#ciscoapp-10") Cisco Devices
-     
-     
-     
-     
-  .col-md-10
-   block content
-   
-   -->
+	br
+	br 
+	br
+	br
+	br
+	.row 
+		.col-md-11(style="padding-left:100px")
+			block content 
+	
+script(src="js/ga.js") 
+-->
+<!--
+//
+	.row
+		.col-md-2.nav-padding
+		
+			br
+	
+			ul
+				li
+					a(href="https://github.com/logscape/windowsapp#windowsapp-10") WindowsApp
+				li 
+					a(href="https://github.com/logscape/unixapp#unixapp-10") UnixApp
+
+				li 
+					a(href="https://github.com/logscape/coherenceapp#oraclecoherenceapp-10") Oracle Coherence App
+
+				li 
+					a(href="https://github.com/logscape/javaapp#javaapp-10") JavaApp
+
+				li 
+					a(href="https://github.com/logscape/vmwareapp#vmwareapp-10") VMWareApp
+
+				li
+					a(href="https://github.com/logscape/ciscoapp#ciscoapp-10") Cisco Devices
+
+
+
+
+		.col-md-10
+			block content
+-->
