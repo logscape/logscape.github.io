@@ -48,8 +48,7 @@
           <li><a href="cloud-collector.html">Collector </a></li>
           <p>System Data </p>
           <li> <a href="cloud-system-unix.html">Unix System Logs </a></li>
-          <!--li a(href="cloud-system-unix-audit.html") Unix Audit Logs 	
-          -->
+          <li> <a href="cloud-system-unix-audit.html">Unix Audit Logs 	</a></li>
           <li> <a href="cloud-system-windows.html">Windows System Logs </a></li>
           <li> <a href="cloud-system-windows-audit.html">Windows Audit Logs 	</a></li>
           <p>Application Data</p>
@@ -72,111 +71,52 @@
         </ul>
       </div>
       <div class="col-md-9 apps">
-        <div ng-app="docBrowserApp" class="row"> 
-          <div>
-            <h3>Logscape in the Cloud </h3>
-            <h1> <strong>Configuring your Unix Audit Logs.</strong></h1>
-            <p><i>What do you call an auditor that can't audit? An or.</i></p>
-            <hr><strong>Unix Auditing Workspace</strong>
-            <p>Have Unix audit logs? Need to have them visualized? then the Unix Auditing workspace is what you need.</p>
-            <div style="padding-left:15px;" class="images"><img src="/images/cloud-java-workspace.png" width="600">
-              <div class="side-box">
-                <h4>Configuring Fields </h4><a href="types-tutorial.html">Types Tutorial </a><br><a href="types-fields.html">Fields </a><br><a href="types-field_discovery.html">Field Discovery</a><br><a href="types-field_grokit.html">Grokit Fields </a><br><a href="types-system_fields.html">System Fields </a><br>
-              </div>
-            </div>
-            <h1>Stream your Unix audit logs, using auditd.</h1>
-            <p>Auditd is a linux auditing tool, used when you want to monitor file access and modification. It is lightweight and with the addition of a syslog plugin can seamlessly stream your audit logs to the Logscape cloud.</p><br><strong>Step 1) Install Auditd</strong>
-            <p>If you do not already have auditd on your machine then you can easily obtain it with use of the apt-get command.</p>
-            <pre>sudo apt-get install auditd</pre>
-            <p>once installed auditd will automatically start on boot</p><br><strong>Step 2) Configure auditd</strong>
-            <p>By default your auditd rules can be located in the /etc/audit/ directory in a file named "audit.rules", to edit that file you can use the following command,</p>
-            <pre>sudo vi /etc/audit/audit.rules</pre>
-            <p> <i>As always, feel free to substitute vi for the editor of your choice.</i></p><br>
-            <p>Below is an example auditd rules file</p>
-            <pre># First rule - delete all
--D
- 
-# increase the buffers to survive stress events. make this bigger for busy systems.
--b 1024
- 
-# monitor unlink() and rmdir() system calls.
--a exit,always -S unlink -S rmdir
- 
-# monitor open() system call by Linux UID 1001.
--a exit,always -S open -F loginuid=1001
- 
-# monitor write-access and change in file properties (read/write/execute) of the following files.
--w /etc/group -p wa
--w /etc/passwd -p wa
--w /etc/shadow -p wa
--w /etc/sudoers -p wa
- 
-# monitor read-access of the following directory.
--w /etc/secret_directory -p r
- 
-# lock the audit configuration to prevent any modification of this file.
--e 2</pre>
-            <p> <i>Obviously, you'll want to edit the auditd config to be appropriate to your establishment.</i></p><br>
-            <p>By default the auditd deamon will output log files to /var/log/audit/audit.log - However this, among a full spectrum of other settings can be altered in the auditd.conf, this file is located in the same directory as the audit rules and can be modified with the following command.</p>
-            <pre>sudo vi /etc/audit/auditd.conf</pre>
-            <p>And this is what you'll see</p>
-            <pre>#
-# This file controls the configuration of the audit daemon
-#
- 
-log_file = /var/log/audit/audit.log
-log_format = RAW
-log_group = root
-priority_boost = 4
-flush = INCREMENTAL
-freq = 20
-num_logs = 5
-disp_qos = lossy
-dispatcher = /sbin/audispd
-name_format = NONE
-##name = mydomain
-max_log_file = 6
-max_log_file_action = ROTATE
-space_left = 75
-space_left_action = SYSLOG
-action_mail_acct = root
-admin_space_left = 50
-admin_space_left_action = SUSPEND
-disk_full_action = SUSPEND
-disk_error_action = SUSPEND
-##tcp_listen_port =
-tcp_listen_queue = 5
-tcp_max_per_addr = 1
-##tcp_client_ports = 1024-65535
-tcp_client_max_idle = 0
-enable_krb5 = no
-krb5_principal = auditd
-##krb5_key_file = /etc/audit/audit.key</pre>
-            <p>For the sake of the this tutorial we won't need to edit this file, but it's useful to know where it is, for the remainder we'll be configuring rsyslog to monitor, and transfer our audit.log</p><br><strong>Step 3) Configure rsyslog</strong>
-            <p> <i>This tutorial is going to presume that rsyslog is already installed on your system, if it is not, then check out the syslog guides on the navigation bar.</i></p><br>
-            <p>Open your rsyslog configuration.</p>
-            <pre>sudo vi /etc/rsyslog.conf</pre><br>
-            <p>You'll be confronted by your rsyslog configuration file, the first step is to add a line to your config that allows rsyslog to turn any standard text file into a syslog message. For the sake of formatting we'll try to keep this neat, in your current config you'll see a block that looks like this</p>
-            <pre># Provides TCP syslog reception
-#$ModLoad imtcp.so  
-#$InputTCPServerRun 514</pre>
-            <p>We want to add this line to the block</p>
-            <pre>$ModLoad imfile</pre>
-            <p>so that we end up with...</p>
-            <pre># Provides TCP syslog reception
-#$ModLoad imtcp.so  
-#$InputTCPServerRun 514
-$ModLoad imfile</pre>
-            <p>then we can add the following to the bottom of the config so that our audit logs are transferred</p>
-            <pre># auditd audit.log  
-$InputFileName /var/log/audit/audit.log  
-$InputFileTag tag_audit_log:  
-$InputFileStateFile audit_log  
-$InputFileSeverity info  
-$InputFileFacility local6  
-$InputRunFileMonitor</pre>
-            <p><i>note: You may need to edit the permissions of var/log/audit to allow syslog to read the files.</i></p>
+        <div ng-app="docBrowserApp" class="row"> </div>
+        <div>
+          <h3>	Configuring your Unix Audit Logs.</h3>
+          <p>With properly configured audit'ing rules, Unix machines are capable of providing a wealth of data regarding your users activity. Using a Syslog configuration it'll only take a minute to get your logs into the cloud.</p>
+          <div style="padding-left:50px;" class="images"><img src="/images/cloud-unix-audit-workspace.png" width="600" class="shadow">
+            <!--.side-box
+            h4 Configuring Fields 
+            a(href="types-tutorial.html") Types Tutorial 
+            br
+            a(href="types-fields.html") Fields 
+            br
+            a(href="types-field_discovery.html") Field Discovery
+            br
+            a(href="types-field_grokit.html") Grokit Fields 
+            br
+            a(href="types-system_fields.html") System Fields 
+            br
+            
+            -->
           </div>
+          <h3>Unix Audit Logs</h3><strong>1) Add a new config to your /etc/rsyslog.d/ directory.</strong>
+          <p>You'll need a new config file in order to store all of the configuration settings relating to auditing, we named it "02-unix-audit.conf"</p>
+          <pre>sudo vi /etc/rsyslog.d/02-unix-audit.conf</pre><strong>2) Update your config file</strong>
+          <p>Below is the config file for transferring your audit logs to the cloud via syslog, make sure to change the security token to reflect your own found on the account management page.</p>
+          <pre>$InputFilePollInterval 10
+$PrivDropToGroup adm
+$WorkDirectory /var/spool/rsyslog
+ 
+# Apache access file:
+$InputFileName /var/log/audit/audit.log
+$InputFileTag unix-audit:
+$InputFileStateFile stat-unix-audit
+$InputFileSeverity info
+$InputFilePersistStateInterval 20000
+$InputRunFileMonitor
+ 
+#Add a tag for audit events
+$template UnixAudit,"LOGSCAPETOKEN:YOUR_SECURITY_TOKEN_HERE LOGSCAPETAG:unix-audit <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% %msg%"
+ 
+if $programname == 'unix-audit' then @@collector.logscape.com:1468;UnixAudit
+if $programname == 'unix-audit' then ~</pre><br>
+          <p>You'll also need to make sure your rsyslog.conf loads imfile with the line</p>
+          <pre>$ModLoad imfile</pre><strong>3) Restart Syslog</strong>
+          <p>You'll need to restart your syslog daemon in order for the changes to take effect.</p>
+          <pre>sudo service restart rsyslog</pre><strong>4) Permissions</strong>
+          <p>By default the audit.log, and the directory that contains it can only be accessed by root, permissions will have to be changed in order to allow syslog read permissions for the directory and file.</p>
         </div><br><br><br>
         <div id="disqus_thread">
           <script>
