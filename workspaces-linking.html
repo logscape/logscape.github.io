@@ -8,12 +8,10 @@
     <link href="css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet"/>
     <link href="css/style-app.css" rel="stylesheet"/>
     <link href="css/app.css" rel="stylesheet"/>
-    <link href="css/navigation.css" rel="stylesheet"/>
     <link href="//vjs.zencdn.net/4.9/video-js.css" rel="stylesheet"/>
     <script src="//vjs.zencdn.net/4.9/video.js"></script>
     <script src="js/jquery-1.11.0.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/navigation.js"></script>
     <script>
       var breadcrumbs={
       	"gettingstarted":"Getting Started" 
@@ -141,7 +139,7 @@
       function submit_form(){
       	var q=$("#searchBox").val() 
       	q=encodeURIComponent(q)
-      	var query="https://www.google.com/?gws_rd=cr&q=site:logscape.github.io++"+q+"#q=site:logscape.github.io++"+q
+      	var query="https://www.google.com/?gws_rd=cr&q=site:logscape.github.io+#q=site:logscape.github.io+"+q
       	var location = window.location.href;
       	console.log("back:" + location);
       	history.pushState({},"",location); 
@@ -163,7 +161,7 @@
       <div style="padding-left:100px;padding-top:25px"><img src="images/logscape-apps-logo.png" style="height:45px"/>
         <div style="float:right" class="col-md-3">
           <form id="cse-search-box" action="" style="position:right;padding-top:5px;padding-bottom:5px" onSubmit="submit_form()">
-            <input type="hidden" name="cx" value="partner-pub-2789521296837340:9402765321"/>
+            <input type="hidden" name="cx" value="015161349156186070243:ktxh8djpql8"/>
             <input type="hidden" name="ie" value="UTF-8"/>
             <input id="searchBox" type="text" name="q" size="31" style="margin-left:15px"/>
             <input id="cseSubmit" type="submit" value=" " class="btn-search"/>
@@ -211,43 +209,19 @@
           <p></p>
         </div>
         <div class="col-md-2 nav-padding">
-          <h5>Getting Started </h5>
-          <div class="bs-docs-sidebar">
-            <ul id="sidebar" class="nav nav-tabs nav-stacked">
-              <li><a href="searching.html">Search</a></li>
-              <li> <a href="workspaces.html">Work Spaces</a>
-                <ul class="nav-stacked">
-                  <li><a href="">Widgets</a></li>
-                  <li><a href="">Linking </a></li>
-                </ul>
-              </li>
-              <li> <a href="ds.html">Data Sources</a></li>
-            </ul>
-            <h5>Administration </h5>
-            <!--ul.nav.nav-tabs.nav-stacked 
-            li 
-            	a(href="types.html") Data Types 
-            li
-            	a(href="deploy.html") Deployment
-            li
-            	a(href="users.html") Users 
-            li 
-            	a(href="alerts.html") Alerts 	
-            -->
-            <h5>Other Topics </h5>
-            <!--ul.nav.nav-tabs.nav-stacked 
-            li
-            	a(href="technology.html") Technology
-            li
-            	a(href="cloud.html") Cloud 
-            
-            
-            
-            -->
+          <ul class="nav nav-tabs nav-stacked"> 
+            <li><a href="searching.html">Search</a></li>
+            <li> <a href="workspaces.html">WorkSpaces</a></li>
+            <li> <a href="ds.html">Data Sources</a></li>
+            <li> <a href="types.html">Data Types </a></li>
+            <li><a href="deploy.html">Deployment</a></li>
+            <li><a href="users.html">Users </a></li>
+            <li> <a href="alerts.html">Alerts 	</a></li>
+            <li><a href="technology.html">Technology</a></li>
             <li><a href="https://twitter.com/logscape" data-show-count="false" data-size="large" class="twitter-follow-button">Follow @logscape</a>
               <script>=!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
             </li>
-          </div>
+          </ul>
           <div style="padding-left:50px"> 
             <h4>Articles </h4>
           </div>
@@ -362,14 +336,6 @@
       		}
       	}); 
       });
-      $(" #sidebar.nav a").on("click", function(){
-      console.log($(this));
-      console.log($(this).attr('class'));
-      $(".nav").find(".active").removeClass("active");
-      $(this).parent().addClass("active");
-      });
-      console.log("nav ready!");
-      
       
     </script>
     <script>
