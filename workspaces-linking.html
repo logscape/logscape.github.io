@@ -239,37 +239,29 @@
             <div class="row">
               <div class="col-md-11">
                 <h3>Workspace Linking </h3>
-                <p>The linking functionality provides a way for non-expert users to brwose, navigate and analyse data without needing expert knowledge of Logscape search syntax. It allows more advanced users to design workflows that make sense for the team, and the data being explored.</p>
-                <p>A Linked Workspaces will need to contain the following components -</p>
+                <p>The linking functionality provides a way for non-expert users to browse, navigate and analyse data without needing expert knowledge of the Logscape search syntax. It allows more advanced users to design workflows that make sense for the team, and the data being explored.</p>
+                <p>A Linked Workspace will need to contain the following components -</p>
                 <ul>
-                  <li>A Linking table widget</li>
-                  <li>A context aware navigation panel</li>
+                  <li>A table widget</li>
                   <li>A filter widget</li>
                 </ul>
                 <h3>Configuring a Linking table </h3>
                 <!--blockquote {column: "server", url:"?Workspace=Unix - System Metrics&filter=$value&filterAction=_host.equals" , filterColumn:"server" }-->
                 <!--blockquote [{column: "server", url:"?Workspace=Unix - System Metrics&filter=$value&filterAction=_host.equals" , filterColumn:"server" }, {column: "await", url:"?Workspace=Unix Process Overview&filter=$value&filterAction=_host.equals" , filterColumn:"server" } ]-->
                 <!--blockquote {column: "server", url:"?&filter=$value&filterAction=_host.equals" , filterColumn:"server" }-->
-                <p>A Linking table is a normal table chart, with some of its values hyperlinked to other workspaces this can be configured by the user through use of JSON.</p>
-                <p><strong>Setting up the search</strong>
-                  <p>The following example search will create a table containing system kpis such as memory, cpu and i/o utilisation broken down by the server name.	</p>
+                <p>A Linking table is a normal table chart, with some of its values hyperlinked to other workspaces, this can be configured by the user through use of JSON.<strong>Setting up the search</strong>
+                  <p>The following example search will create a table containing system KPI's such as Memory, CPU and I/O utilisation, broken down by the server name.	</p>
                 </p>
-                <blockquote>| await.max(server,diskWaitMs)   rxMBs.max(server,rMBs-) txMBs.max(server,sMBs-) CpuUtilPct.avg(server,cpu%-) FsUsedPct.max(server,diskUsedPct) memUsedPct.avg(server,memUsedPct)  chart(table) buckets(1)</blockquote>
+                <blockquote>* | await.max(server,diskWaitMs)   rxMBs.max(server,rMBs-) txMBs.max(server,sMBs-) CpuUtilPct.avg(server,cpu%-) FsUsedPct.max(server,diskUsedPct) memUsedPct.avg(server,memUsedPct)  chart(table) buckets(1)</blockquote>
                 <p>The rendered search contains a hyper-link for the server column. When the server name is clicked the <em>Unix - Resources  </em>workspace is opened filtering every search <em>on the next workspace </em>with the following expression <em>_host.equals(SERVERNAME)  </em></p>
                 <div class="image"> <img src="/images/workspaces-linking-example.png" width="800"/></div>
-                <p><strong>Json Config Overview</strong></p>
-                <p>The table is configured with json similar to the line below. The json config describes which workspace to open next and what values to use in the filter. While in edit mode, click the search widget settings and then select the json tab. </p>
-                <!--.image 
-                img(src="/images/workspaces-linking-config.png")
-                
-                
-                
-                -->
+                <p><strong>JSON Config Overview</strong></p>
+                <p>The table is configured with JSON similar to the line below. The JSON config describes which workspace to open next and what values to use in the filter. While in edit mode, click the chart widget settings and then select the JSON tab. </p>
                 <pre>{column: "server"
 	,url:"?Workspace=Unix Resources&filter=$value&filterAction=_host.equals" 
 	,filterColumn:"server" 
 }</pre>
-                <p>A link is configured using a json array containing the following json keys <em>column </em><em>, url</em><em>, filterColumn </em></p>
+                <p>A link is configured using a JSON array containing the following JSON keys <em>column</em><em>, url</em><em>, filterColumn </em></p>
                 <div class="image"> 
                   <table class="table">
                     <tr>
@@ -278,13 +270,13 @@
                     </tr>
                     <tr>
                       <td> column </td>
-                      <td> The column in the row that will include the hyperlink. Add an additional column block for each column you would like a hyperlink on.</td>
+                      <td> The column is the row that will include the hyperlink. Add an additional column block for each column you would like a hyperlink on.</td>
                     </tr>
                     <tr>
                       <td>url </td>
                       <td> 
                         <p>
-                          The page to load when the link is clicked. You can specify a normal webpage or a logscape link to a search or another workspace.
+                          The page to load when the link is clicked. You can specify a normal webpage, link to a search or another workspace.
                           The url syntax accept the following query variables.
                           <ul>
                             <li>filter - The filter value to use. This can be hardcoded or set to $value which references the value in that cell</li>
@@ -301,13 +293,13 @@
                     </tr>
                   </table>
                 </div>
-                <p>Here is a multi-column example, it contains hyperlinking for the server and procname columns, both of which link to their appropriate workspaces.</p>
+                <p>Below is a multi-column example, it contains hyperlinking for the server and procname columns, both of which link to their appropriate workspaces.</p>
                 <pre>[ 
 	{column: "server",url:"?Workspace=Unix Resources&filter=$value&filterAction=_host.equals" ,filterColumn:"server" }
 	,{column: "procname",url:"?Workspace=Unix Processes&filter=$value&filterAction=_pid.equals" ,filterColumn:"pid" }
  ]</pre>
                 <h3>Configuring a Navigation Panel</h3>
-                <p>The HTML Widget can be used to build links to other workspaces. To make sure that the linked workspace contains the correct context the url format will need to be used.  Here's an example link to the Unix Processes workspace.</p>
+                <p>The HTML Widget can be used to build links to other workspaces. To make sure that the linked workspace contains the correct context the URL format will need to be used.  Here's an example link to the Unix Processes workspace.</p>
                 <blockquote> &lt;a href="?Workspace=Users&filter=$value&filterAction=_host.equals"&gt;Hyperlink Text&lt;/a&gt;</blockquote>
                 <p>Adding a link similar to this in your HTMLWidget will open the next workspace, passing the filterAction and the filter value to the next workspace. When the workspace loads it will apply <em>_host.equals($value) </em> to every search, where $value is populated from your search results. </p>
                 <h3>Adding a Filter Widget</h3>
