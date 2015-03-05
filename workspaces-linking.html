@@ -249,9 +249,8 @@
                 <!--blockquote {column: "server", url:"?Workspace=Unix - System Metrics&filter=$value&filterAction=_host.equals" , filterColumn:"server" }-->
                 <!--blockquote [{column: "server", url:"?Workspace=Unix - System Metrics&filter=$value&filterAction=_host.equals" , filterColumn:"server" }, {column: "await", url:"?Workspace=Unix Process Overview&filter=$value&filterAction=_host.equals" , filterColumn:"server" } ]-->
                 <!--blockquote {column: "server", url:"?&filter=$value&filterAction=_host.equals" , filterColumn:"server" }-->
-                <p>A Linking table is a normal table chart, with some of its values hyperlinked to other workspaces, this can be configured by the user through use of JSON.<strong>Setting up the search</strong>
-                  <p>The following example search will create a table containing system KPI's such as Memory, CPU and I/O utilisation, broken down by the server name.	</p>
-                </p>
+                <p>A Linking table is a normal table chart, with some of its values hyperlinked to other workspaces, this can be configured by the user through use of JSON.</p><strong>Setting up the search</strong>
+                <p>The following example search will create a table containing system KPI's such as Memory, CPU and I/O utilisation, broken down by the server name.	</p>
                 <blockquote>* | await.max(server,diskWaitMs)   rxMBs.max(server,rMBs-) txMBs.max(server,sMBs-) CpuUtilPct.avg(server,cpu%-) FsUsedPct.max(server,diskUsedPct) memUsedPct.avg(server,memUsedPct)  chart(table) buckets(1)</blockquote>
                 <p>The rendered search contains a hyper-link for the server column. When the server name is clicked the <em>Unix - Resources  </em>workspace is opened filtering every search <em>on the next workspace </em>with the following expression <em>_host.equals(SERVERNAME)  </em></p>
                 <div class="image"> <img src="/images/workspaces-linking-example.png" width="800"/></div>
@@ -298,7 +297,7 @@
 	{column: "server",url:"?Workspace=Unix Resources&filter=$value&filterAction=_host.equals" ,filterColumn:"server" }
 	,{column: "procname",url:"?Workspace=Unix Processes&filter=$value&filterAction=_pid.equals" ,filterColumn:"pid" }
  ]</pre>
-                <h3>Configuring a Navigation Panel</h3>
+                <h3>Configuring a HTML Navigation Panel</h3>
                 <p>The HTML Widget can be used to build links to other workspaces. To make sure that the linked workspace contains the correct context the URL format will need to be used.  Here's an example link to the Unix Processes workspace.</p>
                 <blockquote> &lt;a href="?Workspace=Users&filter=$value&filterAction=_host.equals"&gt;Hyperlink Text&lt;/a&gt;</blockquote>
                 <p>Adding a link similar to this in your HTMLWidget will open the next workspace, passing the filterAction and the filter value to the next workspace. When the workspace loads it will apply <em>_host.equals($value) </em> to every search, where $value is populated from your search results. </p>
