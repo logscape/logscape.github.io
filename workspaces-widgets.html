@@ -237,95 +237,43 @@
           </div>
         </div>
         <div class="col-md-9 content-area"> 
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-md-11">
-                <h3>Workspace Linking </h3>
-                <p>The linking functionality provides a way for non-expert users to browse, navigate and analyse data without needing expert knowledge of the Logscape search syntax. It allows more advanced users to design workflows that make sense for the team, and the data being explored.</p>
-                <p>A Linked Workspace will need to contain the following components -</p>
-                <ul>
-                  <li>A table widget</li>
-                  <li>A filter widget</li>
-                </ul>
-                <h3>Configuring a Linking table </h3>
-                <!--blockquote {column: "server", url:"?Workspace=Unix - System Metrics&filter=$value&filterAction=_host.equals" , filterColumn:"server" }-->
-                <!--blockquote [{column: "server", url:"?Workspace=Unix - System Metrics&filter=$value&filterAction=_host.equals" , filterColumn:"server" }, {column: "await", url:"?Workspace=Unix Process Overview&filter=$value&filterAction=_host.equals" , filterColumn:"server" } ]-->
-                <!--blockquote {column: "server", url:"?&filter=$value&filterAction=_host.equals" , filterColumn:"server" }-->
-                <p>A Linking table is a normal table chart, with some of its values hyperlinked to other workspaces, this can be configured by the user through use of JSON.</p><strong>Setting up the search</strong>
-                <p>The following example search will create a table containing system KPI's such as Memory, CPU and I/O utilisation, broken down by the server name.	</p>
-                <blockquote>* | await.max(server,diskWaitMs)   rxMBs.max(server,rMBs-) txMBs.max(server,sMBs-) CpuUtilPct.avg(server,cpu%-) FsUsedPct.max(server,diskUsedPct) memUsedPct.avg(server,memUsedPct)  chart(table) buckets(1)</blockquote>
-                <p>The rendered search contains a hyper-link for the server column. When the server name is clicked the <em>Unix - Resources  </em>workspace is opened filtering every search <em>on the next workspace </em>with the following expression <em>_host.equals(SERVERNAME)  </em></p>
-                <div class="image"> <img src="/images/workspaces-linking-example.png" width="800"/></div>
-                <p><strong>JSON Config Overview</strong></p>
-                <p>The table is configured with JSON similar to the line below. The JSON config describes which workspace to open next and what values to use in the filter. While in edit mode, click the chart widget settings and then select the JSON tab. </p>
-                <pre>{column: "server"
-	,url:"?Workspace=Unix Resources&filter=$value&filterAction=_host.equals" 
-	,filterColumn:"server" 
-}</pre>
-                <p>A link is configured using a JSON array containing the following JSON keys <em>column</em><em>, url</em><em>, filterColumn </em></p>
-                <div class="image"> 
-                  <table class="table">
-                    <tr>
-                      <td>Key </td>
-                      <td>Value </td>
-                    </tr>
-                    <tr>
-                      <td> column </td>
-                      <td> The column is the row that will include the hyperlink. Add an additional column block for each column you would like a hyperlink on.</td>
-                    </tr>
-                    <tr>
-                      <td>url </td>
-                      <td> 
-                        <p>
-                          The page to load when the link is clicked. You can specify a normal webpage, link to a search or another workspace.
-                          The url syntax accept the following query variables.
-                          <ul>
-                            <li>filter - The filter value to use. This can be hardcoded or set to $value which references the value in that cell</li>
-                            <li>
-                              <p>filterAction - Is the filter function used to update the searches on the linked workspace.</p>
-                            </li>
-                          </ul>
-                        </p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>filterColumn</td>
-                      <td>The column to extract the value from.</td>
-                    </tr>
-                  </table>
+          <div ng-app="docBrowserApp" class="row"> 
+            <div>
+              <h3>Widgets </h3>
+              <P>A Workspace is comprised of various widgets. Click on the edit button to create or modify a workspace.</P>
+              <p>
+                <div class="image"><img src="images/searching-workspaces-icons.png"/></div>
+              </p>
+              <div class="list-widgets">
+                <div>
+                  <p>
+                    <div class="image-left"><img src="images/searching-workspaces-searchwidget.png"/></div><strong>Search Widget -  </strong>Adds a Search visualization to your Work Space. The search is executed whenever the workspace is refreshed. any of the charts available on the Search page is also available here. 
+                  </p>
                 </div>
-                <p>Below is a multi-column example, it contains hyperlinking for the server and procname columns, both of which link to their appropriate workspaces.</p>
-                <pre>[ 
-	{column: "server",url:"?Workspace=Unix Resources&filter=$value&filterAction=_host.equals" ,filterColumn:"server" }
-	,{column: "procname",url:"?Workspace=Unix Processes&filter=$value&filterAction=_pid.equals" ,filterColumn:"pid" }
- ]</pre>
-                <h3>Configuring a HTML Navigation Panel</h3>
-                <p>The HTML Widget can be used to build links to other workspaces. To make sure that the linked workspace contains the correct context the URL format will need to be used.  Here's an example link to the Unix Processes workspace.</p>
-                <blockquote> &lt;a href="?Workspace=Users&filter=$value&filterAction=_host.equals"&gt;Hyperlink Text&lt;/a&gt;</blockquote>
-                <p>Adding a link similar to this in your HTMLWidget will open the next workspace, passing the filterAction and the filter value to the next workspace. When the workspace loads it will apply <em>_host.equals($value) </em> to every search, where $value is populated from your search results. </p>
-                <h3>Adding a Filter Widget</h3>
-                <p>A filter widget can be added in the usual manner, while in edit mode simply click the filter widget icon. For workspaces in a linked workflow to work correctly, a filter widget is required and will be populated with the filter value passed to the workspace.</p>
-                <h3>Parameter Discovery</h3>
-                <p>Parameters can be passed between workspaces by including them in the URL using the format var=value, once included in the URL any HTML block on that page can reference that variable using the $ notation. i.e</p>
-                <pre>yourlogserver.com:8080/play/?Workspace=Home&name=Chris</pre>
-                <p>Any HTML block on your page can reference this variable </p>
-                <pre>&lt;h3> Hello, $name welcome to Logscape&lt;/h3></pre><em>
-                  <p>Note: A variable name must be have both leading and trailing whitespace</p></em>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-11"><br/><br/><br/>
-                <div id="disqus_thread">
-                  <script>
-                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                    var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
-                    /* * * DON'T EDIT BELOW THIS LINE * * */
-                    (function() {
-                    	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                    	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                    })();
-                  </script>
+                <div>
+                  <p>
+                    <div class="image-left"><img src="images/searching-workspaces-replaywidget.png"/></div><strong> Replay Events - </strong>displays all the raw events from a search in a table. The replay events are are executed whenever the workspace is refreshed. This widget provides a way to access files being searched on in the Workspace.
+                  </p>
+                </div>
+                <div> 
+                  <p>
+                    <div class="image-left"><img src="images/searching-workspaces-htmlwidget.png"/></div><strong> HTML Widget -</strong>The HTML widget provides a flexible way to add content to a Workspace. It accepts any valid HTML and is often used to display images , videos and embed links to ticketing systems or other Workspaces and Searches. 
+                  </p>
+                </div>
+                <div> 
+                  <p>
+                    <div class="image-left"><img src="images/searching-workspaces-clockwidget.png"/></div><strong> Clock  -</strong>is an information widget that displays the current data and time. 
+                  </p>
+                </div>
+                <div> 
+                  <p>
+                    <div class="image-left"><img src="images/searching-workspaces-jmxattrwidget.png"/></div><strong>Jmx Attribute - </strong>This widget retrieves the value of a JMX attribute. It is updated each time the Workspace is refreshed. This is used to get data from java processes that expose metrics via the JMX protocol. It accepts the following parameters:<br/><em>jmx url -</em>the location of the mbeans to query. <br/><em>bean - </em>to be accessed by the widget. <br/><em>attribute -</em>the property on the bean to be displayed within the widget.<br/><br/>
+                  </p>
+                </div>
+                <div> 
+                  <p><br/><br/>
+                    <div class="image-left"><img src="images/searching-workspaces-jmxopwidget.png"/></div><strong>- Jmx Operation </strong>This widget display the result of a JMX operation. When the workspace is refreshed, the jmx operation is executed and the result is formatted before being displayed<br/><em>jmx url -</em> the location of the mbeans to query. <br/><em>bean - </em>to be accessed by the widget. <br/><em>Operation - </em>the operation on the bean to invoke. The result of the operation is retrieved and displayed. 
+                  </p>
                 </div>
               </div>
             </div>
