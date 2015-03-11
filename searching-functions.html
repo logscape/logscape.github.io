@@ -211,7 +211,9 @@
         <div class="col-md-2 nav-padding">
           <ul class="nav nav-tabs nav-stacked"> 
             <li><a href="searching.html">Search</a></li>
-            <li> <a href="workspaces.html">WorkSpaces</a></li>
+            <li> <a href="workspaces.html">WorkSpaces</a>
+              <ul></ul>
+            </li>
             <li> <a href="ds.html">Data Sources</a></li>
             <li> <a href="types.html">Data Types </a></li>
             <li><a href="deploy.html">Deployment</a></li>
@@ -232,11 +234,54 @@
         </div>
         <div class="col-md-9 content-area"> 
           <h1>Function Reference </h1>
+          <div class="container-fluid">
+            <div padding-left:10px="padding-left:10px" class="row">
+              <div class="col-md-3">
+                <h3> <a href="#filters">Filters</a></h3>
+                <ul class="nav nav-pills nav-stacked page-nav">
+                  <li><a href="#not"> not</a></li>
+                  <li><a href="#contains">  contains</a></li>
+                  <li><a href="#gt"> gt</a></li>
+                  <li><a href="#hosts"> hosts</a></li>
+                  <li><a href="#top"> top							 </a></li>
+                </ul>
+              </div>
+              <div class="col-md-3"> 
+                <h3> <a href="#aggFunctions">Aggregate Functions </a></h3>
+                <ul class="nav nav-pills nav-stacked page-nav">
+                  <li><a href="#avg"> avg/average</a></li>
+                  <li><a href="#count">  count</a></li>
+                  <li><a href="#countUnique"> countUnique</a></li>
+                  <li><a href="#first"> first/last</a></li>
+                  <li><a href="#countSingle"> countSingle/countMembers</a></li>
+                  <li><a href="#countDelta"> countDelta</a></li>
+                  <li><a href="#max">  max/min</a></li>
+                  <li><a href="#sum"> sum		</a></li>
+                </ul>
+                <h3> <a href="#other">Other</a></h3>
+                <ul class="nav nav-pills nav-stacked page-nav">
+                  <li><a href="#ttl"> ttl</a></li>
+                  <li><a href="#elapsed"> elapsed</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3">
+                <h3> <a href="#chartFunctions">Chart Functions </a></h3>
+                <ul class="nav nav-pills nav-stacked page-nav">
+                  <li><a href="#chart"> chart</a></li>
+                  <li><a href="#buckets">  buckets</a></li>
+                  <li><a href="#bucketWidth"> bucketWidth</a></li>
+                  <li><a href="#hitlimit"> hitLimit</a></li>
+                  <li><a href="#replay"> replay</a></li>
+                  <li><a href="#sort"> sort</a></li>
+                </ul>
+              </div>
+            </div>
+          </div><a name="filters"></a>
           <h2>Filters </h2><br/>
           <ul>
             <li>
               <p>
-                <h4><strong>not(TERM1,TERM2,...TERMN)</strong></h4>Excludes lines containing keywords TERM1,TERM2. An arbitrary list of terms can used
+                <h4><a name="not"></a><strong>not(TERM1,TERM2,...TERMN)</strong></h4>Excludes lines containing keywords TERM1,TERM2. An arbitrary list of terms can used
               </p>
               <p>Examples:</p>
               <div class="block"> 
@@ -246,7 +291,7 @@
             </li>
             <li>
               <p>
-                <h4><strong>contains(TERM1,TERM2,...TERMN)</strong></h4>Includes line containing keywords
+                <h4><a name="contains"></a><strong>contains(TERM1,TERM2,...TERMN)</strong></h4>Includes line containing keywords
               </p>
               <p>Examples:</p>
               <div class="block"> 
@@ -256,7 +301,7 @@
             </li>
             <li>
               <p>
-                <h4><strong>gt(NUM),lt(NUM)</strong></h4>Excludes values greater than or less than NUM
+                <h4><a name="gt"></a><strong>gt(NUM),lt(NUM)</strong></h4>Excludes values greater than or less than NUM
               </p>
               <p>Examples:</p>
               <div class="block"> 
@@ -266,7 +311,7 @@
             </li>
             <li>
               <p>
-                <h4><strong>hosts(pattern1,pattern2,...)</strong></h4>Returns hosts that match any of the terms. The term can be a regular expression patterns
+                <h4><a name="hosts"></a><strong>hosts(pattern1,pattern2,...)</strong></h4>Returns hosts that match any of the terms. The term can be a regular expression patterns
               </p>
               <p>Examples:</p>
               <div class="block"> 
@@ -276,7 +321,7 @@
             </li>
             <li>
               <p>
-                <h4><strong>top(NUM,)</strong></h4>This function sorts the incoming data and returns the top values. Non numerical values are ranked by quantity. 
+                <h4><a name="top"></a><strong>top(NUM,)</strong></h4>This function sorts the incoming data and returns the top values. Non numerical values are ranked by quantity. By default, searches apply top(50)
               </p>
               <p>Examples:</p>
               <div class="block"> 
@@ -284,12 +329,12 @@
                 <p>type='www-xlf'  | userAgents.count(_host,)  top(7)</p>
               </div>
             </li>
-          </ul>
+          </ul><a name="aggFunctions"></a>
           <h2>Aggregrate Functions</h2>
           <ul>
             <li>
               <p>
-                <h4><strong>avg/average([groupByField],)</strong></h4>Returns the average of a set values occuring in a single bucket
+                <h4><a name="avg"></a><strong>avg/average([groupByField],)</strong></h4>Returns the average of a set values occuring in a single bucket
               </p>
               <p>Examples:</p>
               <div class="block"> 
@@ -299,7 +344,7 @@
             </li>
             <li>
               <p>
-                <h4><strong>count([groupByField],)</strong></h4>Counts the number of hits per bucket. If there is a group by field, each group is represented by a different series
+                <h4><a name="count"></a><strong>count([groupByField],)</strong></h4>Counts the number of hits per bucket. If there is a group by field, each group is represented by a different series
               </p>
               <p>Examples:</p>
               <div class="block"> 
@@ -309,7 +354,7 @@
             </li>
             <li>
               <p>
-                <h4><strong>countUnique</strong></h4>Counts only the unique values in each bucket 
+                <h4><a name="countUnique"></a><strong>countUnique</strong></h4>Counts only the unique values in each bucket 
               </p>
               <p>Examples:</p>
               <div class="block"> 
@@ -318,7 +363,7 @@
             </li>
             <li>
               <p>
-                <h4> <strong>first([groupByField] ) /  last([groupByField] )</strong></h4>These two functions are related and return the first value in a bucket and last value respectively. This function can only be used with the table chart type 
+                <h4> <a name="first"></a><strong>first([groupByField] ) /  last([groupByField] )</strong></h4>These two functions are related and return the first value in a bucket and last value respectively. This function can only be used with the table chart type 
               </p>
               <p>Examples:</p>
               <div class="block">
@@ -327,7 +372,7 @@
             </li>
             <li>
               <p>
-                <h4><strong>countSingle/countMembers([groupByField],)</strong></h4>Counts up to 1 hit per bucket. Use this analytic when you are interested in thenumber of different instances
+                <h4><a name="countSingle"></a><strong>countSingle/countMembers([groupByField],)</strong></h4>Counts up to 1 hit per bucket. Use this analytic when you are interested in thenumber of different instances
               </p>
               <p>Examples:</p>
               <div class="block"> 
@@ -337,7 +382,7 @@
             </li>
             <li>
               <p>
-                <h4><strong>countDelta([groupByField],)</strong></h4>tracks the counts of value and displays the different when there is a change
+                <h4><a name="countDelta"></a><strong>countDelta([groupByField],)</strong></h4>tracks the counts of value and displays the different when there is a change
               </p>
               <p>Examples:</p>
               <div class="block"> 
@@ -347,7 +392,7 @@
             </li>
             <li>
               <p>
-                <h4><strong>max/min([groupByField],)</strong></h4>Returns the max/min value for a field in each bucket. If the groupByField is used, the max/min value will be returned for each different group
+                <h4><a name="max"></a><strong>max/min([groupByField],)</strong></h4>Returns the max/min value for a field in each bucket. If the groupByField is used, the max/min value will be returned for each different group
               </p>
               <p>Examples:</p>
               <div class="block"> 
@@ -357,7 +402,7 @@
             </li>
             <li>
               <p>
-                <h4><strong>sum([groupByField,)</strong></h4>Adds all the field values per bucket.
+                <h4><a name="sum"></a><strong>sum([groupByField,)</strong></h4>Adds all the field values per bucket.
               </p>
               <p>Examples:</p>
               <div class="block"> 
@@ -365,12 +410,12 @@
                 <p>type='unx-df' | diskMB.sum() </p>
               </div>
             </li>
-          </ul>
+          </ul><a name="chartFunctions"></a>
           <h2>Chart Functions</h2>
           <ul>
             <li>
               <p>
-                <h4><strong>chart(CHARTTYPE)</strong></h4>Select visualization for data. The default chart type is stacked
+                <h4><a name="chart"></a><strong>chart(CHARTTYPE)</strong></h4>Select visualization for data. The default chart type is stacked
               </p>
               <p>Examples:</p>
               <div class="block"> 
@@ -380,7 +425,7 @@
             </li>
             <li>
               <p>
-                <h4><strong>buckets(N)</strong></h4>Specifies the number of buckets used for the chart type. This gives finer control over the render of the chart.
+                <h4><a name="buckets"></a><strong>buckets(N)</strong></h4>Specifies the number of buckets used for the chart type. This gives finer control over the render of the chart.
               </p>
               <p>Examples:</p>
               <div class="block"> 
@@ -390,7 +435,7 @@
             </li>
             <li>
               <p>
-                <h4><strong>bucketWidth(DURATION)</strong></h4>Specifies the size of each bucket in the chart visualization
+                <h4><a name="bucketWidth"></a><strong>bucketWidth(DURATION)</strong></h4>Specifies the size of each bucket in the chart visualization
               </p>
               <p>Examples:</p>
               <div class="block"> 
@@ -400,7 +445,7 @@
             </li>
             <li>
               <p>
-                <h4><strong>hitLimit(N)</strong></h4>The hitlimit controls the number of events returned by a search. When the hitlimit is enabled it prunes the search when the number of hits exceeds N in a particular bucket. This function is often used to get an estimate of the data's shape and behaviour going back several months.
+                <h4><a name="hitlimit"></a><strong>hitLimit(N)</strong></h4>The hitlimit controls the number of events returned by a search. When the hitlimit is enabled it prunes the search when the number of hits exceeds N in a particular bucket. This function is often used to get an estimate of the data's shape and behaviour going back several months.
               </p>
               <p>Examples:</p>
               <div class="block"> 
@@ -410,7 +455,7 @@
             </li>
             <li>
               <p>
-                <h4><strong>replay(false)</strong></h4>controls whether or not log-line data is retrieved - in some cases where multiple searches are executed, it may be useful to restrict log-retrieval as you only want to visualise the results (in the chart i.e. CPU values against ERROR)
+                <h4><a name="replay"></a><strong>replay(false)</strong></h4>controls whether or not log-line data is retrieved - in some cases where multiple searches are executed, it may be useful to restrict log-retrieval as you only want to visualise the results (in the chart i.e. CPU values against ERROR)
               </p>
               <p>Examples:</p>
               <div class="block"> 
@@ -420,19 +465,28 @@
             </li>
             <li>
               <p>
-                <h4><strong>sort([ColumnNumber],asc), sort([ColumnNumber],desc)</strong></h4>Controls which column sorts a table, and whether the sort is ascending or descending.
+                <h4><a name="sort"></a><strong>sort([ColumnNumber],asc), sort([ColumnNumber],desc)</strong></h4>Controls which column sorts a table, and whether the sort is ascending or descending.
               </p>
               <p>Examples:</p>
               <div class="block"> 
                 <p>| _type.contains(unx-io,unx-bw,unx-cpu,unx-df,unx-free,unx-pcount) pcount.last(server,pcount%-)  await.max(server,diskWaitMs-)    rxMBs.max(server,rMBs-) txMBs.max(server,sMBs-) CpuUtilPct.avg(server,cpu%-) FsUsedPct.max(server,diskUsedPct) memUsedPct.avg(server,memUsedPct)  chart(table) buckets(1) sort(2, asc)</p>
               </div>
             </li>
-          </ul>
+            <li>
+              <p>
+                <h4><strong>sort([ColumnNumber],asc,[SortColumn2], desc)</strong></h4>Controls which two columns sort a table, and whether the sort is ascending or descending.
+              </p>
+              <p>Examples:</p>
+              <div class="block"> 
+                <p>| _type.contains(unx-io,unx-bw,unx-cpu,unx-df,unx-free,unx-pcount) pcount.last(server,pcount%-)  await.max(server,diskWaitMs-)    rxMBs.max(server,rMBs-) txMBs.max(server,sMBs-) CpuUtilPct.avg(server,cpu%-) FsUsedPct.max(server,diskUsedPct) memUsedPct.avg(server,memUsedPct)  chart(table) buckets(1) sort(2, asc)</p>
+              </div>
+            </li>
+          </ul><a name="other"></a>
           <h2>Other </h2>
           <ul>
             <li>
               <p>
-                <h4><strong>ttl(DURATION)</strong></h4>The ttl is how long Logscape will wait for the search results before timing out. The default is 3 minutes. After which all search and replay requests expire and the data is displayed.
+                <h4><a name="ttl"></a><strong>ttl(DURATION)</strong></h4>The ttl is how long Logscape will wait for the search results before timing out. The default is 3 minutes. After which all search and replay requests expire and the data is displayed.
               </p>
               <p>Examples:</p>
               <div class="block"> 
@@ -442,7 +496,7 @@
             </li>
             <li>
               <p>
-                <h4><strong>elapsed(LABEL,S1,S2,timeunit)</strong></h4>Elapsed plots the time duration between START and END. S1 and S2 terms refer to keywords which mark the beginning and end of what's being timed.
+                <h4><a name="elapsed"></a><strong>elapsed(LABEL,S1,S2,timeunit)</strong></h4>Elapsed plots the time duration between START and END. S1 and S2 terms refer to keywords which mark the beginning and end of what's being timed.
               </p>
               <p>Examples:</p>
               <div class="block"> 

@@ -241,19 +241,79 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-11">
-                <h3>Data Driven Workspaces</h3>
-                <p>Workspace Linking allows you to design workspaces which are contextually sensitive, when a user clicks an item on a table, their context is passed through, allowing you to drill down to a workspace, by host, user or process, creating a logical progression through your data.</p>
-                <div class="image"><img src="/images/cloud-linking-conceptual_overview.png" width="600"/></div><b>
-                  <p>What it means.</p></b>
-                <p>When loading an app you will land on the overview workspace, from there you can drill through your data, or use the navigation bar.</p>
-                <p><b>1. Table Linking</b></p>
-                <p>Drilling down through a linking table you're brought to the workspace relating to database metrics, however the context has been passed so only metrics relating to <em>db1.acme </em>are displayed.</p>
-                <p><b>2. Navigation Linking</b></p>
-                <p>From the metrics workspace, clicking on the procs link, will navigate you to the process workspace, but the context first gained by drilling down to the database metrics workspace is carried with you, meaning only process activity for <em>db1.acme </em>is displayed.</p>
-                <p><b>3. Standard Navigation</b></p>
-                <p>It is still possible to navigate without passing context, in this scenario returning to home will clear context, but the home also allows the ability to navigate to individual workspaces without including a filter.</p>
-                <p><b>4. Table Linking</b></p>
-                <p>From the process activity workspace it is possible for the user to drill even deeper into their data, now displaying metrics relating only to that specific process.</p>
+                <h3>Workspace Linking </h3>
+                <p>The linking functionality provides a way for non-expert users to browse, navigate and analyse data without needing expert knowledge of the Logscape search syntax. It allows more advanced users to design workflows that make sense for the team, and the data being explored.</p>
+                <p>A Linked Workspace will contain the following components -</p>
+                <ul>
+                  <li> <a href="#table">A table widget</a></li>
+                  <li> <a href="#filter">A filter widget</a></li>
+                  <li> <a href="#html">A Contextually aware HTML navigation widget</a></li>
+                  <li> <a href="#parameter">A HTML Title block using parameter discovery.</a></li>
+                </ul><a name="table"></a>
+                <h3>Configuring a Linking table </h3>
+                <!--blockquote {column: "server", url:"?Workspace=Unix - System Metrics&filter=$value&filterAction=_host.equals" , filterColumn:"server" }-->
+                <!--blockquote [{column: "server", url:"?Workspace=Unix - System Metrics&filter=$value&filterAction=_host.equals" , filterColumn:"server" }, {column: "await", url:"?Workspace=Unix Process Overview&filter=$value&filterAction=_host.equals" , filterColumn:"server" } ]-->
+                <!--blockquote {column: "server", url:"?&filter=$value&filterAction=_host.equals" , filterColumn:"server" }-->
+                <p>A Linking table is a normal table chart, with some of its values hyperlinked to other workspaces, this can be configured by the user through use of JSON.</p><strong>Setting up the search</strong>
+                <p>The following example search will create a table containing system KPI's such as Memory, CPU and I/O utilisation, broken down by the server name.	</p>
+                <blockquote>* | await.max(server,diskWaitMs)   rxMBs.max(server,rMBs-) txMBs.max(server,sMBs-) CpuUtilPct.avg(server,cpu%-) FsUsedPct.max(server,diskUsedPct) memUsedPct.avg(server,memUsedPct)  chart(table) buckets(1)</blockquote>
+                <p>The rendered search contains a hyper-link for the server column. When the server name is clicked the <em>Unix - Resources  </em>workspace is opened filtering every search <em>on the next workspace </em>with the following expression <em>_host.equals(SERVERNAME)  </em></p>
+                <div class="image"> <img src="/images/workspaces-linking-example.png" width="800"/></div>
+                <p><strong>JSON Config Overview</strong></p>
+                <p>The table is configured with JSON similar to the line below. The JSON config describes which workspace to open next and what values to use in the filter. While in edit mode, click the chart widget settings and then select the JSON tab. </p>
+                <pre>{column: "server"
+	,url:"?Workspace=Unix Resources&filter=$value&filterAction=_host.equals" 
+	,filterColumn:"server" 
+}</pre>
+                <p>A link is configured using a JSON array containing the following JSON keys <em>column</em><em>, url</em><em>, filterColumn </em></p>
+                <div class="image"> 
+                  <table class="table">
+                    <tr>
+                      <td>Key </td>
+                      <td>Value </td>
+                    </tr>
+                    <tr>
+                      <td> column </td>
+                      <td> The column is the row that will include the hyperlink. Add an additional column block for each column you would like a hyperlink on.</td>
+                    </tr>
+                    <tr>
+                      <td>url </td>
+                      <td> 
+                        <p>
+                          The page to load when the link is clicked. You can specify a normal webpage, link to a search or another workspace.
+                          The url syntax accept the following query variables.
+                          <ul>
+                            <li>filter - The filter value to use. This can be hardcoded or set to $value which references the value in that cell</li>
+                            <li>
+                              <p>filterAction - Is the filter function used to update the searches on the linked workspace.</p>
+                            </li>
+                          </ul>
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>filterColumn</td>
+                      <td>The column to extract the value from.</td>
+                    </tr>
+                  </table>
+                </div>
+                <p>Below is a multi-column example, it contains hyperlinking for the server and procname columns, both of which link to their appropriate workspaces.</p>
+                <pre>[ 
+	{column: "server",url:"?Workspace=Unix Resources&filter=$value&filterAction=_host.equals" ,filterColumn:"server" }
+	,{column: "procname",url:"?Workspace=Unix Processes&filter=$value&filterAction=_pid.equals" ,filterColumn:"pid" }
+ ]</pre><a name="html"></a>
+                <h3>Configuring a HTML Navigation Panel</h3>
+                <p>The HTML Widget can be used to build links to other workspaces. To make sure that the linked workspace contains the correct context the URL format will need to be used.  Here's an example link to the Unix Processes workspace.</p>
+                <blockquote> &lt;a href="?Workspace=Users&filter=$value&filterAction=_host.equals"&gt;Hyperlink Text&lt;/a&gt;</blockquote>
+                <p>Adding a link similar to this in your HTMLWidget will open the next workspace, passing the filterAction and the filter value to the next workspace. When the workspace loads it will apply <em>_host.equals($value) </em> to every search, where $value is populated from your search results. </p>
+                <h3>Adding a Filter Widget</h3><a name="filter"></a>
+                <p>A filter widget can be added in the usual manner, while in edit mode simply click the filter widget icon. For workspaces in a linked workflow to work correctly, a filter widget is required and will be populated with the filter value passed to the workspace.</p><a name="parameter"></a>
+                <h3>Parameter Discovery</h3>
+                <p>Parameters can be passed between workspaces by including them in the URL using the format var=value, once included in the URL any HTML block on that page can reference that variable using the $ notation. i.e</p>
+                <pre>yourlogserver.com:8080/play/?Workspace=Home&name=Chris</pre>
+                <p>Any HTML block on your page can reference this variable </p>
+                <pre>&lt;h3> Hello, $name welcome to Logscape&lt;/h3></pre><em>
+                  <p>Note: A variable name must be have both leading and trailing whitespace</p></em>
               </div>
             </div>
             <div class="row">

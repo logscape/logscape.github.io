@@ -12,3 +12,8 @@ h3 {
 .grid * a {
 	color:#fe4800;
 }
+
+.page-nav > li > a{
+	padding-bottom: 0;
+	padding-top: 0;
+}
