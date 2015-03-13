@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Logscape Apps	</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style-app.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/angular-1.2.9/angular.min.js"></script>
+    <script src="js/angular-1.2.9/angular-animate.min.js"></script>
+    <script src="js/angular-1.2.9/angular-route.min.js"></script>
+    <script src="js/app/controllers.js"> </script>
+  </head>
+  <body>
+    <div style="width:100%;height:85px;background-color:#333;">
+      <!--div
+      a(href="/") Documentation
+      a(href="")  Forums 	| 
+      a(href="") Getting Started	|
+      a(href="") Logscape  	| 
+      -->
+      <div style="padding-left:100px;padding-top:20px"><img src="images/logscape-apps-logo.png" style="height:45px"></div>
+    </div>
+    <div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;">
+      <div style="padding-left:140px;padding-top:10px"><a href="/">Documentation  | </a><a href="http://logscape.com">Main Website  | </a><a href="http://logscape.com/get.html">Download  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a></div>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-2"></div>
+      <div class="col-md-5">
+        <div id="widget-bc" padding-left:150px class="breadcrumbs style">&nbsp;</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-12">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-11">
+              <h3>Application Logs </h3>
+              <p>A host filter restricts a data sources access to a predefined list of hosts. You can assign a comma separated list of hosts to include or exclude. Here a  few examples</p>
+              <p>For example you have a web application </p>
+              <div class="image"><img src="ds-application_logs-webstack.png"></div>
+              <hr>
+              <h4>Create a Data Source </h4>
+              <p>E.g point to the log4j folder </p>
+              <p>Creat another data source to point to the application logs </p>
+              <p>Create the last one to point to the web access logs </p>
+              <hr>
+              <h4>Search the Data </h4>
+              <p><strong>A list of hosts </strong>
+                <p>This pattern will match all hosts in the environment that match start with dev1-grid, dev1-cache or dev2 </p>
+                <blockquote>	dev1-grid,dev1-cache,dev2</blockquote><strong>Exclude a few hosts </strong>
+                <p>Use the <em>!host </em>syntax to exclude hosts. The example below includes all hosts beginning with dev1 and excludes all dev2 hosts.</p>
+                <blockquote>	dev1,!dev2</blockquote><strong>using a resource group</strong>
+                <p> The resource group unixes defines all hosts that run OS X,Linux or Solaris.  </p>
+                <blockquote>	group:unixes</blockquote>
+              </p>
+              <h4>Resource Groups</h4>
+              <p>A resource group is a list of agents defined by the query selector on the Agents page. Navigate to the Configure/Agents page as a Systems Administrator.  </p>
+              <ol>
+                <li>Type in your query and test it by clicking the [FILTER] button </li>
+                <li>
+                  Create Resource Group - once you are happy that your query is selecting the correct hosts click on the [NEW] button on the below the query option. 
+                  Update the settings then click save. 
+                  <div class="image"><img src="images/ds-add-resourcegroup.png"></div>
+                </li>
+                <li>Your resource group should now appear in the drop down menu </li>
+              </ol>
+              <p>Once you have created the resource group you can return to the Data Sources page and update your tag. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<!--
+.container		
+//		
+	.navbar.navbar-fixed-top
+		.navbar-inner
+			.nav-collapse.collapse
+				ul.nav
+					li.active  Main Support Site 
+					li Explore Logscape Apps 
+					li 
+						a(href="") Download 
+			h3 Logscape Apps 
+			a(href="index.html") Getting Started | 
+			a(href="http://support.liquidlabs.co.uk")  Older Versions 1.3x Docs   
+
+.container-fluid
+	br
+	br 
+	br
+	br
+	br
+	.row 
+		.col-md-11(style="padding-left:100px")
+			block content 
+	
+script(src="js/ga.js") 
+-->
+<!--
+//
+	.row
+		.col-md-2.nav-padding
+		
+			br
+	
+			ul
+				li
+					a(href="https://github.com/logscape/windowsapp#windowsapp-10") WindowsApp
+				li 
+					a(href="https://github.com/logscape/unixapp#unixapp-10") UnixApp
+
+				li 
+					a(href="https://github.com/logscape/coherenceapp#oraclecoherenceapp-10") Oracle Coherence App
+
+				li 
+					a(href="https://github.com/logscape/javaapp#javaapp-10") JavaApp
+
+				li 
+					a(href="https://github.com/logscape/vmwareapp#vmwareapp-10") VMWareApp
+
+				li
+					a(href="https://github.com/logscape/ciscoapp#ciscoapp-10") Cisco Devices
+
+
+
+
+		.col-md-10
+			block content
+-->

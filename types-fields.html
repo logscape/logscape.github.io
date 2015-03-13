@@ -1,163 +1,360 @@
-<!DOCTYPE html ><html lang="en"><head><title>	Logscape 2.0 </title><script src="js/kiss.js"></script><link href="css/bootstrap.min.css" rel="stylesheet"/><link href="css/style.css" rel="stylesheet"/><link href="css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet"/><link href="css/style-app.css" rel="stylesheet"/><link href="css/app.css" rel="stylesheet"/><link href="//vjs.zencdn.net/4.9/video-js.css" rel="stylesheet"/><script src="//vjs.zencdn.net/4.9/video.js"></script><script src="js/jquery-1.11.0.js"></script><script src="js/bootstrap.min.js"></script><script>var breadcrumbs={
- "gettingstarted":"Getting Started" 
- ,"searching":"Search"
-  ,"kv":"Data Discovery"
-  ,"offsets":"Using Offsets"
-  ,"geoip":"Geo IP"
-  ,"pattern":"Using Search Patterns"
-  ,"video":"tutorials"
-  ,"overlays":"Overlaying Searches" 
- ,"starthere":""
- 
- ,"ds":"Data Sources"
-  ,"add":" Add a New Data Source" 
-  ,"multitags":" Using Multi-Tags"
-  ,"syslog":" Connect Syslog Clients" 
-  ,"tags": " Sources and Tags" 
-  ,"intelligent_field_discovery":" Intelligent Field Discovery" 
- ,"types":"Data Types"
-  ,"system_fields":"System Fields" 
- ,"deploy":"Deployment" 
-  ,"app":" Logscape Apps"
-  ,"agents": "Agents "
-  ,"architectures_default": " Default Deployment"
-  ,"architectures_failover": "Failover" 
-  ,"architectures_indexstores": " Index Stores" 
-  ,"architectures_tenured":"Tenured Data"
-  ,"architectures_zones":" Zones" 
-  ,"Backup": "Backup" 
-   ,"home":" The Home Workspace"
-   ,"import":" Restoring from Backup"
-   ,"partial": " Selective Import"
-   
-  ,"arch_zoning":"Distributed Topology" 
-  ,"arch_clm":"Centralized Monitoring Topology" 
-  ,"arch_indexstores":"Multiple Index Store Topology" 
-  
-  ,"rawtcpserver": "Tcp Server"
-  ,"syslogserer":"Syslog Server"
-  ,"centralconfigs":"Centralized Configuration"
-  ,"boot_properties":"Boot Properties"
-  
- ,"users":"Users"
-  ,"datagroups": "Data Groups"
-   ,"nested": "Nested Groups"
-  ,"faq":"Frequently Asked Questions" 
- ,"ldap":"Active Directory" 
-};
-$(window).load(function(){
- function genLink(arr,idx){
-  if (idx<0) { return "/"; } 
-  var l="/"
-  for(i=0;i<=idx;i++){
-   l=l +  arr[i] + "-" ;
-  }
-  return l.substring(0,l.length-1) + ".html";
- }
- 
- function renderCrumbs(page){
-  console.log("rendering breadcrumbs for page:" + page)
-  if (page.indexOf("-") < 0){
-   return ""
-  }
-  var parts=page.split("-");
-  var idx=0;
-  console.log("rendering  " + parts);
-  var html="<a href='"+genLink(parts,-1)+"'> / Home </a>";
-  for(idx=0;idx<parts.length;idx++){
-   k=parts[idx];
-   html=html + "<a href="+ genLink(parts,idx) + ">";
-   if (breadcrumbs.hasOwnProperty(k)){
-    html=html + " / " + breadcrumbs[k];
-   }else{
-    html=html + " / " + k[0].toUpperCase() + k.substring(1,k.length);
-   }
-   console.log(".");
-  }
-  console.log("this far!!!");
-  return html
- }
- var elems=window.location.href.split('?')[0].split('/');
- var currentPage=elems[elems.length-1].split('.')[0]
- console.log("crumb>" + renderCrumbs(currentPage));	
- $('#widget-bc').html(renderCrumbs(currentPage));
-});
-
-</script><script>var blogFeed;
-function parseRSS(url, callback) {
- $.ajax({
-  url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(url),
-  dataType: 'json',
-  success: function(data) {
-   callback(data.responseData.feed);
-  }});
-}
-$(window).load(function() { 
- parseRSS("http://blog.logscape.com/feed",function(feed){
-  var num = feed.entries.length;
-  for(i=0;i< num;i++){
-   var title=feed.entries[i].title;
-   //var link=feed.entries[i].
-   link=feed.entries[i].link;
-   $(".resource-list ul").append("<li><a href='"+link+"'>"+title+"</a> </li>")
-   blogFeed=feed;
-  }
- });
-});
-</script><script>$(window).bind("pageshow",function(){
- var $form= $("form")[0];
- $form.reset(); 
-});
-</script><script>function submit_form(){
- var q=$("#searchBox").val() 
- q=encodeURIComponent(q)
- var query="https://www.google.com/?gws_rd=cr&q=site:logscape.github.io+#q=site:logscape.github.io+"+q
- var location = window.location.href;
- console.log("back:" + location);
- history.pushState({},"",location); 
- window.location.replace(query);
-}</script></head><body><div style="width:100%;height:85px;background-color:#333;"><!--diva(href="/") Documentation
-a(href="")  Forums 	| 
-a(href="") Getting Started	|
-a(href="") Logscape  	| 
-
---><div style="padding-left:100px;padding-top:25px"><img src="images/logscape-apps-logo.png" style="height:45px"/><div style="float:right" class="col-md-3"><form id="cse-search-box" action="" style="position:right;padding-top:5px;padding-bottom:5px" onSubmit="submit_form()"><input type="hidden" name="cx" value="partner-pub-2789521296837340:9402765321"/><input type="hidden" name="ie" value="UTF-8"/><input id="searchBox" type="text" name="q" size="31" style="margin-left:15px"/><input id="cseSubmit" type="submit" value=" " class="btn-search"/></form></div></div></div><div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;"><div style="padding-left:140px;padding-top:10px;font-size:14px"><a href="http://apps.logscape.com">Apps |  </a><a href="/cloud.html">Cloud |  </a><!--a(href="http://support.liquidlabs.co.uk") Release 1.3 | --><a href="http://logscape.activeboard.com/">Forums  | </a><a href="gettingstarted.html">Getting Started </a><img style="height:0;width:0" src="http://logscape.com/images/track.png?version=support"/></div></div><!--.container-fluid.navbar(style="min-height:30px;margin-bottom:5px;").row(style="height:5px") 
-.row
- .col-md-8
- .col-md-1--><div class="container-fluid"><!--.row.col-md-7
- form#cse-search-box(action="",style="position:right;padding-top:5px;padding-bottom:5px",onSubmit="submit_form()")
-  a(href="/")
-   img(src="images/logo.png",style="padding-top:0px,padding-right:15px",width="150") 
-  input(type="hidden",name="cx",value="partner-pub-2789521296837340:9402765321")
-  input(type="hidden",name="ie",value="UTF-8")
-  input#searchBox(type="text",name="q",size="31",style="margin-left:15px")
-  input.btn-search#cseSubmit(type="submit",value=" ")
-  &nbsp;&nbsp;
-  a(href="http://apps.logscape.com") Apps |  
-  a(href="http://support.liquidlabs.co.uk") Release 1.3 | 
-  a(href="http://logscape.activeboard.com/") Forums  | 
-  a(href="gettingstarted.html") Getting Started 
-  --><div class="row"><div class="col-md-1"></div><div class="col-md-2"></div><div class="col-md-5"><div id="widget-bc" padding-left:150px="padding-left:150px" class="breadcrumbs style">&nbsp;</div></div></div><div class="row"><div style="width:100px" class="col-md-1"><p></p></div><div class="col-md-2 nav-padding"><ul class="nav nav-tabs nav-stacked"><li><a href="searching.html">Search</a></li><li><a href="workspaces.html">WorkSpaces</a></li><li><a href="ds.html">Data Sources</a></li><li><a href="types.html">Data Types </a></li><li><a href="deploy.html">Deployment</a></li><li><a href="users.html">Users </a></li><li><a href="alerts.html">Alerts 	</a></li><li><a href="technology.html">Technology</a></li><li><a href="https://twitter.com/logscape" data-show-count="false" data-size="large" class="twitter-follow-button">Follow @logscape</a><script>=!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></li></ul><div style="padding-left:50px"><h4>Articles </h4></div><hr/><div class="resource-list"><ul style="list-style:none;padding-left:10px;background-color:#FFFEE7"></ul></div></div><div class="col-md-9 content-area"><div class="container-fluid"><div class="row"><div class="col-md-11"><h3>Fields </h3><p>Every datatype that is assigned to data uses fields to extract values from an event or a line of raw log data. A regular expression pattern or the split function define  what values a field may have. A synthetic field is a field that uses the value of an existing field rather than the raw incoming data. When you click on a field you will see the following dialog</p><div class="image"><img src="images/types-tutorial-field.png"/></div><ul><li><em>Function</em>- This is the default analytic used on this field on the search page</li><li><em>Visible - </em>If this attribute is enabled, the field will be displayed in the raw events on the Search Page. </li><li><em>Summary - </em>Summary statistics are calculated on this field on the Search page at search time </li><li><em>synth source (optional) -</em>A synth source is another Field or Synthetic Field</li><li><em>synth expression (optional) - </em>An expression can generate a new value or modify the value from a synth source</li></ul><h3>Synthetic Fields </h3><p>A synthetic field is created by setting a field for the Synth Source and an expression for the Synth Expression. Here's a summary of how a field can be configured</p><table class="table"><tr><td><strong>Synth Expression</strong></td><td><strong>Synth Source</strong></td><td><strong>View </strong></td></tr><tr><td>pattern,regexp</td><td>REQUIRED </td><td>OPTIONAL </td></tr><tr><td>substring,lastsubstring,split </td><td>REQUIRED</td><td>OPTIONAL </td></tr><tr><td>jep,mvel,groovy-script,groovy-geoip</td><td>OPTIONAL </td><td>OPTIONAL </td></tr><tr><td>OPTIONAL</td><td>OPTIONAL</td><td>heatmap-numeric, heatmap-enum</td></tr></table><p>The synth expression uses different functions to create values based off other groups in the data type. </p><p><strong>Pattern Expression - </strong>This is a regular expression that is applied to the field specified in the synth source field. 
-See a description on the <a href="types-patterns.html"> Patterns in Logscape </a>page </p><p>		<strong>Expression Evaluators - </strong>You can also use the jep or mvel expression evaluators too. They have the following syntax. <blockquote>	jep: memMB / totalMemory * 100</blockquote>The mvel syntax is identical to mvel except that mvel supports the concatenation of strings<blockquote>	mvel: "http://"  + url </blockquote>Any variables used with mvel or jep must exist first as another field. </p><p><strong>Text Functions - </strong><ul><li><p>substring - Returns a substring from the start text to the end text. </p><blockquote>substring-match: START,END </blockquote>The following text belongs to a cisco ASA log and I want to retrieve the Log Level of the error. This is the text in between the two dashes<blockquote>ASA-1-10600</blockquote>Use the following substring expression get the error level<blockquote>substring-match: -,-</blockquote></li><li><p>lastsubstring	- Follows the syntax of the <em>substring </em>function. It returns the last substring in the text. If you had the following url string <blockquote>http://logscape.com/news/today.html </blockquote>and  you wanted to retrieve the last path, you would use the following expression<blockquote>lastsubstring: /,/ </blockquote></p></li><li><p>split - Retrieves an item from a csv like value. It has this syntax<blockquote> split,DELIM,POS</blockquote>If you had this value <blockquote>  joe:blog:32</blockquote>and you wanted to extract the surname <em>blog </em>you would use this expression<blockquote>	split,:,2</blockquote>The delimiter or separator is <em>:</em>and the position is <em>2 </em></p></li></ul></p><h3>Views </h3><p>Views affect how a field value is displayed. Heatmaps are defined in the field section. <br/><strong> Heatmap-numeric - </strong>The example below applies a heatmap for the values between 1 and 100. <blockquote>{"heatmap-numeric":"1..100"}</blockquote>When this field is displayed in a table the cell will recieve a colour ranging from a cool to increasing warm colours. </p><p><strong>Heatmap-enum -</strong>Text values can also be heatmapped. The example shows a heatmap for the log4j log levels. <blockquote>{
-"heatmap-enum": "DEBUG:white,INFO:#95F7C3,WARN:#F3DA87,ERROR:#EAA261,FATAL:#E03930",
-}</blockquote>The syntax for the labels use this syntax.<blockquote>	LABEL:COLOR</blockquote><em>LABEL </em>is the text to be coloured and the <em>COLOR can be expressed as a hex value (e.g #E03930" ), a rgb value ( e.g rgb(100,200,123) ) or as hsv </em></p></div></div></div></div></div><!--hr.dark 
-.col-md-3
-Logscape Copyright 2014(c) Registered Trademark --></div><script>$( document ).ready(function() {
-
- $("#cseSubmit").on("click",function(e){
-  e.preventDefault();
-  submit_form(); 
- });
- $("#searchBox").on("keypress",function(e){ 
-  if (e.keyCode == 13) { 
-   e.preventDefault();
-   submit_form() 
-  }
- }); 
-});
-</script><script>(function(g,i,a,n,t,s){g['SeeYourVisitors']=n;g[n]=g[n]||function(){
-(g[n].q=g[n].q||[]).push(arguments)},g[n].l=1*new Date();t=i.createElement(a),
-s=i.getElementsByTagName(a)[0];t.async=1;t.src='//seeyourvisitors2.appspot.com/gg.js';
-s.parentNode.insertBefore(t,s)})(window,document,'script','gg');
-gg('create', 'd1a8b082-8806-4793-936f-35f5e41b3592');
-gg('track');</script><script src="js/ga.js"></script></body></html>
+<!DOCTYPE html >
+<html lang="en">
+  <head>
+    <title>	Logscape Documentation </title>
+    <script src="js/kiss.js"> </script>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="css/style-app.css" rel="stylesheet"/>
+    <link href="css/app.css" rel="stylesheet"/>
+    <link href="//vjs.zencdn.net/4.9/video-js.css" rel="stylesheet"/>
+    <script src="//vjs.zencdn.net/4.9/video.js"></script>
+    <script src="js/jquery-1.11.0.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+      var breadcrumbs={
+      	"gettingstarted":"Getting Started" 
+      	,"searching":"Search"
+      		,"kv":"Data Discovery"
+      		,"offsets":"Using Offsets"
+      		,"geoip":"Geo IP"
+      		,"pattern":"Using Search Patterns"
+      		,"video":"tutorials"
+      		,"overlays":"Overlaying Searches" 
+      	,"starthere":""
+      
+      	,"ds":"Data Sources"
+      		,"add":" Add a New Data Source" 
+      		,"multitags":" Using Multi-Tags"
+      		,"syslog":" Connect Syslog Clients" 
+      		,"tags": " Sources and Tags" 
+      		,"intelligent_field_discovery":" Intelligent Field Discovery" 
+      	,"types":"Data Types"
+      		,"system_fields":"System Fields" 
+      	,"deploy":"Deployment" 
+      		,"app":" Logscape Apps"
+      		,"agents": "Agents "
+      		,"architectures_default": " Default Deployment"
+      		,"architectures_failover": "Failover" 
+      		,"architectures_indexstores": " Index Stores" 
+      		,"architectures_tenured":"Tenured Data"
+      		,"architectures_zones":" Zones" 
+      		,"Backup": "Backup" 
+      			,"home":" The Home Workspace"
+      			,"import":" Restoring from Backup"
+      			,"partial": " Selective Import"
+      
+      		,"arch_zoning":"Distributed Topology" 
+      		,"arch_clm":"Centralized Monitoring Topology" 
+      		,"arch_indexstores":"Multiple Index Store Topology" 
+      
+      		,"rawtcpserver": "Tcp Server"
+      		,"syslogserer":"Syslog Server"
+      		,"centralconfigs":"Centralized Configuration"
+      		,"boot_properties":"Boot Properties"
+      
+      	,"users":"Users"
+      		,"datagroups": "Data Groups"
+      			,"nested": "Nested Groups"
+      		,"faq":"Frequently Asked Questions" 
+      	,"ldap":"Active Directory" 
+      };
+      $(window).load(function(){
+      	function genLink(arr,idx){
+      		if (idx<0) { return "/"; } 
+      		var l="/"
+      		for(i=0;i<=idx;i++){
+      			l=l +  arr[i] + "-" ;
+      		}
+      		return l.substring(0,l.length-1) + ".html";
+      	}
+      
+      	function renderCrumbs(page){
+      		console.log("rendering breadcrumbs for page:" + page)
+      		if (page.indexOf("-") < 0){
+      			return ""
+      		}
+      		var parts=page.split("-");
+      		var idx=0;
+      		console.log("rendering  " + parts);
+      		var html="<a href='"+genLink(parts,-1)+"'> / Home </a>";
+      		for(idx=0;idx<parts.length;idx++){
+      			k=parts[idx];
+      		
+      			html=html + "<a href="+ genLink(parts,idx) + ">";
+      			if (breadcrumbs.hasOwnProperty(k)){
+      				html=html + " / " + breadcrumbs[k];
+      			}else{
+      				
+      				html=html + " / " + k[0].toUpperCase() + k.substring(1,k.length);
+      			}
+      			console.log(".");
+      		}
+      		console.log("this far!!!");
+      		return html
+      	}
+      	
+      	var elems=window.location.href.split('?')[0].split('/');
+      	var currentPage=elems[elems.length-1].split('.')[0]
+      	console.log("crumb>" + renderCrumbs(currentPage));	
+      	$('#widget-bc').html(renderCrumbs(currentPage));
+      });
+      
+      
+    </script>
+    <script>
+      var blogFeed;
+      function parseRSS(url, callback) {
+      	$.ajax({
+      		url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(url),
+      		dataType: 'json',
+      		success: function(data) {
+      			callback(data.responseData.feed);
+      		}});
+      }
+      
+      $(window).load(function() { 
+      	parseRSS("http://blog.logscape.com/feed",function(feed){
+      		var num = feed.entries.length;
+      		for(i=0;i< num;i++){
+      			var title=feed.entries[i].title;
+      			//var link=feed.entries[i].
+      			link=feed.entries[i].link;
+      			$(".resource-list ul").append("<li><a href='"+link+"'>"+title+"</a> </li>")
+      			blogFeed=feed;
+      		}
+      	});
+      });
+      
+    </script>
+    <script>
+      $(window).bind("pageshow",function(){
+      	var $form= $("form")[0];
+      	$form.reset(); 
+      });
+      
+    </script>
+    <script>
+      function submit_form(){
+      	var q=$("#searchBox").val() 
+      	q=encodeURIComponent(q)
+      	var query="https://www.google.com/?gws_rd=cr&q=site:logscape.github.io+#q=site:logscape.github.io+"+q
+      	var location = window.location.href;
+      	console.log("back:" + location);
+      	history.pushState({},"",location); 
+      	window.location.replace(query);
+      }
+      
+    </script>
+  </head>
+  <body>
+    <div style="width:100%;height:85px;background-color:#333;">
+      <!--div
+      a(href="/") Documentation
+      a(href="")  Forums 	| 
+      a(href="") Getting Started	|
+      a(href="") Logscape  	| 
+      
+      
+      -->
+      <div style="padding-left:100px;padding-top:25px"><img src="images/logscape-apps-logo.png" style="height:45px"/>
+        <div style="float:right" class="col-md-3">
+          <form id="cse-search-box" action="" style="position:right;padding-top:5px;padding-bottom:5px" onSubmit="submit_form()">
+            <input type="hidden" name="cx" value="015161349156186070243:ktxh8djpql8"/>
+            <input type="hidden" name="ie" value="UTF-8"/>
+            <input id="searchBox" type="text" name="q" size="31" style="margin-left:15px"/>
+            <input id="cseSubmit" type="submit" value=" " class="btn-search"/>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;">
+      <div style="padding-left:140px;padding-top:10px;font-size:14px"><a href="http://apps.logscape.com">Apps |  </a><a href="/cloud.html">Cloud |  </a>
+        <!--a(href="http://support.liquidlabs.co.uk") Release 1.3 | --><a href="http://logscape.activeboard.com/">Forums  | </a><a href="gettingstarted.html">Getting Started </a><img style="height:0;width:0" src="http://logscape.com/images/track.png?version=support"/>
+      </div>
+    </div>
+    <!--.container-fluid.navbar(style="min-height:30px;margin-bottom:5px;")
+    .row(style="height:5px") 
+    .row
+    	.col-md-8
+    	.col-md-1
+    -->
+    <div class="container-fluid">
+      <!--.row
+      .col-md-7
+      	form#cse-search-box(action="",style="position:right;padding-top:5px;padding-bottom:5px",onSubmit="submit_form()")
+      		a(href="/")
+      			img(src="images/logo.png",style="padding-top:0px,padding-right:15px",width="150") 
+      		input(type="hidden",name="cx",value="partner-pub-2789521296837340:9402765321")
+      		input(type="hidden",name="ie",value="UTF-8")
+      		input#searchBox(type="text",name="q",size="31",style="margin-left:15px")
+      		input.btn-search#cseSubmit(type="submit",value=" ")
+      		&nbsp;&nbsp;
+      		a(href="http://apps.logscape.com") Apps |  
+      		a(href="http://support.liquidlabs.co.uk") Release 1.3 | 
+      		a(href="http://logscape.activeboard.com/") Forums  | 
+      		a(href="gettingstarted.html") Getting Started 
+      
+      -->
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-5">
+          <div id="widget-bc" padding-left:150px="padding-left:150px" class="breadcrumbs style">&nbsp;</div>
+        </div>
+      </div>
+      <div class="row">
+        <div style="width:100px" class="col-md-1">
+          <p></p>
+        </div>
+        <div class="col-md-2 nav-padding">
+          <ul class="nav nav-tabs nav-stacked"> 
+            <li><a href="searching.html">Search</a></li>
+            <li> <a href="workspaces.html">WorkSpaces</a>
+              <ul></ul>
+            </li>
+            <li> <a href="ds.html">Data Sources</a></li>
+            <li> <a href="types.html">Data Types </a></li>
+            <li><a href="deploy.html">Deployment</a></li>
+            <li><a href="users.html">Users </a></li>
+            <li> <a href="alerts.html">Alerts 	</a></li>
+            <li><a href="technology.html">Technology</a></li>
+            <li><a href="release-notes.html">Release Notes</a></li>
+            <li><a href="https://twitter.com/logscape" data-show-count="false" data-size="large" class="twitter-follow-button">Follow @logscape</a>
+              <script>=!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            </li>
+          </ul>
+          <div style="padding-left:50px"> 
+            <h4>Articles </h4>
+          </div>
+          <hr/>
+          <div class="resource-list">
+            <ul style="list-style:none;padding-left:10px;background-color:#FFFEE7"> </ul>
+          </div>
+        </div>
+        <div class="col-md-9 content-area"> 
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-11">
+                <h3>Fields </h3>
+                <p>Every datatype that is assigned to data uses fields to extract values from an event or a line of raw log data. A regular expression pattern or the split function define  what values a field may have. A synthetic field is a field that uses the value of an existing field rather than the raw incoming data. When you click on a field you will see the following dialog</p>
+                <div class="image"><img src="images/types-tutorial-field.png"/></div>
+                <ul>
+                  <li> <em>Function</em>- This is the default analytic used on this field on the search page</li>
+                  <li> <em>Visible - </em>If this attribute is enabled, the field will be displayed in the raw events on the Search Page. </li>
+                  <li> <em>Summary - </em>Summary statistics are calculated on this field on the Search page at search time </li>
+                  <li> <em>synth source (optional) -</em>A synth source is another Field or Synthetic Field</li>
+                  <li> <em>synth expression (optional) - </em>An expression can generate a new value or modify the value from a synth source</li>
+                </ul>
+                <h3>Synthetic Fields </h3>
+                <p>A synthetic field is created by setting a field for the Synth Source and an expression for the Synth Expression. Here's a summary of how a field can be configured</p>
+                <table class="table"> 
+                  <tr>
+                    <td> <strong>Synth Expression</strong></td>
+                    <td> <strong>Synth Source</strong></td>
+                    <td> <strong>View </strong></td>
+                  </tr>
+                  <tr>
+                    <td>pattern,regexp</td>
+                    <td>REQUIRED </td>
+                    <td>OPTIONAL </td>
+                  </tr>
+                  <tr> 
+                    <td>substring,lastsubstring,split </td>
+                    <td>REQUIRED</td>
+                    <td>OPTIONAL </td>
+                  </tr>
+                  <tr> 
+                    <td>jep,mvel,groovy-script,groovy-geoip</td>
+                    <td>OPTIONAL </td>
+                    <td>OPTIONAL </td>
+                  </tr>
+                  <tr>
+                    <td>OPTIONAL</td>
+                    <td>OPTIONAL</td>
+                    <td>heatmap-numeric, heatmap-enum</td>
+                  </tr>
+                </table>
+                <p>The synth expression uses different functions to create values based off other groups in the data type. </p>
+                <p><strong>Pattern Expression - </strong>This is a regular expression that is applied to the field specified in the synth source field. 
+                  See a description on the <a href="types-patterns.html"> Patterns in Logscape </a>page 
+                </p>
+                <p>		<strong>Expression Evaluators - </strong>You can also use the jep or mvel expression evaluators too. They have the following syntax. 
+                  <blockquote>	jep: memMB / totalMemory * 100</blockquote>The mvel syntax is identical to mvel except that mvel supports the concatenation of strings
+                  <blockquote>	mvel: "http://"  + url </blockquote>Any variables used with mvel or jep must exist first as another field. 
+                </p>
+                <p><strong>Text Functions - </strong>
+                  <ul>
+                    <li>
+                      <p>substring - Returns a substring from the start text to the end text. </p>
+                      <blockquote>substring-match: START,END </blockquote>The following text belongs to a cisco ASA log and I want to retrieve the Log Level of the error. This is the text in between the two dashes
+                      <blockquote>ASA-1-10600</blockquote>Use the following substring expression get the error level
+                      <blockquote>substring-match: -,-</blockquote>
+                    </li>
+                    <li>
+                      <p>lastsubstring	- Follows the syntax of the <em>substring </em>function. It returns the last substring in the text. If you had the following url string 
+                        <blockquote>http://logscape.com/news/today.html </blockquote>and  you wanted to retrieve the last path, you would use the following expression
+                        <blockquote>lastsubstring: /,/ </blockquote>
+                      </p>
+                    </li>
+                    <li>
+                      <p>split - Retrieves an item from a csv like value. It has this syntax
+                        <blockquote> split,DELIM,POS</blockquote>If you had this value 
+                        <blockquote>  joe:blog:32</blockquote>and you wanted to extract the surname <em>blog </em>you would use this expression
+                        <blockquote>	split,:,2</blockquote>The delimiter or separator is <em>:</em>and the position is <em>2 </em>
+                      </p>
+                    </li>
+                  </ul>
+                </p>
+                <h3>Views </h3>
+                <p>Views affect how a field value is displayed. Heatmaps are defined in the field section. <br/><strong> Heatmap-numeric - </strong>The example below applies a heatmap for the values between 1 and 100. 
+                  <blockquote>{"heatmap-numeric":"1..100"}</blockquote>When this field is displayed in a table the cell will recieve a colour ranging from a cool to increasing warm colours. 
+                </p>
+                <p><strong>Heatmap-enum -</strong>Text values can also be heatmapped. The example shows a heatmap for the log4j log levels. 
+                  <blockquote>
+                    {
+                    "heatmap-enum": "DEBUG:white,INFO:#95F7C3,WARN:#F3DA87,ERROR:#EAA261,FATAL:#E03930",
+                    }
+                  </blockquote>The syntax for the labels use this syntax.
+                  <blockquote>	LABEL:COLOR</blockquote><em>LABEL </em>is the text to be coloured and the <em>COLOR can be expressed as a hex value (e.g #E03930" ), a rgb value ( e.g rgb(100,200,123) ) or as hsv </em>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--
+      hr.dark 
+      .col-md-3
+      Logscape Copyright 2014(c) Registered Trademark 
+      
+      -->
+    </div>
+    <script>
+      $( document ).ready(function() {
+      
+      	$("#cseSubmit").on("click",function(e){
+      		e.preventDefault();
+      		submit_form(); 
+      	});
+      	$("#searchBox").on("keypress",function(e){ 
+      		if (e.keyCode == 13) { 
+      			e.preventDefault();
+      			submit_form() 
+      		}
+      	}); 
+      });
+      
+    </script>
+    <script>
+      (function(g,i,a,n,t,s){g['SeeYourVisitors']=n;g[n]=g[n]||function(){
+      (g[n].q=g[n].q||[]).push(arguments)},g[n].l=1*new Date();t=i.createElement(a),
+      s=i.getElementsByTagName(a)[0];t.async=1;t.src='//seeyourvisitors2.appspot.com/gg.js';
+      s.parentNode.insertBefore(t,s)})(window,document,'script','gg');
+      gg('create', 'd1a8b082-8806-4793-936f-35f5e41b3592');
+      gg('track');
+    </script>
+    <script src="js/ga.js"> </script>
+  </body>
+</html>

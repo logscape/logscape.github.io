@@ -180,9 +180,23 @@ BODY{
 	color:#333;
 	zoom:1;
 }
+/* */
+
+ul.menu > .nav-stacked li a {
+	color:#1F3D5C;
+	padding:5px 15px;
+
+}
+
+.menu .nav-stacked li a.active {
+	color:#11B1E4;
+
+}
+
 
 .nav-stacked li a {
 	color:#1F3D5C;
+	padding:5px 15px;
 
 }
 
@@ -190,6 +204,9 @@ BODY{
 	color:#11B1E4;
 
 }
+
+
+
 
 .info-box li a {
 	color:#1F3D5C;

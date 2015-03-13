@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Logscape Apps	</title>
+    <title>Logscape Cloud Support	</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style-app.css" rel="stylesheet">
     <link href="css/cloud-app.css" rel="stylesheet">
@@ -30,10 +30,11 @@
         <hr>
         <ul class="nav nav-tabs nav-stacked">
           <p>Introduction</p>
-          <li><a href="cloud-starthere.html">Getting Started </a></li>
-          <li><a href="cloud-signup.html">Use Cases </a></li>
+          <li><a href="cloud-welcome.html">Welcome to Logscape</a></li>
+          <li><a href="cloud-getting-started.html">Getting Started </a></li>
+          <li><a href="cloud-full-stack-monitoring.html">Full Stack Monitoring</a></li>
           <p>Stream Your Data </p>
-          <li><a href="cloud-syslog.html">Syslog</a>
+          <li><a href="cloud-syslog.html">&#9654; Syslog</a>
             <!--div 
             ul.nav.nav-tabs.nav-stacked
             	li 
@@ -45,12 +46,21 @@
             -->
           </li>
           <li><a href="cloud-nxlog.html">Nxlog </a></li>
-          <li><a href="cloud-collector.html">Collector </a></li>
+          <li><a href="cloud-collector.html">&#9654; Collector </a></li>
           <p>System Data </p>
-          <li> <a href="cloud-system-unix.html">Unix System Logs </a></li>
-          <li> <a href="cloud-system-unix-audit.html">Unix Audit Logs 	</a></li>
-          <li> <a href="cloud-system-windows.html">Windows System Logs </a></li>
-          <li> <a href="cloud-system-windows-audit.html">Windows Audit Logs 	</a></li>
+          <li><a href="cloud-collector-unix.html">&#9654; Unix Server</a></li>
+          <!--li a(href="cloud-system-unix.html") Unix System Logs 
+          -->
+          <!--li a(href="cloud-system-unix-audit.html") Unix Audit Logs
+          -->
+          <li><a href="cloud-collector-windows.html">&#9654; Windows Server 	</a></li>
+          <!--li a(href="cloud-system-windows.html") Windows System Logs 
+          -->
+          <!--mdli 
+          a(href="cloud-system-windows-audit.html") Windows Audit Logs 	
+          					
+          
+          -->
           <p>Application Data</p>
           <li> <a href="cloud-java-logs.html">Java Logs </a></li>
           <!--li a(href="cloud-dotnet-logs.html") DotNet Logs 
@@ -67,12 +77,24 @@
           <li><a href="cloud-web-logs.html">Web Logs</a></li>
           <p>Network Devices</p>
           <li><a href="cloud-juniper-logs.html">Juniper</a></li>
-          <li> <a href="cloud-cisco-logs.html">Cisco ASA				</a></li>
+          <li> <a href="cloud-cisco-logs.html">Cisco ASA	</a></li>
+          <!--p Logscape Configuration-->
+          <!--lia(href="cloud-alerts.html") Alerts
+          -->
+          <!--lia(href="cloud-workspaces.html") Creating a workspace
+          -->
+          <!--li
+          a(href="cloud-sub-user.html") Create a new team member		
+          
+          
+          
+          -->
         </ul>
       </div>
       <div class="col-md-9 apps">
         <div ng-app="docBrowserApp" class="row"> 
           <div>
+            <h2>Application Data/ Nginx Logs</h2>
             <h3>Configuring your Nginx web logs</h3>
             <p>Nginx offers a variety of webserver functionality, including load balancing, HTTP cache - and of course the HTTP webserver itself.</p>
             <!--strong Note:-->

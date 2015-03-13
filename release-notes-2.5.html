@@ -1,1 +1,171 @@
-<!DOCTYPE html><html lang="en"><head><title>	Logscape 2.0 	</title><link href="css/bootstrap.min.css" rel="stylesheet"><link href="css/style.css" rel="stylesheet"><script src="js/bootstrap.min.js"></script><script src="js/jquery.js"></script></head><body><div style="padding-left:30px;" class="container">		<div class="row"><div class="col-md-11"><h3>Release,  2.5</h3><h3>Jan 23 2015 </h3><p>Release 2.5 includes improvements to LDAP/Active Directory management, selective UI enhancements and performance improvements. IE11 compatability has also been improved along with minor bug fixes. </p><table class="table"><tr><td>#1265</td><td>[AGN] User LDAP hard sync <br>Documentation relating to LDAP changes can be found <a href="users-ldap.html">here.</a></td></tr><tr><td>#1274	</td><td>[AGN] Authenticate users applying ldap filters				</td></tr><tr> <td>#1202</td><td>	[RBO] Active Directory support for Team sysadmin/admin ROLES							</td></tr><tr> <td>#1267, 1187, 1031</td><td>[DOC] Add ulimit parameters for Logscape Sizing and tuning guide<br>[DOC] Linux Tuning: Swap<br>[DOC] Logscape Sizing Guide	<br>All updates can be found on the <a href="technology-sizing.html">Sizing Guide.</a></td></tr><tr> <td>#1230</td><td>	Add DataSources to the search page</td></tr><tr> <td>#1281</td><td> <em>JMXOperation and Attributes to support HOST:PORT syntax	 </em><br>The JMX widget can now query Java MBeans attributes and invoke operations. This widget is ideal for getting status metrics from running java applications and services. 			</td></tr><tr> <td>#1222	</td><td>[RBO] Archive management / DOC	 <br>Archive management rules can be found on the <a href="ds-archiving_overview.html">archiving page.</a></td></tr><tr> <td>#1257	</td><td>[RB][UnixApp] Each workspace now has units where appropriate.						</td></tr><tr> <td>#1253	</td><td>AutoRun toggle on Search page and show top10 system fields								</td></tr><tr> <td>#1299 </td><td>[DOC] Add debuggex link for regex testing<br>A debuggex link was added to the <a href="types-patterns.html">types page.</a></td></tr><tr> <td>#1193</td><td>	[RBO] Forwarder support from Different Timezones<br>How to configure multiple timezones can be found <a href="deploy-administration-timezones.html">here.</a></td></tr><tr><td>#1296</td><td>	[AGN] LDAP - Blank Team Filter breaks functionality</td></tr><tr> <td>#1283	</td><td>[AGN] Degraded Hashmap Performance	 </td></tr><tr> <td>#1282	</td><td>Improve bucketing consistency	 </td></tr><tr> <td>#1275	</td><td>Bind GroovyShell with 'args' variable</td></tr><tr> <td>#1041	</td><td>The table breaks when count is used with a groupby on collectd data	</td></tr><tr> <td>#1256	</td><td>[RBO] Jmx password is set to </td></tr><tr> <td>#120	</td><td>Function sum() double count and countUnique() broken</td></tr><tr> <td>#1218</td><td>	[ScriptForker] App Services starting with a large heap size</td></tr><tr> <td>#1214</td><td>	[UNT] Make explicit break imply EOL - BreakChars</td></tr><tr> <td>#1198</td><td>	chart(table) should resize according to widget</td></tr><tr> <td>#1192</td><td>	[AGN] Relative paths to be used in java class paths</td></tr><tr> <td>#1189</td><td>	User perms using resourceGroups isnt working						</td></tr><tr> <td>#1184</td><td>	[Search] Number group field concat syntax not working as expected</td></tr><tr> <td>#1173</td><td>	NullPtr on MaxFunction	</td></tr><tr> <td>#1163</td><td>	[AGN] Time indexing broken on certain files	</td></tr><tr> <td>#1152</td><td>	[RBO] Search page sources popup doesnt work in IE</td></tr><tr> <td>#1150</td><td>	Cleanup etc and logscape.ini and service wrappers - move to etc dir</td></tr><tr> <td>#1148</td><td>	[RBO] InternetExplorer fileupload fails</td></tr><tr> <td>#1145</td><td>	[RBO] Print reports show ui artifacts needs 400DPI resolution</td></tr><tr> <td>#1143</td><td>	[RBO] Legend on pie chart flows outside tile region		</td></tr><tr> <td>#1139</td><td>	[Apps] Parameters not being passed to</td></tr><tr> <td>#1068</td><td>	Add split function on search expression</td></tr><tr> <td>#1183</td><td>	Socket Leak on Dashboard process</td></tr><tr> <td>#1159</td><td>	ConcurrentLRUCache was not destroyed prior to finalize(), indicates a bug -- POSSIBLE RESOURCE LEAK</td></tr><tr> <td>#1157</td><td>	Prevent Forwarders from detecting DataTypes to reduce resource overheads</td></tr><tr> <td>#1153</td><td>	Tailer should only detect rolling on first tail.</td></tr></table></div></div></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>	Logscape 2.0 	</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.js"></script>
+  </head>
+  <body>
+    <div style="padding-left:30px;" class="container">		
+      <div class="row">
+        <div class="col-md-11">
+          <h3>Release,  2.5</h3>
+          <h3>Jan 23 2015 </h3>
+          <p>Release 2.5 includes improvements to LDAP/Active Directory management, selective UI enhancements and performance improvements. IE11 compatability has also been improved along with minor bug fixes. </p>
+          <table class="table">
+            <tr>
+              <td>#1265</td>
+              <td>[AGN] User LDAP hard sync <br>Documentation relating to LDAP changes can be found <a href="users-ldap.html">here.</a></td>
+            </tr>
+            <tr>
+              <td>#1274	</td>
+              <td>[AGN] Authenticate users applying ldap filters				</td>
+            </tr>
+            <tr> 
+              <td>#1202</td>
+              <td>	[RBO] Active Directory support for Team sysadmin/admin ROLES							</td>
+            </tr>
+            <tr> 
+              <td>#1267, 1187, 1031</td>
+              <td>[DOC] Add ulimit parameters for Logscape Sizing and tuning guide<br>[DOC] Linux Tuning: Swap<br>[DOC] Logscape Sizing Guide	<br>All updates can be found on the <a href="technology-sizing.html">Sizing Guide.</a></td>
+            </tr>
+            <tr> 
+              <td>#1230</td>
+              <td>	Add DataSources to the search page</td>
+            </tr>
+            <tr> 
+              <td>#1281</td>
+              <td> <em>JMXOperation and Attributes to support HOST:PORT syntax	 </em><br>The JMX widget can now query Java MBeans attributes and invoke operations. This widget is ideal for getting status metrics from running java applications and services. 			</td>
+            </tr>
+            <tr> 
+              <td>#1222	</td>
+              <td>[RBO] Archive management / DOC	 <br>Archive management rules can be found on the <a href="ds-archiving_overview.html">archiving page.</a></td>
+            </tr>
+            <tr> 
+              <td>#1257	</td>
+              <td>[RB][UnixApp] Each workspace now has units where appropriate.						</td>
+            </tr>
+            <tr> 
+              <td>#1253	</td>
+              <td>AutoRun toggle on Search page and show top10 system fields								</td>
+            </tr>
+            <tr> 
+              <td>#1299 </td>
+              <td>[DOC] Add debuggex link for regex testing<br>A debuggex link was added to the <a href="types-patterns.html">types page.</a></td>
+            </tr>
+            <tr> 
+              <td>#1193</td>
+              <td>	[RBO] Forwarder support from Different Timezones<br>How to configure multiple timezones can be found <a href="deploy-administration-timezones.html">here.</a></td>
+            </tr>
+            <tr>
+              <td>#1296</td>
+              <td>	[AGN] LDAP - Blank Team Filter breaks functionality</td>
+            </tr>
+            <tr> 
+              <td>#1283	</td>
+              <td>[AGN] Degraded Hashmap Performance	 </td>
+            </tr>
+            <tr> 
+              <td>#1282	</td>
+              <td>Improve bucketing consistency	 </td>
+            </tr>
+            <tr> 
+              <td>#1275	</td>
+              <td>Bind GroovyShell with 'args' variable</td>
+            </tr>
+            <tr> 
+              <td>#1041	</td>
+              <td>The table breaks when count is used with a groupby on collectd data	</td>
+            </tr>
+            <tr> 
+              <td>#1256	</td>
+              <td>[RBO] Jmx password is set to </td>
+            </tr>
+            <tr> 
+              <td>#120	</td>
+              <td>Function sum() double count and countUnique() broken</td>
+            </tr>
+            <tr> 
+              <td>#1218</td>
+              <td>	[ScriptForker] App Services starting with a large heap size</td>
+            </tr>
+            <tr> 
+              <td>#1214</td>
+              <td>	[UNT] Make explicit break imply EOL - BreakChars</td>
+            </tr>
+            <tr> 
+              <td>#1198</td>
+              <td>	chart(table) should resize according to widget</td>
+            </tr>
+            <tr> 
+              <td>#1192</td>
+              <td>	[AGN] Relative paths to be used in java class paths</td>
+            </tr>
+            <tr> 
+              <td>#1189</td>
+              <td>	User perms using resourceGroups isnt working						</td>
+            </tr>
+            <tr> 
+              <td>#1184</td>
+              <td>	[Search] Number group field concat syntax not working as expected</td>
+            </tr>
+            <tr> 
+              <td>#1173</td>
+              <td>	NullPtr on MaxFunction	</td>
+            </tr>
+            <tr> 
+              <td>#1163</td>
+              <td>	[AGN] Time indexing broken on certain files	</td>
+            </tr>
+            <tr> 
+              <td>#1152</td>
+              <td>	[RBO] Search page sources popup doesnt work in IE</td>
+            </tr>
+            <tr> 
+              <td>#1150</td>
+              <td>	Cleanup etc and logscape.ini and service wrappers - move to etc dir</td>
+            </tr>
+            <tr> 
+              <td>#1148</td>
+              <td>	[RBO] InternetExplorer fileupload fails</td>
+            </tr>
+            <tr> 
+              <td>#1145</td>
+              <td>	[RBO] Print reports show ui artifacts needs 400DPI resolution</td>
+            </tr>
+            <tr> 
+              <td>#1143</td>
+              <td>	[RBO] Legend on pie chart flows outside tile region		</td>
+            </tr>
+            <tr> 
+              <td>#1139</td>
+              <td>	[Apps] Parameters not being passed to</td>
+            </tr>
+            <tr> 
+              <td>#1068</td>
+              <td>	Add split function on search expression</td>
+            </tr>
+            <tr> 
+              <td>#1183</td>
+              <td>	Socket Leak on Dashboard process</td>
+            </tr>
+            <tr> 
+              <td>#1159</td>
+              <td>	ConcurrentLRUCache was not destroyed prior to finalize(), indicates a bug -- POSSIBLE RESOURCE LEAK</td>
+            </tr>
+            <tr> 
+              <td>#1157</td>
+              <td>	Prevent Forwarders from detecting DataTypes to reduce resource overheads</td>
+            </tr>
+            <tr> 
+              <td>#1153</td>
+              <td>	Tailer should only detect rolling on first tail.</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html >
 <html lang="en">
   <head>
-    <title>	Logscape 2.0 </title>
+    <title>	Logscape Documentation </title>
     <script src="js/kiss.js"> </script>
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
@@ -225,6 +225,7 @@
             <li><a href="users.html">Users </a></li>
             <li> <a href="alerts.html">Alerts 	</a></li>
             <li><a href="technology.html">Technology</a></li>
+            <li><a href="release-notes.html">Release Notes</a></li>
             <li><a href="https://twitter.com/logscape" data-show-count="false" data-size="large" class="twitter-follow-button">Follow @logscape</a>
               <script>=!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
             </li>
@@ -305,8 +306,8 @@
                 <h3>Configuring a HTML Navigation Panel</h3>
                 <p>The HTML Widget can be used to build links to other workspaces. To make sure that the linked workspace contains the correct context the URL format will need to be used.  Here's an example link to the Unix Processes workspace.</p>
                 <blockquote> &lt;a href="?Workspace=Users&filter=$value&filterAction=_host.equals"&gt;Hyperlink Text&lt;/a&gt;</blockquote>
-                <p>Adding a link similar to this in your HTMLWidget will open the next workspace, passing the filterAction and the filter value to the next workspace. When the workspace loads it will apply <em>_host.equals($value) </em> to every search, where $value is populated from your search results. </p>
-                <h3>Adding a Filter Widget</h3><a name="filter"></a>
+                <p>Adding a link similar to this in your HTMLWidget will open the next workspace, passing the filterAction and the filter value to the next workspace. When the workspace loads it will apply <em>_host.equals($value) </em> to every search, where $value is populated from your search results. </p><a name="filter">					</a>
+                <h3>Adding a Filter Widget</h3>
                 <p>A filter widget can be added in the usual manner, while in edit mode simply click the filter widget icon. For workspaces in a linked workflow to work correctly, a filter widget is required and will be populated with the filter value passed to the workspace.</p><a name="parameter"></a>
                 <h3>HTML Parameter Discovery</h3>
                 <p>Parameters can be passed between workspaces by including them in the URL using the format var=value, once included in the URL any HTML block on that page can reference that variable using the $ notation. i.e</p>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Logscape Apps	</title>
+    <title>Logscape Cloud Support	</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style-app.css" rel="stylesheet">
     <link href="css/cloud-app.css" rel="stylesheet">
@@ -11,6 +11,21 @@
     <script src="js/angular-1.2.9/angular-animate.min.js"></script>
     <script src="js/angular-1.2.9/angular-route.min.js"></script>
     <script src="js/app/controllers.js"> </script>
+    <script>
+      $(document).ready(function(){
+      	navigation_bind();
+      });
+      function navigation_bind(){
+       $(".menu p").click(function() {
+       $(".submenu").each(function() {
+       $(this).attr("style", "display:none");
+       });
+       parent = $(this).parent();
+       ul = parent.find("ul");
+       ul.attr("style", "display:block");
+       });
+      }
+    </script>
   </head>
   <body>
     <div style="width:100%;height:85px;background-color:#333;">
@@ -26,53 +41,86 @@
       <div style="padding-left:140px;padding-top:10px"><a href="/">Documentation  | </a><a href="http://logscape.com">Main Website  | </a><a href="http://logscape.com/get.html">Download  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a></div>
     </div>
     <div class="row">
-      <div style="margin-left:10px" class="col-md-2 nav-padding"> 
+      <div style="margin-left:10px" class="col-md-2 nav-padding">
         <hr>
-        <ul class="nav nav-tabs nav-stacked">
-          <p>Introduction</p>
-          <li><a href="cloud-starthere.html">Getting Started </a></li>
-          <li><a href="cloud-signup.html">Use Cases </a></li>
-          <p>Stream Your Data </p>
-          <li><a href="cloud-syslog.html">Syslog</a>
-            <!--div 
-            ul.nav.nav-tabs.nav-stacked
-            	li 
-            		a(href="cloud-syslog-ng.html") Syslog-NG
-            	li 
-            		a(href="") System Logs 					
-            	li 
-            		a(href="") Application Logs 
-            -->
+        <ul class="menu nav nav-tabs nav-stacked">
+          <li>
+            <p>Introduction</p>
+            <ul style="display:block" class="menu nav nav-tabs nav-stacked active">
+              <li><a href="cloud-welcome.html">Welcome to Logscape</a></li>
+              <li><a href="cloud-getting-started.html">Getting Started </a></li>
+              <li><a href="cloud-full-stack-monitoring.html">Full Stack Monitoring</a></li>
+            </ul>
           </li>
-          <li><a href="cloud-nxlog.html">Nxlog </a></li>
-          <li><a href="cloud-collector.html">Collector </a></li>
-          <p>System Data </p>
-          <li> <a href="cloud-system-unix.html">Unix System Logs </a></li>
-          <li> <a href="cloud-system-unix-audit.html">Unix Audit Logs 	</a></li>
-          <li> <a href="cloud-system-windows.html">Windows System Logs </a></li>
-          <li> <a href="cloud-system-windows-audit.html">Windows Audit Logs 	</a></li>
-          <p>Application Data</p>
-          <li> <a href="cloud-java-logs.html">Java Logs </a></li>
-          <!--li a(href="cloud-dotnet-logs.html") DotNet Logs 
-          -->
-          <!--li 
-          a(href="cloud-aws-logs.html") Amazon AWS 
-          
-          -->
-          <!--lia(href="cloud-iis-logs.html") IIS Logs 
-          -->
-          <!--p Web Data-->
-          <li><a href="cloud-apache-logs.html">Apache Logs</a></li>
-          <li><a href="cloud-nginx-logs.html">Nginx Logs</a></li>
-          <li><a href="cloud-web-logs.html">Web Logs</a></li>
-          <p>Network Devices</p>
-          <li><a href="cloud-juniper-logs.html">Juniper</a></li>
-          <li> <a href="cloud-cisco-logs.html">Cisco ASA				</a></li>
+          <li>
+            <p>Stream Your Data</p>
+            <ul style="display:block" class="submenu nav nav-tabs nav-stacked"><a href="cloud-syslog.html">Syslog</a>
+              <ul>
+                <li><a href="cloud-syslog-watching.html">Watching a file</a></li>
+                <!--lia(href="") Managing multiple clients
+                -->
+              </ul>
+              <li><a href="cloud-nxlog.html">Nxlog </a></li>
+              <li><a href="cloud-collector.html">Collector </a>
+                <ul style="display:none">
+                  <li><a href="cloud-jmx.html">JMX</a></li>
+                  <li><a href="cloud-json.html">JSON</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>System Data </p>
+            <ul style="display:none" class="submenu nav nav-tabs nav-stacked"><a href="cloud-collector-unix.html">Unix Server</a>
+              <ul>
+                <li><a href="cloud-system-unix.html">Unix System Logs</a></li>
+                <li><a href="cloud-system-unix-audit.html">Unix Audit Logs</a></li>
+              </ul><a href="cloud-collector-windows.html">Windows Server</a>
+              <ul>
+                <li><a href="cloud-system-windows.html">Windows System Logs</a></li>
+                <li><a href="cloud-system-windows-audit.html">Windows Audit Logs</a></li>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <p>Application Data</p>
+            <ul style="display:none" class="submenu nav nav-tabs nav-stacked">
+              <li> <a href="cloud-java-logs.html">Java Logs </a></li>
+              <!--li a(href="cloud-dotnet-logs.html") DotNet Logs 
+              -->
+              <!--li 
+              a(href="cloud-aws-logs.html") Amazon AWS 
+              
+              -->
+              <!--lia(href="cloud-iis-logs.html") IIS Logs 
+              -->
+              <!--p Web Data-->
+              <li><a href="cloud-apache-logs.html">Apache Logs</a></li>
+              <li><a href="cloud-nginx-logs.html">Nginx Logs</a></li>
+              <li><a href="cloud-web-logs.html">Web Logs</a></li>
+            </ul>
+          </li>
+          <li>
+            <p>Network Devices</p>
+            <ul style="display:none" class="submenu nav nav-tabs nav-stacked">
+              <li><a href="cloud-juniper-logs.html">Juniper</a></li>
+              <li> <a href="cloud-cisco-logs.html">Cisco ASA	</a></li>
+            </ul>
+          </li>
+          <li>
+            <p>Logscape Configuration</p>
+            <ul style="display:none" class="submenu nav nav-tabs nav-stacked">
+              <li><a href="cloud-alerts.html">Alerts</a></li>
+              <li><a href="cloud-workspaces.html">Creating a workspace</a></li>
+              <li><a href="cloud-sub-user.html">Create a new team member		</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <div class="col-md-9 apps">
         <div ng-app="docBrowserApp" class="row"> 
           <div>
+            <h2>Stream your Data/ Syslog</h2>
             <h3>Syslog </h3>
             <p>Syslog is a universal log format supported by network devices and Linux applications. Windows applications can also send log data in the syslog format using tools like Windows Snare and <a href="http://nxlog.org/products/nxlog-community-edition">nxLog. </a>Many network devices like routers, load balancers and intrusion detection system export logs using the syslog protocol. Syslog can be set up to use UDP or TCP. Sending data over UDP is not reliable, for this reason Logscape Cloud accepts data via TCP only. </p><strong>1)  Configure Rsyslog </strong>
             <p>You will need a syslog daemon  to collect log data from your various devices and applications. The instructions below show you how to set up rsyslog to forward log data into Logscape.</p>

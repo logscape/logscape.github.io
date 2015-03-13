@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Logscape Cloud Support	</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style-app.css" rel="stylesheet">
+    <link href="css/cloud-app.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/angular-1.2.9/angular.min.js"></script>
+    <script src="js/angular-1.2.9/angular-animate.min.js"></script>
+    <script src="js/angular-1.2.9/angular-route.min.js"></script>
+    <script src="js/app/controllers.js"> </script>
+  </head>
+  <body>
+    <div style="width:100%;height:85px;background-color:#333;">
+      <!--div
+      a(href="/") Documentation
+      a(href="")  Forums 	| 
+      a(href="") Getting Started	|
+      a(href="") Logscape  	| 
+      -->
+      <div style="padding-left:100px;padding-top:20px"><img src="images/logscape-apps-logo.png" style="height:45px"></div>
+    </div>
+    <div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;">
+      <div style="padding-left:140px;padding-top:10px"><a href="/">Documentation  | </a><a href="http://logscape.com">Main Website  | </a><a href="http://logscape.com/get.html">Download  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a></div>
+    </div>
+    <div class="row">
+      <div style="margin-left:10px" class="col-md-2 nav-padding"> 
+        <hr>
+        <ul class="nav nav-tabs nav-stacked">
+          <p>Introduction</p>
+          <li><a href="cloud-welcome.html">Welcome to Logscape</a></li>
+          <li><a href="cloud-getting-started.html">Getting Started </a></li>
+          <li><a href="cloud-full-stack-monitoring.html">Full Stack Monitoring</a></li>
+          <p>Stream Your Data </p>
+          <li><a href="cloud-syslog.html">&#9654; Syslog</a>
+            <!--div 
+            ul.nav.nav-tabs.nav-stacked
+            	li 
+            		a(href="cloud-syslog-ng.html") Syslog-NG
+            	li 
+            		a(href="") System Logs 					
+            	li 
+            		a(href="") Application Logs 
+            -->
+          </li>
+          <li><a href="cloud-nxlog.html">Nxlog </a></li>
+          <li><a href="cloud-collector.html">&#9654; Collector </a></li>
+          <p>System Data </p>
+          <li><a href="cloud-collector-unix.html">&#9654; Unix Server</a></li>
+          <!--li a(href="cloud-system-unix.html") Unix System Logs 
+          -->
+          <!--li a(href="cloud-system-unix-audit.html") Unix Audit Logs
+          -->
+          <li><a href="cloud-collector-windows.html">&#9654; Windows Server 	</a></li>
+          <!--li a(href="cloud-system-windows.html") Windows System Logs 
+          -->
+          <!--mdli 
+          a(href="cloud-system-windows-audit.html") Windows Audit Logs 	
+          					
+          
+          -->
+          <p>Application Data</p>
+          <li> <a href="cloud-java-logs.html">Java Logs </a></li>
+          <!--li a(href="cloud-dotnet-logs.html") DotNet Logs 
+          -->
+          <!--li 
+          a(href="cloud-aws-logs.html") Amazon AWS 
+          
+          -->
+          <!--lia(href="cloud-iis-logs.html") IIS Logs 
+          -->
+          <!--p Web Data-->
+          <li><a href="cloud-apache-logs.html">Apache Logs</a></li>
+          <li><a href="cloud-nginx-logs.html">Nginx Logs</a></li>
+          <li><a href="cloud-web-logs.html">Web Logs</a></li>
+          <p>Network Devices</p>
+          <li><a href="cloud-juniper-logs.html">Juniper</a></li>
+          <li> <a href="cloud-cisco-logs.html">Cisco ASA	</a></li>
+          <!--p Logscape Configuration-->
+          <!--lia(href="cloud-alerts.html") Alerts
+          -->
+          <!--lia(href="cloud-workspaces.html") Creating a workspace
+          -->
+          <!--li
+          a(href="cloud-sub-user.html") Create a new team member		
+          
+          
+          
+          -->
+        </ul>
+      </div>
+      <div class="col-md-9 apps">
+        <div ng-app="docBrowserApp" class="row"> 
+          <h2>Introduction/ Full Stack Monitoring</h2>
+          <h3>Overview</h3>
+          <p>Logscape lets you see everything, a unified view of your entire organisation. With Logscape you can see your entire stack, allowing you to build a correlated view of all your applications and devices, meaning that using Logscape you reduce the number of tools required, for full stack monitoring, to one. </p>
+          <!--But Logscape also understands that not everyone in your organisation needs access to data relating to your entire infrastructure, using Logscape teams, it's possible to create subsets of your users and limit their scope to only what's relevant to them, while not impacting the granularity of what they can see.-->
+          <!--br-->
+          <!--p See everything with a unified view. Integrated unified view of your entire organisation. Different teams, different applications, see everything with unified monitoring. Full stack monitoring helps to simplify the complexity of FIL.--><img src="images/temp.png" width="800">
+          <p>Logscape provides you with a unified view of your entire infrastructure stack, from router access logs, to what your customers are buying, Logscape is capable of data analatyics and visualisation at every level of your companies infrastructure, giving you operational visibility on every device, and every layer, while being capable of displaying that data in a way everyone can understand.</p>
+          <h3>Full stack monitoring for beginners</h3>
+          <image src="images/temp2.png"></image>
+          <p>Infrastructure metrics are a series of low level statistics relating to your machine, including the operating system, temperatature, total memory, memory usage and cpu.</p>
+          <p>The Application Layer relates to each individual application running in your enviroment, it can show statistics such as memory usage, slowest loading webpage or the file a thread is currently accessing.</p>
+          <p>The Service Layer includes metrics relating to throughput in your system, including any service requests made to your system. </p>
+          <p>The Business Intelligence layer makes use of custom metrics collected by the Logscape collector which come in a wide variety forms, such as average Bandwidth per customer, or the cost per page request.</p>
+        </div><br><br><br>
+        <div id="disqus_thread">
+          <script>
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+            	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+          </script>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<!--
+.container		
+//		
+	.navbar.navbar-fixed-top
+		.navbar-inner
+			.nav-collapse.collapse
+				ul.nav
+					li.active  Main Support Site 
+					li Explore Logscape Apps 
+					li 
+						a(href="") Download 
+			h3 Logscape Apps 
+			a(href="index.html") Getting Started | 
+			a(href="http://support.liquidlabs.co.uk")  Older Versions 1.3x Docs   
+
+.container-fluid
+	br
+	br 
+	br
+	br
+	br
+	.row 
+		.col-md-11(style="padding-left:100px")
+			block content 
+	
+script(src="js/ga.js") 
+-->
+<!--
+//
+	.row
+		.col-md-2.nav-padding
+		
+			br
+	
+			ul
+				li
+					a(href="https://github.com/logscape/windowsapp#windowsapp-10") WindowsApp
+				li 
+					a(href="https://github.com/logscape/unixapp#unixapp-10") UnixApp
+
+				li 
+					a(href="https://github.com/logscape/coherenceapp#oraclecoherenceapp-10") Oracle Coherence App
+
+				li 
+					a(href="https://github.com/logscape/javaapp#javaapp-10") JavaApp
+
+				li 
+					a(href="https://github.com/logscape/vmwareapp#vmwareapp-10") VMWareApp
+
+				li
+					a(href="https://github.com/logscape/ciscoapp#ciscoapp-10") Cisco Devices
+
+
+
+
+		.col-md-10
+			block content
+-->
