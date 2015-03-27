@@ -20,12 +20,12 @@
       a(href="") Getting Started	|
       a(href="") Logscape  	| 
       -->
-      <div style="padding-left:100px;padding-top:20px"><img src="images/logscape-apps-logo.png" style="height:45px"></div>
+      <div style="padding-left:100px;padding-top:20px"><img src="images/logscapecloud.png" style="height:45px"></div>
     </div>
     <div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;">
-      <div style="padding-left:140px;padding-top:10px"><a href="/">Documentation  | </a><a href="http://logscape.com">Main Website  | </a><a href="http://logscape.com/get.html">Download  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a></div>
+      <div style="padding-left:70px;padding-top:10px"><a href="/">Support  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a><a href="http://www.logscape.com">Logscape.com			</a></div>
     </div>
-    <div class="row">
+    <div style="margin-left:25px" class="row">
       <div style="margin-left:10px" class="col-md-2 nav-padding"> 
         <hr>
         <ul class="nav nav-tabs nav-stacked"><a href="cloud.html">Introduction</a>
@@ -53,7 +53,7 @@
           <!--li a(href="cloud-system-unix-audit.html") Unix Audit Logs
           -->
           <li><a href="cloud-collector-windows.html">&#9654; Windows Server 	</a></li>
-          <!--li a(href="cloud-system-windows.html") Windows System Logs 
+          <!--li a(href="cloud-system-windows.html") Windows Event Logs 
           -->
           <!--mdli 
           a(href="cloud-system-windows-audit.html") Windows Audit Logs 	
@@ -97,14 +97,59 @@
           <p>Logscape lets you see everything, a unified view of your entire organisation. With Logscape you can see your entire stack, allowing you to build a correlated view of all your applications and devices, meaning that using Logscape you reduce the number of tools required, for full stack monitoring, to one. </p>
           <!--But Logscape also understands that not everyone in your organisation needs access to data relating to your entire infrastructure, using Logscape teams, it's possible to create subsets of your users and limit their scope to only what's relevant to them, while not impacting the granularity of what they can see.-->
           <!--br-->
-          <!--p See everything with a unified view. Integrated unified view of your entire organisation. Different teams, different applications, see everything with unified monitoring. Full stack monitoring helps to simplify the complexity of FIL.--><img src="images/temp.png" width="800">
-          <p>Logscape provides you with a unified view of your entire infrastructure stack, from router access logs, to what your customers are buying, Logscape is capable of data analatyics and visualisation at every level of your companies infrastructure, giving you operational visibility on every device, and every layer, while being capable of displaying that data in a way everyone can understand.</p>
+          <!--p See everything with a unified view. Integrated unified view of your entire organisation. Different teams, different applications, see everything with unified monitoring. Full stack monitoring helps to simplify the complexity of FIL.-->
+          <div style="padding-left:125px" class="img"><img src="images/fsm1.png" width="600"></div><br><br>
+          <p>Logscape allows you to see everything, from router access logs, to what your customers are buying, Logscape is capable of data analatyics and visualisation at every level of your companies infrastructure, giving you operational visibility on every device, and every layer, while being capable of displaying that data in a way everyone can understand.</p>
           <h3>Full stack monitoring for beginners</h3>
-          <image src="images/temp2.png"></image>
+          <table style="text-align: center;" class="table table-bordered">
+            <thread>
+              <tr style="background-color:#d9f3f0">
+                <td><b>Role</b></td>
+                <td><b>Layer</b></td>
+                <td><b>Metrics</b></td>
+                <td><b>Appliance</b></td>
+                <td><b>Transport</b></td>
+              </tr>
+            </thread>
+            <tbody>
+              <tr>
+                <td>Business</td>
+                <td>
+                   
+                  Business Intelligence
+                </td>
+                <td>Domain Knowledge, Business KPI's</td>
+                <td>Applications, Transactions</td>
+                <td>Collector</td>
+              </tr>
+              <tr style="background-color:#F2FBFA">
+                <td>Support</td>
+                <td>Service Layer</td>
+                <td>Service Requests, Throughput</td>
+                <td>Application, Web Access Logs</td>
+                <td>Collector, NxLog, Syslog</td>
+              </tr>
+              <tr>
+                <td>Ops</td>
+                <td>Infrastructure</td>
+                <td>CPU, MEM, Disk, Temp, Fan Speed, Etc</td>
+                <td>Applications, Web Access</td>
+                <td>Collector, NxLog, Syslog</td>
+              </tr>
+              <tr style="background-color:#F2FBFA">
+                <td>Dev</td>
+                <td>Application Layer</td>
+                <td>Application Health, Status, Performance</td>
+                <td>ESB, Message Busses, Databases, Web servers</td>
+                <td>Collector, NxLog, Syslog, Log Shippers</td>
+              </tr>
+            </tbody>
+          </table>
+          <!--image(src="images/temp2.png")-->
+          <p>The Business Intelligence layer makes use of custom metrics collected by the Logscape collector which come in a wide variety forms, such as average Bandwidth per customer, or the cost per page request.</p>
+          <p>The Service Layer includes metrics relating to throughput in your system, including any service requests made to your system. 		</p>
           <p>Infrastructure metrics are a series of low level statistics relating to your machine, including the operating system, temperatature, total memory, memory usage and cpu.</p>
           <p>The Application Layer relates to each individual application running in your enviroment, it can show statistics such as memory usage, slowest loading webpage or the file a thread is currently accessing.</p>
-          <p>The Service Layer includes metrics relating to throughput in your system, including any service requests made to your system. </p>
-          <p>The Business Intelligence layer makes use of custom metrics collected by the Logscape collector which come in a wide variety forms, such as average Bandwidth per customer, or the cost per page request.</p>
         </div><br><br><br>
         <div id="disqus_thread">
           <script>

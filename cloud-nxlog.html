@@ -20,12 +20,12 @@
       a(href="") Getting Started	|
       a(href="") Logscape  	| 
       -->
-      <div style="padding-left:100px;padding-top:20px"><img src="images/logscape-apps-logo.png" style="height:45px"></div>
+      <div style="padding-left:100px;padding-top:20px"><img src="images/logscapecloud.png" style="height:45px"></div>
     </div>
     <div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;">
-      <div style="padding-left:140px;padding-top:10px"><a href="/">Documentation  | </a><a href="http://logscape.com">Main Website  | </a><a href="http://logscape.com/get.html">Download  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a></div>
+      <div style="padding-left:70px;padding-top:10px"><a href="/">Support  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a><a href="http://www.logscape.com">Logscape.com			</a></div>
     </div>
-    <div class="row">
+    <div style="margin-left:25px" class="row">
       <div style="margin-left:10px" class="col-md-2 nav-padding"> 
         <hr>
         <ul class="nav nav-tabs nav-stacked"><a href="cloud.html">Introduction</a>
@@ -53,7 +53,7 @@
           <!--li a(href="cloud-system-unix-audit.html") Unix Audit Logs
           -->
           <li><a href="cloud-collector-windows.html">&#9654; Windows Server 	</a></li>
-          <!--li a(href="cloud-system-windows.html") Windows System Logs 
+          <!--li a(href="cloud-system-windows.html") Windows Event Logs 
           -->
           <!--mdli 
           a(href="cloud-system-windows-audit.html") Windows Audit Logs 	
@@ -109,7 +109,7 @@
 &lt;Input in_apache2>
    Module      im_file
 	File		"C:\\Bitnami\\wampstack-5.4.35-0\\apache2\\logs\\access.log"
-	Exec		$raw_event = "LOGSCAPETOKEN:11ecbd6b:14a2f14e68c:-7fe1 LOGSCAPETAG:www " + $raw_event; 
+	Exec		$raw_event = "LOGSCAPETOKEN:YOUR_TOKEN_HERE LOGSCAPETAG:www " + $raw_event; 
 &lt;/Input></pre><strong>3) Test your connectivity</strong>
             <p>Make sure that you also add an appropriate tag to your data. The tag will allow you to identify the data from the search page. For the Apache2 example all its data is tagged  <em>www   </em></p>
             <div class="image"> <img src="images/cloud-syslog-logscape.png" class="shadow"></div>

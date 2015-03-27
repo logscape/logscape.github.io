@@ -35,17 +35,17 @@
       a(href="") Getting Started	|
       a(href="") Logscape  	| 
       -->
-      <div style="padding-left:100px;padding-top:20px"><img src="images/logscape-apps-logo.png" style="height:45px"></div>
+      <div style="padding-left:100px;padding-top:20px"><img src="images/logscapecloud.png" style="height:45px"></div>
     </div>
     <div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;">
-      <div style="padding-left:140px;padding-top:10px"><a href="/">Documentation  | </a><a href="http://logscape.com">Main Website  | </a><a href="http://logscape.com/get.html">Download  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a></div>
+      <div style="padding-left:70px;padding-top:10px"><a href="/">Support  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a><a href="http://www.logscape.com">Logscape.com	</a></div>
     </div>
-    <div class="row">
+    <div style="margin-left:25px" class="row">
       <div style="margin-left:10px" class="col-md-2 nav-padding">
         <hr>
         <ul class="menu nav nav-tabs nav-stacked">
           <li><a href="cloud.html">Introduction</a>
-            <ul style="display:block" class="menu nav nav-tabs nav-stacked active">
+            <ul class="menu nav nav-tabs nav-stacked active open">
               <li><a href="cloud-welcome.html">Welcome to Logscape</a></li>
               <li><a href="cloud-getting-started.html">Getting Started </a></li>
               <li><a href="cloud-full-stack-monitoring.html">Full Stack Monitoring</a></li>
@@ -53,15 +53,17 @@
           </li>
           <li>
             <p>Stream Your Data</p>
-            <ul style="display:block" class="submenu nav nav-tabs nav-stacked"><a href="cloud-syslog.html">&#9654; Syslog</a>
-              <ul style="display:none">
-                <li><a href="cloud-syslog-watching.html">Watching a file</a></li>
-                <!--lia(href="") Managing multiple clients
-                -->
-              </ul>
+            <ul class="submenu nav nav-tabs nav-stacked open">
+              <li><a href="cloud-syslog.html">&#9654; Syslog</a>
+                <ul class="closed">
+                  <li><a href="cloud-syslog-watching.html">Watching a file</a></li>
+                  <!--lia(href="") Managing multiple clients
+                  -->
+                </ul>
+              </li>
               <li><a href="cloud-nxlog.html">Nxlog </a></li>
-              <li><a href="cloud-collector.html">&#9654; Collector </a>
-                <ul>
+              <li><a href="cloud-collector.html" class="active">&#9654; Collector </a>
+                <ul class="open">
                   <li><a href="cloud-jmx.html">JMX</a></li>
                   <li><a href="cloud-json.html">JSON</a></li>
                 </ul>
@@ -70,20 +72,20 @@
           </li>
           <li>
             <p>System Data </p>
-            <ul style="display:none" class="submenu nav nav-tabs nav-stacked"><a href="cloud-collector-unix.html">&#9654; Unix Server</a>
+            <ul class="submenu nav nav-tabs nav-stacked closed"><a href="cloud-collector-unix.html">&#9654; Unix Server</a>
               <ul>
                 <li><a href="cloud-system-unix.html">Unix System Logs</a></li>
                 <li><a href="cloud-system-unix-audit.html">Unix Audit Logs</a></li>
               </ul><a href="cloud-collector-windows.html">&#9654; Windows Server</a>
               <ul>
-                <li><a href="cloud-system-windows.html">Windows System Logs</a></li>
+                <li><a href="cloud-system-windows.html">Windows Event Logs</a></li>
                 <li><a href="cloud-system-windows-audit.html">Windows Audit Logs</a></li>
               </ul>
             </ul>
           </li>
           <li>
             <p>Application Data</p>
-            <ul style="display:none" class="submenu nav nav-tabs nav-stacked">
+            <ul class="submenu nav nav-tabs nav-stacked closed">
               <li> <a href="cloud-java-logs.html">Java Logs </a></li>
               <!--li a(href="cloud-dotnet-logs.html") DotNet Logs 
               -->
@@ -101,14 +103,14 @@
           </li>
           <li>
             <p>Network Devices</p>
-            <ul style="display:none" class="submenu nav nav-tabs nav-stacked">
+            <ul class="submenu nav nav-tabs nav-stacked closed">
               <li><a href="cloud-juniper-logs.html">Juniper</a></li>
               <li> <a href="cloud-cisco-logs.html">Cisco ASA	</a></li>
             </ul>
           </li>
           <li>
             <p>Logscape Configuration</p>
-            <ul style="display:none" class="submenu nav nav-tabs nav-stacked">
+            <ul class="submenu nav nav-tabs nav-stacked closed">
               <li><a href="cloud-alerts.html">Alerts</a></li>
               <li><a href="cloud-workspaces.html">Creating a workspace</a></li>
               <li><a href="cloud-sub-user.html">Create a new team member		</a></li>
@@ -128,10 +130,10 @@
                 <li> <a href="https://github.com/logscape/collector/blob/master/installers/windows/setup.exe">Platform Independent </a></li>
               </ul>
             </p>
-            <p><strong>2.) Configure </strong>Open the  ./etc/service.json file and update the json with your security token. If you are running the collector on Windows make sure that you have stopped the collector service before editing the services.json file. 
+            <p><strong>2.) Configure </strong>Open the  ./etc/service.json file and update the json with your security token, if you do not have your token if can be found in the my account section of the Logscape website. If you are running the collector on Windows make sure that you have stopped the collector service before editing the services.json file. 
               <pre> 
-{   "manager":"cloud.logscape.com" 
-,"token":"70657eb1:14999ee959f:-7fd6"
+{   "manager":"cloud.logscape.com:9991" 
+,"token":"TOKEN_HERE"
 ,"apps":["unixapp"]
 }	</pre>Add the list of apps you want to run. These will automatically be downloaded and installed if they haven't been already. 	Visit <a href="http://apps.logscape.com/">apps.logscape.com </a> to find an app to monitor your application. 
             </p>

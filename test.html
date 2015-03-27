@@ -1,2 +1,45 @@
-<!DOCTYPE html><html><head><title>	Logscape 2.0 </title><link href="css/bootstrap.min.css" rel="stylesheet"><link href="css/style.css" rel="stylesheet"><link href="css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet"><script src="js/jquery-1.11.0.js"></script><script src="js/bootstrap.min.js"></script><script></script></head><body><p>This is my paragraph 
-My paragraph continues here<img src=""></p><p>Second paragraph</p><div class="row"><h1>Hello World </h1><p>Hi  </p><div><div style="padding: 10px 10px 10px 10px;width:500px;float:left"><div style="border: 1px solid #CCC;width:100px;float:left"><p>hi </p></div><div style="border: 1px solid #CCC;width:300px;float:left"><p>bye by bye </p></div></div><div style="padding: 10px 10px 10px 10px;width:500px;float:left"><div style="border: 1px solid #CCC;width:100px;float:left"><p>hi </p></div><div style="border: 1px solid #CCC;width:300px;float:left"><p>bye by bye </p></div></div><div style="padding: 10px 10px 10px 10px;width:500px;float:left"><div style="border: 1px solid #CCC;width:100px;float:left"><p>hi </p></div><div style="border: 1px solid #CCC;width:300px;float:left"><p>bye by bye </p></div></div><div style="padding: 10px 10px 10px 10px;width:500px;float:left"><div style="border: 1px solid #CCC;width:100px;float:left"><p>hi </p></div><div style="border: 1px solid #CCC;width:300px;float:left"><p>bye by bye </p></div></div></div></div></body></html>
+
+<table class="table table-bordered">
+  <thread>
+    <tr>
+      <th>Role</th>
+      <th>Layer</th>
+      <th>Metrics</th>
+      <th>Appliance</th>
+      <th>Transport</th>
+    </tr>
+  </thread>
+  <tbody>
+    <tr>
+      <td>Business</td>
+      <td>
+         
+        Business Intelligence
+      </td>
+      <td>Domain Knowledge, Business KPI's</td>
+      <td>Applications, Transactions</td>
+      <td>Collector</td>
+    </tr>
+    <tr>
+      <td>Support</td>
+      <td>Service Layer</td>
+      <td>Service Requests, Throughput</td>
+      <td>Application, Web Access Logs</td>
+      <td>Collector, NxLog, Syslog</td>
+    </tr>
+    <tr>
+      <td>Ops</td>
+      <td>Infrastructure</td>
+      <td>CPU, MEM, Disk, Temp, Fan Speed, Etc</td>
+      <td>Applications, Web Access</td>
+      <td>Collector, NxLog, Syslog</td>
+    </tr>
+    <tr>
+      <td>Dev</td>
+      <td>Application Layer</td>
+      <td>Application Health, Status, Performance</td>
+      <td>ESB, Message Busses, Databases, Web servers</td>
+      <td>Collector, NxLog, Syslog, Log Shippers</td>
+    </tr>
+  </tbody>
+</table>

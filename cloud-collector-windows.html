@@ -35,17 +35,17 @@
       a(href="") Getting Started	|
       a(href="") Logscape  	| 
       -->
-      <div style="padding-left:100px;padding-top:20px"><img src="images/logscape-apps-logo.png" style="height:45px"></div>
+      <div style="padding-left:100px;padding-top:20px"><img src="images/logscapecloud.png" style="height:45px"></div>
     </div>
     <div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;">
-      <div style="padding-left:140px;padding-top:10px"><a href="/">Documentation  | </a><a href="http://logscape.com">Main Website  | </a><a href="http://logscape.com/get.html">Download  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a></div>
+      <div style="padding-left:70px;padding-top:10px"><a href="/index.html">Support  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a><a href="http://www.logscape.com">Logscape.com	</a></div>
     </div>
-    <div class="row">
+    <div style="margin-left:25px" class="row">
       <div style="margin-left:10px" class="col-md-2 nav-padding">
         <hr>
         <ul class="menu nav nav-tabs nav-stacked">
           <li><a href="cloud.html">Introduction</a>
-            <ul style="display:block" class="menu nav nav-tabs nav-stacked active">
+            <ul class="menu nav nav-tabs nav-stacked active open">
               <li><a href="cloud-welcome.html">Welcome to Logscape</a></li>
               <li><a href="cloud-getting-started.html">Getting Started </a></li>
               <li><a href="cloud-full-stack-monitoring.html">Full Stack Monitoring</a></li>
@@ -53,8 +53,8 @@
           </li>
           <li>
             <p>Stream Your Data</p>
-            <ul style="display:none" class="submenu nav nav-tabs nav-stacked"><a href="cloud-syslog.html">&#9654; Syslog</a>
-              <ul style="display:none">
+            <ul class="submenu nav nav-tabs nav-stacked closed"><a href="cloud-syslog.html">&#9654; Syslog</a>
+              <ul class="closed">
                 <li><a href="cloud-syslog-watching.html">Watching a file</a></li>
                 <!--lia(href="") Managing multiple clients
                 -->
@@ -70,16 +70,16 @@
           </li>
           <li>
             <p>System Data </p>
-            <ul style="display:block" class="submenu nav nav-tabs nav-stacked">
+            <ul class="submenu nav nav-tabs nav-stacked open">
               <li><a href="cloud-collector-unix.html">&#9654; Unix Server</a>
-                <ul style="display:none">
+                <ul class="closed">
                   <li><a href="cloud-system-unix.html">Unix System Logs</a></li>
                   <li><a href="cloud-system-unix-audit.html">Unix Audit Logs</a></li>
                 </ul>
               </li>
-              <li><a href="cloud-collector-windows.html">&#9654; Windows Server</a>
-                <ul>
-                  <li><a href="cloud-system-windows.html">Windows System Logs</a></li>
+              <li><a href="cloud-collector-windows.html" class="active">&#9654; Windows Server</a>
+                <ul class="open">
+                  <li><a href="cloud-system-windows.html">Windows Event Logs</a></li>
                   <li><a href="cloud-system-windows-audit.html">Windows Audit Logs</a></li>
                 </ul>
               </li>
@@ -87,7 +87,7 @@
           </li>
           <li>
             <p>Application Data</p>
-            <ul style="display:none" class="submenu nav nav-tabs nav-stacked">
+            <ul class="submenu nav nav-tabs nav-stacked closed">
               <li> <a href="cloud-java-logs.html">Java Logs </a></li>
               <!--li a(href="cloud-dotnet-logs.html") DotNet Logs 
               -->
@@ -105,14 +105,14 @@
           </li>
           <li>
             <p>Network Devices</p>
-            <ul style="display:none" class="submenu nav nav-tabs nav-stacked">
+            <ul class="submenu nav nav-tabs nav-stacked closed">
               <li><a href="cloud-juniper-logs.html">Juniper</a></li>
               <li> <a href="cloud-cisco-logs.html">Cisco ASA	</a></li>
             </ul>
           </li>
           <li>
             <p>Logscape Configuration</p>
-            <ul style="display:none" class="submenu nav nav-tabs nav-stacked">
+            <ul class="submenu nav nav-tabs nav-stacked closed">
               <li><a href="cloud-alerts.html">Alerts</a></li>
               <li><a href="cloud-workspaces.html">Creating a workspace</a></li>
               <li><a href="cloud-sub-user.html">Create a new team member		</a></li>
@@ -123,22 +123,54 @@
       <div class="col-md-9 apps">
         <div ng-app="docBrowserApp" class="row"> 
           <div>
-            <h2>Stream your Data/ Windows Server</h2>
-            <h3>Retrieving Windows OS Metrics</h3>
-            <p>The collector is able to aggregate and transfer a wide variety of data, in this example we'll be shipping Windows OS metrics. The collector is incredibly fast to set up and requires essentially no configuration by the user.</p><br><strong>1) Download and install the Windows Collector</strong>
-            <p>The collector is available in two different versions, the Windows specific collector, or the platform independent collector, we'll be using the Windows specific collector.</p>
-            <pre><a href="https://github.com/logscape/collector/blob/master/installers/windows/setup.exe?raw=true">Windows Collector</a></pre>
-            <p>Once downloaded, run the installer and choose your installation directory.</p><strong>2) Configure the Collector</strong>
+            <h2>Stream your Data/ Windows Server/ OS Metrics</h2>
+            <!--h3 Retrieving Windows OS Metrics-->
+            <!--.side-box
+            h4 Windows Server
+            a(href="types-tutorial.html") Windows Event Logs 
+            br
+            a(href="types-fields.html") Windows Audit Logs 
+            br
+            
+            -->
+            <p>The collector is able to aggregate and transfer a wide variety of data, in this example we'll be shipping Windows OS metrics. The collector is incredibly fast to set up and requires essentially no configuration by the user. You can download it below as a Windows MSI</p><strong>You will need to </strong>
+            <ul style="margin-left:10px;border-width:0px; border-color:#CCC;border-style:solid;width:300;">
+              <li> <a href="https://github.com/logscape/collector/blob/master/installers/windows/setup.exe?raw=true">Download and install the Collector</a></li>
+              <li><a href="http://cloud.logscape.com:8080/saas-portal/#anch-user">Get your security token						</a></li>
+            </ul>
+            <!--div.side-box
+            strong Points of interest
+            //ul(style="margin-left:10px;list-style-type:none;border-width:1px; border-color:#CCC;border-style:solid;width:190px;")
+            ul
+            	li 
+            		a(href="https://github.com/logscape/collector/blob/master/installers/windows/setup.exe?raw=true") Download Collector
+            	li
+            		a(href="http://cloud.logscape.com:8080/saas-portal/#anch-user") Get your security token						
+            	li 
+            		a(href="types-tutorial.html") Windows Event Logs 
+            	li
+            		a(href="types-fields.html") Windows Audit Logs 
+            
+            
+            
+            -->
+            <h3>Configuration</h3><strong>1) Modify the service.json</strong>
             <p>Navigate to and open the service.json file, it can be found in -</p>
-            <pre>%COLLECTOR_HOME%/etc/service.json</pre>
-            <p>By default you will see -</p>
+            <pre>INSTALLATION_DIRECTORY/etc/service.json</pre>
+            <p>You will need to modify the service.json to include your person security token.</p>
             <pre>{   "manager":"collector.logscape.com:9991" 
-,"token":"[YOUR_SECURITY_TOKEN_HERE]"
+,"token":"YOUR_SECURITY_TOKEN_HERE"
 ,"apps":["windowsapp"]
-}</pre>
-            <p>First you will need to insert your Logscape security token into the token field, then, this config will send data gathered by the Unix App to the Logscape Cloud, using the security token provided. There is no need to download the apps yourself, the collector will handle the downloading and installation automatically at run time. </p><strong>3) Start the collector</strong>
-            <p>Once configured, you will have to start the installed service through the windows task manager, Performing this action will require administrator permissions.By default the service is named, LogscapeCloudAgent however this can be changed in the jsl.ini should you wish. </p><strong>4) Use the Logscape Windows OS Metrics workspace</strong>
-            <p>Your data will shortly enter the Logscape Cloud, you can use the Windows OS metrics workspace to interpret your log data.</p>
+}</pre><strong>2) Start the collector</strong>
+            <p>Once configured, you will have to start the installed service through the windows task manager, Performing this action will require administrator permissions.By default the service is named, LogscapeCloudAgent however this can be changed in the jsl.ini should you wish. </p><img src="/images/cloud-windows-dash.png" width="900"><br><br><strong>3) Next Steps</strong>
+            <p>
+              Your data will shortly enter the Logscape Cloud, you can use the Windows OS metrics workspace to interpret your log data.
+              You may also be interested in.
+            </p>
+            <ul>
+              <li><a href="cloud-system-windows.html">Windows Event Logs </a></li>
+              <li><a href="cloud-system-windows-audit.html">Windows Audit Logs </a></li>
+            </ul>
           </div><br><br><br>
           <div id="disqus_thread">
             <script>
