@@ -139,14 +139,14 @@
             <p></p>
             <div class="image"> 
               <!--pre $template Cloud,"LOGSCAPETOKEN:SECURITY_TOKEN LOGSCAPETAG:syslog <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% %msg%"-->
-              <pre>$template Cloud,"LOGSCAPETOKEN:70657eb1:14999ee959f:-7fd6 LOGSCAPETAG:syslog %timestamp:::date-rfc3339% <%pri%>%protocol-version% [%HOSTNAME%] [%app-name%] [%procid%] [%msgid%] %msg%"</pre>
+              <!--pre $template Cloud,"LOGSCAPETOKEN:YOUR_TOKEN LOGSCAPETAG:syslog %timestamp:::date-rfc3339% <%pri%>%protocol-version% [%HOSTNAME%] [%app-name%] [%procid%] [%msgid%] %msg%"-->
               <pre>$template Cloud,"LOGSCAPETOKEN:70657eb1:14999ee959f:-7fd6 LOGSCAPETAG:syslog %timestamp:::date-rfc3339% [%syslogfacility-text%] [%syslogseverity-text%] [%HOSTNAME%] [%app-name%] [%procid%] [%msgid%]  %msg%"<br>*.* @@collector.logscape.com:1468;Cloud</pre>
             </div>
             <p>
                
               It is possible to send your logs into Logscape Cloud following the RFC 5242 format defined <a href="https://tools.ietf.org/html/rfc5424#page-8">here.</a>
             </p>
-            <blockquote>$template Cloud,"LOGSCAPETOKEN:70657eb1:14999ee959f:-7fd6 LOGSCAPETAG:syslog <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% %msg%"</blockquote>
+            <blockquote>$template Cloud,"LOGSCAPETOKEN:YOUR_TOKEN LOGSCAPETAG:syslog <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% %msg%"</blockquote>
             <p>Paste the snippet into your rsyslog.conf and replace only the SECURITY_TOKEN from your account. </p>
             <p></p><strong>2) Restart the daemon</strong>
             <p>Restart your rsyslog daemon. </p>
