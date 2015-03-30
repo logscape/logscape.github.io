@@ -26,12 +26,17 @@
       <div style="padding-left:70px;padding-top:10px"><a href="/">Support  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a><a href="http://www.logscape.com">Logscape.com			</a></div>
     </div>
     <div style="margin-left:25px" class="row">
-      <div style="margin-left:10px" class="col-md-2 nav-padding"> 
+      <div style="margin-left:10px" class="col-md-2 nav-padding">
         <hr>
-        <ul class="nav nav-tabs nav-stacked"><a href="cloud.html">Introduction</a>
-          <li><a href="cloud-welcome.html">Welcome to Logscape</a></li>
-          <li><a href="cloud-getting-started.html">Getting Started </a></li>
-          <li><a href="cloud-full-stack-monitoring.html">Full Stack Monitoring</a></li>
+        <ul class="menu nav nav-tabs nav-stacked">
+          <li><a href="cloud.html">Introduction</a>
+            <ul class="menu nav nav-tabs nav-stacked active open">
+              <!--lia(href="cloud-welcome.html") Welcome to Logscape
+              -->
+              <li><a href="cloud-full-stack-monitoring.html">Full Stack Monitoring</a></li>
+              <li><a href="cloud-getting-started.html">Getting Started </a></li>
+            </ul>
+          </li>
           <p>Stream Your Data </p>
           <li><a href="cloud-syslog.html">&#9654; Syslog</a>
             <!--div 
@@ -93,15 +98,10 @@
       <div class="col-md-9 apps">
         <div class="row">
           <div class="col-md-11">
-            <h2>Introduction/ Getting Started</h2>
-            <h3>Introduction </h3>
-            <p>Logscape is a powerful SaaS solution for all your logging needs, transfer logs from any layer of your architecture into the cloud, and Logscape will assist you with data aggregation, visualization and analytics of those logs, in real time.
-              <div style="padding-left:65px;" class="images"><img src="/images/cloud-overview.png" width="800" style="padding-left: 85px"></div>
-            </p>
             <h3>How does it work?</h3>
             <p>When you send your logs to the Logscape cloud they get preprended with a tag and a security token, this token is unique to you, not only does it allow your data into the Logscape system, it also guarentees that only you will be able to see it, once in the cloud your data is wrote to disk and then ingested by Logscape so that it can be searched by you.</p>
-            <!--h3 How to get set up?-->
-            <!--p The below navigation includes links to guide you through the installation and configuration of many devices within your network that you may be interested in monitoring.--><br>
+            <h3>What can Logscape Monitor</h3>
+            <p>Logscape can monitor a wide variety of applications and has native support for industry standard logging formats, below you will find a list of supported applications, and walkthroughs instructing you on setting up custom metrics.</p>
             <div class="container-fluid">
               <div padding-left:10px class="row">
                 <div class="col-md-3">
