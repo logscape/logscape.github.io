@@ -23,3 +23,12 @@ h3 {
 	list-style-type: none;
 	padding-left: 25px;
 }
+
+.closed {
+	display: none;
+}
+
+.open {
+	display: block;
+}
+
