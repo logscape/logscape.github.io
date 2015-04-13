@@ -170,7 +170,7 @@
       </div>
     </div>
     <div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;">
-      <div style="padding-left:70px;padding-top:10px"><a href="/cloud.html">Cloud  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a><a href="http://www.logscape.com">Logscape.com	</a><img style="height:0;width:0" src="http://logscape.com/images/track.png?version=support"/></div>
+      <div style="padding-left:70px;padding-top:10px"><a href="/Cloud-Introduction.html">Cloud  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a><a href="http://www.logscape.com">Logscape.com	</a><img style="height:0;width:0" src="http://logscape.com/images/track.png?version=support"/></div>
     </div>
     <!--.container-fluid.navbar(style="min-height:30px;margin-bottom:5px;")
     .row(style="height:5px") 
@@ -232,7 +232,7 @@
           </div>
         </div>
         <div class="col-md-9 content-area"> <br/>
-          <h2>Manager </h2>
+          <h6 id="breadcrumb">Manager </h6>
           <div class="image"><img src="images/install-components-manager.png"/></div>
           <p>The Manager runs the following services </p>
           <ul>
@@ -241,17 +241,17 @@
             <li>Syslog Server -  A Syslog Server runs on the Manager and will accept data from any syslog compatible host.</li>
             <li>Socket Server -  A Socket Server accepts data streamed to a TCP port. </li>
           </ul>
-          <h2>The Failover</h2>
+          <h6 id="breadcrumb">The Failover</h6>
           <div class="image"> <img src="images/install-components-failover.png"/></div>
           <p>The Failover runs exactly the same services as the Manager. On startup, the Failover will copy the managers configuration and also start an Index Store. </p>
           <p>and other essential services such as alerting, maintain a copy of the configuration and also run the  web console. To continue using the system point your browser to the Failover dashboard ( http://Failover-Address:8080 ) </p>
-          <h2>Forwarder </h2>
+          <h6 id="breadcrumb">Forwarder </h6>
           <p>A Forwarder's role is to collect data and stream it off to an Index Store. A forwarder has no capability to participate in searches or index any local data. </p>
           <div class="image"><img src="images/install-components-forwarder.png"/></div>
-          <h2>Index Store </h2>
+          <h6 id="breadcrumb">Index Store </h6>
           <p>An Index Store collects data form multiple sources. It also indexes forwarded data and participates in distruted searches.</p>
           <div class="image"><img src="images/install-components-indexstore.png"/></div>
-          <h2>Indexer </h2>
+          <h6 id="breadcrumb">Indexer </h6>
           <p>An Indexer watches local data, and participates in distributed searches. </p>
           <div class="image"><img src="images/install-components-indexer.png"/></div>
         </div>
