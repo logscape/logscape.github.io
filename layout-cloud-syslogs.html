@@ -5,12 +5,13 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style-app.css" rel="stylesheet">
     <link href="css/cloud-app.css" rel="stylesheet">
-    <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/angular-1.2.9/angular.min.js"></script>
     <script src="js/angular-1.2.9/angular-animate.min.js"></script>
     <script src="js/angular-1.2.9/angular-route.min.js"></script>
     <script src="js/app/controllers.js"> </script>
+    <script src="js/cloud-breadcrumb.js"></script>
     <script>
       $(document).ready(function(){
       	navigation_bind();
@@ -26,6 +27,34 @@
        });
       }
     </script>
+    <script>
+      function submit_form(){
+      	var q=$("#searchBox").val() 
+      	q=encodeURIComponent(q)
+      	var query="https://www.google.com/?gws_rd=cr&q=site:logscape.github.io+#q=site:logscape.github.io+"+q
+      	var location = window.location.href;
+      	console.log("back:" + location);
+      	history.pushState({},"",location); 
+      	window.location.replace(query);
+      }
+    </script>
+    <script>
+      $( document ).ready(function() {
+      
+      	$("#cseSubmit").on("click",function(e){
+      		e.preventDefault();
+      		submit_form(); 
+      	});
+      	$("#searchBox").on("keypress",function(e){ 
+      		if (e.keyCode == 13) { 
+      			e.preventDefault();
+      			submit_form() 
+      		}
+      	}); 
+      });
+      
+      
+    </script>
   </head>
   <body>
     <div style="width:100%;height:85px;background-color:#333;">
@@ -35,7 +64,15 @@
       a(href="") Getting Started	|
       a(href="") Logscape  	| 
       -->
-      <div style="padding-left:100px;padding-top:20px"><img src="images/logscapecloud.png" style="height:45px"></div>
+      <div style="padding-left:100px;padding-top:20px"><img src="images/logscapecloud.png" style="height:45px">
+        <div style="float:right" class="col-md-3">
+          <form id="cse-search-box" action="" style="position:right;padding-top:5px;padding-bottom:5px" onSubmit="submit_form()"></form>
+          <input type="hidden" name="cx" value="015161349156186070243:ktxh8djpql8">
+          <input type="hidden" name="ie" value="UTF-8">
+          <input id="searchBox" type="text" name="q" size="31" style="margin-left:15px">
+          <input id="cseSubmit" type="submit" value=" " class="btn-search">
+        </div>
+      </div>
     </div>
     <div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;">
       <div style="padding-left:70px;padding-top:10px"><a href="/index.html">Support  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a><a href="http://www.logscape.com">Logscape.com	</a></div>
@@ -44,49 +81,48 @@
       <div style="margin-left:10px" class="col-md-2 nav-padding">
         <hr>
         <ul class="menu nav nav-tabs nav-stacked">
-          <li><a href="cloud.html">Introduction</a>
-            <ul class="submenu nav nav-tabs nav-stacked open">
-              <li><a href="cloud-welcome.html">Welcome to Logscape</a></li>
-              <li><a href="cloud-getting-started.html">Getting Started </a></li>
-              <li><a href="cloud-full-stack-monitoring.html">Full Stack Monitoring</a></li>
+          <li><a href="Cloud-Introduction.html">Introduction</a>
+            <ul class="menu nav nav-tabs nav-stacked active open">
+              <!--lia(href="cloud-welcome.html") Welcome to Logscape
+              -->
+              <li><a href="Cloud-Introduction-Full_Stack_Monitoring.html">Full Stack Monitoring</a></li>
+              <li><a href="Cloud-Introduction-Getting_Started.html">Getting Started </a></li>
             </ul>
           </li>
-          <li>
-            <p>Stream Your Data</p>
+          <li><a href="Cloud-Stream_Your_Data.html">Stream Your Data </a>
             <ul class="submenu nav nav-tabs nav-stacked open">
-              <li><a href="cloud-syslog.html" class="active">&#9654; Syslog</a>
+              <li><a href="Cloud-Stream_Your_Data-Syslog.html" class="active">&#9654; Syslog</a>
                 <ul class="open">
-                  <li><a href="cloud-syslog-watching.html">Watching a file</a></li>
+                  <li><a href="Cloud-Stream_Your_Data-Syslog-Watching_A_File.html">Watching a file</a></li>
                   <!--lia(href="") Managing multiple clients
                   -->
                 </ul>
               </li>
-              <li><a href="cloud-nxlog.html">Nxlog </a></li>
-              <li><a href="cloud-collector.html">&#9654; Collector </a>
+              <li><a href="Cloud-Stream_Your_Data-NxLog.html">Nxlog </a></li>
+              <li><a href="Cloud-Stream_Your_Data-Collector.html">&#9654; Collector </a>
                 <ul class="closed">
-                  <li><a href="cloud-jmx.html">JMX</a></li>
-                  <li><a href="cloud-json.html">JSON</a></li>
+                  <li><a href="Cloud-Stream_Your_Data-Collector-JMX.html">JMX</a></li>
+                  <li><a href="Cloud-Stream_Your_Data-Collector-JSON.html">JSON</a></li>
+                  <li><a href="Cloud-Stream_Your_Data-Collector-SQL.html">SQL										</a></li>
                 </ul>
               </li>
             </ul>
           </li>
-          <li>
-            <p>System Data </p>
-            <ul class="submenu nav nav-tabs nav-stacked closed"><a href="cloud-collector-unix.html">&#9654; Unix Server</a>
+          <li><a href="Cloud-System_Data.html">System Data </a>
+            <ul class="submenu nav nav-tabs nav-stacked closed"><a href="Cloud-System_Data-Unix_Server.html">&#9654; Unix Server</a>
               <ul>
-                <li><a href="cloud-system-unix.html">Unix System Logs</a></li>
-                <li><a href="cloud-system-unix-audit.html">Unix Audit Logs</a></li>
-              </ul><a href="cloud-collector-windows.html">&#9654; Windows Server</a>
+                <li><a href="Cloud-System_Data-Unix_Server-Unix_System_Logs.html">Unix System Logs</a></li>
+                <li><a href="Cloud-System_Data-Unix_Server-Unix_Audit_Logs.html">Unix Audit Logs</a></li>
+              </ul><a href="Cloud-System_Data-Windows_Server.html">&#9654; Windows Server</a>
               <ul>
-                <li><a href="cloud-system-windows.html">Windows Event Logs</a></li>
-                <li><a href="cloud-system-windows-audit.html">Windows Audit Logs</a></li>
+                <li><a href="Cloud-System_Data-Windows_Server-Windows_System_Logs.html">Windows Event Logs</a></li>
+                <li><a href="Cloud-System_Data-Windows_Server-Windows_Audit_Logs.html">Windows Audit Logs</a></li>
               </ul>
             </ul>
           </li>
-          <li>
-            <p>Application Data</p>
+          <li><a href="Cloud-Application_Data.html">Application Data </a>
             <ul class="submenu nav nav-tabs nav-stacked closed">
-              <li> <a href="cloud-java-logs.html">Java Logs </a></li>
+              <li> <a href="Cloud-Application_Data-Java_Logs.html">Java Logs </a></li>
               <!--li a(href="cloud-dotnet-logs.html") DotNet Logs 
               -->
               <!--li 
@@ -96,26 +132,30 @@
               <!--lia(href="cloud-iis-logs.html") IIS Logs 
               -->
               <!--p Web Data-->
-              <li><a href="cloud-apache-logs.html">Apache Logs</a></li>
-              <li><a href="cloud-nginx-logs.html">Nginx Logs</a></li>
-              <li><a href="cloud-web-logs.html">Web Logs</a></li>
+              <li><a href="Cloud-Application_Data-Apache_Logs.html">Apache Logs</a></li>
+              <li><a href="Cloud-Application_Data-Nginx_Logs.html">Nginx Logs</a></li>
+              <li><a href="Cloud-Application_Data-Web_Logs.html">Web Logs</a></li>
             </ul>
           </li>
-          <li>
-            <p>Network Devices</p>
+          <li><a href="Cloud-Network_Devices.html">Network Devices </a>
             <ul class="submenu nav nav-tabs nav-stacked closed">
-              <li><a href="cloud-juniper-logs.html">Juniper</a></li>
-              <li> <a href="cloud-cisco-logs.html">Cisco ASA	</a></li>
+              <li><a href="Cloud-Network_Devices-Juniper.html">Juniper</a></li>
+              <li> <a href="Cloud-Network_Devices-Cisco_ASA.html">Cisco ASA	</a></li>
             </ul>
           </li>
-          <li>
-            <p>Logscape Configuration</p>
-            <ul class="submenu nav nav-tabs nav-stacked closed">
-              <li><a href="cloud-alerts.html">Alerts</a></li>
-              <li><a href="cloud-workspaces.html">Creating a workspace</a></li>
-              <li><a href="cloud-sub-user.html">Create a new team member		</a></li>
-            </ul>
-          </li>
+          <!--li
+          p Logscape Configuration
+          ul.submenu.nav.nav-tabs.nav-stacked.closed
+          	li
+          		a(href="cloud-alerts.html") Alerts
+          	li
+          		a(href="cloud-workspaces.html") Creating a workspace
+          	li
+          		a(href="cloud-sub-user.html") Create a new team member		
+          
+          
+          
+          -->
         </ul>
       </div>
       <div class="col-md-9 apps">

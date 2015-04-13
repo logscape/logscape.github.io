@@ -1,110 +1,103 @@
-<!DOCTYPE html><html lang="en"><head><title>Logscape Apps	</title><link href="css/bootstrap.min.css" rel="stylesheet"><link href="css/style-app.css" rel="stylesheet"><link href="css/app.css" rel="stylesheet"><script src="js/bootstrap.min.js"></script><script src="js/jquery.js"></script><script src="js/angular-1.2.9/angular.min.js"></script><script src="js/angular-1.2.9/angular-animate.min.js"></script><script src="js/angular-1.2.9/angular-route.min.js"></script><script src="js/app/controllers.js"></script></head><body><div style="width:100%;height:85px;background-color:#333;"><!--diva(href="/") Documentation
-a(href="")  Forums 	| 
-a(href="") Getting Started	|
-a(href="") Logscape  	| --><div style="padding-left:100px;padding-top:20px"><img src="images/logscape-apps-logo.png" style="height:45px"></div></div><div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;"><div style="padding-left:140px;padding-top:10px"><a href="/">Documentation  | </a><a href="/cloud.html">Cloud | </a><a href="http://logscape.com">Main Website  | </a><a href="http://logscape.com/get.html">Download  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a></div></div><div class="row"><div class="col-md-1"></div><div class="col-md-12"><div ng-app="docBrowserApp" class="row"><div class="col-md-9"><div class="row"><div class="col-md-11 apps"><h3>Apps and Integrations </h3><hr><p>Logscape Apps search and monitor the noisy edges to give you the complete picture. Standard monitoring of syslog,sockets and log inputs are useful, but that’s only part of the story. To really understand what’s going on, you also need  to search and monitor all components of your infrastructure. Logscape Apps can invoke any service or executable shell scripts, vbs scripts, groovy, ruby, SQL, etc. to search and monitor data from any source or application</p><br><a href="apps-intro.html">What is an App ?  |</a><a href="apps-deploy.html"> How to deploy	 | </a><a href="apps-style.html"> Style Guidelines   | </a><div class="col-md-4"><p>Search |  <input ng-model="query"></p></div><div class="col-md-8"></div><!--input(ng-model="category.databases",type="checkbox",value="true")
-span Databases 
-
-input(ng-model="category.webServers",type="checkbox",value="true" )
-span Web Servers
-
-input(ng-model="category.java",type="checkbox",value="true")
-br
-span Java 
-
-input(ng-model="category.dotnet",type="checkbox",value="true")
-span .Network Devices 
-input(ng-model="category.java",type="checkbox",value="true")
-span Middleware 
-
-input(ng-model="category.java",type="checkbox",value="true")
---></div></div><hr><div style="padding-left:25px" class="row"><div class="col-md-11"></div><!--h6a(href="#/grid") [ Grid View |
-a(href="#/list")  List View ]  --><div ng-controller="docListCtrl"><!--div(ng-repeat="c in getCategories")input(ng-model="{{c}}",type="checkbox",value="true")
-span {{c}} 
-
-
---><div class="ng-view"></div></div><!--					div(ng-repeat="doc in documents | filter:filterByCategory | filter:query")
- div(style="width:500px;float:left;margin: 5px 5px 5px 5px")
-  div(style="border: 1px solid #CCC;width:100px;height:130px;float:left;padding: 10px 10px 10px 10px") 
-   div(style="float:center") 
-    img(src="images/apps-doc-logo.png",style="width:80px") 
-    
-  div(style="border: 1px solid #CCC;width:300px;float:left") 
-   p {{doc.name}}
-   span.categoy  >> {{doc.docType}}
-   p {{doc.description}} 
-   div(style="float:left;padding-left:10px")
-    a(href="") Documentation  | 
-   div(style="float:left;padding-left:10px")
-    a(href="{{doc.zipURL}}") Download --></div></div><div class="col-md-1"><!--ul
- li(ng-repeat="doc in documents | filter:filterByCategory | filter:query",style="list-style:none;display:block;float:left;width:300px;padding:10px 10px 10px 10px")
-  div(style="border: 1px solid #CCC;border-radius: 10px;padding: 15px 15px 15px 15px;")
-   table.table
-    tr
-     td(style="width:100px") 
-      img(src="images/",style="width:100px;height:100px") 
-     td(style="width:600px")  
-      p {{doc.name}}
-      span.categoy  >> {{doc.type}}
-      p {{doc.description}} 
-  //
-   div
-    div.app-icon-box(style="border: 1px solid #CCC;float:left;width:200px")  
-     div(style="width:200px,height:200px") 
-      p &nbsp; 
-    div.app-text-box(style="float:left;width:400px") 
-     div(style="display:block")  
-      p {{doc.name}}
-     div(style="display:block")
-      p {{doc.description}}
-      --></div></div></div></div></body></html><!--.container		
-//		
- .navbar.navbar-fixed-top
-  .navbar-inner
-   .nav-collapse.collapse
-    ul.nav
-     li.active  Main Support Site 
-     li Explore Logscape Apps 
-     li 
-      a(href="") Download 
-   h3 Logscape Apps 
-   a(href="index.html") Getting Started | 
-   a(href="http://support.liquidlabs.co.uk")  Older Versions 1.3x Docs   
-   
-.container-fluid
- br
- br 
- br
- br
- br
- .row 
-  .col-md-11(style="padding-left:100px")
-   block content 
-script(src="js/ga.js") --><!--//
- .row
-  .col-md-2.nav-padding
-   br
-   ul
-    li
-     a(href="https://github.com/logscape/windowsapp#windowsapp-10") WindowsApp
-    li 
-     a(href="https://github.com/logscape/unixapp#unixapp-10") UnixApp
-     
-    li 
-     a(href="https://github.com/logscape/coherenceapp#oraclecoherenceapp-10") Oracle Coherence App
-     
-    li 
-     a(href="https://github.com/logscape/javaapp#javaapp-10") JavaApp
-     
-    li 
-     a(href="https://github.com/logscape/vmwareapp#vmwareapp-10") VMWareApp
-     
-    li
-     a(href="https://github.com/logscape/ciscoapp#ciscoapp-10") Cisco Devices
-     
-     
-     
-     
-  .col-md-10
-   block content
-   
-   -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Logscape Apps	</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.js"></script>
+  </head>
+  <body>
+    <div class="container">		
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"> Main Support Site </li>
+              <li>Explore Logscape Apps </li>
+              <li> <a href="">Download </a></li>
+            </ul>
+          </div>
+          <h3>Logscape Apps </h3><a href="index.html">Getting Started | </a><a href="http://support.liquidlabs.co.uk"> Older Versions 1.3x Docs   </a>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid"><br><br><br><br><br>
+      <div class="row">
+        <div class="col-md-2 nav-padding"><br>
+          <ul>
+            <li><a href="https://github.com/logscape/windowsapp#windowsapp-10">WindowsApp</a></li>
+            <li> <a href="https://github.com/logscape/unixapp#unixapp-10">UnixApp</a></li>
+            <li> <a href="https://github.com/logscape/coherenceapp#oraclecoherenceapp-10">Oracle Coherence App</a></li>
+            <li> <a href="https://github.com/logscape/javaapp#javaapp-10">JavaApp</a></li>
+            <li> <a href="https://github.com/logscape/vmwareapp#vmwareapp-10">VMWareApp</a></li>
+            <li><a href="https://github.com/logscape/ciscoapp#ciscoapp-10">Cisco Devices</a></li>
+          </ul>
+        </div>
+        <div class="col-md-10">
+          <h1>Logscape Applications</h1>
+          <h3>
+             
+            Enterprise Level Monitoring. Start monitoring today. 
+          </h3>
+          <div class="row">
+            <div class="col-sm-6 col-md-3">
+              <div class="page-header">
+                <h1><small>	Windows App  </small><a href="https://github.com/logscape/windowsapp/raw/master/dist/WindowsApp-1.0.zip"> 
+                    <button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-save green"></span></button></a></h1>
+              </div>
+              <div class="thumbnail"><a href="https://github.com/logscape/windowsapp#windowsapp-10"> <img src="images/unix_app.png" width="230" height="180"></a></div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="page-header">
+                <h1><small>	Unix App </small><a href="https://github.com/logscape/unixapp/raw/master/dist/UnixApp-1.1.zip"> 
+                    <button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-save"></span></button></a></h1>
+              </div>
+              <div class="thumbnail"><a href="https://github.com/logscape/unixapp#unixapp-10"> <img src="images/unix_app.png" width="230" height="180"></a></div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="page-header">
+                <h1><small>	Coherence  App </small><a href="https://github.com/logscape/coherenceapp#oraclecoherenceapp-10"> 
+                    <button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-save"></span></button></a></h1>
+              </div>
+              <div class="thumbnail"><a href="https://github.com/logscape/coherenceapp#oraclecoherenceapp-10"> <img src="images/unix_app.png" width="230" height="180"></a></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-md-3">
+              <div class="page-header">
+                <h1><small>	VMWare App </small><a href="https://github.com/logscape/vmwareapp#vmwareapp-10"> 
+                    <button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-save"></span></button></a></h1>
+              </div>
+              <div class="thumbnail"><a href="https://github.com/logscape/vmwareapp#vmwareapp-10"> <img src="images/unix_app.png" width="230" height="180"></a></div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="page-header">
+                <h1><small>	Monitoring Weblogs  </small><a href="https://github.com/logscape/weblogsapp/raw/master/dist/WebLogsApp-1.0.zip">
+                    <button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-save"></span></button></a></h1>
+              </div>
+              <div class="thumbnail"><a href="https://github.com/logscape/weblogsapp#weblogsapp-10"> <img src="images/unix_app.png" width="230" height="180"></a></div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="page-header">
+                <h1><small>	Cisco Devices  </small><a href="https://github.com/logscape/ciscoapp"> 
+                    <button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-save"></span></button></a></h1>
+              </div>
+              <div class="thumbnail"><a href="https://github.com/logscape/ciscoapp#ciscoapp-10"> <img src="images/unix_app.png" width="230" height="180"></a></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-md-3">
+              <div class="page-header">
+                <h1><small>	Java App </small><a href="https://github.com/logscape/javaapp"> 
+                    <button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-save"></span></button></a></h1>
+              </div>
+              <div class="thumbnail"><a href="https://github.com/logscape/javaapp#javaapp-10"> <img src="images/unix_app.png" width="230" height="180"></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/ga.js"> </script>
+  </body>
+</html>
