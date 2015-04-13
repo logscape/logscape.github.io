@@ -1,69 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Logscape Apps	</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.js"></script>
-  </head>
-  <body>
-    <div class="container">		
-      <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"> Main Support Site </li>
-              <li>Explore Logscape Apps </li>
-              <li> <a href="">Download </a></li>
-            </ul>
-          </div>
-          <h3>Logscape Apps </h3><a href="index.html">Getting Started | </a><a href="http://support.liquidlabs.co.uk"> Older Versions 1.3x Docs   </a>
-        </div>
-      </div>
-    </div>
-    <div class="container-fluid"><br><br><br><br><br>
-      <div class="row">
-        <div class="col-md-2 nav-padding"><br>
-          <ul>
-            <li><a href="https://github.com/logscape/windowsapp#windowsapp-10">WindowsApp</a></li>
-            <li> <a href="https://github.com/logscape/unixapp#unixapp-10">UnixApp</a></li>
-            <li> <a href="https://github.com/logscape/coherenceapp#oraclecoherenceapp-10">Oracle Coherence App</a></li>
-            <li> <a href="https://github.com/logscape/javaapp#javaapp-10">JavaApp</a></li>
-            <li> <a href="https://github.com/logscape/vmwareapp#vmwareapp-10">VMWareApp</a></li>
-            <li><a href="https://github.com/logscape/ciscoapp#ciscoapp-10">Cisco Devices</a></li>
-          </ul>
-        </div>
-        <div class="col-md-10">
-          <h1>Logscape Applications</h1>
-          <h3>
-             
-            Enterprise Level Monitoring. Start monitoring today. 
-          </h3>
-          <div class="row"></div>
-          <h6 id="breadcrumb">Overview </h6>
-          <p>Logscape executes apps to collect and generate data. An app contains Searches, Workspaces and Data Sources specific to the application. </p>
-          <div class="image"><img src="images/app-create-diagram.png"></div><span>	Each App will execute a service on a schedule defined in  a <em>bundle </em>file. Normally this service will collect data from various sources or it will generate its own. 
-            Logscape collects the output of each service  and stores it in the following folder<br><code>./work/MyCustomApp-1.0/13Sep10/service1.out </code><br>
-            <Logscape>collects the results of the service, indexes the data and prepare s it for analysis and visualization </Logscape></span>
-          <h3>App Components </h3>
-          <ul>
-            <li> <span><strong><em>Bundle - </em></strong>Is an xml file that contains a Service descriptor. You can run vbScripts, shell and groovy scripts from here. You can also run binaries. 
-                The schedule is defined using <pauseSeconds>.
-                In the example below, UNIX_IO_wHost_wSTAMP will run io.sh every 60 seconds  <br><code class="width">						&lt;Service&gt;	&lt;name&gt;UNIX_IO_wHOST_wTSTAMP&lt;/name&gt;<br>	&lt;resourceSelection&gt;osName notContains WINDOWS&lt;/resourceSelection&gt;	&lt;fork&gt;false&lt;/fork&gt;	&lt;background&gt;true&lt;/background&gt;	&lt;instanceCount&gt;-1&lt;/instanceCount&gt;	&lt;pauseSeconds&gt;60&lt;/pauseSeconds&gt;	&lt;script&gt;bin/io.sh&lt;/script&gt;&lt;/Service&gt;</code><br></span></li>
-            <li><span><strong> <em>Services  - </em></strong>are the scripts or programs that are execute for your service. These can be any file you like as long as it can be executed by your Operating System.
-                The UnixApp has the following services:
-                <ul>
-                  <li>io.sh </li>
-                  <li>cpu.sh</li>
-                  <li>mem.sh </li>
-                  <li>ps.sh </li>
-                </ul></span></li>
-            <li> <span><strong> <em>app.config - </em></strong>This file contains all the custom Searches, Workspaces, Datatypes and Datasources that the App needs to work. You can have as many config files as you like in your App </span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <script src="js/ga.js"> </script>
-  </body>
-</html>
+<!DOCTYPE html><html lang="en"><head><title>Logscape Apps	</title><link href="css/bootstrap.min.css" rel="stylesheet"><link href="css/style-app.css" rel="stylesheet"><link href="css/app.css" rel="stylesheet"><script src="js/bootstrap.min.js"></script><script src="js/jquery.js"></script><script src="js/angular-1.2.9/angular.min.js"></script><script src="js/angular-1.2.9/angular-animate.min.js"></script><script src="js/angular-1.2.9/angular-route.min.js"></script><script src="js/app/controllers.js"></script></head><body><div style="width:100%;height:85px;background-color:#333;"><!--diva(href="/") Documentation
+a(href="")  Forums 	| 
+a(href="") Getting Started	|
+a(href="") Logscape  	| --><div style="padding-left:100px;padding-top:20px"><img src="images/logscape-apps-logo.png" style="height:45px"></div></div><div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;"><div style="padding-left:140px;padding-top:10px"><a href="/">Documentation  | </a><a href="http://logscape.com">Main Website  | </a><a href="http://logscape.com/get.html">Download  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a></div></div><div class="row"><div class="col-md-1"></div><div class="col-md-12"><h1>Logscape Applications</h1><h3>Enterprise Level Monitoring. Start monitoring today. </h3><div class="row"></div><h2>Overview </h2><p>Logscape executes apps to collect and generate data. An app contains Searches, Workspaces and Data Sources specific to the application. </p><div class="image"><img src="images/app-create-diagram.png"></div><span>	Each App will execute a service on a schedule defined in  a <em>bundle </em>file. Normally this service will collect data from various sources or it will generate its own. 
+Logscape collects the output of each service  and stores it in the following folder<br><code>./work/MyCustomApp-1.0/13Sep10/service1.out </code><br><Logscape>collects the results of the service, indexes the data and prepare s it for analysis and visualization </Logscape></span><h3>App Components </h3><ul><li><span><strong><em>Bundle - </em></strong>Is an xml file that contains a Service descriptor. You can run vbScripts, shell and groovy scripts from here. You can also run binaries. 
+The schedule is defined using <pauseSeconds>.
+In the example below, UNIX_IO_wHost_wSTAMP will run io.sh every 60 seconds  <br><code class="width">						&lt;Service&gt;	&lt;name&gt;UNIX_IO_wHOST_wTSTAMP&lt;/name&gt;<br>	&lt;resourceSelection&gt;osName notContains WINDOWS&lt;/resourceSelection&gt;	&lt;fork&gt;false&lt;/fork&gt;	&lt;background&gt;true&lt;/background&gt;	&lt;instanceCount&gt;-1&lt;/instanceCount&gt;	&lt;pauseSeconds&gt;60&lt;/pauseSeconds&gt;	&lt;script&gt;bin/io.sh&lt;/script&gt;&lt;/Service&gt;</code><br></span></li><li><span><strong><em>Services  - </em></strong>are the scripts or programs that are execute for your service. These can be any file you like as long as it can be executed by your Operating System.
+The UnixApp has the following services:<ul><li>io.sh </li><li>cpu.sh</li><li>mem.sh </li><li>ps.sh </li></ul></span></li><li><span><strong><em>app.config - </em></strong>This file contains all the custom Searches, Workspaces, Datatypes and Datasources that the App needs to work. You can have as many config files as you like in your App </span></li></ul></div></div></body></html><!--.container		
+//		
+ .navbar.navbar-fixed-top
+  .navbar-inner
+   .nav-collapse.collapse
+    ul.nav
+     li.active  Main Support Site 
+     li Explore Logscape Apps 
+     li 
+      a(href="") Download 
+   h3 Logscape Apps 
+   a(href="index.html") Getting Started | 
+   a(href="http://support.liquidlabs.co.uk")  Older Versions 1.3x Docs   
+   
+.container-fluid
+ br
+ br 
+ br
+ br
+ br
+ .row 
+  .col-md-11(style="padding-left:100px")
+   block content 
+script(src="js/ga.js") --><!--//
+ .row
+  .col-md-2.nav-padding
+   br
+   ul
+    li
+     a(href="https://github.com/logscape/windowsapp#windowsapp-10") WindowsApp
+    li 
+     a(href="https://github.com/logscape/unixapp#unixapp-10") UnixApp
+     
+    li 
+     a(href="https://github.com/logscape/coherenceapp#oraclecoherenceapp-10") Oracle Coherence App
+     
+    li 
+     a(href="https://github.com/logscape/javaapp#javaapp-10") JavaApp
+     
+    li 
+     a(href="https://github.com/logscape/vmwareapp#vmwareapp-10") VMWareApp
+     
+    li
+     a(href="https://github.com/logscape/ciscoapp#ciscoapp-10") Cisco Devices
+     
+     
+     
+     
+  .col-md-10
+   block content
+   
+   -->

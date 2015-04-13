@@ -11,7 +11,6 @@
     <script src="js/angular-1.2.9/angular-animate.min.js"></script>
     <script src="js/angular-1.2.9/angular-route.min.js"></script>
     <script src="js/app/controllers.js"> </script>
-    <script src="js/cloud-breadcrumb.js"></script>
     <script>
       $(document).ready(function(){
       	navigation_bind();
@@ -45,28 +44,27 @@
       <div style="margin-left:10px" class="col-md-2 nav-padding">
         <hr>
         <ul class="menu nav nav-tabs nav-stacked">
-          <li><a href="Cloud-Introduction.html">Introduction</a>
+          <li><a href="cloud.html">Introduction</a>
             <ul class="menu nav nav-tabs nav-stacked active open">
               <!--lia(href="cloud-welcome.html") Welcome to Logscape
               -->
-              <li><a href="Cloud-Introduction-Full_Stack_Monitoring.html">Full Stack Monitoring</a></li>
-              <li><a href="Cloud-Introduction-Getting_Started.html">Getting Started </a></li>
+              <li><a href="cloud-full-stack-monitoring.html">Full Stack Monitoring</a></li>
+              <li><a href="cloud-getting-started.html">Getting Started </a></li>
             </ul>
           </li>
           <li>
             <p>Stream Your Data</p>
-            <ul class="submenu nav nav-tabs nav-stacked closed"><a href="Cloud-Stream_Your_Data-Syslog.html">&#9654; Syslog</a>
+            <ul class="submenu nav nav-tabs nav-stacked closed"><a href="cloud-syslog.html">&#9654; Syslog</a>
               <ul class="closed">
-                <li><a href="Cloud-Stream_Your_Data-Syslog-Watching_A_File.html">Watching a file</a></li>
+                <li><a href="cloud-syslog-watching.html">Watching a file</a></li>
                 <!--lia(href="") Managing multiple clients
                 -->
               </ul>
-              <li><a href="Cloud-Stream_Your_Data-NxLog.html">Nxlog </a></li>
-              <li><a href="Cloud-Stream_Your_Data-Collector.html">&#9654; Collector </a>
+              <li><a href="cloud-nxlog.html">Nxlog </a></li>
+              <li><a href="cloud-collector.html">&#9654; Collector </a>
                 <ul>
-                  <li><a href="Cloud-Stream_Your_Data-Collector-JMX.html">JMX</a></li>
-                  <li><a href="Cloud-Stream_Your_Data-Collector-JSON.html"> </a></li>
-                  <li><a href="Cloud-Stream_Your_Data-Collector-SQL.html">SQL</a></li>
+                  <li><a href="cloud-jmx.html">JMX</a></li>
+                  <li><a href="cloud-json.html">JSON</a></li>
                 </ul>
               </li>
             </ul>
@@ -75,19 +73,19 @@
             <p>System Data </p>
             <ul class="submenu nav nav-tabs nav-stacked"><a href="cloud-collector-unix.html" class="active">&#9654; Unix Server</a>
               <ul class="open"> 
-                <li><a href="Cloud-System_Data-Unix_Server-Unix_System_Logs.html">Unix System Logs</a></li>
-                <li><a href="Cloud-System_Data-Unix_Server-Unix_Audit_Logs.html">Unix Audit Logs</a></li>
-              </ul><a href="Cloud-System_Data-Windows_Server.html">&#9654; Windows Server</a>
+                <li><a href="cloud-system-unix.html">Unix System Logs</a></li>
+                <li><a href="cloud-system-unix-audit.html">Unix Audit Logs</a></li>
+              </ul><a href="cloud-collector-windows.html">&#9654; Windows Server</a>
               <ul class="closed">
-                <li><a href="Cloud-System_Data-Windows_Server-Windows_System_Logs.html">Windows Event Logs</a></li>
-                <li><a href="Cloud-System_Data-Windows_Server-Windows_Audit_Logs.html">Windows Audit Logs</a></li>
+                <li><a href="cloud-system-windows.html">Windows Event Logs</a></li>
+                <li><a href="cloud-system-windows-audit.html">Windows Audit Logs</a></li>
               </ul>
             </ul>
           </li>
           <li>
             <p>Application Data</p>
             <ul class="submenu nav nav-tabs nav-stacked closed">
-              <li> <a href="Cloud-Application_Data-Java_Logs.html">Java Logs </a></li>
+              <li> <a href="cloud-java-logs.html">Java Logs </a></li>
               <!--li a(href="cloud-dotnet-logs.html") DotNet Logs 
               -->
               <!--li 
@@ -97,16 +95,16 @@
               <!--lia(href="cloud-iis-logs.html") IIS Logs 
               -->
               <!--p Web Data-->
-              <li><a href="Cloud-Application_Data-Apache_Logs.html">Apache Logs</a></li>
-              <li><a href="Cloud-Application_Data-Nginx_Logs.html">Nginx Logs</a></li>
-              <li><a href="Cloud-Application_Data-Web_Logs.html">Web Logs</a></li>
+              <li><a href="cloud-apache-logs.html">Apache Logs</a></li>
+              <li><a href="cloud-nginx-logs.html">Nginx Logs</a></li>
+              <li><a href="cloud-web-logs.html">Web Logs</a></li>
             </ul>
           </li>
           <li>
             <p>Network Devices</p>
             <ul class="submenu nav nav-tabs nav-stacked closed">
-              <li><a href="Cloud-Network_Devices-Juniper.html">Juniper</a></li>
-              <li> <a href="Cloud-Network_Devices-Cisco_ASA.html">Cisco ASA	</a></li>
+              <li><a href="cloud-juniper-logs.html">Juniper</a></li>
+              <li> <a href="cloud-cisco-logs.html">Cisco ASA	</a></li>
             </ul>
           </li>
           <!--li
@@ -127,11 +125,11 @@
       <div class="col-md-9 apps">
         <div ng-app="docBrowserApp" class="row"> 
           <div>
-            <h6 id="breadcrumb"></h6>
+            <h2>Stream your Data/ Unix Server/ OS Metrics</h2>
             <p>The collector is able to aggregate and transfer a wide variety of data, in this example we'll be shipping Linux OS metrics. The collector is incredibly fast to set up and requires essentially no configuration by the user.</p><strong>You will need to </strong>
             <ul style="margin-left:10px;border-width:0px; border-color:#CCC;border-style:solid;width:300;">
-              <li> <a href="https://github.com/logscape/collector">Download and install the Collector</a></li>
-              <li><a href="cloud-Stream_Your_Data-Security_Token.html">Get your security token						</a></li>
+              <li> <a href="https://github.com/logscape/collector/blob/master/dist/LogscapeCloudAgent.zip?raw=true">Download and install the Collector</a></li>
+              <li><a href="http://cloud.logscape.com:8080/saas-portal/#anch-user">Get your security token						</a></li>
             </ul>
             <h3>Configuration</h3><strong>1) Modify the service.json</strong>
             <p>Navigate to and open the service.json file, it can be found in -</p>
@@ -139,7 +137,7 @@
             <p>You will need to modify the service.json to include your person security token.</p>
             <pre>{   "manager":"collector.logscape.com:9991" 
 ,"token":"YOUR_SECURITY_TOKEN_HERE"
-,"apps":["unixapp"]
+,"apps":["windowsapp"]
 }</pre><strong>2) Start the collector</strong>
             <p>Once configured, run start.sh to start the Collector</p><img src="/images/cloud-unix-dash.png" width="900"><br><br><strong>3) Next Steps</strong>
             <p>
@@ -147,8 +145,8 @@
               You may also be interested in.
             </p>
             <ul>
-              <li><a href="Cloud-System_Data-Unix_Server-Unix_System_Logs.html">Unix System Logs </a></li>
-              <li><a href="Cloud-System_Data-Unix_Server-Unix_Audit_Logs.html">Unix Audit Logs </a></li>
+              <li><a href="cloud-system-unix.html">Unix System Logs </a></li>
+              <li><a href="cloud-system-unix-audit.html">Unix Audit Logs </a></li>
             </ul>
           </div><br><br><br>
           <div id="disqus_thread">
