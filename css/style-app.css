@@ -182,6 +182,18 @@ BODY{
 }
 /* */
 
+.nav-stacked a{
+	color:#1F3D5C;
+	width:141.462px;
+
+}
+
+.nav-stacked a:hover {
+	border-color: #eee #eee #ddd;
+	text-decoration: none;
+ 	background-color: #eee;
+}
+
 ul.menu > .nav-stacked li a {
 	color:#1F3D5C;
 	padding:5px 15px;
@@ -242,9 +254,14 @@ H5{
 }
 
 
+#breadcrumb{
+	color:#428bca;
+}
+
 h6{
 	color:#1c2e53;
 }
+
 h1,h2,h3,h4 {
 	font-weight:300;
 } 
