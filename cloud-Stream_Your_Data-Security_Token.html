@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Logscape Cloud Support	</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style-app.css" rel="stylesheet">
+    <link href="css/cloud-app.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular-1.2.9/angular.min.js"></script>
+    <script src="js/angular-1.2.9/angular-animate.min.js"></script>
+    <script src="js/angular-1.2.9/angular-route.min.js"></script>
+    <script src="js/app/controllers.js"> </script>
+    <script src="js/cloud-breadcrumb.js"></script>
+    <script>
+      function submit_form(){
+      	var q=$("#searchBox").val() 
+      	q=encodeURIComponent(q)
+      	var query="https://www.google.com/?gws_rd=cr&q=site:logscape.github.io+#q=site:logscape.github.io+"+q
+      	var location = window.location.href;
+      	console.log("back:" + location);
+      	history.pushState({},"",location); 
+      	window.location.replace(query);
+      }
+    </script>
+    <script>
+      $( document ).ready(function() {
+      
+      	$("#cseSubmit").on("click",function(e){
+      		e.preventDefault();
+      		submit_form(); 
+      	});
+      	$("#searchBox").on("keypress",function(e){ 
+      		if (e.keyCode == 13) { 
+      			e.preventDefault();
+      			submit_form() 
+      		}
+      	}); 
+      });
+      
+      
+    </script>
+  </head>
+  <body>
+    <div style="width:100%;height:85px;background-color:#333;">
+      <!--div
+      a(href="/") Documentation
+      a(href="")  Forums 	| 
+      a(href="") Getting Started	|
+      a(href="") Logscape  	| 
+      -->
+      <div style="padding-left:100px;padding-top:20px"><img src="images/logscapecloud.png" style="height:45px">
+        <div style="float:right" class="col-md-3">
+          <form id="cse-search-box" action="" style="position:right;padding-top:5px;padding-bottom:5px" onSubmit="submit_form()"></form>
+          <input type="hidden" name="cx" value="015161349156186070243:ktxh8djpql8">
+          <input type="hidden" name="ie" value="UTF-8">
+          <input id="searchBox" type="text" name="q" size="31" style="margin-left:15px">
+          <input id="cseSubmit" type="submit" value=" " class="btn-search">
+        </div>
+      </div>
+    </div>
+    <div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;">
+      <div style="padding-left:70px;padding-top:10px"><a href="/">Support  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a><a href="http://www.logscape.com">Logscape.com			</a></div>
+    </div>
+    <div style="margin-left:25px" class="row">
+      <div style="margin-left:10px" class="col-md-2 nav-padding">
+        <hr>
+        <ul class="menu nav nav-tabs nav-stacked">
+          <li><a href="Cloud-Introduction.html">Introduction</a>
+            <ul class="menu nav nav-tabs nav-stacked active open">
+              <!--lia(href="cloud-welcome.html") Welcome to Logscape
+              -->
+              <li><a href="Cloud-Introduction-Full_Stack_Monitoring.html">Full Stack Monitoring</a></li>
+              <li><a href="Cloud-Introduction-Getting_Started.html">Getting Started </a></li>
+            </ul>
+          </li><a href="Cloud-Stream_Your_Data.html">Stream Your Data </a>
+          <li><a href="Cloud-Stream_Your_Data-Syslog.html">&#9654; Syslog</a>
+            <!--div 
+            ul.nav.nav-tabs.nav-stacked
+            	li 
+            		a(href="cloud-syslog-ng.html") Syslog-NG
+            	li 
+            		a(href="") System Logs 					
+            	li 
+            		a(href="") Application Logs 
+            -->
+          </li>
+          <li><a href="Cloud-Stream_Your_Data-NxLog.html">Nxlog </a></li>
+          <li><a href="Cloud-Stream_Your_Data-Collector.html">&#9654; Collector </a></li><a href="Cloud-System_Data.html">System Data </a>
+          <li><a href="Cloud-System_Data-Unix_Server.html">&#9654; Unix Server</a></li>
+          <!--li a(href="Cloud-System_Data-Unix_Server-Unix_System_Logs.html") Unix System Logs 
+          -->
+          <!--li a(href="Cloud-System_Data-Unix_Server-Unix_Audit_Logs.html") Unix Audit Logs
+          -->
+          <li><a href="Cloud-System_Data-Windows_Server.html">&#9654; Windows Server 	</a></li>
+          <!--li a(href="Cloud-System_Data-Windows_Server-Windows_System_Logs.html") Windows Event Logs 
+          -->
+          <!--mdli 
+          a(href="Cloud-System_Data-Windows_Server-Windows_Audit_Logs.html") Windows Audit Logs 	
+          					
+          
+          --><a href="Cloud-Application_Data.html">Application Data </a>
+          <li> <a href="Cloud-Application_Data-Java_Logs.html">Java Logs </a></li>
+          <!--li a(href="cloud-dotnet-logs.html") DotNet Logs 
+          -->
+          <!--li 
+          a(href="cloud-aws-logs.html") Amazon AWS 
+          
+          -->
+          <!--lia(href="cloud-iis-logs.html") IIS Logs 
+          -->
+          <!--p Web Data-->
+          <li><a href="Cloud-Application_Data-Apache_Logs.html">Apache Logs</a></li>
+          <li><a href="Cloud-Application_Data-Nginx_Logs.html">Nginx Logs</a></li>
+          <li><a href="Cloud-Application_Data-Web_Logs.html">Web Logs</a></li><a href="Cloud-Network_Devices.html">Network Devices </a>
+          <li><a href="Cloud-Network_Devices-Juniper.html">Juniper</a></li>
+          <li> <a href="Cloud-Network_Devices-Cisco_ASA.html">Cisco ASA	</a></li>
+          <!--p Logscape Configuration-->
+          <!--lia(href="cloud-alerts.html") Alerts
+          -->
+          <!--lia(href="cloud-workspaces.html") Creating a workspace
+          -->
+          <!--li
+          a(href="cloud-sub-user.html") Create a new team member		
+          
+          
+          
+          -->
+        </ul>
+      </div>
+      <div class="col-md-9 apps">
+        <div ng-app="docBrowserApp" class="row"> 
+          <div>
+            <h6 id="breadcrumb"></h6>
+            <h3>Your Logscape Token</h3>
+            <p>Log in, and get your token <a href="http://cloud.logscape.com:8080/saas-portal/#anch-user">HERE</a></p>
+            <h3>Uses for your Token.</h3>
+            <p>Your logscape security token is used to identify data belonging to your account by Logscape, when data enters the cloud the token which preprends the data is checked against the database of users, if a token is matched to an account then the incoming data is placed into that users folder. If the token matches no users, or a token was not present, then the data is simply discarded.</p>
+            <p>As such it is possible for any data to be sent to the cloud, aslong as it uses the following format </p>
+            <pre>LOGSCAPETOKEN:YOURTOKEN LOGSCAPETAG:SOMETAG [msg]</pre>
+          </div><br><br><br>
+          <div id="disqus_thread">
+            <script>
+              /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+              var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function() {
+              	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<!--
+.container		
+//		
+	.navbar.navbar-fixed-top
+		.navbar-inner
+			.nav-collapse.collapse
+				ul.nav
+					li.active  Main Support Site 
+					li Explore Logscape Apps 
+					li 
+						a(href="") Download 
+			h3 Logscape Apps 
+			a(href="index.html") Getting Started | 
+			a(href="http://support.liquidlabs.co.uk")  Older Versions 1.3x Docs   
+
+.container-fluid
+	br
+	br 
+	br
+	br
+	br
+	.row 
+		.col-md-11(style="padding-left:100px")
+			block content 
+	
+script(src="js/ga.js") 
+-->
+<!--
+//
+	.row
+		.col-md-2.nav-padding
+		
+			br
+	
+			ul
+				li
+					a(href="https://github.com/logscape/windowsapp#windowsapp-10") WindowsApp
+				li 
+					a(href="https://github.com/logscape/unixapp#unixapp-10") UnixApp
+
+				li 
+					a(href="https://github.com/logscape/coherenceapp#oraclecoherenceapp-10") Oracle Coherence App
+
+				li 
+					a(href="https://github.com/logscape/javaapp#javaapp-10") JavaApp
+
+				li 
+					a(href="https://github.com/logscape/vmwareapp#vmwareapp-10") VMWareApp
+
+				li
+					a(href="https://github.com/logscape/ciscoapp#ciscoapp-10") Cisco Devices
+
+
+
+
+		.col-md-10
+			block content
+-->
