@@ -414,7 +414,7 @@
           <ul>
             <li>
               <p>
-                <h4><a name="chart"></a><strong>chart(CHARTTYPE)</strong></h4>Select visualization for data. The default chart type is stacked, you may also specify the number of buckets in your chart with <a href="#buckets">buckets(n). </a>When using the table chart type you may also specify the sorting column with <a href="#sort">sort(n, asc/desc)</a>
+                <h4><a name="chart"></a><strong>chart(CHARTTYPE)</strong></h4>Select visualization for data. The default chart type is stacked, you may also specify the number of buckets in your chart with <a href="#buckets">buckets(n).</a>When using the table chart type you may also specify the sorting column with <a href="#sort">sort(n, asc/desc)</a>There is now also the option to make use of d3pie instead of the standard pie library. This can be accessed via chart(d3pie)
               </p>
               <p>Examples:</p>
               <div class="block"> 
@@ -422,6 +422,11 @@
                 <p>type='unx-io' | diskUtil.max(_host,) chart(area)</p>
               </div>
             </li><img src="/images/charttypes.png"/>
+            <li>
+              <p>
+                <h4><a name="c3"></a><strong>c3.(ChartType)</strong></h4>Override the default library and instead make use of the c3 charting library. 
+              </p>
+            </li>
             <li>
               <p>
                 <h4><a name="buckets"></a><strong>buckets(N)</strong></h4>Specifies the number of buckets used for the chart type. This gives finer control over the render of the chart.
