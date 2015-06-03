@@ -240,7 +240,7 @@
                 <blockquote>-Duser.timezone=EST</blockquote>
                 <p>The process that Logscape follows is the following, </p>
                 <p>1) Forwarder reads its timezone from OS or boot.properties</p>
-                <p>2) Hash of the hostname and file path sent to logserver, along with timezone</p>
+                <p>2) Each Forwarded message contains the timezone niformation and is sent to the host/filename hash that maps to a Logserver instance</p>
                 <p>3) If the logserver has no record of this it will be written to file in the /logscape_directory/work/Logserver_SERVER_/host_name/datasource.properties file, in the following format</p>
                 <blockquote>source.timezone=""</blockquote>
                 <h3>Troubleshooting</h3>
