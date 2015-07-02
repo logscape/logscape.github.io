@@ -243,7 +243,13 @@
                 <p><strong> numerical functions - </strong>&nbsp; can be used to do type and unit conversations on numerical fields. There are two numerical evaluators provided by logscape; jep and mvel. For example an mvel expression in the example below converts the field Gigabytes to the megabytes. </p>
                 <blockquote>	mvel:Gigabytes/1000</blockquote>
                 <p><strong> groovy script </strong>A groovy script has the following syntax </p>
-                <blockquote>groovy-script: {} </blockquote>
+                <blockquote>groovy-script: return 1</blockquote>
+                <p>Here is a simple example of a groovy script which will take a time field in the format HH:MM:SS and convert it into seconds. In this example the Synth Source is the name of the column that has the time format in it. </p>
+                <blockquote>
+                   
+                  groovy-script:<br/>x = connectedTime.split(":")<br/>total = (Integer.parseInt(x[0]) * 60 * 60)<br/>total += (Integer.parseInt(x[1]) * 60)<br/>total += (Integer.parseInt(x[2]))<br/>return total
+                </blockquote>
+                <At>the end of the groovy script you should return the value that you are interested in storing in the field.</At><br/>
                 <p><strong> string functions</strong>The syntax for the string functions is as follows</p>
                 <blockquote>FUNC,param1,param2 ... </blockquote>
               </div>
