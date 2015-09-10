@@ -142,7 +142,12 @@ margin-left: 0;
 }
 
 .breadcrumbs a{
-	
+	color: #428bca;
+	text-decoration: none;
+	font-size: 12px;
+	font-family: "Helvetica Neue","Helvetica","Arial","sans-serif";
+	font-weight: 500;
+	line-height: 1.1;
 }
 
  .dark {
