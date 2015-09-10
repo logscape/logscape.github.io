@@ -139,18 +139,10 @@ margin-left: 0;
 	font-family: "Helvetica Neue","Helvetica","Arial","sans-serif";
 	font-weight: 500;
 	line-height: 1.1;
-	padding-left: 0px;
-	padding-top: 0px;
-
 }
 
 .breadcrumbs a{
-	color: #428bca;
-	text-decoration: none;
-	font-size: 12px;
-	font-family: "Helvetica Neue","Helvetica","Arial","sans-serif";
-	font-weight: 500;
-	line-height: 1.1;
+	
 }
 
  .dark {
