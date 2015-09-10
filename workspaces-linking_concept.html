@@ -23,8 +23,7 @@
       		,"video":"tutorials"
       		,"overlays":"Overlaying Searches" 
       	,"starthere":""
-      	,"linking_concept":"Linking Concept"
-      	,"linking_walkthrough":"Linking Walkthrough"
+      
       	,"ds":"Data Sources"
       		,"add":" Add a New Data Source" 
       		,"multitags":" Using Multi-Tags"
@@ -71,24 +70,29 @@
       		return l.substring(0,l.length-1) + ".html";
       	}
       
+      	function upperFirst(string){
+      		return string.charAt(0).toUpperCase() + string.slice(1);
+      	}
+      
       	function renderCrumbs(page){
       		console.log("rendering breadcrumbs for page:" + page)
       		if (page.indexOf("-") < 0){
-      			return ""
+      			console.log("<a href='/index.html'> Home </a> > <a href=" + page + ".html>" + page);
+      			return ("<a href='/index.html'> Home </a> > <a href=" + page + ".html>" + upperFirst(page));
       		}
       		var parts=page.split("-");
       		var idx=0;
       		console.log("rendering  " + parts);
-      		var html="<a href='"+genLink(parts,-1)+"'> / Home </a>";
+      		var html="<a href='"+genLink(parts,-1)+"'> Home </a>";
       		for(idx=0;idx<parts.length;idx++){
       			k=parts[idx];
       		
       			html=html + "<a href="+ genLink(parts,idx) + ">";
       			if (breadcrumbs.hasOwnProperty(k)){
-      				html=html + " / " + breadcrumbs[k];
+      				html=html + " > " + breadcrumbs[k];
       			}else{
-      				
-      				html=html + " / " + k[0].toUpperCase() + k.substring(1,k.length);
+      				console.log("nathen - " + k[0]);
+      				html=html + " > " + upperFirst(k.replace(/_/g, ' '));
       			}
       			console.log(".");
       		}
@@ -101,7 +105,6 @@
       	console.log("crumb>" + renderCrumbs(currentPage));	
       	$('#widget-bc').html(renderCrumbs(currentPage));
       });
-      
       
     </script>
     <script>
@@ -209,7 +212,7 @@
         </div>
         <div class="col-md-2 nav-padding">
           <ul class="nav nav-tabs nav-stacked"> 
-            <li><a href="searching.html">Search</a></li>
+            <li><a href="support-searching.html">Search</a></li>
             <li> <a href="workspaces.html">WorkSpaces</a>
               <ul>
                 <li><a href="workspaces-widgets.html">Workspace Widgets</a></li>
@@ -242,7 +245,7 @@
               <div class="col-md-11">
                 <h3>Data Driven Workspaces</h3>
                 <p>Workspace Linking allows you to design workspaces which are contextually sensitive, when a user clicks an item on a table, their context is passed through, allowing you to drill down to a workspace, by host, user or process, creating a logical progression through your data.</p>
-                <div class="image"><img src="/images/cloud-linking-conceptual_overview.png" width="600"/></div><b>
+                <div class="image"><img src="/images/cloud-linking-conceptual_overview.png" width="700"/></div><b>
                   <p>What it means.</p></b>
                 <p>When loading an app you will land on the overview workspace, from there you can drill through your data, or use the navigation bar.</p>
                 <p><b>1. Table Linking</b></p>
