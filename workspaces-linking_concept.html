@@ -89,10 +89,10 @@
       		
       			html=html + "<a href="+ genLink(parts,idx) + ">";
       			if (breadcrumbs.hasOwnProperty(k)){
-      				html=html + " > " + breadcrumbs[k];
+      				html=html + " >> " + breadcrumbs[k];
       			}else{
       				console.log("nathen - " + k[0]);
-      				html=html + " > " + upperFirst(k.replace(/_/g, ' '));
+      				html=html + " >> " + upperFirst(k.replace(/_/g, ' '));
       			}
       			console.log(".");
       		}
@@ -212,21 +212,21 @@
         </div>
         <div class="col-md-2 nav-padding">
           <ul class="nav nav-tabs nav-stacked"> 
-            <li><a href="support-searching.html">Search</a></li>
-            <li> <a href="workspaces.html">WorkSpaces</a>
+            <li><a href="support-searching.html">&#9654; Search</a></li>
+            <li> <a href="workspaces.html">&#9654; WorkSpaces</a>
               <ul>
                 <li><a href="workspaces-widgets.html">Workspace Widgets</a></li>
                 <li><a href="workspaces-linking_concept.html">Linking Overview</a></li>
                 <li> <a href="workspaces-linking_walkthrough.html">Linking Walkthrough</a></li>
               </ul>
             </li>
-            <li> <a href="ds.html">Data Sources</a></li>
-            <li> <a href="types.html">Data Types </a></li>
-            <li><a href="deploy.html">Deployment</a></li>
-            <li><a href="users.html">Users </a></li>
-            <li> <a href="alerts.html">Alerts 	</a></li>
-            <li><a href="technology.html">Technology</a></li>
-            <li><a href="release-notes.html">Release Notes</a></li>
+            <li> <a href="ds.html">&#9654; Data Sources</a></li>
+            <li> <a href="types.html">&#9654; Data Types </a></li>
+            <li><a href="deploy.html">&#9654; Deployment</a></li>
+            <li><a href="users.html">&#9654; Users </a></li>
+            <li> <a href="alerts.html">&#9654; Alerts 	</a></li>
+            <li><a href="technology.html">&#9654; Technology</a></li>
+            <li><a href="release-notes.html">&#9654; Release Notes</a></li>
             <li><a href="https://twitter.com/logscape" data-show-count="false" data-size="large" class="twitter-follow-button">Follow @logscape</a>
               <script>=!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
             </li>

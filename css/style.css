@@ -1,3 +1,12 @@
+.menuActive {
+	background-color: #DDD
+}
+.menuActive a {
+	color: #00F
+}
+
+li > ul > li {list-style-type: disc;}
+
 .content-area {
 	border-left: 1px solid #CCC; 
 }
@@ -133,21 +142,14 @@ margin-left: 0;
 }
 
 .breadcrumbs {
-	color: #428bca;
-	text-decoration: none;
-	font-size: 12px;
-	font-family: "Helvetica Neue","Helvetica","Arial","sans-serif";
-	font-weight: 500;
-	line-height: 2.3;
+	padding-left:40px;
+	height:24px;
 }
 
 .breadcrumbs a{
-	color: #428bca;
-	text-decoration: none;
-	font-size: 12px;
-	font-family: "Helvetica Neue","Helvetica","Arial","sans-serif";
-	font-weight: 500;
-	line-height: 2.3;
+	font-weight:300;
+	font-size:18px; 
+	color:#999;
 }
 
  .dark {

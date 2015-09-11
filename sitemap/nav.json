@@ -1,0 +1,289 @@
+{"index":[
+	{
+
+		"display":"Search",
+		"url":"searching.html",
+		"children":[
+			{
+				"display":"Function Reference",
+				"url":"searching-functions.html"
+			},
+			{
+				"display":"Cheatsheet",
+				"url":"searching-cheatsheet.html"
+			},
+			{
+				"display":"Search Videos",
+				"url":"searching-video.html"
+			},
+			{
+				"display":"Workspaces",
+				"url":"searching-workspaces.html"
+			},
+			{
+				"display":"Data Discovery",
+				"url":"searching-kv.html"
+			},
+			{
+				"display":"Heatmaps",
+				"url":"searching-heatmaps.html"
+			},
+			{
+				"display":"Geo-IP",
+				"url":"searching-geoip.html"
+			},
+			{
+				"display":"Logscape Workspaces",
+				"url":"searching-defaults.html"
+			},
+			{
+				"display":"Patterns",
+				"url":"searching-pattern.html"
+			},
+			{
+				"display":"Overlay Searches",
+				"url":"searching-overlays.html"
+			},
+			{
+				"display":"Time Offsets",
+				"url":"searching-offsets.html"
+			}
+		]	
+	},
+	{
+		"display":"Workspaces",
+		"url":"workspaces.html",
+		"children":[
+			{
+				"display":"Linking Overview",
+				"url":"workspaces-linking-concept.html"
+			},
+			{
+				"display":"Linking Walkthrough",
+				"url":"workspaces-linking.html"
+			},
+			{
+				"display":"Workspace Widgets",
+				"url":"workspaces-widgets.html"
+			}
+		]
+	},
+	{
+		"display":"Data Sources",
+		"url":"ds.html",
+		"children":[
+			{
+				"display":"Intelligent Field Discovery",
+				"url":"ds-intelligent_field_discovery.html"
+			},
+			{
+				"display":"Data Flow Overview",
+				"url":"data-flow.html"
+			},
+			{
+				"display":"Importing Data",
+				"url":"ds-importingdata.html"
+			},
+			{
+				"display":"Basic Tagging",
+				"url":"ds-tags.html"
+			},
+			{
+				"display":"Using Multi tags",
+				"url":"ds-multitags.html"
+			},
+			{
+				"display":"Searching with tags",
+				"url":"ds-searching.html"
+			},
+			{
+				"display":"Syslog Clients",
+				"url":"ds-syslog.html"
+			}
+		]
+	},
+	{
+		"display":"Data Types",
+		"url":"types.html",
+		"children":[
+			{
+				"display":"Types Tutorial",
+				"url":"types-tutorial.html"
+			},
+			{
+				"display":"Fields",
+				"url":"types-fields.html"
+			},
+			{
+				"display":"Field Discovery",
+				"url":"types-field_discovery.html"
+			},
+			{
+				"display":"Grokit Fields",
+				"url":"types-field_grokit.html"
+			},
+			{
+				"display":"System Fields",
+				"url":"types-system_fields.html"
+			},
+			{
+				"display":"Searching with Types",
+				"url":"types-searching.html"
+			},
+			{
+				"display":"Synethic Fields",
+				"url":"types-synthetics.html"
+			}
+		]
+	},
+	{
+		"display":"Deployment",
+		"url":"deploy.html",
+		"children":[
+			{
+				"display":"Centralized Log Management ",
+				"url":"deploy-arch_clm.html"
+			},
+			{
+				"display":"Scale with Index Stores",
+				"url":"deploy-arch_indexstores.html"
+			},
+			{
+				"display":"Zoning",
+				"url":"deploy-arch_zoning.html"
+			},
+			{
+				"display":"Installing a Manager",
+				"url":"deploy-manager.html"
+			},
+			{
+				"display":"Installing an Index Store",
+				"url":"deploy-indexstore.html"
+			},
+			{
+				"display":"Installing a Forwarder",
+				"url":"deploy-forwarder.html"
+			},
+			{
+				"display":"Installing a Failover",
+				"url":"deploy-failover.html"
+			},
+			{
+				"display":"Installing a Indexer",
+				"url":"deploy-indexer.html"
+			},
+			{
+				"display":"Boot properties",
+				"url":"deploy-boot_properties.html"
+			},
+			{
+				"display":"Centralized Configs",
+				"url":"deploy-centralconfigs.html"
+			},
+			{
+				"display":"Updating Logscape",
+				"url":"deploy-update.html"
+			}
+		]
+	},
+	{
+		"display":"Users",
+		"url":"users.html",
+		"children":[
+			{
+				"display":"Create a User",
+				"url":"users-create.html"
+			},
+			{
+				"display":"Create a Team",
+				"url":"users-teams-create_team.html"
+			},
+			{
+				"display":"Setting up LDAP",
+				"url":"users-ldap.html"
+			},
+			{
+				"display":"F.A.Q",
+				"url":"users-faq.html"
+			},
+			{
+				"display":"Users Overview",
+				"url":"users-overview.html"
+			},
+			{
+				"display":"Create User",
+				"url":"users-create.html"
+			},
+			{
+				"display":"Testing connectivity",
+				"url":"users-ldap-connectivity.html"
+			},
+			{
+				"display":"Syncing Behaviour",
+				"url":"users-ldap-sync.html"
+			},
+			{
+				"display":"Change Default Login Name",
+				"url":"users-ldap-defaultuser.html"
+			},
+			{
+				"display":"Teams",
+				"url":"users-teams.html"
+			},
+			{
+				"display":"Managing teams through LDAP",
+				"url":"users-ldap-teams.html"
+			}
+		]
+	},
+	{
+		"display":"Alerts",
+		"url":"alerts.html",
+		"children":[
+			{
+				"display":"General Tab",
+				"url":"alerts-general_tab.html"
+			},
+			{
+				"display":"Trigger Tab",
+				"url":"alerts-trigger_tab.html"
+			},
+			{
+				"display":"Streaming Tab",
+				"url":"alerts-streaming.html"
+			},
+			{
+				"display":"Actions Tab",
+				"url":"alerts-actions_tab.html"
+			}
+		]
+	},
+	{
+		"display":"Technology",
+		"url":"technology.html",
+		"children":[
+			{
+				"display":"Sizing",
+				"url":"technology-sizing.html"
+			},
+			{
+				"display":"Benchmarking",
+				"url":"technology-benchmarking.html"
+			},
+			{
+				"display":"VScape",
+				"url":"technology-vscape.html"
+			}
+		]
+	},
+	{
+		"display":"Release Notes",
+		"url":"release-notes.html",
+		"children":""
+	},
+	{
+		"display":"Follow Logscape",
+		"url":"",
+		"children":""
+	}
+]}

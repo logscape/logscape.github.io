@@ -123,7 +123,7 @@ margin-left: 0;
 	color:#7C6E6A
 }
 .btn-search{
-    background: url(/images/icons.png) -99px 0px  no-repeat;
+    background: url(/images/icons.png) -99px 0px  no-repaet;
     width:30px;
     height:30px;
     border:none;
@@ -138,7 +138,10 @@ margin-left: 0;
 	font-size: 12px;
 	font-family: "Helvetica Neue","Helvetica","Arial","sans-serif";
 	font-weight: 500;
-	line-height: 2.3;
+	line-height: 2.5;
+	padding-left: 0px;
+	padding-top: 0px;
+
 }
 
 .breadcrumbs a{
@@ -147,6 +150,7 @@ margin-left: 0;
 	font-size: 12px;
 	font-family: "Helvetica Neue","Helvetica","Arial","sans-serif";
 	font-weight: 500;
+	line-height: 1.1;
 }
 
  .dark {

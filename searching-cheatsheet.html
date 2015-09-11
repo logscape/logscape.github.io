@@ -5,13 +5,14 @@
     <script src="js/kiss.js"> </script>
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
-    <link href="css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet"/>
+    <!--link(href="css/font-awesome-4.0.3/css/font-awesome.min.css",rel="stylesheet")-->
     <link href="css/style-app.css" rel="stylesheet"/>
     <link href="css/app.css" rel="stylesheet"/>
     <link href="//vjs.zencdn.net/4.9/video-js.css" rel="stylesheet"/>
     <script src="//vjs.zencdn.net/4.9/video.js"></script>
     <script src="js/jquery-1.11.0.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/navigation.js"></script>
     <script>
       var breadcrumbs={
       	"gettingstarted":"Getting Started" 
@@ -70,34 +71,39 @@
       		return l.substring(0,l.length-1) + ".html";
       	}
       
+      	function upperFirst(string){
+      		return string.charAt(0).toUpperCase() + string.slice(1);
+      	}
+      
       	function renderCrumbs(page){
-      		console.log("rendering breadcrumbs for page:" + page)
+      		//console.log("rendering breadcrumbs for page:" + page)
       		if (page.indexOf("-") < 0){
-      			return ""
+      			//console.log("<a href='/index.html'> Home </a> > <a href=" + page + ".html>" + page);
+      			return ("<a href='/index.html'> Home </a> > <a href=" + page + ".html>" + upperFirst(page));
       		}
       		var parts=page.split("-");
       		var idx=0;
-      		console.log("rendering  " + parts);
-      		var html="<a href='"+genLink(parts,-1)+"'> / Home </a>";
+      		//console.log("rendering  " + parts);
+      		var html="<a href='"+genLink(parts,-1)+"'> Home </a>";
       		for(idx=0;idx<parts.length;idx++){
       			k=parts[idx];
       		
       			html=html + "<a href="+ genLink(parts,idx) + ">";
       			if (breadcrumbs.hasOwnProperty(k)){
-      				html=html + " / " + breadcrumbs[k];
+      				html=html + " >> " + breadcrumbs[k];
       			}else{
-      				
-      				html=html + " / " + k[0].toUpperCase() + k.substring(1,k.length);
+      				//console.log("nathen - " + k[0]);
+      				html=html + " >> " + upperFirst(k.replace(/_/g, ' '));
       			}
-      			console.log(".");
+      			//console.log(".");
       		}
-      		console.log("this far!!!");
+      		//console.log("this far!!!");
       		return html
       	}
       	
       	var elems=window.location.href.split('?')[0].split('/');
       	var currentPage=elems[elems.length-1].split('.')[0]
-      	console.log("crumb>" + renderCrumbs(currentPage));	
+      	//console.log("crumb>" + renderCrumbs(currentPage));	
       	$('#widget-bc').html(renderCrumbs(currentPage));
       });
       
@@ -158,7 +164,7 @@
       
       
       -->
-      <div style="padding-left:100px;padding-top:25px"><img src="images/logscapeSupport.png" style="height:45px"/>
+      <div style="padding-left:100px;padding-top:25px"><a href="/index.html"> <img src="images/logscapeSupport.png" style="height:45px"/></a>
         <div style="float:right" class="col-md-3">
           <form id="cse-search-box" action="" style="position:right;padding-top:5px;padding-bottom:5px" onSubmit="submit_form()">
             <input type="hidden" name="cx" value="015161349156186070243:ktxh8djpql8"/>
@@ -207,22 +213,35 @@
           <p></p>
         </div>
         <div class="col-md-2 nav-padding">
-          <ul class="nav nav-tabs nav-stacked"> 
-            <li><a href="searching.html">Search</a></li>
-            <li> <a href="workspaces.html">WorkSpaces</a>
-              <ul></ul>
-            </li>
-            <li> <a href="ds.html">Data Sources</a></li>
-            <li> <a href="types.html">Data Types </a></li>
-            <li><a href="deploy.html">Deployment</a></li>
-            <li><a href="users.html">Users </a></li>
-            <li> <a href="alerts.html">Alerts 	</a></li>
-            <li><a href="technology.html">Technology</a></li>
-            <li><a href="release-notes.html">Release Notes</a></li>
-            <li><a href="https://twitter.com/logscape" data-show-count="false" data-size="large" class="twitter-follow-button">Follow @logscape</a>
-              <script>=!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-            </li>
-          </ul>
+          <ul class="nav nav-tabs nav-stacked"></ul>
+          <!--ul.nav.nav-tabs.nav-stacked  
+          li
+          	a(href="searching.html")&#9654; Search
+          
+          li 
+          	a(href="workspaces.html")&#9654; WorkSpaces
+          	ul
+          
+          li 
+          	a(href="ds.html")&#9654; Data Sources
+          li 
+          	a(href="types.html")&#9654; Data Types 
+          li
+          	a(href="deploy.html")&#9654; Deployment
+          li
+          	a(href="users.html")&#9654; Users 
+          li 
+          	a(href="alerts.html")&#9654; Alerts 	
+          li
+          	a(href="technology.html")&#9654; Technology
+          li
+          	a(href="release-notes.html") Release Notes
+          
+          li
+          	a.twitter-follow-button(href="https://twitter.com/logscape",data-show-count="false",data-size="large") Follow @logscape
+          	script. 
+          		=!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+          -->
           <div style="padding-left:50px"> 
             <h4>Articles </h4>
           </div>
