@@ -1,6 +1,6 @@
 {"index":[
 	{
-		"display":"&#9654; Search",
+		"display":"Search",
 		"url":"searching.html",
 		"children":[
 			{
@@ -76,7 +76,7 @@
 		]
 	},
 	{
-		"display":"&#9654; Workspaces",
+		"display":"Workspaces",
 		"url":"workspaces.html",
 		"children":[
 			{
@@ -120,7 +120,7 @@
 		]
 	},
 	{
-		"display":"&#9654; Data Sources",
+		"display":"Data Sources",
 		"url":"ds.html",
 		"children":[
 			{
@@ -208,7 +208,7 @@
 		]
 	},
 	{
-		"display":"&#9654; Data Types",
+		"display":"Data Types",
 		"url":"types.html",
 		"children":[
 			{
@@ -268,7 +268,7 @@
 		]
 	},
 	{
-		"display":"&#9654; Deployment",
+		"display":"Deployment",
 		"url":"deploy.html",
 		"children":[
 			{
@@ -540,7 +540,7 @@
 		]
 	},
 	{
-		"display":"&#9654; Users",
+		"display":"Users",
 		"url":"users.html",
 		"children":[
 			{
@@ -712,7 +712,7 @@
 		]
 	},
 	{
-		"display":"&#9654; Alerts",
+		"display":"Alerts",
 		"url":"alerts.html",
 		"children":[
 			{
@@ -804,7 +804,7 @@
 		]
 	},
 	{
-		"display":"&#9654; Technology",
+		"display":"Technology",
 		"url":"technology.html",
 		"children":[
 			{
@@ -880,12 +880,12 @@
 		]
 	},
 	{
-		"display":"&#9654; Release Notes",
+		"display":"Release Notes",
 		"url":"release-notes.html",
 		"children":""
 	},
 	{
-		"display":"&#9654; Follow @logscape",
+		"display":"Follow @logscape",
 		"url":"https://twitter.com/logscape",
 		"children":""
 	}
