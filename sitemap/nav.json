@@ -60,14 +60,6 @@
 			{
 				"display":"Searching Concat",
 				"url":"searching-concat.html"
-			},
-			{
-				"display":"Exceptions",
-				"url":"searching-exceptions.html"
-			},
-			{
-				"display":"Transactions",
-				"url":"searching-transactions"
 			}
 		]
 	},
@@ -104,10 +96,6 @@
 			{
 				"display":"Workspaces Linking Workflow",
 				"url":"workspaces-linking_workflow.html"
-			},
-			{
-				"display":"Workspaces Linking Concept",
-				"url":"workspaces-linking_concept.html"
 			}
 		]
 	},
@@ -231,11 +219,7 @@
 		"hiddenchildren":[
 			{
 				"display":"CSV",
-				"url":"types-examples-csvdata"
-			},
-			{
-				"display":"Fields View",
-				"url":"types-field_views.html"
+				"url":"types-examples-csvdata.html"
 			},
 			{
 				"display":"Groovy",
@@ -248,10 +232,6 @@
 			{
 				"display":"Patterns",
 				"url":"types-patterns.html"
-			},
-			{
-				"display":"Performance",
-				"url":"types-performance.html"
 			}
 		]
 	},
@@ -266,10 +246,6 @@
 			{
 				"display":"Scale with Index Stores",
 				"url":"deploy-arch_indexstores.html"
-			},
-			{
-				"display":"Zoning",
-				"url":"deploy-arch_zoning.html"
 			},
 			{
 				"display":"Installing a Manager",
@@ -311,11 +287,11 @@
 			},
 			{	
 				"display":"Application Updating",
-				"url":"deploy-adminsitration-appupdating.html"
+				"url":"deploy-administration-appupdating.html"
 			},
 			{	
 				"display":"Centralized Config",
-				"url":"deploy-administration-centralizedconfig"
+				"url":"deploy-administration-centralizedconfig.html"
 			},
 			{	
 				"display":"Offsets",
@@ -323,7 +299,7 @@
 			},
 			{	
 				"display":"Grokit Configuration",
-				"url":"deploy-adminsitration-grokitconfig.html"
+				"url":"deploy-administration-grokitconfig.html"
 			},
 			{	
 				"display":"Home Configuration",
@@ -331,15 +307,15 @@
 			},
 			{	
 				"display":"Importing/Exporting",
-				"url":"deploy-adminstration-importexport.html"
+				"url":"deploy-administration-importexport.html"
 			},
 			{	
 				"display":"Memory",
-				"url":"deploy-adminstration-memory.html"
+				"url":"deploy-administration-memory.html"
 			},
 			{	
 				"display":"Monitoring Alerts",
-				"url":"deploy-adminstration-monitoring-alerts.html"
+				"url":"deploy-administration-monitoring-alerts.html"
 			},
 			{	
 				"display":"Monitoring Data",
@@ -358,10 +334,6 @@
 				"url":"deploy-administration-priority.html"
 			},
 			{	
-				"display":"Resource Groups",
-				"url":"deploy-administration-resourcegroups.html"
-			},
-			{	
 				"display":"Roles",
 				"url":"deploy-administration-role.html"
 			},
@@ -371,7 +343,7 @@
 			},
 			{	
 				"display":"Validation",
-				"url":"deploy-adminsitration-validate.html"
+				"url":"deploy-administration-validate.html"
 			},
 			{	
 				"display":"Agents",
@@ -380,10 +352,6 @@
 			{	
 				"display":"Application",
 				"url":"deploy-app.html"
-			},
-			{	
-				"display":"Failover",
-				"url":"deploy-arch_failover.html"
 			},
 			{	
 				"display":"Default",
@@ -408,22 +376,6 @@
 			{	
 				"display":"Backup",
 				"url":"deploy-backup.html"
-			},
-			{	
-				"display":"Backup Home",
-				"url":"deploy-backup-home.html"
-			},
-			{	
-				"display":"Backup Import",
-				"url":"deploy-backup-import.html"
-			},
-			{	
-				"display":"Backup Partial",
-				"url":"deploy-backup-partial.html"
-			},
-			{	
-				"display":"Modular Configuration",
-				"url":"deploy-config-modular.html"
 			},
 			{	
 				"display":"Dashboard",
@@ -462,20 +414,12 @@
 				"url":"deploy-security-keystores.html"
 			},
 			{	
-				"display":"Syslog Server",
-				"url":"deploy-syslogserver.html"
-			},
-			{	
 				"display":"Update",
 				"url":"deploy-update.html"
 			},
 			{	
 				"display":"Partial update",
 				"url":"deploy-update_partial.html"
-			},
-			{	
-				"display":"Upgrade",
-				"url":"deploy-upgrade.html"
 			},
 			{	
 				"display":"Zones",
@@ -554,10 +498,6 @@
 				"url":"users-datagroups-example.html"
 			},
 			{
-				"display":"Datagroups Nested",
-				"url":"users-datagroups-nested.html"
-			},
-			{
 				"display":"Directory Services",
 				"url":"users-directoryservices.html"
 			},
@@ -566,11 +506,11 @@
 				"url":"users-directoryservices-activedirectory.html"
 			},
 			{
-				"display":"LDAP",
+				"display":"LDAP Directory Services",
 				"url":"users-directoryservices-ldap.html"
 			},
 			{
-				"display":"LDAP",
+				"display":"LDAP ActiveDirectory",
 				"url":"users-ldap-activedirectory.html"
 			},
 			{
@@ -578,16 +518,12 @@
 				"url":"users-ldap-ldap.html"
 			},
 			{
-				"display":"LDAP",
-				"url":"users-ldap-activedirectory.html"
-			},
-			{
 				"display":"Permissions",
 				"url":"users-permissions.html"
 			},
 			{
 				"display":"Teams Home",
-				"url":"users-team-home.html"
+				"url":"users-teams-home.html"
 			},
 			{
 				"display":"Teams",
@@ -688,10 +624,6 @@
 				"url":"technology-sizing.html"
 			},
 			{
-				"display":"Benchmarking",
-				"url":"technology-benchmarking.html"
-			},
-			{
 				"display":"Search Performance",
 				"url":"technology-search_performance.html"
 			},
@@ -701,10 +633,6 @@
 			}
 		],
 		"hiddenchildren":[
-			{
-				"display":"Technology",
-				"url":"technology.html"
-			},
 			{
 				"display":"Apps",
 				"url":"technology-apps.html"
@@ -722,18 +650,6 @@
 				"url":"technology-apps-services.html"
 			},
 			{
-				"display":"Scaling",
-				"url":"technology-scaling.html"
-			},
-			{
-				"display":"Search Performance",
-				"url":"technology-search-performance.html"
-			},
-			{
-				"display":"Memory Usage",
-				"url":"technology-sizing-memoryusage.html"
-			},
-			{
 				"display":"Vscape Intro",
 				"url":"technology-vscape-intro.html"
 			}
@@ -742,6 +658,11 @@
 	{
 		"display":"Release Notes",
 		"url":"release-notes.html",
+		"children":""
+	},
+	{
+		"display":"Sitemap",
+		"url":"sitemap.html",
 		"children":""
 	},
 	{
