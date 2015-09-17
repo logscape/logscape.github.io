@@ -656,6 +656,11 @@
 		]
 	},
 	{
+		"display":"Tutorials",
+		"url":"tutorials-tutorials.html",
+		"children":""
+	},
+	{
 		"display":"Release Notes",
 		"url":"release-notes.html",
 		"children":""
