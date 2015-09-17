@@ -658,7 +658,20 @@
 	{
 		"display":"Tutorials",
 		"url":"tutorials-tutorials.html",
-		"children":""
+		"children":[
+			{
+				"display":"Install Logscape",
+				"url":"https://github.com/logscape/windowsapp/raw/master/dist/WindowsApp-1.0.zip"
+			},
+			{
+				"display":"Logscape Datatypes",
+				"url":"types-tutorial.html"
+			},
+			{
+				"display":"Configure Syslog",
+				"url":"https://www.iorad.com/3654/10175/Logscape-Syslog-in-10-easy-steps"
+			}
+		]
 	},
 	{
 		"display":"Release Notes",
