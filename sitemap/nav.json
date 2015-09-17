@@ -670,6 +670,10 @@
 			{
 				"display":"Configure Syslog",
 				"url":"https://www.iorad.com/3654/10175/Logscape-Syslog-in-10-easy-steps"
+			},
+			{
+				"display":"Getting Started",
+				"url":"getingstarted.html"
 			}
 		]
 	},
