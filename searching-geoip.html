@@ -276,7 +276,7 @@ def loc = geoipLookup.getLocation(IpAddress)
 if (loc.city != null) {
 	String result = "'city':'" + loc.city + "',"
 	result += "'lat':'" + loc.latitude + "',"
-	result += "'lat':'" + loc.longitude + "'"
+	result += "'long':'" + loc.longitude + "'"
 	return result;
 }	</pre>
           <p>Save the type when you are done</p>
