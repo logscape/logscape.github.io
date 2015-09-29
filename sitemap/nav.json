@@ -281,6 +281,10 @@
 				"display":"Administration",
 				"url":"deploy-administration.html"
 			},
+			{
+				"display":"Long running searches"
+				"url":"deploy-long_running_searches.html"
+			},
 			{	
 				"display":"Application Properties",
 				"url":"deploy-administration-appsproperties.html"
