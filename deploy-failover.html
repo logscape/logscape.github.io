@@ -247,18 +247,18 @@
           </div>
         </div>
         <div class="col-md-9 content-area"> 
-          <h6 id="breadcrumb">Install the Manager</h6><br/>
-          <p>The manager is the main component of Logscape. It runs several components that aggregate search results, coordinates monitoring services and visualizes search analytics through the Web Dashboard.</p><br/>
+          <h6 id="breadcrumb">Installing a Failover</h6><br/>
+          <p>The failover acts much the same as a Logscape Manager, it runs the same components that aggregate search results, coordinates monitoring services and visualizes search analytics through a Web Dashboard. The purpose of the Failover is to act as a secondary manager to facilate searches and collate data should your main manager go offline.</p><br/>
           <div> 
             <p class="alert alert-warning"> <strong>
                 Note: 
-                Do not use OpenJDK. Logscape may not run but you may may experience some performance problems. </strong></p>
+                While pre-3.0 Installations can include a failover, there is no official support for pre-3.0 failovers.</strong></p>
           </div><br/>
           <p><strong>Duration:  </strong>Just under 5 minutes </p>
-          <p><strong>Prerequisites:  </strong>Make sure that you have Oracle Java 7 and above and that Java is accessible from your  path</p>
+          <p><strong>Prerequisites:  </strong>Make sure that you have Oracle Java 7 and above and that Java is accessible from your path, as well as a pre-configured Logscape environment.</p>
           <ol> 
             <li> 
-              <p>	Download Logscape-2.0.zip and unzip </p>
+              <p>	Download the most recent Logscape version</p>
             </li>
             <li> 
               <p>	Navigate to your Logscape installation and inside the scripts folder, type:
@@ -266,8 +266,8 @@
               </p>
             </li>
             <li> 
-              <p>	A prompt will appear to configure your installation. Choose option 1) for a Manager
-                <div class="image"><img src="images/install_configure_manager.png"/></div>
+              <p>	A prompt will appear to configure your installation. Choose option 5) for a Failover
+                <div class="image"><img src="images/install_configure_failover.png"/></div>
               </p>
             </li>
             <li>	
@@ -279,7 +279,7 @@
               <p>	Once the test has completed you can accept the default configuration for the other parameters by pressing enter. </p>
             </li>
             <li> </li>
-            <p>	Navigate back to the Logscape home directory and type the command below to start the Manager
+            <p>	Navigate back to the Logscape home directory and type the command below to start the Failover Manager.
               <div class="alert alert-info">logscape $> ./logscape.sh start</div>
             </p>
             <li>	
