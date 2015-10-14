@@ -318,14 +318,27 @@
                             <p class="ng-binding"></p>Logscape can recieve Syslog directly from any syslog enabled device. This tutorial will take you through configuring your device to forward to your Logscape installation.
                             <div style="float:left;padding-left:10px" class="grid"></div>
                             <div style="color:fe4800;float:left;padding-left:10px"><a style="color:fe4800" href="https://www.iorad.com/3654/10175/Logscape-Syslog-in-10-easy-steps">Syslog in 10 steps </a></div>
+                            <!-- ngRepeat: doc in documents | filter:filterByCategory | filter:query-->
+                          </div>
+                        </div>
+                      </div>
+                      <div ng-repeat="doc in documents | filter:filterByCategory | filter:query" class="ng-scope">
+                        <div style="width:300px;float:left;margin: 5px 5px 5px 5px">
+                          <div style="background-color:#EEE;border: 1px solid #CCC;width:300px;height:300px;padding: 10px 10px 10px 10px">
+                            <center>
+                              <div style="float:center;"><img src="images/logoscape_logo.png" style="height:80px"/></div>
+                            </center>
                             <p></p>
-                            <h3 class="ng-binding"> Deploying an App</h3>
+                            <h3 class="ng-binding"> Installing an App</h3>
                             <p></p>
-                            <p class="ng-binding">Apps are crucial to any Logscape deployment, whether they be pre-built by the Logscape team, or made in house, this tutorial will teach you how to deploy an app into your Logscape environment</p>
+                            <!-- span.category  >> {{doc.docType}}-->
+                            <p class="ng-binding">Logscape is simple to download and install, this tutorial will walk you through how to install and start using Logscape within 10 minutes</p>
                             <div style="float:left;padding-left:10px" class="grid">
-                              <!--a(style='color:fe4800', href='types-tutorial.html') Github Repo  | -->
+                              <!--a(style='color:fe4800', href='https://github.com/logscape/windowsapp#windowsapp-10') Github Repo  | -->
                             </div>
-                            <div style="color:fe4800;float:left;padding-left:10px"><a style="color:fe4800" href="https://www.iorad.com/3654/11461/Logscape-in-10-minutes---Deploying-an-app">Deploy an App</a></div>
+                            <div style="color:fe4800;float:left;padding-left:10px"><a style="color:fe4800" href="https://www.iorad.com/3654/11461/Logscape-in-10-minutes---Deploying-an-app">Deploy an app</a>
+                              <!-- ngRepeat: doc in documents | filter:filterByCategory | filter:query-->
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -333,23 +346,17 @@
                         <div style="width:300px;float:left;margin: 5px 5px 5px 5px">
                           <div style="background-color:#EEE;border: 1px solid #CCC;width:300px;height:300px;padding: 10px 10px 10px 10px">
                             <center>
-                              <div style="float:center;"></div>
+                              <div style="float:center;"><img src="images/logoscape_logo.png" style="height:80px"/></div>
                             </center>
                             <p></p>
-                            <h3 class="ng-binding"> Your first search</h3>
+                            <h3 class="ng-binding"> Your first Search</h3>
                             <p></p>
+                            <!-- span.category  >> {{doc.docType}}-->
                             <p class="ng-binding">Searches make up the basis of Logscape, in this tutorial you'll be walked through data discovery while search.</p>
-                            <div style="float:left;padding-left:10px" class="grid"></div>
-                            <div style="color:fe4800;float:left;padding-left:10px"><a style="color:fe4800" href="https://www.iorad.com/3654/11479/Logscape-in-10-minutes---Your-first-search">Perform a search</a></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div ng-repeat="doc in documents | filter:filterByCategory | filter:query" class="ng-scope">
-                        <div style="width:300px;float:left;margin: 5px 5px 5px 5px">
-                          <div style="background-color:#EEE;border: 1px solid #CCC;width:300px;height:300px;padding: 10px 10px 10px 10px">
-                            <center>
-                              <div style="float:center;"></div>
-                            </center>
+                            <div style="float:left;padding-left:10px" class="grid">
+                              <!--a(style='color:fe4800', href='https://github.com/logscape/windowsapp#windowsapp-10') Github Repo  | -->
+                            </div>
+                            <div style="color:fe4800;float:left;padding-left:10px"><a style="color:fe4800" href="https://www.iorad.com/3654/11479/Logscape-in-10-minutes---Your-first-search">Perform your first search</a></div>
                           </div>
                         </div>
                       </div>
