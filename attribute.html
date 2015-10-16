@@ -1,0 +1,60 @@
+
+<div id="jmx_operation_widget" style="display:none; height:95%; padding-top:10px; text-align:center" widget-width="2" widget-height="2" data-minx="2" data-miny="1" class="widget_size">
+  <div class="editWidget editBlock">
+    <div class="cModalDialog">
+      <div>
+        <div class="cModalDialogHeader">
+          <div style="display:inline;" class="fa fa-sort-amount-desc"></div>
+          <p id="jmxOperationTitle"></p>
+          <hr style="margin:5px"/><br/>
+        </div>
+        <div class="span12">
+          <div class="span11 actionBlock flatBlue1 padActionBlock">
+            <div class="span3">
+              <p id="jmxOperationUrl"></p><i style="display:inline;" class="icon-black fa fa-th"></i>
+            </div>
+            <div class="span9">
+              <input id="url" placeholder="HOST:PORT OR service:jmx:rmi://localhost:8989/jndi/rmi://localhost:8989/jmxrmi" title="HOST:PORT OR service:jmx:rmi://localhost:8989/jndi/rmi://localhost:8989/jmxrmi" class="span11"/>
+            </div>
+          </div>
+          <div class="span11 actionBlock flatBlue2 padActionBlock">
+            <div class="span3">
+              <p id="jmxOperationMbean"></p><i style="display:inline;" class="icon-black fa fa-th"></i>
+            </div>
+            <div class="span9">
+              <input id="bean" placeholder="com.XXX.YYY:Service=Accounts" title="com.XXX.YYY:Service=Accounts" class="span11"/>
+            </div>
+          </div>
+          <div class="span11 actionBlock flatBlue3 padActionBlock">
+            <div class="span3">
+              <p id="jmxOperationOperation"></p><i style="display:inline;" class="icon-black fa fa-th"></i>
+            </div>
+            <div class="span9">
+              <input id="operation" placeholder="listUsers" title="listUsers" class="span11"/>
+            </div>
+          </div>
+          <div class="span11 actionBlock flatBlue4 padActionBlock">
+            <div class="span3">
+              <p id="jmxOperationRunOnSearch"></p><i style="display:inline;" class="icon-black fa fa-th"></i>
+            </div>
+            <div class="span9">
+              <div style="margin-left:20px;margin-top:-5px;" class="flatCheckboxThree">
+                <input id="autoUpdate" type="checkbox" value="1" name="" class="legendControl"/>
+                <label for="autoUpdate"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cModalDialogClose"><a class="cModalDialogA closeEdit"><i style="display:inline;" class="icon-white fa fa-check"></i>
+            <p id="jmxOperationOkay"></p></a></div>
+      </div>
+    </div>
+  </div>
+  <h4 id="fullName">Name</h4>
+  <div class="controls span12">
+    <div class="params span6"></div><a id="invoke" class="span3 btn">Invoke</a>
+  </div>
+  <div style="overflow:auto;height:80%" class="row-fluid">
+    <p id="response" style="text-align:left;padding:5px;"></p>
+  </div>
+</div>
