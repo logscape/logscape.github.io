@@ -452,5 +452,5 @@ i
 
 
 .container-fluid img {
-	box-shadow:3px 3px 5px #888888;
+        -webkit-box-shadow: 2px 2px 19px #aaa;
 }
