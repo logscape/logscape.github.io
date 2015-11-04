@@ -256,13 +256,14 @@
         </div>
         <div class="col-md-9 content-area"> 
           <h3>Mapping.csv</h3>
-          <p>The mapping.csv is used when data is sent to Logscape via Syslog, it contains tags and a series of regular expressions, incoming syslog is matched against these expressions, and sorted into its appropriate tags.</p>
+          <p>The mapping.csv is used when data is sent to Logscape via Syslog, it contains tags and a series of regular expressions, in descending order of importance, incoming data is matched against these expressions, and sorted into its appropriate tags.</p>
           <p>bob</p>
           <p>Logscapes default mapping.csv can be found inside the vs-socket-server, an entry in the file looks like this</p>
           <blockquote>MSWinEventLog,  timestamp=true,mline=false,appendNL=false,,serverGroup=-1,(*)\s+MSWinEventLog\s+*\s+(*)</blockquote>
           <p>As this is a CSV file, the headers are defined at the start of the file</p>
           <blockquote>#type-key,#timestamp,#mline=t/f,#flush a NL after receiving lines,# log-line-match-expression (beware of white space!)</blockquote>
           <p>If you wish to provide additional filters, or override logscapes default capture groups, then you can upload your own mapping.csv via the Logscape deployment page, at the time of the next system bounce Logscape will encorporate your custom Mapping.csv into its checks on incoming Syslog traffic.</p>
+          <p>The purpose of the mapping.csv is to allow the user to seperate events, this is especially useful when using a central syslog forwarder, without the mapping.csv, Logscape would simply see data incoming from a host, and store all of this data within one file, in one directory. With the rules gathered from the mapping.csv Logscape is able to seperate this data and store it in a more logical fashion.</p>
           <div class="row"></div>
           <div class="col-md-11"><br/><br/><br/>
             <div id="disqus_thread">
