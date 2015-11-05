@@ -264,8 +264,12 @@
                 <div class="image"> <img src="images/alerts-numericform.png"/></div>
                 <p>In this example, the alert will fire when 3 valid events are discovered by the trigger search. </p><strong> Expression</strong>
                 <p>A search expression can be used as a trigger condition for the alert. Any of the fields available from the search that evaluate to true or false can be entered in this field. The example below shows a cpu based search. </p>
-                <div class="image"><img src="images/alerts-expressionform.png"/></div>The alert will trigger when the cpu field value is greater than 80%
-                An expression based trigger condition allows the repurposing for a trigger search for different alerts.
+                <div class="image"><img src="images/alerts-expressionform.png"/></div>
+                <p>The alert will trigger when the cpu field value is greater than 80%.</p><strong>Correlatation</strong>
+                <p>Correlated events are used to study a time window for a sequence of values, or average, it works best with real-time alerts however this is not a requirement.</p>
+                <p>Correlation events have the following fields</p>
+                <blockquote>Time Window - The window in seconds to look for your event value<br/>Type - Sequence or Average<br/>Event Value - The sequence(comma seperated or average value to look for<br/>Correlation Field - The field to check<br/>Correlation Key - Additional field, Allows you to group values, i.e _host, would mean all values would need to be from one host</blockquote>
+                <div class="image"><img src="images/alerts-correlated.png"/></div>
               </div>
             </div>
             <div class="row"> 
