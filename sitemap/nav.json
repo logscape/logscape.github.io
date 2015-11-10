@@ -32,10 +32,6 @@
 				"url":"searching-geoip.html"
 			},
 			{
-				"display":"Workspaces",
-				"url":"searching-defaults.html"
-			},
-			{
 				"display":"Patterns",
 				"url":"searching-pattern.html"
 			},
