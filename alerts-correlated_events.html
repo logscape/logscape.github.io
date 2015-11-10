@@ -255,53 +255,31 @@
           </div>
         </div>
         <div class="col-md-9 content-area"> 
-          <h3>Internal Accounts </h3>
-          <p>
-             
-            Logscape has two system accounts; the <em> <strong>sysadmin </strong></em>and the <em> <strong>admin </strong></em>accounts. These accounts are always authenticated internally and can not be managed with a directory service backend. This prevents misconfiguration or lockout from the system. 
-          </p>
-          <h3>External Authentication Mechanisms </h3>
-          <p>Logscape Authentication integrates with Active Directory or LDAP. To use an external directory service change the Currently Active to EXTERNAL_LDAP. Update your connection details and user information and then test your connection details. When you are happy that the connection is working click the save button, and then click apply for them to take effect. Clicking the apply button will import your users from the directory services into Logscape. </p>
-          <div class="image"> 
-            <div style="padding-left:100px" class="image"> <img src="images/ldap-config.png" style="width:600;box-shadow: 0 0 2px #CCC" width="600"/><br/></div>
-          </div>
-          <p> <strong> System User </strong></p>
-          <p>To set up the system user specify the full <a href="http://msdn.microsoft.com/en-us/library/aa366101(v=vs.85).aspx">distinguished name. </a>This is the full ldap path to locate your system user. 
-            <blockquote>DC=acme,DC=local,OU=System Accounts,CN=logscapeAdmin </blockquote>The system user connects to Active Directory and queries for users using the BaseCN and the UserCN. 
-          </p>
-          <p> <strong>Base CN</strong></p>
-          <p>The Base CN is where your users can be found within active directory 
-            <blockquote> uid=admin,ou=system </blockquote>
-          </p>
-          <p><strong>  User CN </strong></p>
-          <p>
-            The UserCN is the location of your Logscape users. The ldap path that is searched is constructed by adding the BaseCN and the UserCN. 
-            Using the diagram above the BaseCN would be <em>DC=local,DC=acme </em>and the UserCN would be <em>OU=Users.</em>and the path searched would become 
-            <blockquote> DC=local,DC=acme,OU=Users</blockquote>
-          </p>
-          <p><strong> Users Filter </strong></p>
-          <p>The User Filter defines the group of user with access to Logscape. This filter is optional but gives the ldap administrator the flexibility to define a group of Logscape users based of the user object attributes. For example the memberOf attributes defines a users  membership. If the administrator creates a a group PowerUsers the filter would look something like this.</p>
-          <blockquote>(memberOf=CN=PowerUsers,OU=Groups,OU=Company,DC=acme,DC=local) </blockquote>
-          <p><strong>Team Filter</strong></p>
-          <p>The Team Filter defines the ldap filter to identify the Team Administrators. In the example below only users of the group LogscapeAdminUsers are given Team Administrator priveleges.</p>
-          <blockquote>(memberOf=CN=LogscapeAdminUsers,OU=Groups,OU=Company,DC=logscape,DC=local) </blockquote>
-          <!--.image(style="padding-left:100px") 
-          img(src="images/ldap-user-tree.png",width=400) 
-          
-          
-          
-          --><br/><br/><br/>
-          <div id="disqus_thread">
-            <script>
-              /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-              var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
-              /* * * DON'T EDIT BELOW THIS LINE * * */
-              (function() {
-              	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-              	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-              })();
-            </script>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-11">
+                <h3>Alert Actions </h3>
+                <p>When an alert is triggered any configured actions are executed. Actions are not mutually exclusive. Multiple actions can be executed simoultaneously when an alert is triggered. </p>
+                <h4> Report Action</h4>
+                <div style="padding-left:10px">
+                  <p>Reports can be attached to the Email notification that are sent when alerts are triggered. To add a report to an email simply put the Search or Workspace name into the Report field.  </p>
+                  <div class="image"> <img src="images/alerts-reportaction-form.png"/></div>
+                  <p>To add multiple reports add a comma separated list of Searches and Workspaces. When the alert is triggered a pdf will be attached to the email .</p>
+                </div><br/><br/><br/>
+                <div id="disqus_thread">
+                  <script>
+                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                    	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                  </script>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

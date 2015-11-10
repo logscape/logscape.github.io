@@ -32,7 +32,7 @@
 				"url":"searching-geoip.html"
 			},
 			{
-				"display":"Logscape Workspaces",
+				"display":"Workspaces",
 				"url":"searching-defaults.html"
 			},
 			{
@@ -78,9 +78,7 @@
 			{
 				"display":"Workspace Widgets",
 				"url":"workspaces-widgets.html"
-			}
-		],
-		"hiddenchildren":[
+			},
 			{
 				"display":"Workspaces Linking Concept",
 				"url":"workspaces-linking_concept.html"
@@ -92,7 +90,10 @@
 			{
 				"display":"Workspaces Linking Walkthrough",
 				"url":"workspaces-linking_walkthrough.html"
-			},
+			
+}			
+		],
+		"hiddenchildren":[
 			{
 				"display":"Workspaces Linking Workflow",
 				"url":"workspaces-linking_workflow.html"

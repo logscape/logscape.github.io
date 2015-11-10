@@ -182,7 +182,7 @@
       </div>
     </div>
     <div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;">
-      <div style="padding-left:70px;padding-top:10px"><a href="/Cloud-Introduction.html">Cloud  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a><a href="http://www.logscape.com">Logscape.com	</a>
+      <div style="padding-left:70px;padding-top:10px"><a href="/Cloud-Introduction.html">Cloud  | </a><a href="http://blog.logscape.com/dwqa-questions/">Forums   | </a><a href="/apps.html">Apps   | </a><a href="http://www.logscape.com">Logscape.com	</a>
         <div id="google_translate_element" class="float-right display-inline"></div><img style="height:0;width:0" src="http://logscape.com/images/track.png?version=support"/>
       </div>
     </div>
@@ -259,7 +259,8 @@
             <div class="row">
               <div class="col-md-11">
                 <h3>Overview</h3>
-                <p>Logscape uses Data Sources to import data into the system. As data is ingested common patterns from the data are extracted and become available at search time. There are several ways of getting data into Logscape, from pointing to files on the filesystem, apps  or ingesting data from syslog clients and raw tcp clients. </p><a href="ds-add.html">Learn More </a>
+                <p>Logscape uses Data Sources to import data into the system. As data is ingested common patterns from the data are extracted and become available at search time. There are several ways of getting data into Logscape, from pointing to files on the filesystem, apps or ingesting data from syslog clients and raw tcp clients. </p>
+                <p>When a datasource is added, all forwarders, indexers and managers will begin to actively monitor that directory within their file system, if a file in this directory matches the filemask specified in the datasource then any existing data will be indexed, and any additional data that is added to the file will be caught by the tailer and indexed in real time. This data will then be shipped to an Indexstore or Manager, and will be located in work/_Logserver_SERVER/[SERVER_NAME]/*.</p><a href="ds-add.html">Learn More </a>
                 <div class="side-box">
                   <h4>Importing Data </h4><a href="ds-intelligent_field_discovery.html">Intelligent Field Discovery</a><br/><a href="data-flow.html">Data Flow Overview </a><br/><a href="ds-importingdata.html">Other Mechanisms </a>
                 </div>
