@@ -16,10 +16,6 @@
 				"url":"searching-video.html"
 			},
 			{
-				"display":"Workspaces",
-				"url":"searching-workspaces.html"
-			},
-			{
 				"display":"Data Discovery",
 				"url":"searching-kv.html"
 			},
