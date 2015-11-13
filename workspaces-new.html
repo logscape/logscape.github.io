@@ -258,146 +258,50 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-11">
-                <h3>Deploying Logscape </h3>
-                <div class="side-box"> 
-                  <h4>Deployment Scenarios </h4><a href="deploy-arch_clm.html">Centralized Log Management</a><br/><a href="deploy-arch_indexstores.html">Scale with  Index Stores </a><br/><a href="deploy-arch_zoning.html">Distributed Topology (Zoning) </a>
+                <h3>Workspaces in Logscape</h3>
+                <p>A Workspace is a collection of related searches providing a unique view of data being collected, making use of a flexible grid layout allowing searches, replay events, images and videos to be placed alongside each other in different orientations. Searches, and other data within your workspaces are displayed using <a href="workspaces-widgets.html">Widgets</a>, Widgets come in a variety of forms each with differing functionality.</p><br/>
+                <div class="image"> 
+                  <video preload="auto" width="650" height="350" poster="images/video_poster_1.png" controls="controls">
+                    <source src="http://logscape.com/videos/support/workspaces-video.webm" type="video/webm"/>
+                    <source src="http://logscape.com/videos/support/workspaces-video.mp4" type="video/mp4"/>
+                    <Your>browser does not support this tag </Your>
+                  </video>
                 </div>
-                <p>A Logscape deployment will change in style depending on whether the user has a license or not, due to the restrictions upon <a href="deploy-agents.html">Agent Type</a> by default only the <a href="deploy-manager.html">Manager</a> and <a href="deploy-forwarder.html">Forwarder</a> agent roles are available, however adding a license to your Logscape installation will allow you to configure <a href="deploy-failover.html">Failovers</a>, <a href="deploy-indexer.html">Indexers</a> and <a href="deploy-indexstore.html">Indexstores</a>.</p>
-                <p>The current make-up of your Logscape environment can be found on the 'Agents' page of the Logscape settings.</p>
-                <h3>Example Deployments</h3>
-                <div class="image">
-                  <p style="vertical align:none">Due to the limitations of using Logscape without a license a free deployment is limited to only Forwarders and a manager, this means that your deployment can only be scaled as far as one management node is able to handle.</p>
-                </div>
-                <center><img src="images/deployment-free.png" width="600"/></center>
-                <div class="image">
-                  <p style="vertical-align:none">With a Logscape license, you have access to all types of Logscape agent, most importantly the indexer/indexstore, which allows you to take load away from the manager, and scale sideways, one environment can support potentially unlimited numbers of forwarders as long as enough indexstores are deployed to cope with the additional load. You can also deploy a failover, so should any issues arrive with your manager, your entire environment will automatically fall back to your failover node.</p>
-                </div>
-                <center><img src="images/deployment-license.png" width="800"/></center><br/>
+                <p>Workspaces can be freely built by the user, but also come pre-packaged with Logscape <a href="apps.html">Apps</a>,they are a excellent way to capture expert knowledge, allowing users greater insight into what would normally be expert areas of your infrastructure.</p>
               </div>
-              <div class="col-md-2 panel-info"></div>
               <!--
-              h3 Admin Tasks 
-              h4 Update Logscape 
-              p Logscape updates can be applied through the deployment page. 
-              a(href="deploy-updating.html") Learn More.
+              .image 
               
-              h4 Deploy an App 
-              p Logscape Apps provide integration with custom application APIs and collect import monitoring metrics. 
-              a(href="deploy-app.html") Learn More. 
+              	video(preload="auto",width="650",height="350",poster="images/video_poster.png",controls)
+              		source(src="http://logscape.com/videos/support/demo_workspaces.webm", type="video/webm") 
+              		source(src="http://logscape.com/videos/support/demo_workspaces.mp4", type="video/mp4") 
+              		Your browser does not support this tag 
               
-              h4 Backup 
-              p Logscape Apps provide integration with custom application APIs and collect import monitoring metrics. 
-              a(href="deploy-app.html") Learn More. 
-              
-              
-              -->
-            </div>
-            <div class="row">	
-              <div class="col-md-9 panel-info">
-                <h3>Logscape Components</h3>
-                <hr class="dark"/>
-              </div>
-            </div>
-            <div class="row"> 
-              <div class="col-md-10">
-                <div class="row">
-                  <div class="col-md-4 panel-info">
-                    <h4>Manager </h4>
-                    <p>The Manager is the main component of Logscape. This component provides the web dashboard and orchestrates the services running on Forwarders and Indexers. </p><a href="deploy-manager.html">How to Install </a>
-                  </div>
-                  <div class="col-md-4 panel-info"> 
-                    <h4>Index Store </h4>
-                    <p>The Index Store accepts data from Forwarders provides the data for indexing and searching services for the data retrieved from these hosts. Multiple Index Stores can be used in Logscape deployment. </p><a href="deploy-indexstore.html">How to Install </a>
-                  </div>
-                  <div class="col-md-4 panel-info"> 
-                    <h4>Forwarder </h4>
-                    <p>A Forwarder is a lightweight Logscape copes whose sole responsibility is to ship data on its host to an Index Store or the Manager. </p><a href="deploy-forwarder.html">How to Install </a>
-                  </div>
-                </div>
-                <div class="row"> 
-                  <div class="col-md-4 panel-info"> 
-                    <h4>Failover </h4>
-                    <p>The Failover continues provide users with services if users fail to connect to the Manager. </p><a href="deploy-failover.html">How to Install</a>
-                  </div>
-                  <div class="col-md-4 panel-info"> 
-                    <h4>Indexer </h4>
-                    <p>An Indexer provides indexing and search capabilities to the data on its host. </p><a href="deploy-indexer.html">How to Install </a>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="relatedlinks">
-                      <div style="background-color:#CCC;padding-top:5px;margin-bottom:10px;" class="text-center panel-gray"></div>
-                      <div> 
-                        <h4>Sub Components </h4>
-                      </div><a href="ds-syslog.html">Syslog Server </a><br/><a href="deploy-rawtcpserver.html">Raw Tcp Server </a><br/><a href="deploy-dashboard.html">Dashboard </a>
-                    </div>
-                    <!--
-                    hr.dark 
-                    a(href="deploy-zones.html") Zones 
-                    
-                    
-                    -->
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-1"> </div>
-              <!--
-              h3 Software Components 
-              ul
-              	li boot.properties
-              	li Agent boot config 
-              	li Adding the Failover 
-              	li Home Config  File 
-              	li Resource Utilization 
               -->
             </div>
             <div class="row">
-              <div class="col-md-10"> 
-                <div class="row">
-                  <div class="col-md-4 panel-info">
-                    <h3>Boot Properties </h3>
-                    <hr class="dark"/>
-                    <p>Each Logscape component can be configured through the boot.properties. </p><a href="deploy-boot_properties.html">Learn More </a>
-                  </div>
-                  <div class="col-md-4 panel-info">
-                    <h3>Centralized Configuration</h3>
-                    <hr class="dark"/>
-                    <p>The Agents boot settings can be managed centrally depending on their role </p><a href="deploy-centralconfigs.html">Learn More </a>
-                    <p>The Logscape configuration can be exported and restored to facilitate migrations to new hardware or environments. There are many ways of managing a Logscape Configuration.</p>
-                    <p>Here are a few helpful links</p>
-                    <ul>
-                      <li> <a href="deploy-backup.html">Export Configuration </a></li>
-                      <li> <a href="deploy-config-modular.html">Modular Configurations </a></li>
-                    </ul>
-                  </div>
-                  <div class="col-md-4">
-                    <h3>Securing Endpoints </h3>
-                    <hr class="dark"/>
-                    <p>Logscape uses standards wherever possible when securing endpoints, ensuring that that client is talking to the right Manager and the manager has verified that it is talking to a legitimate client. </p><a href="deploy-security.html">Learn More. </a><br/><strong style="color:#333">Quick Links  </strong>
-                    <ul>
-                      <li><a href="deploy-security.html#hostfilter">Explicit Host Lists </a></li>
-                      <li>	<a href="deploy-security.html#authtokens">Auth Tokens </a></li>
-                      <li> <a href="deploy-security-keystores.html">Keystore Cheatsheet </a></li>
-                    </ul>
-                  </div>
+              <div class="col-md-8">
+                <h3>Linking your Workspaces</h3>
+                <p>Workspaces can be linked in order to pass context between them and allow the ability to drill through your data. Links can be created through configuration of your chart or HTML widgets, for more information visit the workspace <a href="workspaces-linking.html">linking </a>page</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-11"><br/><br/><br/>
+                <div id="disqus_thread">
+                  <script>
+                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                    	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                  </script>
                 </div>
               </div>
             </div>
           </div>
-          <row>
-            <div class="col-md-11"></div><br/><br/><br/>
-            <div id="disqus_thread">
-              <script>
-                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
-                /* * * DON'T EDIT BELOW THIS LINE * * */
-                (function() {
-                	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                })();
-              </script>
-            </div>
-          </row>
         </div>
       </div>
       <!--

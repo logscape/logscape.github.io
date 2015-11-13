@@ -258,10 +258,9 @@
           <div class="row">
             <div class="col-md-9">
               <h3>Users </h3>
-              <p>Logscape supports internal users, different external authentication modes and teams. Users can be created and given access to relevant data through teams.</p>
-              <div class="side-box">
-                <h4>Useful Links  </h4><a href="users-create.html">Create a User </a><br/><a href="users-teams-create_team.html">Create a Team </a><br/><a href="users-ldap.html">Active Directory Integration </a><br/><a href="users-faq.html">Frequently Asked Questions</a>
-              </div>
+              <p>Users within Logscape can either be generated manually or obtained via LDAP authentication. Once a user is created it is possible to assign them to a team, via team administration you can limit exposure to <a href="workspaces.html">Workspaces</a>, <a href="alerts.html">Alerts</a>, <a href="types.html">Data Types</a> and even <a href="ds.html">Data Sources</a>. </p>
+              <h3>Multi-Tenancy</h3>
+              <p>Multi-Tenancy means that multiple teams within your organization can use one Logscape installation without impeding upon each other. Through use of Logscape teams, System Administrators are able to control who has access to what data. Pre-pending a workspace, search or datasources name with [teamname]. will result in only that specific team having access. Not only will they not be able to access these Workspaces, searches and datasources, they won't even be able to see that they exist. At the same time it is understandable that there are resources that are common between the entire organisation as such it is still possible to simply have resources that are available to everyone by not pre-pending with a team name. However, this functionality is only enabled when running a licensed Logscape Manager, teams are still creatable without the license, but visibility won't be controlled as you'd expect!</p>
               <div class="image">
                 <center> <img src="images/users-overview.png"/></center>
               </div>
@@ -274,6 +273,10 @@
             </div>
           </div>
           <div class="row"> 
+            <div class="col-md-3">
+              <h3>Teams </h3>
+              <p>A team is a group of users with similar data access requirements. Teams across an organisation or geographical locations can be modelled using teams.</p><a href="users-teams.html">Learn more </a><br/><a href="users-teams-home.html">Home Workspace</a><br/><a href="users-ldap-teams.html">Managing Teams through LDAP</a>
+            </div>
             <div class="col-md-3"> 
               <h3>Users</h3>
               <p>Users are defined by the role and the team they belong to. The user interface permissions are controlled by the <em>role </em>and access to searches, workspaces and data are controlled by the team setup. </p><a href="users-overview.html">Learn More </a><br/><a href="users-create.html">Create a User.</a><br/>
@@ -287,10 +290,6 @@
                 <!--em admin -->
                 <!--| users are default system accounts and are not authenticated externally. --><br/><a href="users-ldap.html">Set up Active Directory</a><br/><a href="users-ldap-sync.html">Syncing Behaviour </a><br/><a href="users-ldap-connectivity.html">Testing Connectivity </a><br/><a href="users-ldap-defaultuser.html">Change default Login Name</a>
               </p>
-            </div>
-            <div class="col-md-3">
-              <h3>Teams </h3>
-              <p>A team is a group of users with similar data access requirements. Teams across an organisation or geographical locations can be modelled using teams.</p><a href="users-teams.html">Learn more </a><br/><a href="users-teams-home.html">Home Workspace</a><br/><a href="users-ldap-teams.html">Managing Teams through LDAP</a>
             </div>
           </div>
           <div class="row">

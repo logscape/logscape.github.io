@@ -260,9 +260,16 @@
               <div class="col-md-11">
                 <h3>Technology </h3>
                 <p>Logscape has four main components that turn your existing infrastructure into a distributed data fabric. Services running on these managed by the VScape orchestration layer. </p>
-                <div class="side-box">
-                  <h4>Related Links</h4><a href="technology-sizing.html">Sizing Guide </a><br/><a href="technology-benchmarking.html">Benchmarking </a><br/><a href="technology-search_performance.html">Search Performance</a>
-                </div>
+                <!--
+                .side-box
+                	h4 Related Links
+                	a(href="technology-sizing.html") Sizing Guide 
+                	br 
+                	a(href="technology-benchmarking.html") Benchmarking 
+                	br
+                	a(href="technology-search_performance.html") Search Performance
+                
+                -->
                 <div class="image">
                   <div class="row">
                     <div class="col-md-4">
@@ -282,13 +289,13 @@
                     <div class="col-md-4">
                       <h4>Local Indexer</h4>
                       <p>
-                        <div class="image-left"><img src="images/technology-indexer.png" width="50" height="50"/></div>Indexes and searches logs and operational data locally in-place on the machines where it is generated
+                        <div class="image-left"><img src="images/technology-indexer.png" width="50" height="50"/></div>Indexes and searches logs as well as operational data locally in-place on the machines where it is generated
                       </p>
                     </div>
                     <div class="col-md-4">
                       <h4>Central Index Store </h4>
                       <p>
-                        <div class="image-left"><img src="images/technology-indexstore.png" width="50" height="50"/></div>Stores, indexes and searches log files and operational data collected by the Forwarders
+                        <div class="image-left"><img src="images/technology-indexstore.png" width="50" height="50"/></div>Stores, indexes and searches log files as well as operational data collected by the Forwarders
                       </p>
                     </div>
                   </div>
@@ -298,15 +305,26 @@
             <div class="row"> 
               <div class="col-md-3">
                 <h3>Add</h3>
-                <p>When a new data source is added, Logscape will dynamically discover the data on-the-fly. Live-streaming data will be monitored, and historical data will be imported.</p>
+                <p>When a new <a href="ds.html">datasource</a> is added, Logscape will dynamically discover the data on-the-fly. Live-streaming data will be monitored, and historical data will be imported.</p>
               </div>
               <div class="col-md-3">
                 <h3>Index</h3>
-                <p>Local Indexers and Central Index Stores will automatically index the data and build a profile of search-related information.</p>
+                <p> <a href="deploy-indexer.html">Local Indexers </a> and  <a href="deploy-indexstore.html">Central Index Stores</a> will automatically index the data and build a profile of search-related information.</p>
               </div>
               <div class="col-md-3">
                 <h3>Search</h3>
-                <p>When a search is executed, it's distributed across all Local Indexers and Central Index Stores and the analytics are rolled-up via a multi-stage map reduce.</p>
+                <p>When a <a href="searching.html">Search</a> is executed, it's distributed across all <a href="deploy-indexer.html">Local Indexers </a> and <a href="deploy-indexstore.html">Central Index Stores</a>, the analytics are then rolled-up via a multi-stage map reduce.</p>
+              </div>
+            </div>
+            <div class="row"> 
+              <div class="col-md-11">
+                <h3>Indexing </h3>
+                <div class="image">
+                  <center><img src="images/datasources_diagram.png" width="800"/></center>
+                </div>
+                <p>Looking at the above image you can see that when a forwarder discovers a file it will ship it to an indexerstore to be indexed, however it doesn't really explain the indexing process, we're going to shine some light on that.</p>
+                <p>When a log file is sent from a forwarder, through to an Indexstore, that file is again wrote to disk on the Indexstore, from there, it's picked up by the datasource the same as it would be on a manager. The file is then picked up as having changed by the 'Logscape Visitor', and a tailer is assigned. The tailer recognises when the file has been updated, rolled or deleted. An update occurs when a new event is wrote to the file, the visitor will extract the filename, path to file and the current position, this is added to the files database along with a unique file identifier. However the process doesn't stop there, once added to the files database, the event is passed to the 'Ingester', the ingester is responsible from actually breaking the event down, it begins by checking the settings of the file that come from the datasource, is it attempting to discover fields? should it look for a timestamp that includes milliseconds? is it looking to populate system fields? The ingester then breaks apart the event, storing all the discovered K:V pairs in a .idx file, which is simply named [uniqueIdentifier].idx.</p>
+                <p>Your data is now ready to be searched.</p>
               </div>
             </div>
             <div class="row"> 

@@ -258,88 +258,44 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-11">
-                <h3>Overview</h3>
-                <p>Logscape uses Data Sources to import data into the system. As data is ingested common patterns from the data are extracted and become available at search time. There are several ways of getting data into Logscape, from pointing to files on the filesystem, apps or ingesting data from syslog clients and raw tcp clients. </p>
-                <p>When a datasource is added, all forwarders, indexers and managers will begin to actively monitor that directory within their file system, if a file in this directory matches the filemask specified in the datasource then any existing data will be indexed, and any additional data that is added to the file will be caught by the tailer and indexed in real time. This data will then be shipped to an Indexstore or Manager, and will be located in work/_Logserver_SERVER/[SERVER_NAME]/*. </p><a href="ds-add.html">Learn More about datasources.</a>
-                <p>In order to interact with this data within Logscape, tags can be applied to a datasource, you can learn more about tags on the basic tagging </p><a href="ds-tags.html">page</a>
+                <h3>DataSources</h3>
+                <p>Logscape can source its data from many different locations, your applications, <a href="ds-syslog.html">Syslog</a> and <a href="http://apps.logscape.com" _target="blank">Logscape apps</a>, to name a few. The key characteristic each source has in common is that somewhere along the line, the data is wrote to file. A Datasource within Logscape is used to specify a directory, tag and file mask - Once declared every Logscape <a href="deploy-agents.html">Agent</a> will begin to monitor the location within their file system. Checking to see if any files match the file mask specified within the source. Once a matching file is found, any existing data will be ingested, and the file tailed to capture additional data in real time, once ingested it is forwarded to and indexed by an indexstore, and becomes searchable by the end user.</p>
+                <!--
+                p Logscape uses Data Sources to import data into the system. As data is ingested common patterns from the data are extracted and become available at search time. There are several ways of getting data into Logscape, from pointing to files on the filesystem, apps or ingesting data from syslog clients and raw tcp clients. 
+                
+                p When a datasource is added, all forwarders, indexers and managers will begin to actively monitor that directory within their file system, if a file in this directory matches the filemask specified in the datasource then any existing data will be indexed, and any additional data that is added to the file will be caught by the tailer and indexed in real time. This data will then be shipped to an Indexstore or Manager, and will be located in work/_Logserver_SERVER/[SERVER_NAME]/*. 
+                a(href="ds-add.html") Learn More about datasources.
+                p In order to interact with this data within Logscape, tags can be applied to a datasource, you can learn more about tags on the basic tagging 
+                a(href="ds-tags.html") page
+                
+                
+                
+                -->
                 <div class="side-box">
-                  <h4>Importing Data </h4><a href="ds-intelligent_field_discovery.html">Intelligent Field Discovery</a><br/><a href="data-flow.html">Data Flow Overview </a><br/><a href="ds-importingdata.html">Other Mechanisms </a>
+                  <h4>Reccomended Reading</h4><a href="ds-tags.html">Basic Tagging</a><br/><a href="ds-multitags.html">Multi Tags</a><br/><a href="ds-searching.html">Searching with Tags </a><br/><a href="data-flow.html">Dataflow</a><br/><a href="ds-importingdata.html">Importing Data</a>
                 </div>
                 <div class="image">
-                  <center><img src="images/ds-intro.png" width="600" height="200"/></center>
-                </div>
-              </div>
-              <!--	
-              .image                                                  
-              	img(src="images/ds-overview.png")  
-              -->
-            </div>
-            <div class="row panel-info">
-              <hr/>
-              <div class="col-md-3">
-                <h4>Basic Tagging</h4>
-                <p>Data Sources can be used to categorise your data, modelling it according to its source, application and purpose.				</p><a href="ds-tags.html">Learn More </a>
-              </div>
-              <div class="col-md-3">
-                <h4>Using Multi tags </h4>
-                <p>Data can be modelled using multi tags.  Tags can also be used to create a meaningful taxonomy of data imported by Logscape. </p><a href="ds-multitags.html">Learn More </a>
-              </div>
-              <div class="col-md-3"> 
-                <h4>Searching with Tags </h4>
-                <p>Data Sources are represented as the system field: _tag. Tags can be used to slice, and customize your data according to how</p><a href="ds-searching.html">Learn More 				</a>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <h3>Integration </h3>
-                <hr class="dark"/>
-              </div>
-            </div>
-            <div class="row panel-info">
-              <div class="col-md-3">
-                <div>
-                  <h4>Cisco and Network Devices</h4>
-                </div>
-                <div> 
-                  <p>Logscape has support for accepting data from Cisco routers and network devices. </p>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div>
-                  <h4> Syslog Clients </h4>
-                </div>
-                <div>
-                  <p>Raw data can be streamed to Logscape on a selected port. This is ideal in scenarios where installing a Forwarder or and Indexer is not possible </p><a href="ds-syslog.html">Learn More </a>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div> 
-                  <h4>App Integration </h4>
-                  <p>Logscape Apps integrate with bespoke applications and pull in data using published APIs. <a href="http://apps.logscape.com">Learn More</a></p>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-3">
-                <div>
-                  <h4>Streaming Socket Data</h4>
-                </div>
-                <div>
-                  <p>Raw data can be streamed to Logscape on a selected port. This is ideal in scenarios where installing a Forwarder or and Indexer is not possible </p>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div>
-                  <h4>Index Stores </h4>
-                </div>
-                <div>
-                  <p>Index Stores are a key component of a Logscape deployment and accept data from Forwarders.</p>
-                </div>
+                  <center><img src="images/datasources_diagram.png" width="800"/></center>
+                </div><br/>
+                <p>Datasources also allow you to <a href="ds-tags.html">Tag</a> your data, these tags can then be used to <a href="ds-searching.html">Power Your Searches</a> within Logscape, for a more complete run through of how your data is ingested, how it moves, and where it is stored, why not read the  <a href="data-flow.html">Dataflow</a> section of the Logscape documentation, as well as how data recieved via syslog and other sources are handled by the Logscape Indexstore.</p>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-11"></div>
+            <div class="col-md-11"><br/><br/><br/>
+              <div id="disqus_thread">
+                <script>
+                  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                  var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+                  /* * * DON'T EDIT BELOW THIS LINE * * */
+                  (function() {
+                  	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                  	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                  	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                  })();
+                </script>
+              </div>
+            </div>
           </div>
         </div>
       </div>

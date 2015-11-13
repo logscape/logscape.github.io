@@ -59,8 +59,12 @@
 		"display":"Workspaces",
 		"url":"workspaces.html",
 		"children":[
-			{
+                        {
 				"display":"Linking Overview",
+				"url":"workspaces-linking_overview.html"
+			},
+			{
+				"display":"Linking Concept",
 				"url":"workspaces-linking-concept.html"
 			},
 			{
@@ -68,22 +72,9 @@
 				"url":"workspaces-linking.html"
 			},
 			{
-				"display":"Workspace Widgets",
+				"display":"Widgets",
 				"url":"workspaces-widgets.html"
-			},
-			{
-				"display":"Workspaces Linking Concept",
-				"url":"workspaces-linking_concept.html"
-			},
-			{
-				"display":"Workspaces Linking Overview",
-				"url":"workspaces-linking_overview.html"
-			},
-			{
-				"display":"Workspaces Linking Walkthrough",
-				"url":"workspaces-linking_walkthrough.html"
-			
-}			
+			}			
 		],
 		"hiddenchildren":[
 			{
