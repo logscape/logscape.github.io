@@ -328,7 +328,7 @@
                 <p>So to put that into steps.</p>
                 <ul> 
                   <li>
-                    <p>Forwarder detects a file has been modified</p>
+                    <p>Forwarder detects a file has been created</p>
                   </li>
                   <li>
                     <p>Forwarder ships this event to the copy of the file kept on the Indexer</p>
@@ -346,7 +346,7 @@
                     <p>Tailer extracts event and passes this to the Ingester</p>
                   </li>
                   <li>
-                    <p>Ingester breaks down the event</p>
+                    <p>Ingester breaks down each event into [time, discovered fields, grokit fields and system fields] and stores them</p>
                   </li>
                   <li>
                     <p>Ingester stores the event as K:V pairs within the IDX flat file system.</p>
