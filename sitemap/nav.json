@@ -132,10 +132,6 @@
 				"url":"ds-intelligent_field_discovery.html"
 			},
 			{
-				"display":"Data Flow Overview",
-				"url":"data-flow.html"
-			},
-			{
 				"display":"Importing Data",
 				"url":"ds-importingdata.html"
 			},
