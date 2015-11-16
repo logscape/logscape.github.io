@@ -258,7 +258,7 @@
           <div class="row">
             <div class="col-md-9">
               <h3>Multi-tenancy</h3>
-              <p>Multi-tenancy in Logscape is designed so that multiple teams within your organization can make use of Logscape without impeding on each others actions. Teams are only able to see <a href="workspaces.html">Workspaces,</a><a href="searching.html"> Searches</a> and <a href="ds.html">Datasources</a> that are pre-prended with their team name.</p>
+              <p>Pre-pending a workspace, search or datasources name with [teamname]. will result in only that specific team having access. Not only will they not be able to access these Workspaces, searches and datasources, they won't even be able to see that they exist. At the same time it is understandable that there are resources that are common between the entire organisation as such it is still possible to simply have resources that are available to everyone by not pre-pending with a team name. However, this functionality is only enabled when running a licensed Logscape Manager, teams are still creatable without the license, but visibility won't be controlled as you'd expect! </p>
               <p>For example I'm setting up an environment in which two teams, A and B will be working.</p>
               <p>I obviously don't want them seeing all of each others work, there is sensitive data in there. So using Logscape's Multi-tenancy capability I'm going to segregate their environments.</p>
               <p>In order to limit visibility to only my team, I simply pre-pend my resources name with my teams name.</p>
