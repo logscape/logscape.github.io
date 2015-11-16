@@ -264,7 +264,7 @@
                 <h3>General Prioritization Rules</h3>
                 <ul>
                   <li>
-                    <p>Searches that are recent (i.e. less than 24 hours) are executed using foreground threads - i.e. as fast as possible.</p>
+                    <p>Searches that are recent (i.e. less than 5 days) are executed using foreground threads - i.e. as fast as possible.</p>
                   </li>
                   <li>
                     <p>The number of threads is determined by the core count and will be a minimum of 2</p>
@@ -286,9 +286,6 @@
                 <p>The dashboard applies further reduction stages and finally top() post style filters are applied. This also includes any post-level filtering such as GreaterThan or LessThan These are applied to aggregate  results. i.e.</p>
                 <ul>
                   <li>
-                    <p>A search is executed and spreads to all search heads and a host(group) expanded to matching hosts.</p>
-                  </li>
-                  <li>
                     <p>_host filters are evaluated.</p>
                   </li>
                   <li>
@@ -309,7 +306,7 @@
                   <li>
                     <p>The event is filtered before any parsing takes place when a Search level filter is applied.i.e.</p>
                     <div class="block">
-                      <p>type='xxx' WARN and ERROR</p>
+                      <p>WARN AND ERROR | _type.equals(xxx)</p>
                     </div>
                     <p>Note, a hitLimit can also be applied</p>
                   </li>
@@ -319,18 +316,18 @@
                   <li>
                     <p>Results are aggregated and reduced before being sent back to aggregation engines and the dashboard.</p>
                     <div class="block">
-                      <p>cpu.avg(gateway,POST-Filter) POST-Filter.gt(10)</p>
+                      <p>* | cpu.avg(_host)</p>
                     </div>
                   </li>
                 </ul>
                 <h3>Search Level Optimizations</h3>
-                <p>Making a few changes in the search syntax can provide performance gains. A few tips:</p>
+                <p>Making a few changes in the search syntax can provide performance gains, you can find, it's also reccomended you give the<a href="searching-functions">searching functions</a> page a read to better understand the tools at your disposal. A few tips:</p>
                 <ul>
                   <li>
                     <p>Use a text filter instead of the contains(string)</p>
                   </li>
                   <li>
-                    <p>TTL(mins) - Logscape will timeout a search after 3 mins and it will display the data collected while it was running. To increase this use the TTL function and set the number of minutes you want the search to be open. Use this when searching over large volumes of data and where speed is not a requirement.</p>
+                    <p>ttl(3) - Logscape will timeout a search after 3 mins and it will display the data collected while it was running. To increase this use the TTL function and set the number of minutes you want the search to be open. Use this when searching over large volumes of data and where speed is not a requirement.</p>
                   </li>
                   <li>
                     <p>hitlimit(number of events) -  The hitLimit will stop collecting data from an Agent when the set limit has been reached. This gives the user estimates and trends of the data being analyzed. This function can be used when speed is a requirement.</p>

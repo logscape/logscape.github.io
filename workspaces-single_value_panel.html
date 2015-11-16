@@ -255,33 +255,25 @@
           </div>
         </div>
         <div class="col-md-9 content-area"> 
-          <div class="row">
-            <div class="col-md-9">
-              <h3>Multi-tenancy</h3>
-              <p>Multi-tenancy in Logscape is designed so that multiple teams within your organization can make use of Logscape without impeding on each others actions. Teams are only able to see <a href="workspaces.html">Workspaces,</a><a href="searching.html"> Searches</a> and <a href="ds.html">Datasources</a> that are pre-prended with their team name.</p>
-              <p>For example I'm setting up an environment in which two teams, A and B will be working.</p>
-              <p>I obviously don't want them seeing all of each others work, there is sensitive data in there. So using Logscape's Multi-tenancy capability I'm going to segregate their environments.</p>
-              <p>In order to limit visibility to only my team, I simply pre-pend my resources name with my teams name.</p>
-              <p>I.e I could name a workspace</p>
-              <div class="block">
-                <p>A.TrendingPrices</p>
-              </div>
-              <p>All members of team A would be able to see this, but team B would not.</p>
-              <p>The same technique can be applied to Datasources and Searches,</p>
-              <div class="block">
-                <p>B.UnixApp</p>
-                <p>B.UnixMachineSearch</p>
-              </div>
-              <p>However, even in environments where data needs to be segregated, you may want to share some data, such as metrics about the health of environment. Admins are able to save a resource without a team, thus allowing global visibility.</p>
-              <h4>Homepages</h4>
-              <p>Logscape comes with a default homepage, however you can override this on a per team basis by simply naming the workspace.</p>
-              <div class="block">
-                <p>TEAMNAME.home</p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-11"><br/><br/><br/>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-11">
+                <h3>Single Value Widget</h3>
+                <P>The intention of the Single Value Widget is to not only provide a clear display for data, but also to put more control into the users hand, instead of performing a pre-defined operation on your data, it instead exposes the capability to enter raw javascript and have it executed by the widget. This means that while the widget isn't for everyone, it is exceedingly powerful, allowing you to display your data exactly how you want it.</P>
+                <h3>Using the Widget</h3>
+                <p>Today I'm going to show you how to use Chrome's built in developer tools in order to work with the Single Value Widget.</p>
+                <p>Start off by adding the widget to your workspace, one you've loaded up the widget settings you'll see a default script is included, this script is just a really simple heatmap to show you how things work. We're going to get rid of this, and then using Chromes development tools(f12), navigate to the sources tab and load up value.js and set a breakpoint where "eval(userScript)", currently line 83, is called.</p>
+                <center><img src="images/single_panel_eval.png" width="800"/><br/></center><br/>
+                <p>We've now paused the execution of the script, and through the console we have access to all of the variables at this time.</p>
+                <p>If I call 'userScript' in the console, you'll see any javascript you currently have in the widget.</p>
+                <center><img src="images/single_panel_userscript.png" width="800"/><br/></center><br/>
+                <p>Now the important part, the object that Logscape returns from its search, and so the object you'll be using when creating your own Javascripts, that object, is 'e', if you enter that into your console while at the breakpoint, you'll see exactly what Logscape returned from your search.</p>
+                <center><img src="images/single_panel_e.png" width="800"/><br/></center><br/>
+                <p>'e', contains an array of points, each point is a value returned from your search, take the below image, this is an example from the search '* | _filename.count()', you can see the the points array with 29 entries, I'm looking at entry 0, the name variable shows me that I'm currently looking at UNIX_BANDWIDTH_wHOST_wTSTAMP.out, and that there was 180 hits for this file.</p>
+                <center><img src="images/single_panel_e_points.png" width="800"/><br/></center><br/>
+                <p>Once you've manipulated the data how you want, the next step is to manipulate the widget to display your data, the widget you are working inside is stored in the 'myWidget' variable, you can use javascript manipulate the HTML or CSS however you wish.</p>
+                <p>Hopefully this has shone some light on how the Single Value Panel works.</p>
+              </div><br/><br/><br/>
               <div id="disqus_thread">
                 <script>
                   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
