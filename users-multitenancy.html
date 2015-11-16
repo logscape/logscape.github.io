@@ -257,39 +257,27 @@
         <div class="col-md-9 content-area"> 
           <div class="row">
             <div class="col-md-9">
-              <h3>Users </h3>
-              <p>Users within Logscape can either be generated manually or obtained via LDAP authentication. Once a user is created it is possible to assign them to a team, via team administration you can limit exposure to <a href="workspaces.html">Workspaces</a>, <a href="alerts.html">Alerts</a>, <a href="types.html">Data Types</a> and even <a href="ds.html">Data Sources</a>. </p>
-              <h3>Multi-Tenancy</h3>
-              <p>Multi-Tenancy means that multiple teams within your organization can use one Logscape installation without impeding upon each other. Through use of Logscape teams, System Administrators are able to control who has access to what data. Pre-pending a workspace, search or datasources name with [teamname]. will result in only that specific team having access. Not only will they not be able to access these Workspaces, searches and datasources, they won't even be able to see that they exist. At the same time it is understandable that there are resources that are common between the entire organisation as such it is still possible to simply have resources that are available to everyone by not pre-pending with a team name. However, this functionality is only enabled when running a licensed Logscape Manager, teams are still creatable without the license, but visibility won't be controlled as you'd expect! You can find some examples of how to use Multitenancy in your environment <a href="users-multitenancy.html">here</a>.</p>
-              <div class="image">
-                <center> <img src="images/users-overview.png"/></center>
+              <h3>Multitenancy</h3>
+              <p>Multitenancy in Logscape is designed so that multiple teams within your organization can make use of Logscape without impeding on each others actions. Teams are only able to see <a href="workspaces.html">Workspaces,</a><a href="types.html"> Datatypes</a> and <a href="ds.html">Datasources</a> that are pre-prended with their team name.</p>
+              <p>For example I'm setting up an environment in which two teams, A and B will be working.</p>
+              <p>I obviously don't want them seeing all of each others work, there is sensitive data in there. So using Logscape's Multitenancy capability I'm going to segregate their environments.</p>
+              <p>In order to limit visibility to only my team, I simply pre-pend my resources name with my teams name.</p>
+              <p>I.e I could name a workspace</p>
+              <div class="block">
+                <p>A.TrendingPrices</p>
               </div>
-              <!--.image
-              span.alert.alert-info 	
-              	strong Note: 
-              	| Scoping of Workspaces and Searches is only available licensed users 
-              
-              -->
-            </div>
-          </div>
-          <div class="row"> 
-            <div class="col-md-3">
-              <h3>Teams </h3>
-              <p>A team is a group of users with similar data access requirements. Teams across an organisation or geographical locations can be modelled using teams.</p><a href="users-teams.html">Learn more </a><br/><a href="users-teams-home.html">Home Workspace</a><br/><a href="users-ldap-teams.html">Managing Teams through LDAP</a>
-            </div>
-            <div class="col-md-3"> 
-              <h3>Users</h3>
-              <p>Users are defined by the role and the team they belong to. The user interface permissions are controlled by the <em>role </em>and access to searches, workspaces and data are controlled by the team setup. </p><a href="users-overview.html">Learn More </a><br/><a href="users-create.html">Create a User.</a><br/>
-            </div>
-            <div class="col-md-3">
-              <h3>Authentication </h3>
-              <p>Logscape users by default are managed internally. The system can also authenticate users from an external directory service such as LDAP or Active Directory. 
-                <!--| The -->
-                <!--em sysadmin -->
-                <!--| and the -->
-                <!--em admin -->
-                <!--| users are default system accounts and are not authenticated externally. --><br/><a href="users-ldap.html">Set up Active Directory</a><br/><a href="users-ldap-sync.html">Syncing Behaviour </a><br/><a href="users-ldap-connectivity.html">Testing Connectivity </a><br/><a href="users-ldap-defaultuser.html">Change default Login Name</a>
-              </p>
+              <p>All members of team A would be able to see this, but team B would not.</p>
+              <p>The same technique can be applied to Datasources and Datatypes,</p>
+              <div class="block">
+                <p>B.UnixApp</p>
+                <p>B.unxcpu</p>
+              </div>
+              <p>However, even in environments where data needs to be segregated, you may want to share some data, such as metrics about the health of environment. Saving a resource in the usual fashion will allow everyone visibility.</p>
+              <h4>Homepages</h4>
+              <p>Logscape comes with a default homepage, however you can override this on a per team basis by simply naming the workspace.</p>
+              <div class="block">
+                <p>TEAMNAME.home</p>
+              </div>
             </div>
           </div>
           <div class="row">

@@ -18,7 +18,7 @@
           <p>This new widget is designed to give the user more control over what is displayed, it exposes a section where the users can freely add Javascript which the widget will then execute.</p><b>Performance Additions</b>
           <p>This release addresses a performance issue and changes part of the execution path. It is using a new technology to the stack called OpenHFT Chronicle [Apache 2]. The issue was around event streaming of raw data, there are 3 stages, the Indexer, AggSpace and Dashboard. In each case the default implementation is to use chronicle.</p>
           <p>To change to different impls: Dashboard, -Devent.db=chronicle, mapdb, native</p>
-          <p>Indexer & AggSpace -Devent.agg.type=chronicle,mapdb,native</p><br>
+          <p>Indexer & AggSpace -Devent.agg.type=chronicle,mapdb,native,chronicle.queue</p><br>
           <p>To configure: chroniclemap events stored on dashboard [default]:</p>
           <p>db.replay.event.store=1000000</p>
           <p>-- this is the hot data map used to store search events that users interactivly filter, sort etc. It is shared between all users</p><br>

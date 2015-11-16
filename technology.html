@@ -323,8 +323,38 @@
                   <center><img src="images/datasources_diagram.png" width="800"/></center>
                 </div>
                 <p>Looking at the above image you can see that when a forwarder discovers a file it will ship it to an indexerstore to be indexed, however it doesn't really explain the indexing process, we're going to shine some light on that.</p>
-                <p>When a log file is sent from a forwarder, through to an Indexstore, that file is again wrote to disk on the Indexstore, from there, it's picked up by the datasource the same as it would be on a manager. The file is then picked up as having changed by the 'Logscape Visitor', and a tailer is assigned. The tailer recognises when the file has been updated, rolled or deleted. An update occurs when a new event is wrote to the file, the visitor will extract the filename, path to file and the current position, this is added to the files database along with a unique file identifier. However the process doesn't stop there, once added to the files database, the event is passed to the 'Ingester', the ingester is responsible from actually breaking the event down, it begins by checking the settings of the file that come from the datasource, is it attempting to discover fields? should it look for a timestamp that includes milliseconds? is it looking to populate system fields? The ingester then breaks apart the event, storing all the discovered K:V pairs in a .idx file, which is simply named [uniqueIdentifier].idx.</p>
-                <p>Your data is now ready to be searched.</p>
+                <p>When a log file is sent from a forwarder, through to an Indexstore, that file is again written to disk on the Indexstore, from there, it's picked up by the datasource the same as it would be on a manager. The file is then picked up as having changed by the 'Logscape Visitor', and a tailer is assigned. The tailer recognises when the file has been updated, rolled or deleted. An update occurs when a new event is written to the file, the visitor will extract the filename, path to file and the current position, this is added to the files database along with a unique file identifier. However the process doesn't stop there, once added to the files database, the event is passed to the 'Ingester', the ingester is responsible from actually breaking the event down, it begins by checking the settings of the file that come from the datasource, is it attempting to discover fields? should it look for a timestamp that includes milliseconds? is it looking to populate system fields? The ingester then breaks apart the event, storing all the discovered K:V pairs in a .idx file, which is simply named [uniqueIdentifier].idx.</p>
+                <p>Your data is now ready to be searched.</p><br/>
+                <p>So to put that into steps.</p>
+                <ul> 
+                  <li>
+                    <p>Forwarder detects a file has been modiffied</p>
+                  </li>
+                  <li>
+                    <p>Forwarder ships this event to the copy of the file kept on the Indexer</p>
+                  </li>
+                  <li> 
+                    <p>Visitor on Index marks file as modififed</p>
+                  </li>
+                  <li>
+                    <p>Tailer assigned to file</p>
+                  </li>
+                  <li>
+                    <p>Visitor determines filename, path to file and current position, this is stored in the files database along with a unique identifier</p>
+                  </li>
+                  <li>
+                    <p>Tailer extracts event and passes this to the Ingest</p>
+                  </li>
+                  <li>
+                    <p>Ingester breaks down the event</p>
+                  </li>
+                  <li>
+                    <p>Ingester stores the event as K:V pairs within the IDX flat file system.</p>
+                  </li>
+                  <li>
+                    <p>The data is now searchable</p>
+                  </li>
+                </ul>
               </div>
             </div>
             <div class="row"> 
