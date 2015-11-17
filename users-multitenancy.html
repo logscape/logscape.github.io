@@ -258,15 +258,15 @@
           <div class="row">
             <div class="col-md-9">
               <h3>Multi-tenancy</h3>
-              <p>Pre-pending a workspace, search or datasources name with [teamname]. will result in only that specific team having access. Not only will they not be able to access these Workspaces, searches and datasources, they won't even be able to see that they exist. At the same time it is understandable that there are resources that are common between the entire organisation as such it is still possible to simply have resources that are available to everyone by not pre-pending with a team name. However, this functionality is only enabled when running a licensed Logscape Manager, teams are still creatable without the license, but visibility won't be controlled as you'd expect! </p>
+              <p>Pre-pending a workspace, search or datasources name with [teamname]. will result in only that specific team having access. Not only will they not be able to access these Workspaces, searches and datasources, they won't even be able to see that they exist. At the same time it is understandable that there are resources that are common between the entire organisation as such it is still possible to simply have resources that are available to everyone as admin accounts are able to save into the global namespace by not appending a team. However, this functionality is only enabled when running a licensed Logscape Manager, teams are still creatable without the license, but visibility won't be controlled as you'd expect! </p>
               <p>For example I'm setting up an environment in which two teams, A and B will be working.</p>
               <p>I obviously don't want them seeing all of each others work, there is sensitive data in there. So using Logscape's Multi-tenancy capability I'm going to segregate their environments.</p>
-              <p>In order to limit visibility to only my team, I simply pre-pend my resources name with my teams name.</p>
+              <p>In order to limit visibility to only my team, Logscape will automatically pre-pend my resources with my team name.</p>
               <p>I.e I could name a workspace</p>
               <div class="block">
-                <p>A.TrendingPrices</p>
+                <p>TrendingPrices</p>
               </div>
-              <p>All members of team A would be able to see this, but team B would not.</p>
+              <p>And Logscape would automatically save this as A.TrendingPrices, All members of team A would be able to see this, but team B would not.</p>
               <p>The same technique can be applied to Datasources and Searches,</p>
               <div class="block">
                 <p>B.UnixApp</p>
