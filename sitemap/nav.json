@@ -92,7 +92,7 @@
 				"url":"workspaces-linking.html"
 			},
 			{
-				"display":"Workspace Widgets",
+				"display":"Widgets",
 				"url":"workspaces-widgets.html"
 			}
 		],
@@ -130,6 +130,10 @@
 			{
 				"display":"Intelligent Field Discovery",
 				"url":"ds-intelligent_field_discovery.html"
+			},
+			{
+				"display":"Data Flow Overview",
+				"url":"data-flow.html"
 			},
 			{
 				"display":"Importing Data",
@@ -882,6 +886,11 @@
 				"url":"technology-vscape-intro.html"
 			}
 		]
+	},
+	{
+		"display":"Tutorials",
+		"url":"tutorials-tutorials.html",
+		"children":""
 	},
 	{
 		"display":"Release Notes",
