@@ -255,33 +255,24 @@
           </div>
         </div>
         <div class="col-md-9 content-area"> 
-          <div class="row">
-            <div class="col-md-9">
-              <h3>Multi-tenancy</h3>
-              <p>Pre-pending a workspace, search or datasources name with [teamname]. will result in only that specific team having access. Not only will they not be able to access these Workspaces, searches and datasources, they won't even be able to see that they exist. At the same time it is understandable that there are resources that are common between the entire organisation as such it is still possible to simply have resources that are available to everyone as admin accounts are able to save into the global namespace by not appending a team. However, this functionality is only enabled when running a licensed Logscape Manager, teams are still creatable without the license, but visibility won't be controlled as you'd expect! </p>
-              <p>For example I'm setting up an environment in which two teams, A and B will be working.</p>
-              <p>I obviously don't want them seeing all of each others work, there is sensitive data in there. So using Logscape's Multi-tenancy capability I'm going to segregate their environments.</p>
-              <p>In order to limit visibility to only my team, Logscape will automatically pre-pend my resources with my team name.</p>
-              <p>I.e I could name a workspace</p>
-              <div class="block">
-                <p>TrendingPrices</p>
-              </div>
-              <p>And Logscape would automatically save this as A.TrendingPrices, All members of team A would be able to see this, but team B would not.</p>
-              <p>The same technique can be applied to Datasources and Searches,</p>
-              <div class="block">
-                <p>B.UnixApp</p>
-                <p>B.UnixMachineSearch</p>
-              </div>
-              <p>However, even in environments where data needs to be segregated, you may want to share some data, such as metrics about the health of environment. Admins are able to save a resource without a team, thus allowing global visibility.</p>
-              <h4>Homepages</h4>
-              <p>Logscape comes with a default homepage, however you can override this on a per team basis by simply naming the workspace.</p>
-              <div class="block">
-                <p>TEAMNAME.home</p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-11"><br/><br/><br/>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-11">
+                <h3>Multi-Tenancy </h3>
+                <P>Pre-pending a workspace, search or datasources name with [teamname]. will result in only that specific team having access. Not only will they not be able to access these Workspaces, searches and datasources, they won't even be able to see that they exist. At the same time it is understandable that there are resources that are common between the entire organisation as such it is still possible to simply have resources that are available to everyone as admin accounts are able to save into the global namespace by not appending a team. However, this functionality is only enabled when running a licensed Logscape Manager, teams are still creatable without the license, but visibility won't be controlled as you'd expect!</P>
+                <p>For example I'm setting up an environment in which two teams, A and B will be working.</p>
+                <p>I obviously don't want them seeing all of each others work, there is sensitive data in there. So using Logscape's Multi-tenancy capability I'm going to segregate their environments.</p>
+                <p>In order to limit visibility to only my team, Logscape will automatically pre-pend my resources with my team name</p>
+                <p>I.e I could name a workspace</p>
+                <pre>TrendingPrices</pre>
+                <p>And Logscape would automatically save this as A.TrendingPrices, All members of team A would be able to see this, but team B would not.</p>
+                <p>The same technique can be applied to Datasources and Searches,</p>
+                <pre>B.UnixApp
+B.UnixMachineSearch</pre>
+                <p>However, even in environments where data needs to be segregated, you may want to share some data, such as metrics about the health of environment. Admins are able to save a resource without a team, thus allowing global visibility.</p><strong>Homepages</strong>
+                <p>Logscape comes with a default homepage, however you can override this on a per team basis by simply naming the workspace.</p>
+                <pre>TEAMNAME.home</pre>
+              </div><br/><br/><br/>
               <div id="disqus_thread">
                 <script>
                   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

@@ -257,58 +257,52 @@
         <div class="col-md-9 content-area"> 
           <h3>Data Flow Overview </h3>
           <div class="panel-info">
-            <div> <img id="svgDoc" src="images/dataflow_diagram.svg"/></div>
-            <div id="card-sources" class="card">
+            <div> <img src="images/data_flow_diagram.png" width="620"/></div>
+            <div>
               <h3>Sources</h3>
               <p> Data Sources pull in log data from various locations , from your filesystems, network storage and applications.</p><a href="ds.html"></a>
             </div>
-            <div id="card-services" class="card">
+            <div>
               <h3>Services</h3>
               <p>Services collect data from using application apis. Services are executed by each Forwarder or Indexer collecting OS KPIs, Database metrics or Applicatin Service API data </p><a href="http://apps.logscape.com">Learn More </a>
             </div>
-            <div id="card-default" class="card">
-              <h3>Default Moo</h3>
-            </div>
-            <div id="card-syslog" class="card">
+            <div>
               <h3>Syslog</h3>
               <p> The Syslog format and protocol is supported by several applications, network devices and network disks to report system health. </p><a href="ds-syslog.html">Learn More </a>
             </div>
-            <div id="card-filesystem" class="card">
+            <div>
               <h3>File Systems </h3>
               <p>Logs are imported from the file system </p><a href="ds-add.html">Learn More </a>
             </div>
-            <div id="card-indexing" class="card">
+            <div>
               <h3>Indexing </h3>
               <p> Logscape ingests the data and indexes, optimizing for search. As the data is ingested Logscape learns the structure of the data and extracts known Key Value patterns </p>
             </div>
           </div>
           <div>
-            <div>
-              <object id="ingestDoc" type="image/svg+xml" data="images/data_flow_ingest.svg"></object>
-            </div>
-            <div id="card0-default" class="card0"> 
-              <p></p>
-            </div>
-            <div id="card-ingestion" class="card0">
-              <h3>Ingestion</h3>
-              <p>When a data source is created files are ingested. This is a process where data is imported and indexed. During this process Logscape will extract common Key Value patterns and making these fields available at search. Typically json and xml data is recognised but other types of attributes are supported. </p><a href="">Learn More </a>
-            </div>
-            <div id="card-type" class="card0">
-              <h3>Data Types </h3>
-              <p>Types are assigned to incoming data. A type is a loose schema that is applied on top of log or application data. The schema exposes fields which can be used at search time. </p><a href="datatypes.html">Learn More. </a>
-            </div>
-            <div id="card-ds" class="card0"> 
-              <h3>Data Sources</h3>
-              <p>Data Sources describe the location of incoming data. Each data source in the system will have at least on 'tag' assigned to it. Think of a tag as a categorization or a label for your data. Multiple tags can be assigned to each data sources allowing a rich taxonomy to be modelled around the data. </p><a href="">Learn More </a>
+            <div><br/><br/><img src="images/data_flow_ingest.png" width="620"/>
+              <div>
+                <p></p>
+              </div>
+              <div>
+                <h3>Ingestion</h3>
+                <p>When a data source is created files are ingested. This is a process where data is imported and indexed. During this process Logscape will extract common Key Value patterns and making these fields available at search. Typically json and xml data is recognised but other types of attributes are supported. </p><a href="searching-kv.html">Learn More </a>
+              </div>
+              <div>
+                <h3>Data Types </h3>
+                <p>Types are assigned to incoming data. A type is a loose schema that is applied on top of log or application data. The schema exposes fields which can be used at search time. </p><a href="datatypes.html">Learn More. </a>
+              </div>
+              <div>
+                <h3>Data Sources</h3>
+                <p>Data Sources describe the location of incoming data. Each data source in the system will have at least on 'tag' assigned to it. Think of a tag as a categorization or a label for your data. Multiple tags can be assigned to each data sources allowing a rich taxonomy to be modelled around the data. </p><a href="ds.html">Learn More </a>
+              </div>
             </div>
           </div>
           <div>
-            <div>
-              <object id="searchDoc" type="image/svg+xml" data="images/data_flow_search.svg"></object>
-            </div>
+            <div><br/><br/><img src="images/data_flow_search.png" width="620"/></div>
           </div>
           <hr/>
-          <p>Using the search example above, we can see that the search is filtered to the datasource tagged <strong> <em>iis</em></strong>.This tag points to data located in<em> C:\inetpub\logs\</em><br/>or whereever the data for IIS web access logs have been configured.</p>
+          <p>Using the search example above, we can see that the search is filtered to the datasource tagged <strong> <em>iis</em></strong>.This tag points to data located in<em> C:\inetpub\logs\</em><br/>or wherever the data for IIS web access logs have been configured.</p>
           <p>The iis web access log data has been assigned the type<strong> <em>www </em></strong>  The <em>www</em>  Datatype extracts fields such as 
             <ul>
               <li>request</li>
@@ -322,7 +316,19 @@
           <p>
              
             The <em>UserAgent </em>&nbsp; field is in the example filters the results to consider only the user agents that contain the substring 'Safari'..<br/> The _tag field narrows the search to data defined by the<em>iis </em>&nbsp;tag.  Any text before the '|' symbol is interpreted as a keyword filter.<br/> In this example we look for failed web requests
-          </p>
+          </p><br/><br/><br/>
+          <div id="disqus_thread">
+            <script>
+              /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+              var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function() {
+              	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>
+          </div>
           <script>
             $(window).load(function() { 
             	function go(url){ document.location.href=url;} 

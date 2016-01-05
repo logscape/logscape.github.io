@@ -258,93 +258,54 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-11">
-                <h3>Search Performance </h3><br/>
+                <h3>Search Performance </h3>
                 <p>To understand search performance we need to cover a series of attributes in how searches are executed.</p>
                 <p>A General set of rules can be applied:</p>
                 <h3>General Prioritization Rules</h3>
                 <ul>
-                  <li>
-                    <p>Searches that are recent (i.e. less than 5 days) are executed using foreground threads - i.e. as fast as possible.</p>
-                  </li>
-                  <li>
-                    <p>The number of threads is determined by the core count and will be a minimum of 2</p>
-                  </li>
-                  <li>
-                    <p>Older, long running searches run in background threads</p>
-                  </li>
-                  <li>
-                    <p>When a search starts taking too long it gets reduced priority</p>
-                  </li>
-                  <li>
-                    <p>Initial tasks are all given equal priority to allow interlacing of tasks by different searches and users</p>
-                  </li>
-                  <li>
-                    <p>Searches that exceed the default time-to-live (3 mins) will expire. ttl can be controlled as a search parameter ttl(10)</p>
-                  </li>
+                  <li>Searches that are recent (i.e. less than 5 days) are executed using foreground threads - i.e. as fast as possible.</li>
+                  <li>The number of threads is determined by the core count and will be a minimum of 2</li>
+                  <li>Older, long running searches run in background threads</li>
+                  <li>When a search starts taking too long it gets reduced priority</li>
+                  <li>Initial tasks are all given equal priority to allow interlacing of tasks by different searches and users</li>
+                  <li>Searches that exceed the default time-to-live (3 mins) will expire. ttl can be controlled as a search parameter ttl(10)</li>
                 </ul>
                 <h3>The Map-Reduce execution plan</h3>
-                <p>The dashboard applies further reduction stages and finally top() post style filters are applied. This also includes any post-level filtering such as GreaterThan or LessThan These are applied to aggregate  results. i.e.</p>
+                <p>The dashboard applies further reduction stages and finally top() post style filters are applied. This also includes any post-level filtering such as GreaterThan or LessThan These are applied to aggregate results. i.e.</p>
                 <ul>
-                  <li>
-                    <p>_host filters are evaluated.</p>
+                  <li>_host filters are evaluated.</li>
+                  <li>_filename and _path filters are applied in determining content to search.</li>
+                  <li>User permissions are applied.</li>
+                  <li>Large content is broken down in to multiple tasks.</li>
+                  <li>All tasks execute concurrently.</li>
+                  <li>As each search head processes an event it is scanned via index or meta-time-based index.</li>
+                  <li>The event is filtered before any parsing takes place when a Search level filter is applied.i.e.
+                    <pre>WARN AND ERROR : _type.equals(xxx)</pre>Note a hitLimit can also be applied
                   </li>
-                  <li>
-                    <p>_filename and _path filters are applied in determining content to search.</p>
-                  </li>
-                  <li>
-                    <p>User permissions are applied.</p>
-                  </li>
-                  <li>
-                    <p>Large content is broken down in to multiple tasks.</p>
-                  </li>
-                  <li>
-                    <p>All tasks execute concurrently.</p>
-                  </li>
-                  <li>
-                    <p>As each search head processes an event it is scanned via index or meta-time-based index. </p>
-                  </li>
-                  <li>
-                    <p>The event is filtered before any parsing takes place when a Search level filter is applied.i.e.</p>
-                    <div class="block">
-                      <p>WARN AND ERROR | _type.equals(xxx)</p>
-                    </div>
-                    <p>Note, a hitLimit can also be applied</p>
-                  </li>
-                  <li>
-                    <p>When the content level filter passes the event is mapped to fields and field level filtering applied (msg.contains() cpu.gt() etc).</p>
-                  </li>
-                  <li>
-                    <p>Results are aggregated and reduced before being sent back to aggregation engines and the dashboard.</p>
-                    <div class="block">
-                      <p>* | cpu.avg(_host)</p>
-                    </div>
+                  <li>When the content level filter passes the event is mapped to fields and field level filtering applied (msg.contains() cpu.gt() etc).</li>
+                  <li>Results are aggregated and reduced before being sent back to aggregation engines and the dashboard.
+                    <pre>* | cpu.avg(_host)</pre>
                   </li>
                 </ul>
                 <h3>Search Level Optimizations</h3>
-                <p>Making a few changes in the search syntax can provide performance gains, you can find, it's also reccomended you give the<a href="searching-functions">searching functions</a> page a read to better understand the tools at your disposal. A few tips:</p>
+                <p>Making a few changes in the search syntax can provide performance gains, you can find, it's also reccomended you give thesearching functions page a read to better understand the tools at your disposal. A few tips:</p>
                 <ul>
-                  <li>
-                    <p>Use a text filter instead of the contains(string)</p>
-                  </li>
-                  <li>
-                    <p>ttl(3) - Logscape will timeout a search after 3 mins and it will display the data collected while it was running. To increase this use the TTL function and set the number of minutes you want the search to be open. Use this when searching over large volumes of data and where speed is not a requirement.</p>
-                  </li>
-                  <li>
-                    <p>hitlimit(number of events) -  The hitLimit will stop collecting data from an Agent when the set limit has been reached. This gives the user estimates and trends of the data being analyzed. This function can be used when speed is a requirement.</p>
-                  </li>
-                </ul><br/><br/><br/>
-                <div id="disqus_thread">
-                  <script>
-                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                    var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
-                    /* * * DON'T EDIT BELOW THIS LINE * * */
-                    (function() {
-                    	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                    	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                    })();
-                  </script>
-                </div>
+                  <li>Use a text filter instead of the contains(string)</li>
+                  <li>ttl(3) - Logscape will timeout a search after 3 mins and it will display the data collected while it was running. To increase this use the TTL function and set the number of minutes you want the search to be open. Use this when searching over large volumes of data and where speed is not a requirement.</li>
+                  <li>hitlimit(number of events) - The hitLimit will stop collecting data from an Agent when the set limit has been reached. This gives the user estimates and trends of the data being analyzed. This function can be used when speed is a requirement.</li>
+                </ul>
+              </div><br/><br/><br/>
+              <div id="disqus_thread">
+                <script>
+                  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                  var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+                  /* * * DON'T EDIT BELOW THIS LINE * * */
+                  (function() {
+                  	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                  	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                  	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                  })();
+                </script>
               </div>
             </div>
           </div>

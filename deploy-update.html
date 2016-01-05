@@ -258,41 +258,32 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-11">
-                <h3>Update Logscape</h3>
-                <p>These instructions describe how to do a major update of Logscape. If you are doing and incremental update and you want to upload the system files, see  the 
-                  <blockquote> <em>To do an incremental update see the <a href="deploy-update_partial.html">Partial Updates </a>page </em></blockquote>
-                </p>
+                <h3>How to update Logscape</h3>
                 <OL>
-                  <li> 
-                    <p><strong>Restart the System - </strong>Before beginning the re-installation process, bounce the system. After the system has restarted, check that all your Agents restarted with no problem by checking the <a href="deploy-agents.html">Agents Page</a>.</p>
-                  </li>
                   <li>
-                    <p><strong>Export Config - </strong>Export your config by going to the Backup Page and export everything by clicking download. The logscape-all.config file contains your entire system configuration your users and resource groups. You will need this file when restoring your system with the new upgrade.  
+                    <p><strong>Export Config - </strong> Export your config by going to the Backup Page and export everything by clicking download. The logscape-all.config file contains your entire system configuration your users and resource groups. Keep this file safe as it can be used to reinstate your system should an error occur.
                       <div class="image"><img src="images/deploy-upgrade-backup.png"/></div>
                     </p>
                   </li>
                   <li>
-                    <p>	<strong>Prepare the New Installation - </strong>Shut down the manager. Copy the old Logscape folder to a backup directory.  Copy any Apps  from the downloads directory to a location where you can access them easily. App naming convention will be similar to: 
-                      <blockquote>e.g UnixApp-1.0.zip</blockquote>Copy the boot.properties if it has any custom settings for your environment.  
-                    </p>
+                    <p>	<strong>Backup the downloads and space folders</strong> Copy the entire downloads and space folders, again these will only be used in case of an error.</p>
                   </li>
                   <li> 
-                    <p><strong>Install the New Zip/MSI </strong>Follow the instructions on how to install the Manager <a href="deploy-manager.html">here.</a> Once you have the new Manager running again, check the <a href="deploy-agents.html">Agents Page </a>to check the status of the new agents in the new installation. 
-                      <blockquote><em>
-                           
-                          Remember to use the correct Manager role or your Agents will not be able to find your new environment </em></blockquote>The system will automatically start if installed from an MSI.  On Unix-like systems type
-                      <blockquote>	./logscape.sh start </blockquote>in Logscape's main directory. 
-                    </p>
+                    <p><strong>Make sure all agents are online</strong> Using the Agents page confirm all your Agents are online</p>
                   </li>
                   <li>
-                    <p><strong>Import/Restore Config - </strong>On the backup page click on Import(Overwrite) to restore your system config file. This will apply your old system configuration to the new one.  </p>
+                    <p><strong>Unpack the new version</strong> Unpack the freshly downloaded Logscape zip wherever you wish.</p>
                   </li>
                   <li>
-                    <p><strong>Reinstall Apps - </strong>On the Deploy Page upload any Apps from your old installation. See instructions<a href="deploy-app.html">here. </a></p>
+                    <p><strong>Upload the contents of Downloads via the manager </strong> Using the deployment page upload the contents of the downloads folder</p>
                   </li>
-                  <li> 
-                    <p> <strong>Check Your Installation - </strong>Go to the <a href="deploy-agents.html">Agents Page</a>and make sure that all agents have rejoined your deployment.</p>
+                  <li>
+                    <p><strong>Allow a moment for all your agents to download the new files</strong> It may take a few moments for all the agents in your environment to download the new files</p>
                   </li>
+                  <li>
+                    <p><strong>Bounce your System</strong> Once all your agents have a copy of the new files bounce the system</p>
+                  </li>
+                  <p>Once the system is back online the login and system pages will reflect the new version.	</p>
                 </OL><br/><br/><br/>
                 <div id="disqus_thread">
                   <script>

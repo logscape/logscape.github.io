@@ -258,12 +258,17 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-8">
-                <h3>Using Regexps</h3>
-                <p>Before going into the topic of using patterns ( or regular expressions) in your searches let's revisit Logscape Search Syntax </p>
+                <h3>Searching Introduction</h3><strong>Keyword Searching</strong>
+                <p>Before going into the topic of using patterns ( or regular expressions) in your searches let's touch upon Logscape Search Syntax </p>
                 <blockquote>	KEYWORD |  FUNCTIONS </blockquote>
+                <p>Keywords are what you're going to search for, they act as the filter, using additional operations such as AND, OR and NOT allows you to perform further filtering. A search can consist purely of keywords, in reality this would be inneffective as you're searching your entire environment, and performing no functions, a search such as </p>
+                <blockquote>ERROR OR WARN</blockquote>
+                <p>Would return every instance of ERROR or WARN in your environment. Adding a pipe '|', and a simple function into the mix, we can limit the scope of our search</p>
+                <blockquote>ERROR OR WARN | _filename.equals("err.log")</blockquote>
+                <p>_filename is a field, .equals, is a method, in this case we're telling Logscape that we want to look for the keywords 'ERROR' or 'WARN', but we only want to look into files named 'err.log', not only does this give you more useful information it also means that your search will return much faster as we're not searching the entire environment. A full list of the functions available in Logscape, as well as a brief desription of their use, can be found on the <a href="searching-functions.html">Searching Functions</a> page.</p><br/><strong>Pattern Searching</strong>
                 <p>
                   Remember that before the pipe symbol you can use a KEYWORD to filter your data. Instead of a KEYWORD you can also use a PATTERN to match your data. 
-                  A pattern can either be a Regular Expression or a Logscape pattern. A Logscape pattern are regular expression shortcuts designed to make searches more readable.
+                  A pattern can either be a Regular Expression or a Logscape pattern. Logscape patterns are regular expression shortcuts designed to make searches more readable.
                   Here is an example of a pattern based search: 
                 </p>
                 <blockquote>	(.*)Exception  | chart(stacked) </blockquote>
@@ -273,7 +278,8 @@
                 <p>Analytics or functions can be applied to a groups used in your PATTERN. The following search can be used to match exceptions</p>
                 <blockquote>	(.*)Exception |  1.count() chart(stacked) </blockquote>
                 <p>This search will match all exceptions. The name of the exception is captured in the group and is labelled as 1. Each group used in a pattern based search will be numbered in the order it appears. Each group can then have an analytic applied to it. In this search example each Exception name will be counted and appear as a separate series </p>
-                <div class="image"><img src="/images/searching-pattern-exception-functions.png"/></div>
+                <div class="image"><img src="/images/searching-pattern-exception-functions.png"/></div><br/>
+                <p>To learn more about search analytics and filtering visit the <a href="searching-functions.html">Searching Functions</a> page.</p>
               </div>
             </div>
             <div class="row">

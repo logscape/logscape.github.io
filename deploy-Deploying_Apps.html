@@ -258,100 +258,20 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-11">
-                <h3>Fields </h3>
-                <p>Every datatype that is assigned to data uses fields to extract values from an event or a line of raw log data. A regular expression pattern or the split function define  what values a field may have. A synthetic field is a field that uses the value of an existing field rather than the raw incoming data. When you click on a field you will see the following dialog</p>
-                <div class="image"><img src="images/types-tutorial-field.png"/></div>
-                <ul>
-                  <li> <em>Function</em>- This is the default analytic used on this field on the search page</li>
-                  <li> <em>Visible - </em>If this attribute is enabled, the field will be displayed in the raw events on the Search Page. </li>
-                  <li> <em>Summary - </em>Summary statistics are calculated on this field on the Search page at search time </li>
-                  <li> <em>synth source (optional) -</em>A synth source is another Field or Synthetic Field</li>
-                  <li> <em>synth expression (optional) - </em>An expression can generate a new value or modify the value from a synth source</li>
-                </ul>
-                <h3>Synthetic Fields </h3>
-                <p>A synthetic field is created by setting a field for the Synth Source and an expression for the Synth Expression. Here's a summary of how a field can be configured</p>
-                <table class="table"> 
-                  <tr>
-                    <td> <strong>Synth Expression</strong></td>
-                    <td> <strong>Synth Source</strong></td>
-                    <td> <strong>View </strong></td>
-                  </tr>
-                  <tr>
-                    <td>pattern,regexp</td>
-                    <td>REQUIRED </td>
-                    <td>OPTIONAL </td>
-                  </tr>
-                  <tr> 
-                    <td>substring,lastsubstring,split </td>
-                    <td>REQUIRED</td>
-                    <td>OPTIONAL </td>
-                  </tr>
-                  <tr> 
-                    <td>jep,mvel,groovy-script,groovy-geoip</td>
-                    <td>OPTIONAL </td>
-                    <td>OPTIONAL </td>
-                  </tr>
-                  <tr>
-                    <td>OPTIONAL</td>
-                    <td>OPTIONAL</td>
-                    <td>heatmap-numeric, heatmap-enum</td>
-                  </tr>
-                </table>
-                <p>The synth expression uses different functions to create values based off other groups in the data type. </p>
-                <p><strong>Pattern Expression - </strong>This is a regular expression that is applied to the field specified in the synth source field. 
-                  See a description on the <a href="types-patterns.html"> Patterns in Logscape </a>page 
-                </p>
-                <p>		<strong>Expression Evaluators - </strong>You can also use the jep or mvel expression evaluators too. They have the following syntax. 
-                  <blockquote>	jep: memMB / totalMemory * 100</blockquote>The mvel syntax is identical to mvel except that mvel supports the concatenation of strings
-                  <blockquote>	mvel: "http://"  + url </blockquote>Any variables used with mvel or jep must exist first as another field. 
-                </p>
-                <p><strong>Text Functions - </strong>
-                  <ul>
-                    <li>
-                      <p>substring - Returns a substring from the start text to the end text. </p>
-                      <blockquote>substring-match: START,END </blockquote>The following text belongs to a cisco ASA log and I want to retrieve the Log Level of the error. This is the text in between the two dashes
-                      <blockquote>ASA-1-10600</blockquote>Use the following substring expression get the error level
-                      <blockquote>substring-match: -,-</blockquote>
-                    </li>
-                    <li>
-                      <p>lastsubstring	- Follows the syntax of the <em>substring </em>function. It returns the last substring in the text. If you had the following url string 
-                        <blockquote>http://logscape.com/news/today.html </blockquote>and  you wanted to retrieve the last path, you would use the following expression
-                        <blockquote>lastsubstring: /,/ </blockquote>
-                      </p>
-                    </li>
-                    <li>
-                      <p>split - Retrieves an item from a csv like value. It has this syntax
-                        <blockquote> split,DELIM,POS</blockquote>If you had this value 
-                        <blockquote>  joe:blog:32</blockquote>and you wanted to extract the surname <em>blog </em>you would use this expression
-                        <blockquote>	split,:,2</blockquote>The delimiter or separator is <em>:</em>and the position is <em>2 </em>
-                      </p>
-                    </li>
-                  </ul>
-                </p>
-                <h3>Views </h3>
-                <p>Views affect how a field value is displayed. Heatmaps are defined in the field section. <br/><strong> Heatmap-numeric - </strong>The example below applies a heatmap for the values between 1 and 100. 
-                  <blockquote>{"heatmap-numeric":"1..100"}</blockquote>When this field is displayed in a table the cell will recieve a colour ranging from a cool to increasing warm colours. 
-                </p>
-                <p><strong>Heatmap-enum -</strong>Text values can also be heatmapped. The example shows a heatmap for the log4j log levels. 
-                  <blockquote>
-                    {
-                    "heatmap-enum": "DEBUG:white,INFO:#95F7C3,WARN:#F3DA87,ERROR:#EAA261,FATAL:#E03930",
-                    }
-                  </blockquote>The syntax for the labels use this syntax.
-                  <blockquote>	LABEL:COLOR</blockquote><em>LABEL </em>is the text to be coloured and the <em>COLOR can be expressed as a hex value (e.g #E03930" ), a rgb value ( e.g rgb(100,200,123) ) or as hsv </em>
-                </p><br/><br/><br/>
-                <div id="disqus_thread">
-                  <script>
-                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                    var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
-                    /* * * DON'T EDIT BELOW THIS LINE * * */
-                    (function() {
-                    	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                    	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                    })();
-                  </script>
-                </div>
+                <h3>Deploying an App</h3>
+                <P>The below tutorial will walk you through the process of Deploying an App to your Logscape Manager.</P><p><iframe src="https://www.iorad.com/3654/11461/Logscape-in-10-minutes---Deploying-an-app" width="1px" height="500px" style="border:2px solid #ebebeb;min-width:100%;" allowfullscreen="true"></iframe></p><p style="display: none;">Connect to your Logscape Manager and enter your Admin credentials.</p><p style="display: none;">Click to sign into your Admin account.</p><p style="display: none;">Click the configure icon on the left hand side navigation.</p><p style="display: none;">You&#39;ll be taken to your system page, in order to deploy a Logscape App, we&#39;ll need to change to the Deployment page.</p><p style="display: none;">The deployment page allows you to deploy new files into your Logscape environment, it also lists all files currently on the Manager, allowing you to remove, deploy or undeploy.</p><p style="display: none;">In order to deploy an app, we&#39;ll first need to Upload it, so hit the upload button.</p><p style="display: none;">Follow that up by clicking on Choose files</p><p style="display: none;">You&#39;ll now want to navigate to the app you downloaded from apps.logscape.com - For this example I downloaded the WindowsApp</p><p style="display: none;">Click Open to begin uploading the App into your Logscape environment</p><p style="display: none;">The file is now uploading, but that&#39;s a long list, Click the filter field and apply a filter for the app you installed.</p><p style="display: none;">Click Deploy on your app to begin the deployment process.</p><p style="display: none;">After a moment click refresh, the status of your app should change from undeployed to starting, or deployed.</p><p style="display: none;">Note how my app is now listed as starting</p><p style="display: none;">My app is now deployed, and so everything it contained is now part of my Logscape environment, lets quickly check to make sure the workspaces have been loaded properly.</p><p style="display: none;">Click the Workspace icon to be taken back to your Logscape workspaces.</p><p style="display: none;">Click the open workspace button</p><p style="display: none;">Click in the filter box to filter all of the workspaces down to those of your freshly installed app</p><p style="display: none;">As you can see the Windows app was successfully installed. Congratulations on installing your first app, the process is the same for every logscape app.</p>
+              </div><br/><br/><br/>
+              <div id="disqus_thread">
+                <script>
+                  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                  var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+                  /* * * DON'T EDIT BELOW THIS LINE * * */
+                  (function() {
+                  	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                  	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                  	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                  })();
+                </script>
               </div>
             </div>
           </div>

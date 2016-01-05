@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>	Logscape 3.01 	</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.js"></script>
+  </head>
+  <body>
+    <div style="padding-left:30px;" class="container">		
+      <div class="row">
+        <div class="col-md-11">
+          <h3>Release,  3.03</h3>
+          <h3>Dec 2 2015 </h3><strong>Performance:</strong>
+          <p>Single threaded benchmarking takes 2 profiles. Search page and Workspace oriented execution. When a Search is executed from the Search page it builds the facets stats to support adhoc analysis; it also streams a large set of events to the JettyWebServer. All the extra work yields about a 40% overhead, and we were seeing about 80k events per second for a single thread (30-40 discovered fields). The Workspace execution plan yields 120k per second, per thread.</p>
+          <p>The execution plan follows these steps:</p>
+          <p>1. Identify log files in the selected time period and meet the system field criteria (i.e. _agent, _type, _tag etc)</p>
+          <p>2. Select the time-series buckets associated with each resource</p>
+          <p>3. Scan the time-series buckets and build data-type patterns, synthetics and discovered fields for each event. (Using indexed fields is much faster that synthetics – 3.03 enhancement)</p>
+          <p>4. Aggregate and pump data using map-reduce execution of the functions(avg, count etc) (3.03)</p>
+          <p>5. Jetty Aggregate the incoming streams and drive the interface using websockets</p>
+          <p>6. Websocket events then send status messages, notification of replay-events (3.03), facets and updated histogram data.</p>
+          <p>Note I: 3.03 – marks where performance improvements were made.</p>
+          <p>Note II: A single thread processing 100,000 events is sustainable, 16 threads should process an equivalent of 1,600,000 events per second (in theory). Scalability depends upon I/O subsystem performance relating to disk-io, os-buffers and network.</p>
+          <p>Note III: Logfile processing is carried out with 1-thread per request.</p><b>Important: 
+            <p>Before upgrading remember to: 1) backup your config, 2) backup the downloads and space folders (in case of reversion). 3) make sure all agents are online!</p></b><strong>Release notes:</strong>
+          <p>
+            1. Fix summation problem where only the first event was evaluated
+            2. Further performance improvements on search performance and UI interaction
+            3. Ability to index any  field; discovered or synth (yields faster performance and requires reindexing)
+            4. Improved data types page for debugging and benchmarking
+            5. Datasources now use natural keys instead of UUIDs. This should combat DS duplication when importing.exporting. Note: ids only generated on new DS’s being saved
+            6. You can set the java.tmp.io.dir in boot.properties (boot.properties sets it to work/tmp by default. The directory is cleared on rebooting logscape. When upgrading you will need to perform this operation manually.
+            7.  Networking now uses faster lz4 compression. This will make offline agents break if not updated!
+            8. Geo-maps now use a chloropleth palette
+            9. Workspace linking now forces correct filtering when driven via URL clicks
+            10.  Fixed random hs_err crashing caused by ChronicleQ fixed
+            11. Search page chain.button now saves state and auto-runs search when auto-run is enabled
+            12. Rickshaw charts now format numbers with ‘,’ on mouse-over
+            13. Syslog no longer prints to stdout
+          </p><br><br><br><br><br><br><br>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -260,16 +260,6 @@
               <div class="col-md-11">
                 <h3>Technology </h3>
                 <p>Logscape has four main components that turn your existing infrastructure into a distributed data fabric. Services running on these managed by the VScape orchestration layer. </p>
-                <!--
-                .side-box
-                	h4 Related Links
-                	a(href="technology-sizing.html") Sizing Guide 
-                	br 
-                	a(href="technology-benchmarking.html") Benchmarking 
-                	br
-                	a(href="technology-search_performance.html") Search Performance
-                
-                -->
                 <div class="image">
                   <div class="row">
                     <div class="col-md-4">
@@ -305,55 +295,37 @@
             <div class="row"> 
               <div class="col-md-3">
                 <h3>Add</h3>
-                <p>When a new <a href="ds.html">datasource</a> is added, Logscape will dynamically discover the data on-the-fly. Live-streaming data will be monitored, and historical data will be imported.</p>
+                <p>When a new <a href="ds.html" target="_blank">Datasource</a> is added, Logscape will dynamically discover the data on-the-fly. Live-streaming data will be monitored, and historical data will be imported.</p>
               </div>
               <div class="col-md-3">
                 <h3>Index</h3>
-                <p> <a href="deploy-indexer.html">Local Indexers </a> and  <a href="deploy-indexstore.html">Central Index Stores</a> will automatically index the data and build a profile of search-related information.</p>
+                <p> <a href="deploy-indexer.html" target="_blank">Local Indexers</a> and <a href="deploy-indexstore.html" target="_blank">Central Index Stores</a> will automatically index the data and build a profile of search-related information.</p>
               </div>
               <div class="col-md-3">
                 <h3>Search</h3>
-                <p>When a <a href="searching.html">Search</a> is executed, it's distributed across all <a href="deploy-indexer.html">Local Indexers </a> and <a href="deploy-indexstore.html">Central Index Stores</a>, the analytics are then rolled-up via a multi-stage map reduce.</p>
+                <p>When a <a href="searching.html" target="_blank">Search</a> is executed, it's distributed across all <a href="deploy-indexer.html" target="_blank">Local Indexers</a> and <a href="deploy-indexstore.html" target="_blank">Central Index Stores</a>, the analytics are then rolled-up via a multi-stage map reduce.</p>
               </div>
             </div>
             <div class="row"> 
               <div class="col-md-11">
-                <h3>Indexing </h3>
-                <div class="image">
-                  <center><img src="images/datasources_diagram.png" width="800"/></center>
+                <h3>Indexing</h3>
+                <div class="image"> 
+                  <center> <img src="images/datasources_diagram.png" width="800px"/></center>
                 </div>
                 <p>Looking at the above image you can see that when a forwarder discovers a file it will ship it to an indexerstore to be indexed, however it doesn't really explain the indexing process, we're going to shine some light on that.</p>
                 <p>When a log file is sent from a forwarder, through to an Indexstore, that file is again written to disk on the Indexstore, from there, it's picked up by the datasource the same as it would be on a manager. The file is then picked up as having changed by the 'Logscape Visitor', and a tailer is assigned. The tailer recognises when the file has been updated, rolled or deleted. An update occurs when a new event is written to the file, the visitor will extract the filename, path to file and the current position, this is added to the files database along with a unique file identifier. However the process doesn't stop there, once added to the files database, the event is passed to the 'Ingester', the ingester is responsible from actually breaking the event down, it begins by checking the settings of the file that come from the datasource, is it attempting to discover fields? should it look for a timestamp that includes milliseconds? is it looking to populate system fields? The ingester then breaks apart the event, storing all the discovered K:V pairs in a .idx file, which is simply named [uniqueIdentifier].idx.</p>
                 <p>Your data is now ready to be searched.</p><br/>
                 <p>So to put that into steps.</p>
-                <ul> 
-                  <li>
-                    <p>Forwarder detects a file has been created</p>
-                  </li>
-                  <li>
-                    <p>Forwarder ships this event to the copy of the file kept on the Indexer</p>
-                  </li>
-                  <li> 
-                    <p>Visitor on Indexer marks file as modififed</p>
-                  </li>
-                  <li>
-                    <p>Tailer assigned to file</p>
-                  </li>
-                  <li>
-                    <p>Visitor determines filename, path to file and current position, this is stored in the files database along with a unique identifier</p>
-                  </li>
-                  <li>
-                    <p>Tailer extracts event and passes this to the Ingester</p>
-                  </li>
-                  <li>
-                    <p>Ingester breaks down each event into [time, discovered fields, grokit fields and system fields] and stores them</p>
-                  </li>
-                  <li>
-                    <p>Ingester stores the event as K:V pairs within the IDX flat file system.</p>
-                  </li>
-                  <li>
-                    <p>The data is now searchable</p>
-                  </li>
+                <ul>
+                  <li>Forwarder detects a file has been created</li>
+                  <li>Forwarder ships this event to the copy of the file kept on the Indexer</li>
+                  <li>Visitor on Indexer marks file as modififed</li>
+                  <li>Tailer assigned to file</li>
+                  <li>Visitor determines filename, path to file and current position, this is stored in the files database along with a unique identifier</li>
+                  <li>Tailer extracts event and passes this to the Ingester</li>
+                  <li>Ingester breaks down each event into [time, discovered fields, grokit fields and system fields] and stores them</li>
+                  <li>Ingester stores the event as K:V pairs within the IDX flat file system.</li>
+                  <li>The data is now searchable</li>
                 </ul>
               </div>
             </div>

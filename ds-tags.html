@@ -265,26 +265,25 @@
               <p>You can filter your search based on where your data is coming from using the<em>_tag </em>system field in your search 				
                 The search below will show all the different files for a specific tag.
               </p>
-              <blockquote>		| _tag.equals(java) _filename.count() </blockquote>
+              <pre>		| _tag.equals(java) _filename.count() </pre>
               <h4>Using tags in Data Groups </h4>
               <p>Tags can also be used in Data Groups to give and remove access to data. User access to the data provided by tags is managed on the Datagroup page </p>
               <h4>Auto-Tagging</h4>
               <p>Data in Logscape can be automatically tagged upon ingestion by placing a file inside the source folder for that data, which has a name pre and post pended by an underscore, the name of this file will automatically be applied to your data as a tag, i.e a file located in</p>
-              <blockquote>C:/Program Files/ExampleProgram/Logs/_example_/output.log</blockquote>
-              <p>Would automatically be tagged as "example".<br/><br/><br/>
-                <div id="disqus_thread">
-                  <script>
-                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                    var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
-                    /* * * DON'T EDIT BELOW THIS LINE * * */
-                    (function() {
-                    	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                    	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                    })();
-                  </script>
-                </div>
-              </p>
+              <pre>C:/Program Files/ExampleProgram/Logs/_example_/output.log</pre>
+              <p>Would automatically be tagged as example</p><br/><br/><br/>
+              <div id="disqus_thread">
+                <script>
+                  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                  var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+                  /* * * DON'T EDIT BELOW THIS LINE * * */
+                  (function() {
+                  	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                  	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                  	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                  })();
+                </script>
+              </div>
             </div>
           </div>
         </div>

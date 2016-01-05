@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>	Logscape 3.01 	</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.js"></script>
+  </head>
+  <body>
+    <div style="padding-left:30px;" class="container">		
+      <div class="row">
+        <div class="col-md-11">
+          <h3>Release,  3.10</h3>
+          <h3>8 Jan 2016 </h3>
+          <h2>New Functions</h2>
+          <p><b>New Post-aggregate function 'eval()'</b> - (eval(field/1000.0) for post-agg conversion i.e. convert bytes to Gigabytes or derive a unit-cost or something else! Use this in the post-agg way; note the use of '+'</p>
+          <p>Example 1: CPU: | CPU.avg(,POST) +POST.eval(CPU * 3.5)</p>
+          <p>Example 2: (multi-expr)</p>
+          <p>CPU: | CPU.avg(,POST) +POST.eval(CPU 3) +POST.eval(CPU 9,GB2)</p>
+          <p>Example 3:(with grouping):</p>
+          <p>CPU: | CPU.avg(_host,POST) +POST.eval(CPU * 100.22)</p>
+          <p>Example 4: Boolean flagging (shows 1 where value == true) (cool!)</p>
+          <p>CPU: | CPU.avg(_host,POST) +POST.eval(CPU < 30)</p>
+          <p>Example 5: Constant value:</p>
+          <p>* | _type.equals(agent-stats) eval(50,Mid) eval(50 * 2,Max))</p>
+          <p><b>New function 'percentile()'</b> - allows you the plot a range of percentiles, either for a single-aggregate value (i.e. CPU across all machines or by region – where you see the percentiles values:  1,5, 25, 50, 75, 95, 99</p>
+          <p>Example: CPU.percentile()</p>
+          <p>Example: CPU.percentile( ,90) // determine 90th percentile</p><br><br>
+          <h2>Performance</h2>
+          <p><b>LogFile facet cache</b> - store the facets of all fields on a data-type for a particular file where the field summary is true, or the field is a discovered key-value pair, improves performance by 40% on adhoc searches</p>
+          <p><b>summary.index()</b> - Every search analytic that builds a search visualization processes the data according to its algorithm in order to create it (count, avg etc). The problem is that if you have searches that run over the same data again and again for long periods of time, i.e. 3 months, or 6 months, then these searches will be very slow due to the amount of processing/volume of data. The introduction of a ‘summary.index()’ allows for pre-build search results at a particular granularity (10 minute default). When searching against the summary.index the results are retrieved, re-bucketed to fit the search and passed back to the visualisation.</p>
+          <p>Read how to use summary.index() on our <a href="http://blog.logscape.com/2016/01/performance-leaps-and-bounds/#more-1587">Blog Post</a>.</p><br><br>
+          <h2>Quality of Life</h2>
+          <p><b>New home workspace </b> A freshly designed homepage display many new and improved features of Logscape 3.10</p>
+          <p><b>NOTE - </b> For existing installations you will need to manually deploy the new homepage by re-deploying the logscape-home.config which can be found on the deployment page.</p>
+          <p><b>Workspace Code Editor</b> - Both the Single Value Panel and HTML Widget have recieved a feature rich editor to replace their plain text boxes.</p>
+          <p><b>Optional (client-server side) control of workspace-filtering in Workspace-Charts.</b> Until now each chart would choose whether or not an event was filterable in the legend (client-side). This choice was based upon the legend, charts like pie and maps would always re-run the search. However people was to allow the search to re-run, expecially when it cannot be filtered at the legend. i.e. CPU.percentile() will show cpu across all hosts, however the legend shows percentile values; now you can re-run the search by enabling the flag on the edit panel.</p><br><br><br><br><br><br><br>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
