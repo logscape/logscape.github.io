@@ -260,10 +260,9 @@
               <div class="col-md-11">
                 <h3>Workspace Linking </h3>
                 <p>The linking functionality provides a way for non-expert users to browse, navigate and analyse data without needing expert knowledge of the Logscape search syntax. It allows more advanced users to design workflows that make sense for the team, and the data being explored.</p>
-                <p>A Linked Workspace will contain a table and filter widget, as well as two seperate HTML Blocks, below are guides for configuring your set up -</p>
+                <p>A Linked Workspace will contain a table, as well as two seperate HTML Blocks, below are guides for configuring your set up -</p>
                 <ul>
                   <li> <a href="#table">Configuring a Linking table </a></li>
-                  <li> <a href="#filter">Adding a Filter Widget</a></li>
                   <li> <a href="#html">Configuring a HTML Navigation Panel</a></li>
                   <li> <a href="#parameter">HTML Parameter Discovery</a></li>
                 </ul><a name="table"></a>
@@ -322,9 +321,10 @@
                 <h3>Configuring a HTML Navigation Panel</h3>
                 <p>The HTML Widget can be used to build links to other workspaces. To make sure that the linked workspace contains the correct context the URL format will need to be used.  Here's an example link to the Unix Processes workspace.</p>
                 <blockquote> &lt;a href="?Workspace=Users&filter=$value&filterAction=_host.equals"&gt;Hyperlink Text&lt;/a&gt;</blockquote>
+                <div class="image">
+                  <center><img src="/images/workspaces_html_widget.png" width="600"/></center>
+                </div>
                 <p>Adding a link similar to this in your HTMLWidget will open the next workspace, passing the filterAction and the filter value to the next workspace. When the workspace loads it will apply <em>_host.equals($value) </em> to every search, where $value is populated from your search results. </p><a name="filter">					</a>
-                <h3>Adding a Filter Widget</h3>
-                <p>A filter widget can be added in the usual manner, while in edit mode simply click the filter widget icon. For workspaces in a linked workflow to work correctly, a filter widget is required and will be populated with the filter value passed to the workspace.</p><a name="parameter"></a>
                 <h3>HTML Parameter Discovery</h3>
                 <p>Parameters can be passed between workspaces by including them in the URL using the format var=value, once included in the URL any HTML block on that page can reference that variable using the $ notation. i.e</p>
                 <pre>yourlogserver.com:8080/play/?Workspace=Home&name=Chris</pre>

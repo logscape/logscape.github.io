@@ -288,12 +288,18 @@
                   </li>
                 </ul>
                 <h3>Search Level Optimizations</h3>
-                <p>Making a few changes in the search syntax can provide performance gains, you can find, it's also reccomended you give thesearching functions page a read to better understand the tools at your disposal. A few tips:</p>
+                <p>Making a few changes in the search syntax can provide performance gains, it's also reccomended you give the searching functions page a read to better understand the tools at your disposal. A few tips:</p>
                 <ul>
                   <li>Use a text filter instead of the contains(string)</li>
                   <li>ttl(3) - Logscape will timeout a search after 3 mins and it will display the data collected while it was running. To increase this use the TTL function and set the number of minutes you want the search to be open. Use this when searching over large volumes of data and where speed is not a requirement.</li>
                   <li>hitlimit(number of events) - The hitLimit will stop collecting data from an Agent when the set limit has been reached. This gives the user estimates and trends of the data being analyzed. This function can be used when speed is a requirement.</li>
                 </ul>
+                <h3>Summary Storage</h3>
+                <p>Every search analytic that builds a search visiaulization processes the data according to its algorithm in order to create it(count, avg etc) the problem is that if you have searches that run over the same data again and again for long periods of time, i.e 3 months, or 6 months, then these searches will be very slow due to the amount of processing/volume of data. The introduction of a 'summary.index()' allows for pre-build search results at a particular granularity (10 minute default). When searching against the summary.index the results are retrieved, re-bucketed to fit the search and passed back to the visualisation.</p><strong>How do you use it?</strong>
+                <p>1) execute desired search with summary.index(write) and then</p>
+                <p>2) with the identical search use summary.index(read).</p>
+                <p>3) summary.index(delete) will delete the whole index regardless of time-period</p>
+                <p>To maintain the Index, schedule a periodic search that uses the 'summary.index(write)' command to keep extending the index. Each entry contains a bloom filter to prevent over-writing, so when in doubt you can execute a long 'write' to fill in any gaps that may have occurred.</p>
               </div><br/><br/><br/>
               <div id="disqus_thread">
                 <script>

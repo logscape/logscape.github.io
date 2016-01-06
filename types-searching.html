@@ -258,34 +258,30 @@
           <div class="container-fluid">
             <div class="row"></div>
             <h3>Searching With Types </h3>
-            <p>Logscape maps many different types to incoming data. You can search filter types from the search page. To see the types in your system type.</p>
+            <p>If you do not already know what types are, then you should check out the<a href="types-tutorial.html">Types Tutorial. </a>Once incoming data has been mapped to types it is possible to filter data using them. To see a total count of how many types are currently in your system you can perform the following search.</p>
             <blockquote>| _type.count() </blockquote>
-            <p> <em>_type </em> &nbsp; is a system field. </p>
             <p>		</p>
             <div class="image"><img src="images/types-searching-typecount.png"/></div>
-            <p>Here we can see that the types<em>log4j </em>and  <em>basic </em>are available. </p>
-            <p>Search functions can be applied to the system field <em>_type </em>.&nbsp To limit this search to the <em>log4j</em>&nbsp; type use the following search </p>
+            <p>Here we can see that the types<em>log4j </em>and  <em>basic </em>are available. 
+              Search functions can be applied to the system field <em>_type</em>.&nbsp To limit this search to the <em>log4j</em>&nbsp; type use the following search 
+            </p>
             <blockquote>	| _type.equals(log4j) </blockquote>
             <p>Logscape will update the facets to reflect the log4j type. The fields defined in the Logj type are summarised on the left hand side of the search page. </p>
             <p></p>
             <div class="image"><img src="images/types-searching-facetsexpanded.png"/></div>
             <p></p>
             <div class="image"><img src="images/types-searching-levelcount.png"/></div>
-            <p></p>
-            <div class="image"><img src="images/types-searching-facets.png"/></div>
-            <p>blurb about how you can filter it down to what you are intreressted in </p>
+            <p>Performing the below search</p>
             <blockquote>| _type.equals(log4j) </blockquote>
-            <p>Blurb about how a types fields are now fields which can have naalytics applied to them </p>
-            <blockquote> log4j :  timestamp | level | message | SYNTHETIC FIELDS  </blockquote>
-            <p>Blurb about functions applied to a synthetic field.  Appling numerical functions </p>
-            <blockquote> |  _type.equals(log4j) cpu.avg()</blockquote>
-            <p>blurb about applying string functions. Not very useful if you have many hosts in your environment. </p>
-            <blockquote> |  _type.equals(log4j) cpu.avg()  _host.equals(manager) </blockquote>
-            <p>the equals ..</p>
-            <p>others </p>
-            <ul>
-              <li>includes/excludes</li>
-            </ul>
+            <p>Could be expected to have results such as these.</p>
+            <p>
+              <div class="image"><img src="images/types-searching-facets.png"/></div>
+            </p>
+            <p>Once the search is limited to one type and the facets are populated with the fields from that datatype it becomes easy to drive the entire search experience using fields, i.e, the system field _host could be used to limit the sources of the data via a</p>
+            <blockquote>* | _type.equals(log4j) _host.contains(LAB)</blockquote>
+            <p>Or the level field used to control what level of message you see.</p>
+            <blockquote>* | _type.equals(log4j) _host.contains(LAB) level.equals(FATAL)</blockquote>
+            <p>Datatypes will be used extensively throughout your Logscape experience.</p>
             <div class="row">
               <div class="col-md-11"><br/><br/><br/>
                 <div id="disqus_thread">

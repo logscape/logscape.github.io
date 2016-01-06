@@ -5,13 +5,20 @@
     <script src="js/kiss.js"> </script>
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
-    <link href="css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet"/>
+    <!--link(href="css/font-awesome-4.0.3/css/font-awesome.min.css",rel="stylesheet")-->
     <link href="css/style-app.css" rel="stylesheet"/>
     <link href="css/app.css" rel="stylesheet"/>
     <link href="//vjs.zencdn.net/4.9/video-js.css" rel="stylesheet"/>
     <script src="//vjs.zencdn.net/4.9/video.js"></script>
     <script src="js/jquery-1.11.0.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/navigation.js"></script>
+    <script>
+      function googleTranslateElementInit() {
+      	new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+      }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
       var breadcrumbs={
       	"gettingstarted":"Getting Started" 
@@ -75,14 +82,14 @@
       	}
       
       	function renderCrumbs(page){
-      		console.log("rendering breadcrumbs for page:" + page)
+      		//console.log("rendering breadcrumbs for page:" + page)
       		if (page.indexOf("-") < 0){
-      			console.log("<a href='/index.html'> Home </a> > <a href=" + page + ".html>" + page);
+      			//console.log("<a href='/index.html'> Home </a> > <a href=" + page + ".html>" + page);
       			return ("<a href='/index.html'> Home </a> > <a href=" + page + ".html>" + upperFirst(page));
       		}
       		var parts=page.split("-");
       		var idx=0;
-      		console.log("rendering  " + parts);
+      		//console.log("rendering  " + parts);
       		var html="<a href='"+genLink(parts,-1)+"'> Home </a>";
       		for(idx=0;idx<parts.length;idx++){
       			k=parts[idx];
@@ -91,20 +98,21 @@
       			if (breadcrumbs.hasOwnProperty(k)){
       				html=html + " >> " + breadcrumbs[k];
       			}else{
-      				console.log("nathen - " + k[0]);
+      				//console.log("nathen - " + k[0]);
       				html=html + " >> " + upperFirst(k.replace(/_/g, ' '));
       			}
-      			console.log(".");
+      			//console.log(".");
       		}
-      		console.log("this far!!!");
+      		//console.log("this far!!!");
       		return html
       	}
       	
       	var elems=window.location.href.split('?')[0].split('/');
       	var currentPage=elems[elems.length-1].split('.')[0]
-      	console.log("crumb>" + renderCrumbs(currentPage));	
+      	//console.log("crumb>" + renderCrumbs(currentPage));	
       	$('#widget-bc').html(renderCrumbs(currentPage));
       });
+      
       
     </script>
     <script>
@@ -162,7 +170,7 @@
       
       
       -->
-      <div style="padding-left:100px;padding-top:25px"><img src="images/logscapeSupport.png" style="height:45px"/>
+      <div style="padding-left:100px;padding-top:25px"><a href="/index.html"> <img src="images/logscapeSupport.png" style="height:45px"/></a>
         <div style="float:right" class="col-md-3">
           <form id="cse-search-box" action="" style="position:right;padding-top:5px;padding-bottom:5px" onSubmit="submit_form()">
             <input type="hidden" name="cx" value="015161349156186070243:ktxh8djpql8"/>
@@ -174,7 +182,9 @@
       </div>
     </div>
     <div style="width:100%;height:40px;background-color:#EEE;box-shadow: 0 0 2px #999;">
-      <div style="padding-left:70px;padding-top:10px"><a href="/Cloud-Introduction.html">Cloud  | </a><a href="http://logscape.activeboard.com/">Forums   | </a><a href="/apps.html">Apps   | </a><a href="http://www.logscape.com">Logscape.com	</a><img style="height:0;width:0" src="http://logscape.com/images/track.png?version=support"/></div>
+      <div style="padding-left:70px;padding-top:10px"><a href="/Cloud-Introduction.html">Cloud  | </a><a href="http://blog.logscape.com/dwqa-questions/">Forums   | </a><a href="/apps.html">Apps   | </a><a href="http://www.logscape.com">Logscape.com	</a>
+        <div id="google_translate_element" class="float-right display-inline"></div><img style="height:0;width:0" src="http://logscape.com/images/track.png?version=support"/>
+      </div>
     </div>
     <!--.container-fluid.navbar(style="min-height:30px;margin-bottom:5px;")
     .row(style="height:5px") 
@@ -200,37 +210,42 @@
       
       -->
       <div class="row">
-        <div class="col-md-1"></div>
         <div class="col-md-2"></div>
         <div class="col-md-5">
           <div id="widget-bc" padding-left:150px="padding-left:150px" class="breadcrumbs style">&nbsp;</div>
         </div>
       </div>
       <div class="row">
-        <div style="width:100px" class="col-md-1">
-          <p></p>
-        </div>
         <div class="col-md-2 nav-padding">
-          <ul class="nav nav-tabs nav-stacked"> 
-            <li><a href="support-searching.html">&#9654; Search</a></li>
-            <li> <a href="workspaces.html">&#9654; WorkSpaces</a>
-              <ul>
-                <li><a href="workspaces-widgets.html">Workspace Widgets</a></li>
-                <li><a href="workspaces-linking_concept.html">Linking Overview</a></li>
-                <li> <a href="workspaces-linking_walkthrough.html">Linking Walkthrough</a></li>
-              </ul>
-            </li>
-            <li> <a href="ds.html">&#9654; Data Sources</a></li>
-            <li> <a href="types.html">&#9654; Data Types </a></li>
-            <li><a href="deploy.html">&#9654; Deployment</a></li>
-            <li><a href="users.html">&#9654; Users </a></li>
-            <li> <a href="alerts.html">&#9654; Alerts 	</a></li>
-            <li><a href="technology.html">&#9654; Technology</a></li>
-            <li><a href="release-notes.html">&#9654; Release Notes</a></li>
-            <li><a href="https://twitter.com/logscape" data-show-count="false" data-size="large" class="twitter-follow-button">Follow @logscape</a>
-              <script>=!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-            </li>
-          </ul>
+          <ul class="nav nav-tabs nav-stacked"></ul>
+          <!--ul.nav.nav-tabs.nav-stacked  
+          li
+          	a(href="searching.html")&#9654; Search
+          
+          li 
+          	a(href="workspaces.html")&#9654; WorkSpaces
+          	ul
+          
+          li 
+          	a(href="ds.html")&#9654; Data Sources
+          li 
+          	a(href="types.html")&#9654; Data Types 
+          li
+          	a(href="deploy.html")&#9654; Deployment
+          li
+          	a(href="users.html")&#9654; Users 
+          li 
+          	a(href="alerts.html")&#9654; Alerts 	
+          li
+          	a(href="technology.html")&#9654; Technology
+          li
+          	a(href="release-notes.html") Release Notes
+          
+          li
+          	a.twitter-follow-button(href="https://twitter.com/logscape",data-show-count="false",data-size="large") Follow @logscape
+          	script. 
+          		=!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+          -->
           <div style="padding-left:50px"> 
             <h4>Articles </h4>
           </div>
@@ -245,7 +260,7 @@
               <div class="col-md-11">
                 <h3>Data Driven Workspaces</h3>
                 <p>Workspace Linking allows you to design workspaces which are contextually sensitive, when a user clicks an item on a table, their context is passed through, allowing you to drill down to a workspace, by host, user or process, creating a logical progression through your data.</p>
-                <div class="image"><img src="/images/cloud-linking-conceptual_overview.png" width="700"/></div><b>
+                <div class="image"><img src="/images/cloud-linking-conceptual_overview.png" width="600"/></div><b>
                   <p>What it means.</p></b>
                 <p>When loading an app you will land on the overview workspace, from there you can drill through your data, or use the navigation bar.</p>
                 <p><b>1. Table Linking</b></p>

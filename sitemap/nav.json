@@ -12,10 +12,6 @@
 				"url":"types-tutorial.html"
 			},
 			{
-				"display":"Configure Syslog",
-				"url":"ds-Syslog_Tutorial.html"
-			},
-			{
 				"display":"Getting Started",
 				"url":"gettingstarted.html"
 			}
@@ -91,8 +87,8 @@
 		"url":"workspaces.html",
 		"children":[
 			{
-				"display":"Linking Concept",
-				"url":"workspaces-linking_concept.html"
+				"display":"Your First Workspace",
+				"url":"workspaces-First_Workspace.html"
 			},
 			{
 				"display":"Linking Overview",
@@ -100,7 +96,7 @@
 			},
 			{
 				"display":"Linking Walkthrough",
-				"url":"workspaces-linking.html"
+				"url":"workspaces-linking_walkthrough.html"
 			},
 			{
 				"display":"Widgets",
@@ -118,7 +114,7 @@
 			},
 			{
 				"display":"Workspaces Linking Walkthrough",
-				"url":"workspaces-linking_walkthrough.html"
+				"url":"workspaces-linking.html"
 			},
 			{
 				"display":"Workspaces Linking Workflow",

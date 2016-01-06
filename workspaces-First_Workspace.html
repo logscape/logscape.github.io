@@ -258,47 +258,9 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-11">
-                <h3>Single Value Widget</h3>
-                <p>The intention of the Single Value Widget is to not only provide a clear display for data, but also to put more control into the users hand, instead of performing a pre-defined operation on your data, it instead exposes the capability to enter raw javascript and have it executed by the widget. This means that while the widget isn't for everyone, it is exceedingly powerful, allowing you to display your data exactly how you want it.</p>
-                <h3>Using the Widget</h3>
-                <p>Today I'm going to show you how to use Chrome's built in developer tools in order to work with the Single Value Widget.</p>
-                <p>Start off by adding the widget to your workspace, one you've loaded up the widget settings you'll see a default script is included, this script is just a really simple heatmap to show you how things work. We're going to get rid of this, and then using Chromes development tools(f12), navigate to the sources tab and load up value.js and set a breakpoint where "eval(userScript)", currently line 83, is called.</p>
-                <div class="image">
-                  <center><a href="images/single_panel_eval.png" target="_blank"><img src="images/single_panel_eval.png" width="800"/></a></center>
-                </div>
-                <p>We've now paused the execution of the script, and through the console we have access to all of the variables at this time.</p>
-                <p>If I call 'userScript' in the console, you'll see any javascript you currently have in the widget.</p>
-                <div class="image">
-                  <center><a href="images/single_panel_userscript.png" target="_blank"><img src="images/single_panel_userscript.png" width="800"/></a></center>
-                </div>
-                <p>Now the important part, the object that Logscape returns from its search, and so the object you'll be using when creating your own Javascripts, that object, is 'e', if you enter that into your console while at the breakpoint, you'll see exactly what Logscape returned from your search.</p>
-                <div class="image">
-                  <center><a href="images/single_panel_e.png" target="_blank"><img src="images/single_panel_e.png" width="800"/></a></center>
-                </div>
-                <p>'e', contains an array of points, each point is a value returned from your search, take the below image, this is an example from the search '* | _filename.count()', you can see the the points array with 29 entries, I'm looking at entry 0, the name variable shows me that I'm currently looking at UNIX_BANDWIDTH_wHOST_wTSTAMP.out, and that there was 180 hits for this file.</p>
-                <p>Once you've manipulated the data how you want, the next step is to manipulate the widget to display your data, the widget you are working inside is stored in the 'myWidget' variable, you can use javascript manipulate the HTML or CSS however you wish.</p>
-                <p>As an example, the below javascript heatmaps the Single Value panel</p>
-                <pre>function changeColor(value) {
-if (value > 10) {
-myWidget.css('background','#933')
-} else {
-	myWidget.css('background','#393')
-	}
-}
-var firstName = e.points[0].name 
-var firstHit = e.points[0].hits
-var fhtml = First Error:' + firstName + ' :' + firstHit + '%'
-var lastName = e.points[e.points.length-1].name
-var lastHit = e.points[e.points.length-1].hits
-var ehtml = Last Error:' + lastName + ' :' + lastHit + '%'
-myWidget.find('#valueData').html(fhtml + ehtml)
-changeColor(lastHit)</pre>
-                <p>Hopefully this has shone some light on how the Single Value Panel works.</p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-11"><br/><br/><br/>
+                <h3>Your First Workspace </h3>
+                <P>For more tutorials check out the <a href="tutorials-tutorials.html">Tutorials</a> section.</P><p><iframe src="https://www.iorad.com/3654/15991/Logscape-in-10-minutes--Your-first-Workspace" width="1px" height="500px" style="border:2px solid #ebebeb;min-width:100%;" allowfullscreen="true"></iframe></p><p style="display: none;">Login to your Logscape installation and navigate to the home.</p><p style="display: none;">Click the edit button</p><p style="display: none;">Click new workspace button.</p><p style="display: none;">Clicking on the Workspace name will allow you to change the name.</p><p style="display: none;">Name your workspace whatever you like.</p><p style="display: none;">Click outside of the text box, and then hit save.</p><p style="display: none;">Click Add Search</p><p style="display: none;">This will add a blank chart to the top of the workspace, by clicking and dragging the top bar you can move it around the workspace grid.</p><p style="display: none;">By selecting the handle in the lower right of the widget you are able to resize to however you choose best</p><p style="display: none;">Click the configure button</p><p style="display: none;">You can now add any search you like in order to have it rendered in this widget.</p><p style="display: none;">As you can see I&#39;ve now added a search to my widget.</p><p style="display: none;">I&#39;m going to turn on the charts Legend</p><p style="display: none;">And also make it so that when a filter is applied the search re-runs</p><p style="display: none;">We&#39;re finished with this widget, click okay to save it and return to the workspace.</p><p style="display: none;">Let&#39;s add another chart</p><p style="display: none;">Reposition it within the workspace</p><p style="display: none;">Resize it</p><p style="display: none;">Another search</p><p style="display: none;">Repeat until you have all the searches you want, positioned where you like.</p><p style="display: none;">Having added a few more charts I run a search to see how it&#39;s looking so far.</p><p style="display: none;">The left hand side is looking a bit bare, I&#39;m going to use a HTML Widget so that I&#39;m able to control the content</p><p style="display: none;">Move and resize the same as a chart widget.</p><p style="display: none;">Add another HTML Widget, this will make up my navigation.</p><p style="display: none;">Finally, I&#39;m going to add a clock widget, just as a finishing touch.</p><p style="display: none;">This can of course be moved and resized like any other widget</p><p style="display: none;">The settings of the HTML block are accessed in the usual way.</p><p style="display: none;">Whatever is written into a HTML block will render in your workspace, I&#39;m just going to add an icon to represent that this is the home.</p><p style="display: none;">Add whatever HTML you would like</p><p style="display: none;">Hit okay to save your changes.</p><p style="display: none;">And now you can see my happy little house!</p><p style="display: none;">By clicking on the title I can change it same as the workspace we named earlier.</p><p style="display: none;">You can name your widget whatever you&#39;d like, however I want it to be blank, so I&#39;m going to enter &#39;&amp;nbsp;&#39;</p><p style="display: none;">Open the settings window for the second HTML block</p><p style="display: none;">Enter whatever HTML you choose</p><p style="display: none;">I&#39;m going to use this widget as my navigation to other workspaces, and out to the logscape support site.</p><p style="display: none;">This is the result.</p><p style="display: none;">Again, I&#39;m going to change my title to &#39;&amp;nbsp;&#39;</p><p style="display: none;">Unfortunately, our background colours don&#39;t match - Let&#39;s fix that.</p><p style="display: none;">Click to open settings.</p><p style="display: none;">Change to the settings tab.</p><p style="display: none;">Click to open the palette chooser.</p><p style="display: none;">Choose any colour</p><p style="display: none;">Hit okay</p><p style="display: none;">The background of the widget has now been updated, repeat this with all three widgets.</p><p style="display: none;">Click save</p><p style="display: none;">If you navigate to the open prompt</p><p style="display: none;">You can find the workspace you just made. Congratulations on making your first workspace.</p>
+              </div><br/><br/><br/>
               <div id="disqus_thread">
                 <script>
                   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
