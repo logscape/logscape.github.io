@@ -256,43 +256,66 @@
         </div>
         <div class="col-md-9 content-area"> 
           <div class="container-fluid">
-            <div class="row"> 
-              <h3>Importing Data</h3>
-              <p>Logscape imports data using data sources. There are other ways of getting data into Logscape. By default the Manager runs a Syslog and Tcp Server sub components. This opens up the ways in which data can get into the system. </p>
-              <p><strong>Syslog Clients -  </strong>The syslog format is supported by many applications and hardware like SAN disk and network routers.
-                Logscape runs a Syslog Server on the Manager which can also run on Index Stores. 
-                There are several syslog compatible clients available
-                <ul>
-                  <li>Linux System (natively supported )</li>
-                  <li>Windows Logs using Snare </li>
-                  <li>Network Devices (e.g SAN disks, Cisco Routers)</li>
-                  <li>VMWare Suite of tools and applications </li>
-                </ul>
-              </p>
-              <p><strong>Raw TCP Data  </strong> The socket server allows live event streaming from any network enabled device or client. 
-                <blockquote>	The tcp server port is set using the <strong> <em>-Dsocket.server.port  </em></strong>option in the <a href="/deploy-boot_properties.html"> boot.properties</a></blockquote>Examples of inputs can be
-                <ul>
-                  <li>Log4j Appenders </li>
-                  <li>Splunk Forwarders</li>
-                  <li>Netcat scripts and related tools</li>
-                  <li>Beaver and related Open Source data shippers </li>
-                  <li>Snare Agents </li>
-                </ul>
-              </p>
-            </div>
             <div class="row">
-              <div class="col-md-11"><br/><br/><br/>
-                <div id="disqus_thread">
-                  <script>
-                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                    var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
-                    /* * * DON'T EDIT BELOW THIS LINE * * */
-                    (function() {
-                    	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                    	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                    })();
-                  </script>
+              <div class="col-md-11">
+                <h3>Importing Data</h3>
+                <p>All data within Logscape relies upon Data Sources. Regardless of the original source of the data it will eventually be wrote to file, and picked up by a Data Source. Below we'll cover some of the more common sources of data, as well as how to get data from that source into Logscape.</p><br/>
+                <p><strong>Direct Upload -</strong></p>
+                <p>It is possible to upload data directly through the Logscape dashboard.</p>
+                <ol>
+                  <li> 
+                    <p>First Navigate to the user page on the left hand menu.</p><a href="images/ds_user_page.png"><img src="images/ds_user_page.png" width="400"/></a>
+                  </li>
+                  <li>
+                    <p>Navigate to the upload zip tab</p>
+                  </li>
+                  <li>
+                    <p>When prompted to, navigate to your zip file and hit upload</p>
+                  </li>
+                </ol><br/>
+                <p><strong>Logscape Apps - </strong></p>
+                <p>Any Logscape App which produces data will come bundled with a configuration file, this file contains information for the set up for datasources and datatypes amongst other useful data, this means that their is generally no need for the user to modify the datasources provided. However if the need arises the data sources from an app can be modified in the same way as anhy other data source.</p><br/>
+                <p><strong>Datasource - </strong></p>
+                <p>A Datasource is a way of telling Logscape to monitor the directory in question, the user can also specify filters which the files must meet in order to be modified, when Logscape finds a valid file, a tailer will be assigned and the file indexed and made available on the ssearsch page.</p><br/>
+                <p><strong>Syslog Clients -  </strong></p>
+                <p>
+                  The syslog format is supported by many applications and hardware like SAN disk and network routers.
+                  Logscape runs a Syslog Server on the Manager which can also run on Index Stores. 
+                  There are several syslog compatible clients available
+                  <ul>
+                    <li>Linux System (natively supported )</li>
+                    <li>Windows Logs using Snare </li>
+                    <li>Network Devices (e.g SAN disks, Cisco Routers)</li>
+                    <li>VMWare Suite of tools and applications </li>
+                  </ul>
+                  <p>You can learn more about syslog by giving the <a href="ds-Syslog_tutorial.html">Syslog Tutorial</a> a read.</p>
+                </p><br/>
+                <p><strong>Raw TCP Data  </strong></p>
+                <p>The <a href="deploy-socket_server.html">socket server</a> allows live event streaming from any network enabled device or client. 
+                  <blockquote>	The tcp server port is set using the <strong> <em>-Dsocket.server.port  </em></strong>option in the <a href="/deploy-boot_properties.html"> boot.properties</a></blockquote>Examples of inputs can be
+                  <ul>
+                    <li>Log4j Appenders </li>
+                    <li>Splunk Forwarders</li>
+                    <li>Netcat scripts and related tools</li>
+                    <li>Beaver and related Open Source data shippers </li>
+                    <li>Snare Agents </li>
+                  </ul>
+                </p>
+              </div>
+              <div class="row">
+                <div class="col-md-11"><br/><br/><br/>
+                  <div id="disqus_thread">
+                    <script>
+                      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                      var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+                      /* * * DON'T EDIT BELOW THIS LINE * * */
+                      (function() {
+                      	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                      	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                      	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                      })();
+                    </script>
+                  </div>
                 </div>
               </div>
             </div>
