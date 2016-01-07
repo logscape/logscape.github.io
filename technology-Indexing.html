@@ -258,26 +258,25 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-11">
-                <div id="breadcrumb"></div>
-                <h3>Searching</h3>
-                <div class="side-box">
-                  <h4>Reccomended Reading</h4><a href="searching-First_Search.html">Your First Search</a><br/><a href="searching-pattern.html">Search Basics</a><br/><a href="ds-searching.html">Searching with Tags</a><br/><a href="searching-cheatsheet.html">Cheatsheet</a><br/><a href="searching-functions.html">Function Reference</a>
-                </div>
-                <p>If you're new to Logscape we've made the <a href="search-First_Search.html">Your First Search</a> tutorial to help you get started.</p>
-                <p>Searches in Logscape work by iterating over indexed data specified by your <a href="ds.html">Datasources</a>, you can control which files are searched, which metrics are retrieved, and how they're displayed, all through use of our <a href="searching-functions.html">Powerful Search Syntax. </a>You can then take it a step further, by adding your saved searches to a <a href="workspaces.html">Workspace</a>, allowing you to group related searches and useful utilities. Or even fire an <a href="alerting.html">Alert </a>when specific criteria are met within your search. Searches make use of tags to allow the user to add meta information to their data which allows a finer grain of control.</p>
+                <h3>Indexing</h3>
                 <div class="image">
-                  <center>
-                    <video preload="auto" width="650" height="350" poster="images/video_poster_1.png" controls="controls">
-                      <source src="http://logscape.com/videos/support/demo_search.webm" type="video/webm"/>
-                      <source src="http://logscape.com/videos/support/demo_search.mp4" type="video/mp4"/>
-                      <Your>browser does not support this tag </Your>
-                    </video><br/>
-                  </center>
-                  <div style="font-size:18px"> 
-                    <p style="padding-left:30%">More videos on the	 <a href="/searching-video.html" style="font-size:18px"> Search Videos Page </a></p>
-                  </div>
+                  <center><img src="images/datasources_diagram.png" width="800px"/></center>
                 </div>
-                <p>Searching is a core component of Logscape, there are many chart types to choose from to help with slicing and dicing your data. Root cause analysis and search results are provided in realtime giving immediate response to changes in your monitoring infrastructure. <a href="searching-overview.html">Learn More.</a></p>
+                <p>Looking at the above image you can see that when a forwarder discovers a file it will ship it to an indexerstore to be indexed, however it doesn't really explain the indexing process, we're going to shine some light on that.</p>
+                <p>When a log file is sent from a forwarder, through to an Indexstore, that file is again written to disk on the Indexstore, from there, it's picked up by the datasource the same as it would be on a manager. The file is then picked up as having changed by the 'Logscape Visitor', and a tailer is assigned. The tailer recognises when the file has been updated, rolled or deleted. An update occurs when a new event is written to the file, the visitor will extract the filename, path to file and the current position, this is added to the files database along with a unique file identifier. However the process doesn't stop there, once added to the files database, the event is passed to the 'Ingester', the ingester is responsible from actually breaking the event down, it begins by checking the settings of the file that come from the datasource, is it attempting to discover fields? should it look for a timestamp that includes milliseconds? is it looking to populate system fields? The ingester then breaks apart the event, storing all the discovered K:V pairs in a .idx file, which is simply named [uniqueIdentifier].idx.</p>
+                <p>Your data is now ready to be searched.</p><br/>
+                <p>So to put that into steps.</p>
+                <ul>
+                  <li>Forwarder detects a file has been created</li>
+                  <li>Forwarder ships this event to the copy of the file kept on the Indexer</li>
+                  <li>Visitor on Indexer marks file as modififed</li>
+                  <li>Tailer assigned to file</li>
+                  <li>Visitor determines filename, path to file and current position, this is stored in the files database along with a unique identifier</li>
+                  <li>Tailer extracts event and passes this to the Ingester</li>
+                  <li>Ingester breaks down each event into [time, discovered fields, grokit fields and system fields] and stores them</li>
+                  <li>Ingester stores the event as K:V pairs within the IDX flat file system.</li>
+                  <li>The data is now searchable</li>
+                </ul>
               </div>
             </div>
             <div class="row">

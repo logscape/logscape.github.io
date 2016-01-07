@@ -15,8 +15,13 @@
 				"display":"Getting Started",
 				"url":"gettingstarted.html"
 			}
-
-		]
+		],
+		"hiddenchildren":[
+			{
+				"display":"",
+				"url":""
+			}
+			]
 	},
 	{
 		"display":"Search",
@@ -135,6 +140,10 @@
 				"url":"ds-importingdata.html"
 			},
 			{
+				"display":"Add Data Source",
+				"url":"ds-add.html"
+			},
+			{
 				"display":"Basic Tagging",
 				"url":"ds-tags.html"
 			},
@@ -160,10 +169,6 @@
 			}
 		],
 		"hiddenchildren":[
-			{
-				"display":"",
-				"url":"ds-add.html"
-			},
 			{
 				"display":"",
 				"url":"ds-add-host_filter.html"
@@ -277,6 +282,10 @@
 			{
 				"display":"Scale with Index Stores",
 				"url":"deploy-arch_indexstores.html"
+			},
+			{
+				"display":"Syslog Server Usage",
+				"url":"deploy-syslog_server.html"
 			},
 			{
 				"display":"Installing a Manager",
@@ -455,6 +464,10 @@
 			{	
 				"display":"Zones",
 				"url":"deploy-zones.html"
+			},
+			{
+				"display":"Socket Server",
+				"url":"deploy-socket_server.html"
 			}
 		]
 	},
@@ -662,6 +675,10 @@
 			{
 				"display":"Benchmarking",
 				"url":"technology-benchmarking.html"
+			},
+			{
+				"display":"Indexing",
+				"url":"technology-indexing.html"
 			},
 			{
 				"display":"Search Performance",

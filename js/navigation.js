@@ -28,12 +28,16 @@ $(document).ready(function(){
 						
 					}
 
+
 				} catch (err) {
 					console.log("Nav Item ERROR:" + navData.display)
 					console.log(navData.display)
 					console.log(err.stack)
 				}
-				if (amOnThisPage) curNav.html(curNav.html() + "<ul>" + childNav + "</ul>")
+				if (amOnThisPage){
+				if(childNav != "") childNav += '<a href="sitemap.html#PROTO">More...</a>'.replace("PROTO", navData.display)
+				curNav.html(curNav.html() + "<ul>" + childNav + "</ul>")
+			}
 			
 		}
 		if (foundPageId != null) {
@@ -65,8 +69,7 @@ $(document).ready(function(){
 					processChildren(navData.children, navData, true, currentURL, NAV)
 					processChildren(navData.hiddenchildren, navData, false, currentURL, NAV)
 
-
-		}
+				}
 	}
 
 	// var importedJsonObject = $.getJSON("/sitemap/nav.json",function(data){})
