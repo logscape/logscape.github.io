@@ -524,6 +524,24 @@
                 <p>* | USED.avgDeltaPc()</p>
               </div>
             </li>
+            <li>
+              <p>
+                <h4><a name="percentile"></a><strong>percentile()</strong></h4>Limits results to the percentile value passed as an argument
+              </p>
+              <p>Examples:</p>
+              <div class="block"> 
+                <p>* | USED.percentile(54)</p>
+              </div>
+            </li>
+            <li>
+              <p>
+                <h4><a name="transform"></a><strong>transform()</strong></h4>Apply a groovy script that will evaluate upon other pre-evaluated fields (/!\ search field analytic order) and also allow the use of 'constant' field values
+              </p>
+              <p>Examples:</p>
+              <div class="block"> 
+                <p>transform(groovy-script: [my-groovy-script])</p>
+              </div>
+            </li>
           </ul><br/><br/><br/>
           <div id="disqus_thread">
             <script>

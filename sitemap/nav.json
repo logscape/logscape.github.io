@@ -36,6 +36,10 @@
 				"url":"searching-pattern.html"
 			},
 			{
+				"display":"Search Performance",
+				"url":"searching-search_performance.html"
+			},
+			{
 				"display":"Overlay Searches",
 				"url":"searching-overlays.html"
 			},
@@ -137,7 +141,7 @@
 			},
 			{
 				"display":"Importing Data",
-				"url":"ds-importingdata.html"
+				"url":"ds-importing_data.html"
 			},
 			{
 				"display":"Add Data Source",

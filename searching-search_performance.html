@@ -258,68 +258,22 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-11">
-                <h3>Technology </h3>
-                <p>Logscape has four main components that turn your existing infrastructure into a distributed data fabric. Services running on these managed by the VScape orchestration layer. </p>
-                <div class="side-box">
-                  <h4>Reccomended Reading</h4><a href="technology-sizing.html">Sizing</a><br/><a href="deploy-manager.html">Installing a Manager</a><br/><a href="deploy-forwarder.html">Installing a Forwarder</a><br/><a href="ds-importing_data.html">Importing Data</a>
-                </div>
-                <div class="image">
-                  <center>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <h4>Logscape Manager </h4>
-                        <p> 
-                          <div class="image-left"><img src="images/technology-manager.png" width="50" height="50"/></div>Orchestrates the logging infrastructure. Distributes, consolidates and visualizes analytics and search result.
-                        </p>
-                      </div>
-                      <div class="col-md-4">
-                        <h4>Forwarder </h4>
-                        <p> 
-                          <div class="image-left"><img src="images/technology-forwarder.png" width="50" height="50"/></div>Monitors logs and operational data as it's generated and streams deltas to a bank of Index Stores
-                        </p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <h4>Local Indexer</h4>
-                        <p>
-                          <div class="image-left"><img src="images/technology-indexer.png" width="50" height="50"/></div>Indexes and searches logs as well as operational data locally in-place on the machines where it is generated
-                        </p>
-                      </div>
-                      <div class="col-md-4">
-                        <h4>Central Index Store </h4>
-                        <p>
-                          <div class="image-left"><img src="images/technology-indexstore.png" width="50" height="50"/></div>Stores, indexes and searches log files as well as operational data collected by the Forwarders
-                        </p>
-                      </div>
-                    </div>
-                  </center>
-                </div>
-              </div>
-            </div>
-            <div class="row"> 
-              <div class="col-md-3">
-                <h3>Add</h3>
-                <p>When a new <a href="ds.html">Datasource</a> is added, Logscape will dynamically discover the data on-the-fly. Live-streaming data will be monitored, and historical data will be imported.</p>
-              </div>
-              <div class="col-md-3">
-                <h3>Index</h3>
-                <p> <a href="deploy-indexer.html">Local Indexers</a> and <a href="deploy-indexstore.html">Central Index Stores</a> will automatically index the data and build a profile of search-related information.</p>
-              </div>
-              <div class="col-md-3">
-                <h3>Search</h3>
-                <p>When a <a href="searching.html">Search</a> is executed, it's distributed across all <a href="deploy-indexer.html">Local Indexers</a> and <a href="deploy-indexstore.html">Central Index Stores</a>, the analytics are then rolled-up via a multi-stage map reduce.</p>
-              </div>
-            </div>
-            <div class="row"> 
-              <div class="col-md-11">
-                <h3>VScape </h3>
-                <p>VScape is a distributed run-time compute fabric utilizing self healing fabric based methods and intelligent end-points to provide a scalable infrastructure Fundamental to the fabric is the ability to run services using component oriented SLAs - these SLAs provide the ability to express many attributes about how a service or component is to be deployed, which machines to execute on and when to ramp-up, ramp-down instances to allow 'right-sizing' of instances. If a machine crashes or is switched off-line the infrastructure will automatically recover and reconfigure the application runtime.</p>
-                <p>Logscape components run on top of VScape. VScape manages the life cycle of all major and sub components of Logscape, Apps and services. The health and status of each component is monitored by VScape and tracked within the ./work/vsaudit.log. </p><a href="technology-vscape.html">Learn More </a>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-11"><br/><br/><br/>
+                <h3>Search Performance</h3>
+                <p>There are multiple ways to set up both a datasource and your search that will affect the overall performance of your Logscape installation today we're going to walk you through some.</p><br/>
+                <h4>Summary Indexing:</h4>
+                <p>Summary Indexing will store search results for later use, to make use of summary indexing you need to pre-build your search results through uses of a scheduled search. By default Summary Indexed searches make use of a 10 minute bucket size.</p>
+                <p>				<strong>Pro: </strong>Very Fast, suitable for long, historic searches, low performance penalty<br/><strong>Con: </strong>Requires schedules tasks to execute summary.index(write). Uses disk space. Doesnt support faceting, Requires maintenence tasks</p>
+                <p>To write to the summary index you need to make use of 'summary.index(write)' in your search, we reccomend you set up an alert to fire this search. You can do this by using any schedule you wish, and then configuring your search as the alert trigger.</p><img src="images/searching_index_write.png" width="600"/>
+                <p>Once the index has been wrote you can reference the index by using the same search, but changing the summary syntax to 'summary.index(read)'</p><br/>
+                <h4>Indexed Fields</h4>
+                <p>An Indexed Fields search makes use of the ability to evaluate fields at index-time, rather than search time, the main scenarios this improves performance for is groovy-script as well as geo-ip lookups, however any scenario whereby the user is performing significant field manipulation would benefit greatly from having fields evaluated at index. </p>
+                <p><strong>Pros: </strong>Improves performance by 40%+<br/><strong>Cons: </strong>Required reindexing if the field script is changed</p><br/>
+                <h4>Keyword Filter</h4>
+                <p>Keyword filtering is simply making use of keywords before the | in your search syntax, this works to improve search performance by pruning the files that need to be search before search execution.</p>
+                <p><strong>Pro: </strong>Improves search performance and reduces search overhead<br/><strong>Con: </strong>Requires knowledge of what you are currently searching for</p><br/>
+                <h4>Basic</h4>
+                <p>A basic search is a search that does not make use of any of the above techniques, and generally utilises a * operator.</p>
+                <p><strong>Pro: </strong>Good for adhoc analysis<br/><strong>Con: </strong>Performance heavily dependant upon OS and Logscape configuration. Will struggle with large historic searches. May require an overwrite of the default TTL which can be performed by including ttl(X) in your search.</p><br/><br/><br/>
                 <div id="disqus_thread">
                   <script>
                     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
