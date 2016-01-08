@@ -259,7 +259,7 @@
             <div class="row">
               <div class="col-md-11">
                 <h3>Importing Data</h3>
-                <p>All data within Logscape relies upon Data Sources. Regardless of the original source of the data it will eventually be wrote to file, and picked up by a Data Source. Below we'll cover some of the more common sources of data, as well as how to get data from that source into Logscape.</p><br/>
+                <p>All data within Logscape relies upon Data Sources. Regardless of the original source of the data it will eventually be written to file, and picked up by a Data Source. Below we'll cover some of the more common sources of data, as well as how to get data from that source into Logscape.</p><br/>
                 <p><strong>Direct Upload -</strong></p>
                 <p>It is possible to upload data directly through the Logscape dashboard.</p>
                 <ol>
@@ -274,12 +274,12 @@
                   </li>
                 </ol><br/>
                 <p><strong>Logscape Apps - </strong></p>
-                <p>Any <a href="http://apps.logscape.com" target="_blank">Logscape App</a> which produces data will come bundled with a configuration file, this file contains information for the set up for datasources and datatypes amongst other useful data, this means that their is generally no need for the user to modify the datasources provided. However if the need arises the data sources from an app can be modified in the same way as anhy other data source.<br/><a href="images/ds-apps.png" target="_blank"><img src="images/ds-apps.png" width="350"/></a></p><br/>
+                <p>Any <a href="http://apps.logscape.com" target="_blank">Logscape App</a> which produces data will come bundled with a configuration file, this file contains information for the set up for datasources and datatypes amongst other useful data, this means that there is generally no need for the user to modify the datasources provided. However if the need arises the data sources from an app can be modified in the same way as any other data source.<br/><a href="images/ds-apps.png" target="_blank"><img src="images/ds-apps.png" width="350"/></a></p><br/>
                 <p> <strong>Data Source - </strong></p>
-                <p>A Datasource is a way of telling Logscape to monitor the directory in question, the user can also specify filters which the files must meet in order to be modified, when Logscape finds a valid file, a tailer will be assigned and the file indexed and made available on the search page. Datasources can be created and configured by following these steps.</p>
+                <p>A Datasource is a way of telling Logscape to monitor the directory in question, the user can also specify filters which the files must meet in order to be modified. When Logscape finds a valid file, a tailer will be assigned and the file indexed and made available on the search page. Datasources can be created and configured by following these steps.</p>
                 <ol>
                   <li>
-                    <p>Navigate to the Data Sources page</p><a href="images/ds-settings_datsources.png" target="_blank"><img src="images/ds-settings_datsources.png" width="100"/></a>
+                    <p>Navigate to the Data Sources page</p><a href="images/ds-settings_datsources.png" target="_blank"><img src="images/ds-settings_datsources.png" width="250"/></a>
                     <p>The Data Sources page can be found by selecting the Settings window, followed by the Data Sources tab.</p>
                   </li>
                   <li>
@@ -287,7 +287,7 @@
                     <p><strong>Directory - </strong>Path to Directory to be monitored</p>
                     <p><strong>File Mask - </strong>File mask which file must be match, accepts partial names and * as a wildcard</p>
                     <p><strong>Expires (Days) - </strong>The duration in days after which Logscape will stop monitoring a file</p>
-                    <p><strong>Archiving Rules -  </strong>The first field is hiw many days to wait before applying the rule, the second value is number of days before deletion</p>
+                    <p><strong>Archiving Rules -  </strong>First Field - Number of days before Deletion on Forwarder (0 never, if used must be greater than 2), Second Field - Number of days before action is taken on Indexer, Drop Down Box - Action to take.</p>
                     <p><strong>Host Filter -  </strong>Filter that is applied to hostnames</p>
                     <p>You can find a full Data Source tutorial <a href="ds-add.html">Here</a>.</p>
                   </li>
