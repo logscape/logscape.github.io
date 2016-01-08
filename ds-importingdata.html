@@ -267,16 +267,30 @@
                     <p>First Navigate to the user page on the left hand menu.</p><a href="images/ds_user_page.png" target="_blank"><img src="images/ds_user_page.png" width="400"/></a>
                   </li>
                   <li>
-                    <p>Navigate to the upload zip tab</p>
+                    <p>Navigate to the 'Upload Zip' tab</p><a href="images/ds_upload_zip.png" target="_blank"><img src="images/ds_upload_zip.png" width="400"/></a>
                   </li>
                   <li>
-                    <p>When prompted to, navigate to your zip file and hit upload</p>
+                    <p>Follow the steps on the page, and when prompted select your zip file.</p>
                   </li>
                 </ol><br/>
                 <p><strong>Logscape Apps - </strong></p>
-                <p>Any Logscape App which produces data will come bundled with a configuration file, this file contains information for the set up for datasources and datatypes amongst other useful data, this means that their is generally no need for the user to modify the datasources provided. However if the need arises the data sources from an app can be modified in the same way as anhy other data source.</p><br/>
-                <p><strong>Datasource - </strong></p>
-                <p>A Datasource is a way of telling Logscape to monitor the directory in question, the user can also specify filters which the files must meet in order to be modified, when Logscape finds a valid file, a tailer will be assigned and the file indexed and made available on the ssearsch page.</p><br/>
+                <p>Any <a href="http://apps.logscape.com" target="_blank">Logscape App</a> which produces data will come bundled with a configuration file, this file contains information for the set up for datasources and datatypes amongst other useful data, this means that their is generally no need for the user to modify the datasources provided. However if the need arises the data sources from an app can be modified in the same way as anhy other data source.<br/><a href="images/ds-apps.png" target="_blank"><img src="images/ds-apps.png" width="350"/></a></p><br/>
+                <p> <strong>Data Source - </strong></p>
+                <p>A Datasource is a way of telling Logscape to monitor the directory in question, the user can also specify filters which the files must meet in order to be modified, when Logscape finds a valid file, a tailer will be assigned and the file indexed and made available on the search page. Datasources can be created and configured by following these steps.</p>
+                <ol>
+                  <li>
+                    <p>Navigate to the Data Sources page</p><a href="images/ds-settings_datsources.png" target="_blank"><img src="images/ds-settings_datsources.png" width="100"/></a>
+                    <p>The Data Sources page can be found by selecting the Settings window, followed by the Data Sources tab.</p>
+                  </li>
+                  <li>
+                    <p>You will then be confronted by the datasource page.</p><a href="images/ds-datasources_page.png" target="_blank"><img src="images/ds-datasources_page.png" width="350"/></a><br/>
+                    <p><strong>Directory - </strong>Path to Directory to be monitored</p>
+                    <p><strong>File Mask - </strong>File mask which file must be match, accepts partial names and * as a wildcard</p>
+                    <p><strong>Expires (Days) - </strong>The duration in days after which Logscape will stop monitoring a file</p>
+                    <p><strong>Archiving Rules -  </strong>The first field is hiw many days to wait before applying the rule, the second value is number of days before deletion</p>
+                    <p><strong>Host Filter -  </strong>Filter that is applied to hostnames</p>
+                  </li>
+                </ol><br/>
                 <p><strong>Syslog Clients -  </strong></p>
                 <p>
                   The syslog format is supported by many applications and hardware like SAN disk and network routers.
@@ -288,7 +302,7 @@
                     <li>Network Devices (e.g SAN disks, Cisco Routers)</li>
                     <li>VMWare Suite of tools and applications </li>
                   </ul>
-                  <p>You can learn more about syslog by giving the <a href="ds-Syslog_tutorial.html">Syslog Tutorial</a> a read.</p>
+                  <p>You can learn more about syslog by giving the <a href="ds-Syslog_Tutorial.html">Syslog Tutorial</a> a read.</p>
                 </p><br/>
                 <p><strong>Raw TCP Data  </strong></p>
                 <p>The <a href="deploy-socket_server.html">socket server</a> allows live event streaming from any network enabled device or client. 
