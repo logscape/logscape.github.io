@@ -262,10 +262,10 @@
           <div class="image"> <img src="images/ds-syslog-runtime.png"/></div>
           <p>	By default the ports are set above 1024 but this can be modified in the boot.properties by updating the following properties </p>
           <div class="image"><code>-Dsyslog.tcp.port=1468</code><br/><code>-Dsyslog.udp.port=1514</code></div>
-          <p><em> <strong>Note: </strong></em>That using ports < 1024 on Unix based systems requires root privileges. Using authbind and iptables can be used to overcome this. </p><br/><br/>
-          <h3>	Searching Syslog Data  Source </h3>
-          <p>	The <em>syslog-server</em> data source can be used to search your syslog data. 
-            <div class="image"> <img src="images/ds-syslog-datasource.png"/></div>Locate the data source in the Configure section and click 'Search this datasource'. Use the standard and discovered fields to navigate the data. <br/><br/><br/>
+          <p><em> <strong>Note: </strong></em>That using ports < 1024 on Unix based systems requires root privileges. Using authbind and iptables can be used to overcome this. </p>
+          <h3>	Searching Syslog Data Source </h3>
+          <p>	The <em>syslog</em> data source can be used to search your syslog data. 
+            <div class="image"> <img src="images/ds-syslog-datasource.png"/></div>And can be found in the Data source tab of your installation, this data source contains all syslog data that has been transferred to the Logscape installation. It is advised to create additional datasources for individual sources of syslog messages.<br/><br/><br/>
             <div id="disqus_thread">
               <script>
                 /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

@@ -144,7 +144,7 @@
 				"url":"ds-add.html"
 			},
 			{
-				"display":"Basic Tagging",
+				"display":"Tagging",
 				"url":"ds-tags.html"
 			},
 			{
@@ -607,6 +607,10 @@
 			{
 				"display":"Actions Tab",
 				"url":"alerts-actions_tab.html"
+			},
+			{
+				"display":"Correlated Events",
+				"url":"alerts-correlated_alerts.html"
 			}
 		],
 		"hiddenchildren":[

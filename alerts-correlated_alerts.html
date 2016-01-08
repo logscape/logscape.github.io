@@ -258,42 +258,18 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-11">
-                <div id="breadcrumb"></div>
-                <h3>Searching</h3>
-                <div class="side-box">
-                  <h4>Reccomended Reading</h4><a href="search-First_Search.html">Your First Search</a><br/><a href="searching-pattern.html">Search Basics</a><br/><a href="ds-searching.html">Searching with Tags</a><br/><a href="searching-cheatsheet.html">Cheatsheet</a><br/><a href="searching-functions.html">Function Reference</a>
-                </div>
-                <p>If you're new to Logscape we've made the <a href="search-First_Search.html">Your First Search</a> tutorial to help you get started.</p>
-                <p>Logscape can search any data specified in your Datasources; using our Powerful Search Syntax.  you have complete control over:</p>
-                <ul>
-                  <li>
-                    <p>Files which are searched (Do you want to search company wide, or just by department)</p>
-                  </li>
-                  <li>
-                    <p>Metrics which are received (Average stock price over the past 12 months, or the last known price)</p>
-                  </li>
-                  <li>
-                    <p>How they are displayed (Pie chart showing deparment performance, or maybe a line chart for company growth)</p>
-                  </li>
-                </ul>
-                <p>Then, take it a step further by adding your saved searches to a <a href="workspaces.html">Workspace</a>, allowing you to group related searches and useful utilities. You can also use a Search as the basis of an <a href="alerts.html">Alert</a>, which can fire when specific criteria are met within your search. Searches make use of <a href="ds-tags.html">tags</a> to allow the user to add meta information to their data; so you can split your data by region, <a href="users-teams.html">team</a> or application to ensure you only search what you need.</p>
-                <div class="image">
-                  <center>
-                    <video preload="auto" width="650" height="350" poster="images/video_poster_1.png" controls="controls">
-                      <source src="http://logscape.com/videos/support/demo_search.webm" type="video/webm"/>
-                      <source src="http://logscape.com/videos/support/demo_search.mp4" type="video/mp4"/>
-                      <Your>browser does not support this tag </Your>
-                    </video><br/>
-                  </center>
-                  <div style="font-size:18px"> 
-                    <p style="padding-left:30%">More videos on the	 <a href="/searching-video.html" style="font-size:18px"> Search Videos Page </a></p>
-                  </div>
-                </div>
-                <p>Searching is a core component of Logscape, there are many chart types to choose from to help with slicing and dicing your data. Root cause analysis and search results are provided in realtime giving immediate response to changes in your monitoring infrastructure. <a href="searching-overview.html">Learn More.</a></p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-11"><br/><br/><br/>
+                <h3>Correlated Alerts</h3>
+                <p>Correlated alerts can seem quite daunting but in reality they're really quite simple and offer great functionality. </p>
+                <p>If you've never configured an alert you can read the alerts page <a href="alerts.html">Here</a>.</p><br/><strong>Configuration</strong><img src="http://blog.logscape.com/wp-content/uploads/2015/11/jP19Wro.png" style="float:right"/>
+                <p>Correlated alerts can be found at the bottom of the trigger tab on the alert's page, while there seems to be alot of fields, it's really quite simple.</p>
+                <p><strong>Time Window </strong>- The time, in seconds, to look for the events you will later specify.</p>
+                <p><strong>Type </strong>- Sequence or average, sequence expects specific events in a, well, sequence, whereas average is the average across your time window.</p>
+                <p><strong>Event Value </strong>- In the case of average, this is the value you want to alert on, if you've chosen your type as sequence however, this is a comma separated list of values to look for in sequence.</p>
+                <p><strong>Correlation Field </strong>- The field which will be evaluated</p>
+                <p><strong>Correlation Key </strong>- A value to group by, for example specifying _host, means it would use avg value by host, or look for a specific host which had a sequence of events.</p><br/><br/><br/><strong>Example</strong>
+                <p>Below is a brief example of a correlated alert that is configured in our environment</p><img src="http://blog.logscape.com/wp-content/uploads/2015/11/tTLkR6X.png"/><br/>
+                <p>This is a simple search to capture any event which contains an error code, for help creating your search you can check out the <a href="searching.html">searching docs</a>. Moving on to how I've got my correlation configured, it's really quite simple.</p><img src="http://blog.logscape.com/wp-content/uploads/2015/11/86t8j6K.png"/><br/>
+                <p>My alert is going to look over a 60 second time period, it's going to look for a sequence of events, More accurately it's going to look for four '10's in a row (FTP Username/Password Incorrect), and it's going to look at the AlertCode field from my search, and finally, it's going to group the events by _srcIP so that four different IP's failing to login won't trigger my alert, you need to fail four times, from the same _srcIP. If my values meet this criteria, my alert will fire, and whatever you specify in your actions tab, will be performed, for us it's a simple email, but there are quite a few different possibilities, all of which are covered in the <a href="alerts.html">alerting docs</a>.</p><br/><br/><br/>
                 <div id="disqus_thread">
                   <script>
                     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
