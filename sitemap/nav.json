@@ -32,8 +32,16 @@
 				"url":"searching-pattern.html"
 			},
 			{
+				"display":"Chart Types",
+				"url":"searching-Search_Types.html"
+			},
+			{
 				"display":"Search Performance",
 				"url":"searching-search_performance.html"
+			},
+			{
+				"display":"Summary Index",
+				"url":"searching-Summary_Index.html"
 			},
 			{
 				"display":"Overlay Searches",
@@ -68,6 +76,10 @@
 			{
 				"display":"Logscape Workspaces",
 				"url":"searching-defaults.html"
+			},
+			{
+				"display":"Tables",
+				"url":"searching-Tables.html"
 			},
 			{
 				"display":"API",
@@ -286,6 +298,10 @@
 			{
 				"display":"Syslog Server Usage",
 				"url":"deploy-syslog_server.html"
+			},
+			{
+				"display":"Socket Server",
+				"url":"deploy-socket_server.html"
 			},
 			{
 				"display":"Installing a Manager",

@@ -256,33 +256,31 @@
         </div>
         <div class="col-md-9 content-area"> 
           <div class="container-fluid">
-            <div class="row"></div>
-            <div class="col-md-8">
-              <h3>Tagging Overview </h3>
-              <p>Logscape provides a way to categorise and identify your data sources using tags. A tag is name or an alias for your data source and is represented by the system field<em>_tag.</em></p>
-              <p> Tags are a versatile way of categorising your data. A Data Source can be aliases with multiple tags. This allows you to add meta information to a data source. For example a data source may point to the applications logs belonging to a database server in your UAT environment. This datasource may be tagged db-logs,uat, representing the data being collected and the environment it belongs to. </p>
-              <h4>Using tags in Searches.</h4>
-              <p>You can filter your search based on where your data is coming from using the<em>_tag </em>system field in your search 				
-                The search below will show all the different files for a specific tag.
-              </p>
-              <pre>		| _tag.equals(java) _filename.count() </pre>
-              <h4>Auto-Tagging</h4>
-              <p>Data in Logscape can be automatically tagged upon ingestion by placing a file inside the source folder for that data, which has a name pre and post pended by an underscore, the name of this file will automatically be applied to your data as a tag, i.e a file located in</p>
-              <pre>C:/Program Files/ExampleProgram/Logs/_example_/output.log</pre>
-              <p>Would automatically be tagged as 'example'</p>
-              <h4>Using tags in Data Groups </h4>
-              <p>Tags can also be used in Data Groups to give and remove access to data. User access to the data provided by tags is managed on the Datagroup page </p><br/><br/><br/>
-              <div id="disqus_thread">
-                <script>
-                  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                  var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
-                  /* * * DON'T EDIT BELOW THIS LINE * * */
-                  (function() {
-                  	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                  	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                  	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                  })();
-                </script>
+            <div class="row">
+              <div class="col-md-11">
+                <h3>Search Performance </h3>
+                <h4>Summary Storage</h4>
+                <p>Every search analytic that builds a search visiaulization processes the data according to its algorithm in order to create it(count, avg etc) the problem is that if you have searches that run over the same data again and again for long periods of time, i.e 3 months, or 6 months, then these searches will be very slow due to the amount of processing/volume of data. The introduction of a 'summary.index()' allows for pre-build search results at a particular granularity (10 minute default). When searching against the summary.index the results are retrieved, re-bucketed to fit the search and passed back to the visualisation.</p><strong>How do you use it?</strong>
+                <p>1) execute desired search with summary.index(write) and then</p>
+                <p>2) with the identical search use summary.index(read).</p>
+                <p>3) summary.index(delete) will delete the whole index regardless of time-period</p>
+                <p>To maintain the Index, schedule a periodic search that uses the 'summary.index(write)' command to keep extending the index. Each entry contains a bloom filter to prevent over-writing, so when in doubt you can execute a long 'write' to fill in any gaps that may have occurred.</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-11"><br/><br/><br/>
+                <div id="disqus_thread">
+                  <script>
+                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                    	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                  </script>
+                </div>
               </div>
             </div>
           </div>
