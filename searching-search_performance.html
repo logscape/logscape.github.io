@@ -259,7 +259,7 @@
             <div class="row">
               <div class="col-md-11">
                 <h3>Search Performance</h3>
-                <p>There are multiple ways to set up both a datasource and your search that will affect the overall performance of your Logscape installation today we're going to walk you through some.</p><br/>
+                <p>There are multiple ways to set up both a datasource and your search that will affect the overall performance of your Logscape installation today we're going to walk you through some. Below is a run through of how you can make your searches more efficient, to configure Logscape to run more efficient searches, check out the<a href="technology-search_performance.html">Technology</a> section.</p><br/>
                 <h4>Summary Indexing:</h4>
                 <p>Summary Indexing will store search results for later use, to make use of summary indexing you need to pre-build your search results through uses of a scheduled search. By default Summary Indexed searches make use of a 10 minute bucket size.</p>
                 <p>				<strong>Pro: </strong>Very Fast, suitable for long, historic searches, low performance penalty<br/><strong>Con: </strong>Requires schedules tasks to execute summary.index(write). Uses disk space. Doesnt support faceting, Requires maintenence tasks</p>
@@ -270,10 +270,10 @@
                 <p><strong>Pros: </strong>Improves performance by 40%+<br/><strong>Cons: </strong>Required reindexing if the field script is changed</p><br/>
                 <h4>Keyword Filter</h4>
                 <p>Keyword filtering is simply making use of keywords before the | in your search syntax, this works to improve search performance by pruning the files that need to be search before search execution.</p>
-                <p><strong>Pro: </strong>Improves search performance and reduces search overhead<br/><strong>Con: </strong>Requires knowledge of what you are currently searching for</p><br/>
+                <p><strong>Pro: </strong>Improves search performance and reduces search overhead<br/><strong>Con: </strong>Requires knowledge of what you are currently searching for</p><img src="images/keywordFilter.png" width="600"/><br/><br/>
                 <h4>Basic</h4>
                 <p>A basic search is a search that does not make use of any of the above techniques, and generally utilises a * operator.</p>
-                <p><strong>Pro: </strong>Good for adhoc analysis<br/><strong>Con: </strong>Performance heavily dependant upon OS and Logscape configuration. Will struggle with large historic searches. May require an overwrite of the default TTL which can be performed by including ttl(X) in your search.</p><br/><br/><br/>
+                <p><strong>Pro: </strong>Good for adhoc analysis<br/><strong>Con: </strong>Performance heavily dependant upon OS and Logscape configuration. Will struggle with large historic searches. May require an overwrite of the default TTL which can be performed by including ttl(X) in your search.</p><img src="images/basic.png" width="600"/><br/><br/><br/>
                 <div id="disqus_thread">
                   <script>
                     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

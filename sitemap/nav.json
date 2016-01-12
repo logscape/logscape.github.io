@@ -304,6 +304,10 @@
 				"url":"deploy-socket_server.html"
 			},
 			{
+				"display":"Mapping.csv",
+				"url":"deploy-mapping_csv.html"
+			},
+			{
 				"display":"Installing a Manager",
 				"url":"deploy-manager.html"
 			},

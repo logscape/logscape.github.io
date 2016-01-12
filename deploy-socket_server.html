@@ -258,7 +258,7 @@
           <h3 id="breadcrumb">The Socket Server</h3>
           <p>The SocketServer allows live event streaming from any network device. Such inputs include Log4JSocketAppenders, SplunkForwarders or Snare Agents. The incoming stream of events is broken down into subdirectories which reflect the sourceIP and port. Each time a new a new connection is established the directory will be changed. i.e. 192.168.221.01_13000 indicates an incoming stream from the IP_Port combination.</p><br/>
           <p>To change the socket server port edit the <strong>boot.properties</strong> file and append/modify the following</p>
-          <pre>sysprop=-Dsocket.server.port=123456</pre><strong>A bounce will be required for this to take effect.</strong><br/><strong>Incoming Stream Data.</strong>
+          <pre>sysprop=-Dsocket.server.port=123456</pre><em>A bounce will be required for this to take effect.<br/></em><br/><strong>Incoming Stream Data.</strong>
           <p>As the stream arrives the contents are inspected and demultiplexed using the mapping.csv file (as attached below). The mapping determines the set of rules which use used to breakdown the stream and write the contents into their relevant locations. This allows for a single stream of data to contain multiple types of data which can be imported into LogScape.</p><br/>
           <p>For Example</p>
           <ol>
