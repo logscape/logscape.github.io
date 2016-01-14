@@ -521,7 +521,7 @@
               </p>
               <p>Examples:</p>
               <div class="block"> 
-                <p>* | USED.percentile(54)</p>
+                <p>* | USED.percentile(,54)</p>
               </div>
             </li>
             <li>
@@ -531,6 +531,24 @@
               <p>Examples:</p>
               <div class="block"> 
                 <p>transform(groovy-script: [my-groovy-script])</p>
+              </div>
+            </li>
+            <li>
+              <p>
+                <h4><a name="eval"></a><strong>eval()</strong></h4>Apply a post search evaluation, the EACH keyword will result in it being applied to every field returned
+              </p>
+              <p>Examples:</p>
+              <div class="block"> 
+                <p>* | _type.contains(UNX) _type.equals(unx-ps) usedMB.avg(server,UsedKB) RSZ_MB.avg(server,rszKB) eval(EACH * 1024) chart(table) buckets(1)</p>
+              </div>
+            </li>
+            <li>
+              <p>
+                <h4><a name="trend"></a><strong>trend()</strong></h4>Displays the 10, and 20 bucket average for the field
+              </p>
+              <p>Examples:</p>
+              <div class="block"> 
+                <p>* | _type.equals(Unx-CPU) Cpu.trend(,AverageAcross) Cpu.max()</p>
               </div>
             </li>
           </ul><br/><br/><br/>

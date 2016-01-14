@@ -328,6 +328,10 @@
 				"url":"deploy-indexer.html"
 			},
 			{
+				"display":"Deploy your License",
+				"url":"deploy-add_license.html"
+			},
+			{
 				"display":"Boot properties",
 				"url":"deploy-boot_properties.html"
 			},
