@@ -273,7 +273,7 @@
                     <p>summary.index(delete) will delete the whole index regardless of time-period</p>
                   </li>
                 </ol>
-                <p>To maintain the Index, schedule a periodic search that uses the 'summary.index(write)' command to keep extending the index. Each entry contains a bloom filter to prevent over-writing, so when in doubt you can execute a long 'write' to fill in any gaps that may have occurred.</p>
+                <p>To maintain the Index, schedule a periodic search that uses the 'summary.index(write)' command to keep extending the index, this can be achieved by saving your 'summary.index(write)' search and including it in an alert as the alert trigger, there is no need to set any actions. Each entry contains a bloom filter to prevent over-writing, so when in doubt you can execute a long 'write' to fill in any gaps that may have occurred.</p>
                 <p>This can be achieved by scheduling the 'summary.index(write)' search to run through the alerts menu, simply configure an alert as normal but leave the actions blank.</p>
               </div>
             </div>
