@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://logscape.github.io/sitemap.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/index.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-Introduction.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/apps.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/gettingstarted.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/data-flow.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/deploy-prerequisites.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/deploy-requirements.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/tutorials-tutorials.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/searching.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/ds-importing_data.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/ds-syslog.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/searching-pattern.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/workspaces.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-Introduction-Full_Stack_Monitoring.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-Introduction-Getting_Started.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-Stream_Your_Data.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-Stream_Your_Data-Syslog.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-Stream_Your_Data-NxLog.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-Stream_Your_Data-Collector.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-System_Data.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-System_Data-Unix_Server.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-System_Data-Windows_Server.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-Application_Data.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-Application_Data-Java_Logs.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-Application_Data-Apache_Logs.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-Application_Data-Nginx_Logs.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-Application_Data-Web_Logs.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-Network_Devices.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-Network_Devices-Juniper.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-Network_Devices-Cisco_ASA.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/apps-intro.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/apps-deploy.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/apps-style.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/ds.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/ds-add.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/searching-kv.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/datatypes.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/install-ports.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/types-tutorial.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/search-First_Search.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/ds-searching.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/searching-cheatsheet.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/searching-functions.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/alerts.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/ds-tags.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/users-teams.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/searching-video.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/searching-overview.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/ds-Syslog_Tutorial.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/deploy-socket_server.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/deploy-boot_properties.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/workspaces-First_Workspace.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/workspaces-linking-concept.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/workspaces-widgets.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-iis-logs.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-Stream_Your_Data-Collector-JMX.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-Stream_Your_Data-Collector-SQL.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-Stream_Your_Data-Collector-JSON.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-transport.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-Stream_Your_Data-Syslog-Watching_A_File.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-System_Data-Unix_Server-Unix_System_Logs.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-System_Data-Unix_Server-Unix_Audit_Logs.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-System_Data-Windows_Server-Windows_System_Logs.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/Cloud-System_Data-Windows_Server-Windows_Audit_Logs.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-Stream_Your_Data-Security_Token.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/apps-groovy.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/apps-shell.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/ds-multitags.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/types-searching.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/ds-importingdata.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/alerts-general_tab.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/alerts-trigger_tab.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/alerts-streaming.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/alerts-actions_tab.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/users-teams-create_team.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/deploy-zones</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/workspaces-single_value_panel.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-full-stack-monitoring.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-getting-started.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-syslog.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-nxlog.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-collector.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-collector-unix.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-collector-windows.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-java-logs.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-apache-logs.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-nginx-logs.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-web-logs.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-juniper-logs.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-cisco-logs.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/types-fields.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/types-field_discovery.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/types-field_grokit.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/types-system_fields.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/alerts-streaming-clients-js.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/alerts-streaming-clients-groovy.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-jmx.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-sql.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-json.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-syslog-watching.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-system-unix.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-system-unix-audit.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-system-windows.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/cloud-system-windows-audit.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/types-patterns.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://logscape.github.io/ds-intelligent_field_discovery.html</loc>
+  <lastmod>2016-01-15T10:28:15+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+</urlset>
