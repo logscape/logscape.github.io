@@ -259,9 +259,8 @@
             <div class="row">
               <div class="col-md-11">
                 <h3>Post Aggregate Functions</h3>
-                <p>Post aggregates allow you to apply analytics to the results of other Logscape analytics and are designed to allow you a finer grain of control over your searches. eg.</p>
-                <p>* | _type.equals(unx-cpu) CpuUtilPct.max(_day,Max_Day) +Max_Day.trend() chart(line) 50pct.max() 100pct.max()</p>
-                <p>The main object of note here is the '+' notation used on '+Max_Day.trend()', the '+' allows the user to perform analytics on a previously aliased field, 'Max_Day' is not a field within a data type rather it is aliased from 'CpuUtilPct.max(_day,Max_Day)'</p>
+                <p>Post Aggregate functions allow the user the capability of performing functions on the values returned by other functions within their search, allowing the user a finer grain of control over their search, simply alias a search result, and then reference this alias making use of the '+' notation. In the below search Max_Day, is not a field obtained from the datatype, rather it is an alias to the results of 'CpuUtilPct.max' and is assigned as the second parameter passed to the function, '.max(_day,Max_Day)'</p>
+                <pre>* | _type.equals(unx-cpu) CpuUtilPct.max(_day,Max_Day) +Max_Day.avg() chart(line) 50pct.max() 100pct.max()</pre><br/><img src="images/searching-post_agg.png" width="600"/>
               </div>
             </div>
             <div class="row">

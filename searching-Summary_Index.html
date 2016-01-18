@@ -259,7 +259,7 @@
             <div class="row">
               <div class="col-md-11">
                 <h3>Summary Storage</h3>
-                <p>Every search analytic that builds a search visualization processes the data according to its algorithm in order to create it(count, avg etc) the problem is that if you have searches that run over the same data again and again for long periods of time, i.e 3 months, or 6 months, then these searches will be very slow due to the amount of processing/volume of data. The introduction of 'summary.index()' allows for pre-built search results at a particular granularity (10 minute default). When searching against the summary.index the results are retrieved, re-bucketed to fit the search and passed back to the visualisation.</p><strong>How do you use it?</strong>
+                <p>Every search analytic that builds a search visualization processes the data according to its algorithm in order to create it (count, avg etc) the problem is that if you have searches that run over the same data again and again for long periods of time, i.e 3 months, or 6 months, then these searches will be very slow due to the volume of data. The introduction of 'summary.index()' allows for pre-built search results at a particular granularity (10 minute default). When searching against the summary.index the results are retrieved, re-bucketed to fit the search and passed back to the visualisation, as such facets, as well as replay events are not available, due to the nature of the summary index, if the search is modified your entire index will have to be rebuilt.</p><br/><strong>How do you use it?</strong>
                 <ol>
                   <li>
                     <p>Execute desired search with summary.index(write)</p>
@@ -272,9 +272,11 @@
                   <li>
                     <p>summary.index(delete) will delete the whole index regardless of time-period</p>
                   </li>
-                </ol>
-                <p>To maintain the Index, schedule a periodic search that uses the 'summary.index(write)' command to keep extending the index, this can be achieved by saving your 'summary.index(write)' search and including it in an alert as the alert trigger, there is no need to set any actions. Each entry contains a bloom filter to prevent over-writing, so when in doubt you can execute a long 'write' to fill in any gaps that may have occurred.</p>
-                <p>This can be achieved by scheduling the 'summary.index(write)' search to run through the alerts menu, simply configure an alert as normal but leave the actions blank.</p>
+                </ol><br/>
+                <p>To maintain the Index, schedule a periodic search that uses the 'summary.index(write)' command to keep extending the indexed timeframe, this can be achieved by saving your 'summary.index(write)' search and including it in an alert as the alert trigger, there is no need to set any actions.</p><br/><img src="images/searching-summary_index_write.png"/>
+                <p> <br/>The summary index makes use of a bloom filter to prevent over-writing, so when in doubt you can execute a long 'write' to fill in any gaps that may have occurred, when performing this action it is advised to override Logscape's default time to to live, by including 'ttl(time in minutes)' in your search.</p><strong>Debugging the summary index</strong>
+                <p>By setting the flag "sidx.xstream" to true in the agent.properties file, '-Dsidx.xstream=true', you can change your summary data to being output in XML format, your 'work/DB/sidx' folder should be clean before doing so. This allows you to see what data is being wrote to file in a human readable format, however it will use more disk space, as well as slowing search speeds so should only be used for debugging purposes.</p>
+                <p>It is also possible to set a log4j logging level in order to monitor the process of writing to, and reading from the summary index, this can be achieved by modifying the 'agent-log4j.properties' file to include '<em>com.liquidlabs.log.search.summaryindex=DEBUG</em>'</p>
               </div>
             </div>
             <div class="row">
