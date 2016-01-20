@@ -258,18 +258,121 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-11">
-                <h3>Post Aggregate Functions</h3><br/>
-                <p>Post Aggregates work by allowing the results of an analytic to be passed as input, into another - This allows you to perform analytics on data that is formatted in a way which would not normally be available. For instance, performing the search 'profit.sum(region,RgnProf)', RgnProf could be used to determine which region was the most profitable. Similarily it can be used to monitor resource metrics.</p>
-                <p>Take the following search,</p>
-                <pre>Agent and cpu | cpu.max(_host,POST)</pre>
-                <p>This search would simply display the maximum cpu by host, using post aggregates we can add '+POST.max(,Max) +POST.min(,Min) +POST.avg(,Avg) chart (c3.area)' and get</p>
-                <pre>Agent and cpu | cpu.max(_host,POST) +POST.max(,Max) +POST.min(,Min) +POST.avg(,Avg) chart (c3.area)</pre>
-                <p>To get our Maximum, Average and minimum CPU. Ideally you'd like to see these values all close together, as large jumps in the chart means that load isn't being shared optimally.</p><img src="images/post_agg_search.png" width="600"/><br/>
-                <p>In the above case, you can see that maximum load is massively varied as work goes through the system, however to the left of the chart when load was lower, all three bands bore close resemblance. </p>
-                <p>We can perform a similar example using the WindowsApp.</p>
-                <pre>*| _type.equals(win-procpref) threads.sum(_host,THREADS) +THREADS.max(,Max) +THREADS.min(,Min) +THREADS.avg(,Avg) bucketWidth (1m) chart(c3.area)</pre>
-                <p>This search will show the minimum, average and maximum running threads on the system, looking at the graph below it is strikingly obvious when a large program is closed, releasing the threads.</p><img src="images/post_agg_search2.png" width="600"/><br/>
-                <p> <br/>Hopefully this has allowed you to understand the power of Post Aggregates in Logscape.</p>
+                <h3>Teams</h3><br/>
+                <p>The Logscape Team facility allows you to restrict users visibility to certain data and agents. You may have several reasons for this:</p>
+                <ul>
+                  <li>
+                    <p>Geography: Ensuring the Asia-Pacific Team aren't monitoring European Servers.</p>
+                  </li>
+                  <li>
+                    <p>Security: Preventing Front Office Traders from accessing Middle Office Reports.</p>
+                  </li>
+                  <li>
+                    <p> Simplicity: Ensuring the Application Support Team only see data relevant to their application.</p>
+                  </li>
+                </ul>
+                <p>It's recommended that you split your users into teams, both for the benefits listed above and also to improve performance as users are less likely to run searches over irrelevant data.</p><br/>
+                <h4 style="color:#892d25">Server Visibility: Resource Groups</h4>
+                <p>The primary tool in defining a Team, a Resource Group is a collection of servers. You might wish to group your servers by:</p>
+                <ul>
+                  <li>
+                    <p>Location or Region: Asia/Europe, Northwest/Southwest, ServerRack1/ServerRack2</p>
+                  </li>
+                  <li>
+                    <p>Application: Sales/Databases, Docker Boxes, Exchange Servers</p>
+                  </li>
+                  <li>
+                    <p>Operating System or Architecture: Linux/Windows, x86MachinesOnly, >4 Processors</p>
+                  </li>
+                </ul>
+                <p>As the Environment architect, it is up to you to find the best fit for your organisation. For Teams, Location and Application are generally the most commonly used. To learn about creating a resource group, click <a href="deploy-agents.html">here.  </a></p>
+                <p>Once you have defined your resource group, simply add the name to the Team. As soon as it is saved, that Team can only see data received from Hosts within that Resource-Group. This removes their visibility but does not affect the underlying data - so to give the Team access to more servers either amend the Resource Group or remove it altogether.  </p><br/>
+                <h4 style="color:#892d25">Data Visibility: Include/Exclude</h4>
+                <p>Resource Groups allow you to limit a user to viewing only a certain set of servers - which in a large environment can be very useful. However, any one user may not need all of the information monitored on a single server. For example, a server might provide us:</p>
+                <ul>
+                  <li>
+                    <p>OS Information: Disk Space, Memory Utilisation, System Errors - Useful for the Infrastructure Team</p>
+                  </li>
+                  <li>
+                    <p>Network Information: Ping times, Packets lost, Bandwidth usage - Useful for Networking and Infrastructure</p>
+                  </li>
+                  <li>
+                    <p>Application Logs: Workflow messages, Output Timings, Application errors - Useful for Application Support</p>
+                  </li>
+                  <li>
+                    <p>Application Output: Sales/Trade data, System Output, System Status - Useful for Users and Application Support</p>
+                  </li>
+                  <li>
+                    <p>Report Summaries: End of Day Reports, Volume summaries - Useful for Management and Users</p>
+                  </li>
+                </ul>
+                <p>Since Logscape can monitor the full stack of your server, one Agent could be feeding multiple sources of data at once but only some of those sources will be relevant to any particular user. Perhaps some data might be deemed too sensitive for certain users. That is why Logscape allows you to filter the data available to any user. To demonstrate this, we will use an example</p>
+                <p>Consider the following data sources and contents:</p>
+                <ul>
+                  <li>
+                    <p>SalesData: daysoutput.xls,weeksoutput.xls,monthoutput.xls,saleserrors.txt</p>
+                  </li>
+                  <li>
+                    <p>SupportData: application.log,audit.log,usersandpasswordsHIGHLYSENSITIVE.csv</p>
+                  </li>
+                </ul>
+                <p>The first tool we will use is Includes. This is an exclusive list of tags or filenames to determine what a user can see. If it's not in the list it cannot be seen.</p>
+                <p>Our first team is called Sales - they should be able to see everything in the SalesData Data Source. So add tag:SalesData to includes.</p>
+                <p>This means Sales:</p>
+                <ul>
+                  <li>
+                    <p>Can see anything within SalesData</p>
+                  </li>
+                  <li>
+                    <p>Cannot search anything else</p>
+                  </li>
+                </ul><img src="images/sales_data.png" width="600"/>
+                <p>The second tool is excludes, which is a list of tags or filenames a user cannot see. If a file matches, it will be restricted.</p>
+                <p>Our next team is called Support - they are not allowed to see HIGHLYSENSITIVE data. So add *HIGHLYSENSITIVE* to excludes. Now they can see everything except filenames with that in the name.</p>
+                <p>This means Support:</p>
+                <ul>
+                  <li>
+                    <p>Cannot search any filename named HIGHLYSENSITIVE</p>
+                  </li>
+                  <li>
+                    <p>Can search anything else</p>
+                  </li>
+                </ul>
+                <p>Then add tag:SupportData,saleserrors.txt to the Includes of the Support team. This means Support:</p>
+                <ul>
+                  <li>
+                    <p>Can search everything in SupportData</p>
+                  </li>
+                  <li>
+                    <p>Can search any filename named saleserrors.txt</p>
+                  </li>
+                  <li>
+                    <p>Cannot search any filename named HIGHLYSENSITIVE</p>
+                  </li>
+                  <li>
+                    <p>Cannot search anything else</p>
+                  </li>
+                </ul><img src="images/support_data.png" width="600"/>
+                <p>Our final group is called SeniorSupport - they should have the powers of both groups. Fortunately, we have the ability to make a group a child of another group - meaning that it inherits it's permissions. So we add to the children section of SeniorSupport Support,Sales.</p>
+                <p>That means that SeniorSupport:</p>
+                <ul>
+                  <li>
+                    <p>Can search everything in SalesData</p>
+                  </li>
+                  <li>
+                    <p>Can search everything in SupportData</p>
+                  </li>
+                  <li>
+                    <p>Can search any filename named saleserrors.txt</p>
+                  </li>
+                  <li>
+                    <p>Cannot search any filename named HIGHLYSENSITIVE</p>
+                  </li>
+                  <li>
+                    <p>Cannot search anything else</p>
+                  </li>
+                </ul><img src="images/senior_support.png" width="600"/>
+                <p>As you can see, the cumulative rules have made this role simple - and if any of the parent roles change, so will SeniorSupport. Hopefully you can see the potential for data and server segregation in your environment, both in the security and productivity that it can give to your users and data.</p>
               </div>
             </div>
             <div class="row">
