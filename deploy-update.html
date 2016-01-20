@@ -287,7 +287,8 @@
                     <p>Bounce your System - <em> Once all your agents have a copy of the new files bounce the system</em></p>
                   </li>
                   <p>Once the system is back online the login and system pages will reflect the new version.	</p>
-                </OL><strong>How it works.</strong>
+                </OL>
+                <h3>How it works</h3>
                 <p>When you deploy an update via the Web UI of a Manager all forwarders in the environment become aware of this change and begin downloading the new files, these files are downloaded using a torrent format to increase speed and reduce network strain. Once downloaded they can be found compressed in the '/downloads/' folder of each agent.</p>
                 <p>During the boot process your agents will uncompress the contents of their download folder, Logscape core utilities will be extracted into '/system-bundles', Logscape apps into '/deployed-bundles' and any transient data such as the 'war' files, into your '/work/' directory.</p>
                 <pre>Note: If using deployment automation tools such as Chef, files modified by a Logscape update will be in the following locations
