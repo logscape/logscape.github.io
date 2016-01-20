@@ -517,12 +517,12 @@
             </li>
             <li>
               <p>
-                <h4><a name="percentile"></a><strong>percentile()</strong></h4>When used without an argument will list all percentile bands for the value. When used with an argument will display values above this percentile mark
+                <h4><a name="percentile"></a><strong>percentile()</strong></h4>When used without an argument will list all percentile bands for the value. When used with an argument will present how many records can be found above this percentile value, useful for capturing when values exceed the normal range.
               </p>
               <p>Examples:</p>
               <div class="block"> 
-                <p>* | USED.percentile()</p>
-                <p>* | USED.percentile(,54)</p>
+                <p>* | _type.equals(win-cpu) ProcessorPct.percentile(,) chart(line)</p>
+                <p>* | _type.equals(win-cpu) ProcessorPct.percentile(,96) chart(line)</p>
               </div>
             </li>
             <li>
@@ -545,11 +545,11 @@
             </li>
             <li>
               <p>
-                <h4><a name="trend"></a><strong>trend()</strong></h4>Displays the 10, and 20 bucket average for the field
+                <h4><a name="trend"></a><strong>trend()</strong></h4>Applies an average across the past 10 and 20 buckets for the value, and plots both lines, by default named _10 and _20.
               </p>
               <p>Examples:</p>
               <div class="block"> 
-                <p>* | _type.equals(Unx-CPU) Cpu.trend(,AverageAcross) Cpu.max()</p>
+                <p>* | _type.equals(Unx-CPU) Cpu.trend(,AverageAcross)</p>
               </div>
             </li>
           </ul><br/><br/><br/>

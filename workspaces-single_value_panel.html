@@ -260,6 +260,9 @@
               <div class="col-md-11">
                 <h3>Single Value Widget</h3>
                 <p>The intention of the Single Value Widget is to not only provide a clear display for data, but also to put more control into the users hand, instead of performing a pre-defined operation on your data, it instead exposes the capability to enter raw javascript and have it executed by the widget. This means that while the widget isn't for everyone, it is exceedingly powerful, allowing you to display your data exactly how you want it.</p>
+                <div class="image">
+                  <center><img src="images/single_value_panel.png"/></center>
+                </div>
                 <h3>Using the Widget</h3>
                 <p>Today I'm going to show you how to use Chrome's built in developer tools in order to work with the Single Value Widget.</p>
                 <p>Start off by adding the widget to your workspace, one you've loaded up the widget settings you'll see a default script is included, this script is just a really simple heatmap to show you how things work. We're going to get rid of this, and then using Chromes development tools(f12), navigate to the sources tab and load up value.js and set a breakpoint where "eval(userScript)", currently line 83, is called.</p>
