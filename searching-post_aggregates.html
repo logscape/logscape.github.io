@@ -259,12 +259,12 @@
             <div class="row">
               <div class="col-md-11">
                 <h3>Post Aggregate Functions</h3><br/>
-                <p>Post Aggregates work by allowing the results of an analytic to be passed as input, into another - This allows you to perform analytics on data that is formatted in a way which would not normally be available. For instance, performing the search 'profit.sum(region,RgnProf)', RgnProf could be used to determine which region was the most profitable. Similarily it can be used to monitor resource metrics.</p>
+                <p>Post Aggregates work by using the results of an analytic as the input for another - This allows you to perform analytics on data that is formatted in a way which would not normally be available. For instance, performing the search 'profit.sum(region,RgnProf)', RgnProf could be used to determine which region was the most profitable. Similarily it can be used to monitor resource metrics.</p>
                 <p>Take the following search,</p>
                 <pre>Agent and cpu | cpu.max(_host,POST)</pre>
                 <p>This search would simply display the maximum cpu by host, using post aggregates we can add '+POST.max(,Max) +POST.min(,Min) +POST.avg(,Avg) chart (c3.area)' and get</p>
-                <pre>Agent and cpu | cpu.max(_host,POST) +POST.max(,Max) +POST.min(,Min) +POST.avg(,Avg) chart (c3.area)</pre>
-                <p>To get our Maximum, Average and minimum CPU. Ideally you'd like to see these values all close together, as large jumps in the chart means that load isn't being shared optimally.</p><img src="images/post_agg_search.png" width="600"/><br/>
+                <pre>Agent AND cpu | cpu.max(_host,POST) +POST.max(,Max) +POST.min(,Min) +POST.avg(,Avg) chart(c3.area)</pre>
+                <p>This shows you your CPU utilisation spread. With it, you can see the spread between your minimum and maximum CPU laden machines, with the average as an indicator. On almost any environment, you’d expect to see the Max much higher than the average – that means a few boxes are straining and the rest are coasting. The larger the gap, the more uneven your workload is spread.</p><img src="images/post_agg_search.png" width="600"/><br/>
                 <p>In the above case, you can see that maximum load is massively varied as work goes through the system, however to the left of the chart when load was lower, all three bands bore close resemblance. </p>
                 <p>We can perform a similar example using the WindowsApp.</p>
                 <pre>*| _type.equals(win-procpref) threads.sum(_host,THREADS) +THREADS.max(,Max) +THREADS.min(,Min) +THREADS.avg(,Avg) bucketWidth (1m) chart(c3.area)</pre>

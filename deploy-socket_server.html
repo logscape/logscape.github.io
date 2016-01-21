@@ -317,19 +317,24 @@ ASA-session, timestamp=false,mline=false,appendNL=false,(\d+\.\d+\.\d+\.\d+) AND
               <td>The expression groups are used to recognize content and also determine the subdirectory. Each group () will form part of the path; hence allowing for hostnames, types to be used.</td>
             </tr>
           </table><br/>
-          <p>As the incoming stream is evaluated, the appropriate output files will be streamed into. Any stream of data that is not recognized will be output into an {timestamp}-unknown.log file. By inspecting this file you can see those types not recognized, update the mapping.csv file and then bounce the SocketServer (so it is reconfigured). By default the mapping.csv is located within the system-properties/vs-log-server directory. To make the required changes copy it into the root LogScape directory and edit the file there.</p><br/><br/><br/>
-          <div id="disqus_thread">
-            <script>
-              /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-              var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
-              /* * * DON'T EDIT BELOW THIS LINE * * */
-              (function() {
-              	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-              	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-              })();
-            </script>
-          </div>
+          <p>As the incoming stream is evaluated, the appropriate output files will be streamed into. Any stream of data that is not recognized will be output into an {timestamp}-unknown.log file. By inspecting this file you can see those types not recognized, update the mapping.csv file and then bounce the SocketServer (so it is reconfigured). By default the mapping.csv is located within the system-properties/vs-log-server directory. To make the required changes copy it into the root LogScape directory and edit the file there.
+            <div class="row">
+              <div class="col-md-11"><br/><br/><br/>
+                <div id="disqus_thread">
+                  <script>
+                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                    	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                  </script>
+                </div>
+              </div>
+            </div>
+          </p>
         </div>
       </div>
       <!--

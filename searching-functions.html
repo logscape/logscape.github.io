@@ -545,11 +545,11 @@
             </li>
             <li>
               <p>
-                <h4><a name="trend"></a><strong>trend()</strong></h4>Applies an average across the past 10 and 20 buckets for the value, and plots both lines, by default named _10 and _20.
+                <h4><a name="trend"></a><strong>trend()</strong></h4>Applies an average across the past 10 and 20 <a href="#buckets">buckets </a>for the value, and plots both lines, by default named _10 and _20.
               </p>
               <p>Examples:</p>
               <div class="block"> 
-                <p>* | _type.equals(Unx-CPU) Cpu.trend(,AverageAcross)</p>
+                <p>* | _type.equals(Unx-CPU) Cpu.trend(,AverageAcross) buckets(5m)</p><em>Due to the 5 minute bucket size, trend would provide averages from past 50 and past 100 minutes.</em>
               </div>
             </li>
           </ul><br/><br/><br/>

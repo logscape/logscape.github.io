@@ -281,79 +281,22 @@
                 <p>By default the Socket Server will store the raw socket stream before demultiplexing in a raw file. This can be disabled by using the following system property</p>
                 <blockquote> -Dsocket.server.dump.raw=false</blockquote>
                 <h3>How the Log TCP  Streaming works </h3>
-                <p>Logscape accepts the incoming stream of data and inspects the contents looking for text patterns defined in the mapping.csv file. When Logscape comes across a known text pattern that log snippet is streamed off to the appropriate file and a configured data type is assigned. If the snippet is unrecognized it will be appended to the UNKNOWN.log file. </p><strong> Mapping configuration file </strong>
-                <p>The mappings file is a csv file that configures the mapping of the log streams to files and directories. The file should be in the following location</p>
-                <blockquote>$LOGSCAPE_HOME/mappings.csv </blockquote>
-                <p>A sample mappings.csv file can be found at: </p>
-                <blockquote>$LOGSCAPE_HOME/system-bundles/vs-log-server-1.0/mapping.csv</blockquote>
-                <p>The file has the following format.</p>
-                <table class="table">				
-                  <tr>
-                    <td>#  </td>
-                    <td>#type-key</td>
-                    <td>#timestamp</td>
-                    <td>#mline=t/f,</td>
-                    <td>#appendNL=true/false</td>
-                    <td>post process pattern (DEPRECATED) </td>
-                    <td>stream regex pattern </td>
-                  </tr>
-                  <tr>     
-                    <td>1. </td>
-                    <td>ASA-bridge </td>
-                    <td> timestamp=false</td>
-                    <td>mline=false</td>
-                    <td>appendNL=false,</td>
-                    <td> </td>
-                    <td>(\d+\.\d+\.\d+\.\d+) AND ASA-bridge</td>
-                  </tr>
-                  <tr>
-                    <td>2 </td>
-                    <td>ASA </td>
-                    <td>timestamp=false</td>
-                    <td>mline=false</td>
-                    <td>appendNL=false</td>
-                    <td> </td>
-                    <td>(\d+\.\d+\.\d+\.\d+) AND ASA-\d+</td>
-                  </tr>
-                </table>
-                <p>In this example cisco logs are identified using the stream regex pattern. The stream is written down to a file using the type-key field with the date appended to it.					
-                  <blockquote>	ASA-bridge-$YYMMDD.log </blockquote>
-                </p>
-                <p> Notice that the stream regex pattern uses a regex group. The group extracted is used to create a sub directory. In this example the extracted group is the  IP address of the originating device. </p>
-                <div class="image">
-                  <table style="background-color:#CCC" class="table">
-                    <tr>
-                      <td colspan="2" style="background-color:#AAA">
-                        <center><strong>Mapping Csv Header </strong></center>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td> <strong>type </strong></td>
-                      <td>This is the type of file collected by the SocketServer. This will become the name of the file. </td>
-                    </tr>
-                    <tr>
-                      <td> <strong>timestamp=true|false</strong></td>
-                      <td>true/false 
-                        <p>When this is set to true, Logscape will use the timestamp if the event contains one. When this is false, the time of arrival of the log event is used. </p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td> <strong>mline=true|false</strong></td>
-                      <td>If the log stream contains multi-line events like exceptions  then this field must be set to  true.</td>
-                    </tr>
-                    <tr>
-                      <td> <strong>appendNL=false </strong></td>
-                      <td>	Append a new line to each log stream event </td>
-                    </tr>
-                    <tr>
-                      <td> <strong>Post Process Pattern</strong></td>
-                      <td>This field is depracated and should be left blank.</td>
-                    </tr>
-                    <tr>	
-                      <td> <strong>log pattern</strong></td>
-                      <td>The pattern is a regular expression used to identify the log event. Groups are optional. When they are used, each group is used as a directory name. A typical use case is extracting hostnames or unique ids. Each group creates a nested folder. </td>
-                    </tr>
-                  </table>
+                <p>Logscape accepts the incoming stream of data and inspects the contents looking for text patterns defined in the mapping.csv file. When Logscape comes across a known text pattern that log snippet is streamed off to the appropriate file and a configured data type is assigned. If the snippet is unrecognized it will be appended to the UNKNOWN.log file. </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-11"><br/><br/><br/>
+                <div id="disqus_thread">
+                  <script>
+                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                    	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                  </script>
                 </div>
               </div>
             </div>
