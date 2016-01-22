@@ -142,9 +142,10 @@ margin-left: 0;
 }
 
 .breadcrumbs {
-	padding-left:40px;
+	padding-left:0px;
 	height:24px;
 }
+
 
 .breadcrumbs a{
 	font-weight:300;
