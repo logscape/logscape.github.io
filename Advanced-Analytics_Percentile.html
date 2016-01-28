@@ -258,52 +258,34 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-11">
-                <h3>Data Sources</h3>
-                <div class="side-box">
-                  <h4>Reccomended Reading</h4><a href="ds-importing_data.html">Importing Data</a><br/><a href="ds-tags.html">Basic Tagging</a><br/><a href="ds-multitags.html">Multi Tags</a><br/><a href="ds-searching.html">Searching with Tags</a><br/><a href="data-flow.html">Data Flow</a><br/><a href="ds-add_csv.html">CSV Auto Extraction</a>
-                </div>
-                <p>Logscape can source its data from many different locations: your applications, <a href="ds-syslog.html">Syslog</a>  and <a href="http://apps.logscape.com">Logscape apps,</a> as well as a variety of other sources. The key characteristic each source has in common is that the data is written to file and ingested. A Datasource specifies a directory, tag and file mask; which determines the files it should contain. Once declared, every Agent will begin to monitor the location within their file system for any matching files. Once a matching file is found, any existing data will be ingested and <a href="#indexing">Indexed</a>, and the file tailed to capture additional data in real time, once ingested it is forwarded to and indexed by an indexstore, and becomes searchable by the end user.</p>
-                <div class="image">
-                  <center><img src="images/datasources_diagram.png" width="800"/></center>
-                </div>
-                <h4>Indexing</h4><a name="indexing"></a>
-                <p>All data that is searchable within logscape is ingested using the indexing process. Indexing is configured through Data sources. The process is to</p>
-                <ol>
-                  <li> On every indexing host (Manager, IndexStore) - track all Data Source Directory paths for existing or newly created files that match the filename masks.</li>
-                  <li>For every file, monitor/tail it so as to detect changes, Every delta is processed for timestamp, discovered fields and timeseries indexing.</li>
-                  <li>When files roll or are deleted the Tailing process detects the event and updates the index accordingly.</li>
-                  <li>While indexing is occurring the data is immediately available for searching</li>
-                </ol>
-                <!-- p Datasources also allow you to 
-                a(href="ds-tags.html") Tag 
-                | your data, these tags can then be used to 
-                a(href="ds-searching.html") Power Your Searches
-                |  within Logscape, for a more complete run through of how your data is ingested, how it moves, and where it is stored, why not read the 
-                a(href="data-flow.html") Dataflow
-                |  section of the Logscape documentation, as well as how data recieved via syslog and other sources are handled by the Logscape Indexstore.
-                -->
+                <div id="breadcrumb"></div>
+                <h3>Advanced Analytics - Percentile</h3><em>You're examining the CPU Utilization in your environment again, you have hundreds of hosts and you're only really interested about the hosts that are at the highest values, .percentile(,95) will remove all except those within the 95th percentile for CPU Usage.</em>
+                <p>The percentile function has two usage, '.percentile()' and '.percentile(,[value])', the first, will show the 1,5,25,50,75,95 and 99 bands within your data, and the value at which these percentage lines lie, if however, you specify a value, you will instead by shown how many records lie above the percentile line you choose.</p>
+                <pre>* | _type.equals(UNX-cpu) CpuUtilPct.percentile(,) chart(line)
+* | _type.equals(win-cpu) ProcessorPct.percentile(,) chart(line)</pre>
+                <p><br/></p>
+                <image src="images/analytics_percentile-1.png" width="600"></image>
+                <p><br/></p>
+                <pre>* | _type.equals(UNX-cpu) CpuUtilPct.percentile(,75) chart(line)
+* | _type.equals(win-cpu) ProcessorPct.percentile(,75) chart(line)</pre>
+                <p><br/></p>
+                <image src="images/percentile75Limit.png" width="600"></image>
               </div>
-              <!--	
-              .image                                                  
-              	img(src="images/datasources_diagram.png")  
-              
-              
-              -->
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-11"><br/><br/><br/>
-              <div id="disqus_thread">
-                <script>
-                  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                  var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
-                  /* * * DON'T EDIT BELOW THIS LINE * * */
-                  (function() {
-                  	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                  	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                  	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                  })();
-                </script>
+            <div class="row">
+              <div class="col-md-11"><br/><br/><br/>
+                <div id="disqus_thread">
+                  <script>
+                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                    	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                  </script>
+                </div>
               </div>
             </div>
           </div>

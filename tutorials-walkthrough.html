@@ -258,52 +258,48 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-11">
-                <h3>Data Sources</h3>
-                <div class="side-box">
-                  <h4>Reccomended Reading</h4><a href="ds-importing_data.html">Importing Data</a><br/><a href="ds-tags.html">Basic Tagging</a><br/><a href="ds-multitags.html">Multi Tags</a><br/><a href="ds-searching.html">Searching with Tags</a><br/><a href="data-flow.html">Data Flow</a><br/><a href="ds-add_csv.html">CSV Auto Extraction</a>
-                </div>
-                <p>Logscape can source its data from many different locations: your applications, <a href="ds-syslog.html">Syslog</a>  and <a href="http://apps.logscape.com">Logscape apps,</a> as well as a variety of other sources. The key characteristic each source has in common is that the data is written to file and ingested. A Datasource specifies a directory, tag and file mask; which determines the files it should contain. Once declared, every Agent will begin to monitor the location within their file system for any matching files. Once a matching file is found, any existing data will be ingested and <a href="#indexing">Indexed</a>, and the file tailed to capture additional data in real time, once ingested it is forwarded to and indexed by an indexstore, and becomes searchable by the end user.</p>
-                <div class="image">
-                  <center><img src="images/datasources_diagram.png" width="800"/></center>
-                </div>
-                <h4>Indexing</h4><a name="indexing"></a>
-                <p>All data that is searchable within logscape is ingested using the indexing process. Indexing is configured through Data sources. The process is to</p>
+                <div id="breadcrumb"></div>
+                <h3>Welcome to Logscape</h3>
+                <p>Welcome to Logscape. This step by step guide will walk you through the entire Logscape process, from downloading and installing, all the way to building custom workspace.</p>
                 <ol>
-                  <li> On every indexing host (Manager, IndexStore) - track all Data Source Directory paths for existing or newly created files that match the filename masks.</li>
-                  <li>For every file, monitor/tail it so as to detect changes, Every delta is processed for timestamp, discovered fields and timeseries indexing.</li>
-                  <li>When files roll or are deleted the Tailing process detects the event and updates the index accordingly.</li>
-                  <li>While indexing is occurring the data is immediately available for searching</li>
+                  <li>
+                    <p> <a href="deploy-manager.html">Part 1: Downloading and install Logscape </a> - Follow this walkthrough to Download and Install a Logscape manager.</p>
+                  </li>
+                  <li>
+                    <p> <a href="tutorials-Getting_to_know_UI.html">Part 2 - Getting to know the UI </a> - This tutorial will get you accustomed with the Logscape UI so that you can navigate the following tutorials.</p>
+                  </li>
+                  <li>
+                    <p> <a href="ds-add.html">Part 3 - Getting data into Logscape</a> - For this tutorial, we're going to be setting up a basic datasource, however it's possible to add data to Logscape through Syslog, HTTP, direct upload, or use of a Logscape app.</p>
+                  </li>
+                  <li>
+                    <p> <a href="searching-pattern.html">Part 4 - The Logscape Search Syntax </a>- We're going to cover Logscape search syntax at a basic level, for more advanced use cases, read the advanced analytics, section.</p>
+                  </li>
+                  <li>
+                    <p> <a href="search-First_Search.html">Part 5 - Your first search</a> - In this tutorial we'll cover the process of generating your first search, show some different analytics, and how to save your search for use later in an alert or workspace.</p>
+                  </li>
+                  <li>
+                    <p> <a href="workspaces-first_workspace.html">Part 6 - Creating a workspace </a>- In this tutorial we'll cover creating your first workspace, a workspace is useful collection of related searches, and can be used in alerts to generate detailed reports.</p>
+                  </li>
+                  <li>
+                    <p>	<a href="tutorials-first_alert.html">Part 7 - Configuring an Alert </a>-  In this tutortial you'll be walked through the Alert interface showing you how to set up your own custom alerts.</p>
+                  </li>
                 </ol>
-                <!-- p Datasources also allow you to 
-                a(href="ds-tags.html") Tag 
-                | your data, these tags can then be used to 
-                a(href="ds-searching.html") Power Your Searches
-                |  within Logscape, for a more complete run through of how your data is ingested, how it moves, and where it is stored, why not read the 
-                a(href="data-flow.html") Dataflow
-                |  section of the Logscape documentation, as well as how data recieved via syslog and other sources are handled by the Logscape Indexstore.
-                -->
               </div>
-              <!--	
-              .image                                                  
-              	img(src="images/datasources_diagram.png")  
-              
-              
-              -->
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-11"><br/><br/><br/>
-              <div id="disqus_thread">
-                <script>
-                  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                  var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
-                  /* * * DON'T EDIT BELOW THIS LINE * * */
-                  (function() {
-                  	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                  	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                  	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                  })();
-                </script>
+            <div class="row">
+              <div class="col-md-11"><br/><br/><br/>
+                <div id="disqus_thread">
+                  <script>
+                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                    	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                  </script>
+                </div>
               </div>
             </div>
           </div>

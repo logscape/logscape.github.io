@@ -66,6 +66,10 @@
 			{
 				"display":"Time Offsets",
 				"url":"searching-offsets.html"
+			},
+			{
+				"display":"Post-Agg",
+				"url":"searching-post_aggregates.html"
 			}
 		],
 		"hiddenchildren":[
@@ -338,6 +342,10 @@
 			{
 				"display":"Centralized Configs",
 				"url":"deploy-centralconfigs.html"
+			},
+			{
+				"display":"Hawt OI",
+				"url":"deploy-hawt_io.html"
 			}
 		],
 		"hiddenchildren":[
@@ -733,6 +741,44 @@
 			{
 				"display":"Vscape Intro",
 				"url":"technology-vscape-intro.html"
+			}
+		]
+	},
+	{
+		"display":"Advanced Analytics",
+		"url":"Advanced-Analytics_Home.html",
+		"children":[
+			{
+				"display":"Trend",
+				"url":"Advanced-Analytics_Trending.html"
+			},
+			{
+				"display":"Overlay",
+				"url":"Advanced-Analytics_Overlays.html"
+			},
+			{
+				"display":"Percentile",
+				"url":"Advanced-Analytics_Percentile.html"
+			},
+			{
+				"display":"Concatenation",
+				"url":"Advanced-Analytics_Field_Concatenation.html"
+			},
+			{
+				"display":"Post Aggregation",
+				"url":"Advanced-Analytics_Post_Aggregation.html"
+			},
+			{
+				"display":"Post-Search Evaluation",
+				"url":"Advanced-Analytics_Post_Eval.html"
+			},
+			{
+				"display":"Boolean Indicators",
+				"url":"Advanced-Analytics_Booleans.html"
+			},
+			{
+				"display":"Anomaly Detection",
+				"url":"Advanced-Analytics_Anom.html"
 			}
 		]
 	},

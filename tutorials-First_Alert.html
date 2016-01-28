@@ -258,41 +258,9 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-11">
-                <h3>Data Sources</h3>
-                <div class="side-box">
-                  <h4>Reccomended Reading</h4><a href="ds-importing_data.html">Importing Data</a><br/><a href="ds-tags.html">Basic Tagging</a><br/><a href="ds-multitags.html">Multi Tags</a><br/><a href="ds-searching.html">Searching with Tags</a><br/><a href="data-flow.html">Data Flow</a><br/><a href="ds-add_csv.html">CSV Auto Extraction</a>
-                </div>
-                <p>Logscape can source its data from many different locations: your applications, <a href="ds-syslog.html">Syslog</a>  and <a href="http://apps.logscape.com">Logscape apps,</a> as well as a variety of other sources. The key characteristic each source has in common is that the data is written to file and ingested. A Datasource specifies a directory, tag and file mask; which determines the files it should contain. Once declared, every Agent will begin to monitor the location within their file system for any matching files. Once a matching file is found, any existing data will be ingested and <a href="#indexing">Indexed</a>, and the file tailed to capture additional data in real time, once ingested it is forwarded to and indexed by an indexstore, and becomes searchable by the end user.</p>
-                <div class="image">
-                  <center><img src="images/datasources_diagram.png" width="800"/></center>
-                </div>
-                <h4>Indexing</h4><a name="indexing"></a>
-                <p>All data that is searchable within logscape is ingested using the indexing process. Indexing is configured through Data sources. The process is to</p>
-                <ol>
-                  <li> On every indexing host (Manager, IndexStore) - track all Data Source Directory paths for existing or newly created files that match the filename masks.</li>
-                  <li>For every file, monitor/tail it so as to detect changes, Every delta is processed for timestamp, discovered fields and timeseries indexing.</li>
-                  <li>When files roll or are deleted the Tailing process detects the event and updates the index accordingly.</li>
-                  <li>While indexing is occurring the data is immediately available for searching</li>
-                </ol>
-                <!-- p Datasources also allow you to 
-                a(href="ds-tags.html") Tag 
-                | your data, these tags can then be used to 
-                a(href="ds-searching.html") Power Your Searches
-                |  within Logscape, for a more complete run through of how your data is ingested, how it moves, and where it is stored, why not read the 
-                a(href="data-flow.html") Dataflow
-                |  section of the Logscape documentation, as well as how data recieved via syslog and other sources are handled by the Logscape Indexstore.
-                -->
-              </div>
-              <!--	
-              .image                                                  
-              	img(src="images/datasources_diagram.png")  
-              
-              
-              -->
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-11"><br/><br/><br/>
+                <h3>Your first Alert.</h3>
+                <P>For more tutorials check out the <a href="tutorials-tutorials.html">Tutorials</a> section.</P><p><iframe src="https://www.iorad.com/3654/17910/Logscape-in-10-minutes--Your-first-alert" width="1px" height="500px" style="border:2px solid #ebebeb;min-width:100%;" allowfullscreen="true"></iframe></p><p style="display: none;">Open up your Logscape Manager</p><p style="display: none;">Click Settings Menu</p><p style="display: none;">Click to open the Alerts Tab</p><p style="display: none;">This is the General Tab, of the alerts page, it is used for configuring the Data Group as well as the schedule.</p><p style="display: none;">The Schedule makes use of standard CRON notation</p><p style="display: none;">Clicking this dropdown will provide a list of the most common task schedules.</p><p style="display: none;">You can also select the Data Group in this dropdown.</p><p style="display: none;">Click to move through to the Trigger tab</p><p style="display: none;">The Trigger Source can be set to any of your pre-saved searches. This dropdown is populated with all searches within your environment.</p><p style="display: none;">The Numeric trigger condition will cause your alert to trigger if the number of events captured by your search exceeds that of the value you specify.</p><p style="display: none;">The Expression trigger will expose fields from your search and allow you to apply filters, if an event meets the criteria an alert will be triggered. </p><p style="display: none;">The Correlation trigger allows you to specify a time window, a type(Either sequence or average), the values, for average a single value, for series a comma separated list. The field to average of look for a sequence from, and a key. I.e _host</p><p style="display: none;">Click through to the Actions tab.</p><p style="display: none;">The Email section defines who email, who to show the email from, the subject line as well as the body of the message.</p><p style="display: none;">The Report Tab allows you to specify which Alert&#39;s will be included in your emailed alert.</p><p style="display: none;">The Groovy Script tab allows you to provide a groovy script that will be ran if the alert triggers.</p><p style="display: none;">Writing to file will simply write the event to, the name can be customised with the following labelsSearch - The title of the Alerts Trigger Searchschedule - The title of the Alertdate - Date of the Triggertime - Time of the Trigger</p><p style="display: none;">Click the Stream tab</p><p style="display: none;">The Streaming Tab is quite advanced, and won&#39;t be covered in this tutorial, you can find out more about it on the Logscape support site.</p><p style="display: none;">The same as a search or datasource the name of your alert can be set freely</p><p style="display: none;">Once you&#39;re finished, click the Save button.</p><p style="display: none;">That&#39;s it. You&#39;re done.</p>
+              </div><br/><br/><br/>
               <div id="disqus_thread">
                 <script>
                   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
