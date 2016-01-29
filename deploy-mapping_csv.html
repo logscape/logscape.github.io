@@ -262,7 +262,7 @@
                 <p>The mappings file is a csv file that configures the mapping of the log streams to files and directories. The file should be in the following location</p>
                 <blockquote>$LOGSCAPE_HOME/mappings.csv </blockquote>
                 <p>A sample mappings.csv file can be found at: </p>
-                <blockquote>$LOGSCAPE_HOME/system-bundles/vs-log-server-1.0/mapping.csv</blockquote>
+                <blockquote>$LOGSCAPE_HOME/system-bundles/vs-socket-server-1.0/mapping.csv</blockquote>
                 <p>The file has the following format.</p>
                 <table class="table">				
                   <tr>
@@ -273,6 +273,7 @@
                     <td>#appendNL=true/false</td>
                     <td>post process pattern (DEPRECATED) </td>
                     <td>stream regex pattern </td>
+                    <td>Group</td>
                   </tr>
                   <tr>     
                     <td>1. </td>
@@ -281,6 +282,7 @@
                     <td>mline=false</td>
                     <td>appendNL=false,</td>
                     <td> </td>
+                    <td>serverGroup=1</td>
                     <td>(\d+\.\d+\.\d+\.\d+) AND ASA-bridge</td>
                   </tr>
                   <tr>
@@ -290,6 +292,7 @@
                     <td>mline=false</td>
                     <td>appendNL=false</td>
                     <td> </td>
+                    <td>cookedAsa</td>
                     <td>(\d+\.\d+\.\d+\.\d+) AND ASA-\d+</td>
                   </tr>
                 </table>
@@ -326,12 +329,17 @@
                       <td> <strong>Post Process Pattern</strong></td>
                       <td>This field is depracated and should be left blank.</td>
                     </tr>
+                    <td>
+                      <td><strong>Group</strong></td>
+                      <td>Group to assign the data to.</td>
+                    </td>
                     <tr>	
                       <td> <strong>log pattern</strong></td>
                       <td>The pattern is a regular expression used to identify the log event. Groups are optional. When they are used, each group is used as a directory name. A typical use case is extracting hostnames or unique ids. Each group creates a nested folder. </td>
                     </tr>
                   </table>
                 </div>
+                <p>The mapping.csv should be automatically reloaded every 30 seconds to 1 minute, if you run into any issues then a bounce will forcefully reload the mapping.csv file on reload.</p>
               </div>
             </div>
             <div class="row">
