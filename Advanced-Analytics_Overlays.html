@@ -262,9 +262,11 @@
                 <h3>Advanced Analytics - Overlays</h3><em>You're monitoring the error rate of your applications through Log4j, but you also want to see if processor load or memory usage increases as a result of additional errors. Rather than making use of multiple graphs, you can instead make use of Overlays.</em>
                 <p>Overlays are Logscapes way of allowing you to combine multiple searches in one graph, you are able to overlay multiple graphs of the same, or different types, allowing you to easily extract knowledge and spot trends. In the blow example I'm monitoring Log4j Errors, as well as Unix Load and CPU usage.</p>
                 <p><br/></p>
-                <pre>* | _type.equals(unx-cpu) CpuUtilPct.max(,MaxCpu) chart(line)
-* | _type.equals(unx-load) 1m.max(,MaxLoad) chart(line)
-* | _type.equals(log4j) level.count() not(INFO) not(WARN)</pre>
+                <pre>* | CPU.avg(_host,AvgCPU) chart(line)
+* | CPU.max(,Max) chart(line)
+* | _type.equals(log4j) level.count() level.exclude(INFO) chart(scatter)
+* | 50pct.max() chart(line)
+* | 100pct.max() chart(line)</pre>
                 <image src="images/analytics_overlay_1.png" width="600"></image>
                 <p><br/></p>
                 <p>Using overlays you're also able to perform baseline searches, in this example I make use of the offset() function in order to compare my current CPU usage to exactly one hour ago.</p>
