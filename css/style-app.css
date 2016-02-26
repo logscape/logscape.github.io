@@ -1,6 +1,9 @@
 div#navdiv{
-	color: white;
-	background-color:#373737;	
+	background-color:#373737 !important;	
+}
+
+div#navdiv > div > a{
+	color:white;
 }
 
 .content-area {
