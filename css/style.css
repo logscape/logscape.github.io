@@ -1,3 +1,7 @@
+div#navdiv > div > a {
+	color:white;
+}
+
 .menuActive {
 	background-color: #DDD
 }
