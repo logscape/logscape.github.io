@@ -313,6 +313,36 @@ Apr 14 05:36:56 100.0.1.7 Apr 14 2012 04:38:51: %ASA-4-106023: Deny icmp src vla
                     </tr>
                   </tbody>
                 </table>
+                <h3>Disk Benchmarking</h3>
+                <p>A healthy Logscape environment should be CPU bound rather than IO bound. For that reason it's important to test the IO speed of your disks, to do this we're going to use a tool called iozone. IOzone is fully configurable and used for performing disk benchmarking, allowing for a variety of test formats with fully customizable datasets.</p>
+                <p>IOzone can be downloaded for free <a href="http://www.iozone.org/" target="_blank">here</a>.</p>
+                <p>Once IOzone has been downloaded and installed it can be ran with the following arguements to give insight into how the disk is currently performing</p>
+                <pre>iozone -T -t16 -r64k -S20480 -l -i 0 -i 1 -i 2</pre>
+                <p>Once all the tests have been complete you will have a full run down of operations, as well as the speed at which this was performed.</p>
+                <table>
+                  <tbody>
+                    <tr style="background-color:#333;color:#CCC">
+                      <td style="width: 50%; border-top:1px solid #ddd">Device</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">Expected Speed</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 50%; border-top:1px solid #ddd">Hard Drive</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">30mb/sec</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 50%; border-top:1px solid #ddd">SSD</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">300mb/sec</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 50%; border-top:1px solid #ddd">RAID-5</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">1.8Gb/sec</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 50%; border-top:1px solid #ddd">SAN</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">Network Reliant</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div><br/><br/><br/>
               <div id="disqus_thread">
                 <script>
