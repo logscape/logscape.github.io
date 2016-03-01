@@ -259,52 +259,27 @@
             <div class="row">
               <div class="col-md-11">
                 <h2>Sizing Guide</h2>
-                <p>Performance of a Logscape system is dependent on the volume of data searched and the number of concurrent users. Performance relies heavily on fast disk i/o and a high enough core density on the server executing the search. Use the disk benchmarking tool to ensure that disk i/o is not slowing down searches and that there is adequate cpu utilization.</p>
-                <h3>OS Tuning</h3>
-                <p>The Manager and Index Store use considerable operating system resources in large deployments. The number of concurrent open files, network connections and processes can be configured for Linux. Use the following system limits as a guide.</p>
-                <table>
-                  <tbody>
-                    <tr>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Property </td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Description </td>
-                    </tr>
-                    <tr>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">nofile > =40000 </td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">open file 40000 or more. If the IndexStore hits this limit, Logscape will not be able to process new files or create network connections</td>
-                    </tr>
-                    <tr>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">nproc >= 100000</td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">
-                        If the Index Store hits this limit Logscape will throw an exception each time a new thread is created
-                        
-                      </td>
-                    </tr>
-                  </tbody>
-                </table><br/>
-                <p>You can find more metrics about sizing a linux installation <a href="http://www.brendangregg.com/USEmethod/use-linux.html" target="_blank">here</a></p>
-                <h3>Memory</h3>
-                <p>When sizing a Logscape system you need to consider two important parameters</p>
-                <ul>
-                  <li>How much memory do I need for in-memory Indexes</li>
-                  <li>How much memory does the kernel need for caching</li>
-                </ul><br/>
-                <p>These parameters can be ignored for components that do not do any searching like the Forwarder. The amount of memory required for optimal performance equates roughly to twice your daily data ingestion volume. For an environment ingesting 20gb of data a day you would need a 40gb system. The memory should be allotted in the following way:</p><br/>
-                <table>
-                  <tbody>
-                    <tr>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Indexing </td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">30-40% Memory</td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Set -Xmx16gb in the boot.properties</td>
-                    </tr>
-                    <tr>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Kernel Cache</td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">50% Memory free</td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Keep 20gb available to allow for file caching</td>
-                    </tr>
-                  </tbody>
-                </table><br/>
-                <p>This is the first place you should start when sizing a system. Take a look at this <a href="http://logscape.github.io/technology-sizing-memoryusage.html">page </a>to see how much memory your logscape components are taking.</p>
-                <p>The table below gives an overview of how much memory each component uses and how much should be allocated for optimal searching. The VSOMain refers to the main logscape process and can be configure in the <a href="http://logscape.github.io/deploy-boot_properties.html">boot properties</a></p><br/>
+                <p>Logscape performance is dependent upon the following factors. </p>
+                <ol>
+                  <li>The volume of data being searched, this is generally related to time (i.e. last 24hours) as well as volume indexed per day.</li>
+                  <li>The number of concurrent users</li>
+                  <li>The number of alerts and their frequency </li>
+                  <li>the number of auto-running workspaces being updated </li>
+                  <li>The style of search being executed (adhoc, summary index based, workspace (i.e. no replays), or complex datatypes (i.e. groovy-script) or if fields are indexed.</li>
+                </ol>
+                <p>Each of the above have a different cost but all rely mostly on the performance of the underlying filesystem. Where the filesystem is performance enough then the application will become CPU bound. Searches can then be further optimised for reducing CPU load by using IndexedFields or SummaryIndexing.</p>
+                <p>To size the system you need to benchmark the performance of each layer as follows:</p>
+                <p>FileSystem: The filesystem can be benchmarked using X. The required amount of IO needs the ability to saturate the CPU cores, (sizes appropriately). See the FileSystem benchmarking here. Typical numbers for a RAID5+1 10k platform process up to 2GB per second. </p>
+                <p> <b>CPU:</b> A modern 48 core server will be saturated at 2GB per second throughput. Each thread should be able to process about 100MB/second, depending on CPU model.</p>
+                <p><b>Indexing:</b> During ingestion database are build and search related fields are indexed in order to improve search performance. Logscape is schema-on-read, meaning that the datatypes are applied as the search is executed unless you have prebuilt searches using summary.index(auto).</p>
+                <p> <b>Memory:</b> Operating systems perform file caching to reduce IO contention on the underlying disk system. Sizing the Logscape process needs to be done so as to allow enough free memory for the OS-kernel-cache to make proper use of the available memory. </p><b>Sizing formula:</b>
+                <p>48core server, 64GB memory, Raid5+1 (2GB rate) = searchable rate over 24 hours is about: about 32GB in memory (cached) -> CPU 48 x 100MB = 4.8GB/second, 10 second duration = 48GB processed.  While the IO might be too slow, there is a shortfall in kernel cache memory - 32GB cached, versus 48GB searched = 16GB extra memory would improve performance.</p>
+                <p>Steps to measure sizing and improve performance</p>
+                <ol>
+                  <li>Is the CPU running near 100% (Y - consider summary.index(auto) or indexed fields.  N - Perform a thread dump to see which fields might be consuming performance (jmx console)? How many searches are running?</li>
+                  <li>Are you using a seperate IndexStore and Manager (Better performance, more dedicated search threads)</li>
+                  <li>Is there a large volume of data being Ingested? (Look at latent CPU load)</li>
+                </ol>
                 <table>
                   <tbody>
                     <tr style="background-color:#333;color:#CCC">
@@ -388,9 +363,37 @@
                       </td>
                     </tr>
                   </tbody>
+                </table><br/><em>[1] On the free download version of Logscpe the IndexStore can not run on a separate host from the Manager. Scaling out is disabled. In this case the sizing requirements for the Index Store also apply for the host running the Manager</em><br/><em>[2] Swap usage - it is important that your memory usage does not enter swap. The swappiness kernel property is used to control when the kernel starts to use swap. It is recommended to switch swap off entirely and to size the system correctly.</em><br/><b>Measuring Cache Performance</b>
+                <p>Linux cache performance can be monitored using the 'perf' command line tool, you can read more about perf, <a href="https://perf.wiki.kernel.org/index.php/Tutorial" target="_blank">here</a>.</p>
+                <p>Perf provides metrics about many parts of an application, however for this scenario we are interested in "cache misses", a cache miss is generated when the application is forced to read from disk, rather than R.A.M or the cache. Ideally we would never read from the disk, but this scenario is unlikely, so we're going to aim for below 5% cache misses.</p>
+                <p>First, we need to determine which process is the parent Logscape process since Logscape runs as part of the JVM and spawns child processes, it could be quite difficult, however by using psaux and grep we can locate it easily</p>
+                <blockquote>ps aux | grep vsomain -i</blockquote>
+                <p>This will provide you with the process id, name and command line paramters, we're only interested in the process id.</p>
+                <p>We're now going to make use of perf in order to measure the performance of the Logscape process.</p>
+                <blockquote>perf stat -p [process_id] sleep 30 </blockquote>
+                <p>After 30 seconds this command will output a variety of metrics regarding the performance of the vsomain process, the metric we are interested in, is "cache misses" if this value is below 5% of all cycles then cache performance is acceptable.</p>
+                <h3>OS Tuning</h3>
+                <p>The Manager and Index Store use considerable operating system resources in large deployments. The number of concurrent open files, network connections and processes can be configured for Linux. Use the following system limits as a guide.</p>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Property </td>
+                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Description </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">nofile > =40000 </td>
+                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">open file 40000 or more. If the IndexStore hits this limit, Logscape will not be able to process new files or create network connections</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">nproc >= 100000</td>
+                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">
+                        If the Index Store hits this limit Logscape will throw an exception each time a new thread is created
+                        
+                      </td>
+                    </tr>
+                  </tbody>
                 </table><br/>
-                <p>[1] On the free download version of Logscpe the IndexStore can not run on a separate host from the Manager. Scaling out is disabled. In this case the sizing requirements for the Index Store also apply for the host running the Manager</p>
-                <p>[2] Swap usage - it is important that your memory usage does not enter swap. The swappiness kernel property is used to control when the kernel starts to use swap. It is recommended to switch swap off entirely and to size the system correctly.</p>
+                <p>You can find more metrics about sizing a linux installation <a href="http://www.brendangregg.com/USEmethod/use-linux.html" target="_blank">here</a></p>
                 <h3>Other Considerations</h3>
                 <p>How the number of users affect the Manger - Keep a watch on the memory utilization of the aggspace and dashboard processes when the number of users of the system increases significantly. You may need to increase the heap of these processes ( see table ).</p>
                 <blockquote> com.liquidlabs.([A-Za-z\.0-9]+)_ | _type.equals(unx-ps) RSZ_MB.max(1,) _host.equals(LAB-UK-XS-UB1) chart(line-zero)</blockquote>
