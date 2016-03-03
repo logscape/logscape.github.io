@@ -340,8 +340,8 @@ Apr 14 05:36:56 100.0.1.7 Apr 14 2012 04:38:51: %ASA-4-106023: Deny icmp src vla
                   </tbody>
                 </table>
                 <h3>SAN Benchmarking</h3>
-                <p>Logscape features no static IOPS requirement, instead it will make use of any transfer speed made available to it, below you will find some estimated benchmarks, as well as how to benchmark your environment.</p>
-                <p>For benchmarking your SAN device, we're going to be making use of <a href="http://crystalmark.info/software/CrystalDiskMark/index-e.html" target="_blank">CrystalDiskMark</a> you can download it <a href="http://crystalmark.info/software/CrystalDiskMark/index-e.html" target="_blank">here</a>.</p>
+                <p>Using a SAN will requires sufficient I/O performance in order to saturate the CPU's. To benchmark a SAN the goals of the CPU performance should be understood. For example a set of 10 48 core IndexStores will require 10 x 2GB/s sustained throughput (20GB/sec). This may exceed to performance for many SAN or VM environments. </p>
+                <p>For benchmarking your SAN device, there are various tools available. Windows:  <a href="http://crystalmark.info/software/CrystalDiskMark/index-e.html" target="_blank">CrystalDiskMark </a> or Linux:<a href="http://www.iozone.org/" target="_blank">Iozone.</a></p>
                 <p>Crystal Bench Mark will produce, read and write a series of random files which can be configured via the user interface.</p>
                 <p>Benchmarks will vary on a case by case basis however below are some base figures as to what to expect.</p>
                 <table>
@@ -384,7 +384,9 @@ Apr 14 05:36:56 100.0.1.7 Apr 14 2012 04:38:51: %ASA-4-106023: Deny icmp src vla
                   <li>4k - Small operations - 1 at a time</li>
                   <li>4k QD32 - Small operations - many at a time</li>
                 </ul>
-                <p>When searching Logscape you will be transmitting individual log lines and so the most appropriate value is your 4k result.</p>
+                <p>When searching Logscape you will buffer log lines to be transferred, as such 'Seq' is the most relevant value.</p>
+                <p>Iozone is a simple command line utility that will work on UNIX and Windows operating system, or reccomended command line is as follows.</p>
+                <blockquote>iozone -t 32 -s 2G -r 8k -r 16k</blockquote>
               </div><br/><br/><br/>
               <div id="disqus_thread">
                 <script>
