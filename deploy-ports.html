@@ -256,48 +256,33 @@
         </div>
         <div class="col-md-9 content-area"> <br/>
           <h3>	Port Considerations </h3><br/>
-          <p>Set up your firewall to allow bi-directional traffic on the following ports. You can modify the base port for the Manager in the boot.properties file. 	The table below uses the default base port of 11000</p><span></span><br/>
+          <p>The ports listed below are for inbound traffic to the agent - Many of these values can be customized via the boot.properties file. It is presumed that allow outbound traffic will be permitted.</p><span></span><br/>
           <table class="table">
             <tr>
               <td colspan="2">
-                <h3>Manager </h3>
+                <h3>Agents </h3>
               </td>
             </tr>
             <tr>
               <td><strong>Port Ranges</strong></td>
-              <td> <strong>Services </strong></td>
+              <td> <strong>Role/Service </strong></td>
             </tr>
             <tr>
               <td>8080</td>
-              <td>Web Dashboard</td>
-            </tr>
-            <tr>
-              <td>11000-11100</td>
-              <td>
-                <Management>Host Services</Management>
-              </td>
+              <td>Manager - Web Dashboard</td>
             </tr>
             <tr>
               <td>
                  
-                1468,1516
+                1468(TCP), 1516(UDP)
               </td>
-              <td>	Logscape Syslog Server. udp,tcp</td>
-            </tr>
-            <tr>
-              <td>15000,25000</td>
-              <td>LookupService </td>
-            </tr>
-            <tr> 
-              <td colspan="2">
-                <h3>Agent </h3>
-              </td>
+              <td>	Manager - SyslogServer</td>
             </tr>
             <tr>
               <td>11000-11100</td>
               <td>
                  
-                IndexStore,Indexer,Forwarder 
+                IndexStore,Indexer,Forwarder - Agent communication
               </td>
             </tr>
           </table><br/><br/><br/>

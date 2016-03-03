@@ -276,7 +276,45 @@
                 </ul>
                 <h4>Writing to a Database </h4>
                 <p>This examples writes the events level and message to a database.</p>
-                <blockquote>sql = Sql.newInstance("jdbc:sqlite:C:/home/logscape/work/trigger-data.db","org.sqlite.JDBC") </blockquote>
+                <blockquote>
+                  sql = Sql.newInstance("jdbc:sqlite:C:/home/logscape/work/trigger-data.db","org.sqlite.JDBC") 
+                  sortedEvents.each(){ event - 
+                  server = event["server"] 
+                  date = event["Date"] 
+                  level = event["Level"] 
+                  exception = event["Exception"] 
+                  sql.execute("INSERT INTO events (date,host,logLevel,message) VALUES ("+date+","+server+","+level+","+exception+")" )
+                </blockquote>
+                <h4>Writing to Logscape logger </h4>
+                <p>This example sends data to the Logscape logger </p>
+                <blockquote>
+                  import org.apache.log4j.Logger
+                  import com.liquidlabs.log.search.ReplayEvent;
+                  def id = 0
+                  for (ReplayEvent event : sortedEvents) {
+                  	 def keys = event.keyValueMap.keySet()
+                   	def values = event.keyValueMap.values()
+                   	logger.warn("FROMALERT: ["+id+"] keys = " + keys.toString())
+                   	logger.warn("FROMALERT: ["+id+"] values = " + values.toString())
+                   	id++
+                  }
+                </blockquote>
+              </div>
+              <div class="row">
+                <div class="col-md-11"><br/><br/><br/>
+                  <div id="disqus_thread">
+                    <script>
+                      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                      var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+                      /* * * DON'T EDIT BELOW THIS LINE * * */
+                      (function() {
+                      	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                      	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                      	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                      })();
+                    </script>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

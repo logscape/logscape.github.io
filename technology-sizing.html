@@ -278,7 +278,14 @@
                 <p><b>Indexing:</b> During ingestion databases are built and search related fields are indexed in order to improve search performance. Logscape is schema-on-read, meaning that the datatypes are applied as the search is executed unless you have prebuilt searches using <a href="searching-Summary_Index.html">summary.index(auto)</a>.</p>
                 <p> <b>Memory:</b> Operating systems perform file caching to reduce IO contention on the underlying disk system. Sizing the Logscape process needs to be done so as to allow enough free memory for the OS-kernel-cache to make proper use of the available memory. </p><b>Sizing formula:</b>
                 <blockquote>48core server, 64GB memory, Raid5+1 (2GB rate) = searchable rate over 24 hours is about: about 32GB in memory (cached)<br/>CPU 48 x 100MB = 4.8GB/second, 10 second duration = 48GB processed. </blockquote>
-                <p>With the above set up we are capable of processing 48GB of data per 10 seconds, this means we can deal with the 32Gb in memory, however after this 32 Gb is processed, we become IO bound as we can only read 2Gb/sec from the disk, while we have the potential to process 4.8Gb/sec</p>
+                <p>With the above set up we are capable of processing 48GB of data per 10 seconds, this means we can deal with the 32Gb in memory, however after this 32 Gb is processed, we become IO bound as we can only read 2Gb/sec from the disk, while we have the potential to process 4.8Gb/sec. Adding 16Gb of memory would allow us to fully utilize the CPU.</p><b>Sizing for 50Gb per day per Indexstore</b>
+                <p>Our reccomend sizing allows for approximately 50Gb of data per day, the rough specs are as follows -</p>
+                <ul>
+                  <li>20Gb Ram for Logscape process, 24Gb total</li>
+                  <li>Raid5+1 (Estimated 2GB/second read speed)</li>
+                  <li>48 Core CPU</li>
+                </ul>
+                <p>Using properly optimised searches the above specs will be able to index and provide fast search speeds for approximately 50gb of daily data.</p>
                 <table>
                   <tbody>
                     <tr style="background-color:#333;color:#CCC">

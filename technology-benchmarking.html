@@ -337,12 +337,54 @@ Apr 14 05:36:56 100.0.1.7 Apr 14 2012 04:38:51: %ASA-4-106023: Deny icmp src vla
                       <td style="width: 50%; border-top:1px solid #ddd">RAID-5</td>
                       <td style="width: 50%; border-top:1px solid #ddd">1.8Gb/sec</td>
                     </tr>
+                  </tbody>
+                </table>
+                <h3>SAN Benchmarking</h3>
+                <p>Logscape features no static IOPS requirement, instead it will make use of any transfer speed made available to it, below you will find some estimated benchmarks, as well as how to benchmark your environment.</p>
+                <p>For benchmarking your SAN device, we're going to be making use of <a href="http://crystalmark.info/software/CrystalDiskMark/index-e.html" target="_blank">CrystalDiskMark</a> you can download it <a href="http://crystalmark.info/software/CrystalDiskMark/index-e.html" target="_blank">here</a>.</p>
+                <p>Crystal Bench Mark will produce, read and write a series of random files which can be configured via the user interface.</p>
+                <p>Benchmarks will vary on a case by case basis however below are some base figures as to what to expect.</p>
+                <table>
+                  <tbody>
+                    <tr style="background-color:#333;color:#CCC">
+                      <td style="width: 50%; border-top:1px solid #ddd">Device</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">Expected Speed</td>
+                    </tr>
                     <tr>
-                      <td style="width: 50%; border-top:1px solid #ddd">SAN</td>
-                      <td style="width: 50%; border-top:1px solid #ddd">Network Reliant</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">iSCSI 1x1gb</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">90mb/sec</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 50%; border-top:1px solid #ddd">iSCSI 2x1gb</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">150mb/sec</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 50%; border-top:1px solid #ddd">iSCSI 1x8GFC FCP</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">750mb/sec	</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 50%; border-top:1px solid #ddd">iSCSI 1x10gb</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">800mb/sec</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 50%; border-top:1px solid #ddd">iSCSI 1x16GFC FCP</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">1500mb/sec</td>
                     </tr>
                   </tbody>
                 </table>
+                <p>The configuration for CrystalDiskMark is as follows -</p>
+                <image src="/images/crystaldiskmark.png"></image>
+                <p>5 - the number of test passes to run. </p>
+                <p>4000MB - The test file size, using a larger file size reduces the chance of obtaining cached data which will artificially bloat the results.</p>
+                <p>E: - The drive to test <b>NOTE: </b>make sure the drive contains enough space for your test data.</p>
+                <p>After you have configured the tool, press "All" to begin. Below is an explanation of each result.</p>
+                <ul>
+                  <li>Seq - Long sequential operations</li>
+                  <li>512k - Large operations</li>
+                  <li>4k - Small operations - 1 at a time</li>
+                  <li>4k QD32 - Small operations - many at a time</li>
+                </ul>
+                <p>When searching Logscape you will be transmitting individual log lines and so the most appropriate value is your 4k result.</p>
               </div><br/><br/><br/>
               <div id="disqus_thread">
                 <script>
