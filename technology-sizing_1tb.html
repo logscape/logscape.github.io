@@ -260,72 +260,86 @@
               <div class="col-md-11">
                 <h3>Sizing for Ingesting 1 TB Daily</h3>
                 <p>1TB is a daunting amount of data, however with a small amount of pre-planning ingesting, indexing and searching this data is a simple task when using Logscape.</p>
-                <p>While one Indexstore could theoretically ingest and index 1 TB per day, the issues begin to appear when searching this data. Introducing additional Indexstores allows the data to be seperated and the IO capabilities of multiple servers brought to bear. </p>
-                <p>Because of this multiple Indexstores will be utilized, for this specific deployment 6 well provisioned Indexstores will be included.</p><strong>Assumptions</strong>
+                <p>Whilst a single Indexstore could theoretically ingest and index 1 TB per day, we would suffer severe performance issues when running searches. Introducing additional Indexstores allows the data volume to be separated in to manageable clusters, allowing us to leverage the increased processing and Disk I/O capacity. For this specific deployment, we will install 6 well provisioned Indexstores.</p><strong>Assumptions</strong>
                 <ul>
                   <li>1 TB a day inbound traffic</li>
                   <li>50 Users throughout the organization</li>
-                  <li>Not all 1 TB of data will be searched on a daily basis</li>
                   <li>No <a href="deploy-arch_zoning.html">Zoning </a>will be used.</li>
                   <li>Data arrives at a uniform rate
                     <ul>
                       <li>(In a real world scenario bursts would be backfilled over time)</li>
                     </ul>
                   </li>
-                  <li>30 day retention</li>
-                </ul>
-                <p>The inclusion of 6 Indexstores reduces our Input requirements to an insignificant 12mb/sec, however even with the data spread evenly between each host, at maximum capacity a host will be responsible for searching 5TB of data, so disk speed, and in memory caching are still a concern.</p><strong>Rough Indexer Specs</strong>
-                <p>Specific server specifications will vary however see below for rough dimensions on what is reccomended for a set up on this scale.</p>
+                  <li>30 day retention (Total Indexed Capacity 30TB)</li>
+                </ul><strong>Comparison</strong>
+                <p>Using the specifications stated below, we get the following when comparing a 1 Indexstore environment against a 6 Indexstore Environment.</p>
                 <table>
                   <tbody>
                     <tr style="background-color:#333;color:#CCC">
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Device </td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Reccomendation </td>
+                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Feature</td>
+                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">1x Indexstore </td>
+                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">6x Indexstore </td>
                     </tr>
                     <tr>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Disk</td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">RAID 5(4+1), Disks with at least 500mb/sec R/W</td>
+                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Disk Speed</td>
+                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">2GB/Sec</td>
+                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">12GB/Sec</td>
                     </tr>
                     <tr>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">CPU</td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">52 core modern CPU</td>
+                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Network Bandwidth</td>
+                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">2.5GB/sesc</td>
+                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">2.5GB/sec</td>
                     </tr>
                     <tr>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Memory</td>
+                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Search Speed(1TB)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    </td>
+                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">500 Seconds</td>
                       <td style="width: 33.333333333333336%; border-top:1px solid #ddd">
-                        24GB
+                        83 Seconds
                         
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <p> <br/>The above specification allows for approximately 2GB/second of Read/Write operations while also having a sizeable amount of RAM for in memory caching.</p><strong>Network Stats</strong>
-                <p>Network requirements will vary upon the individual IO capability of your Indexstores, but must be configured in such a way to take into account both data transfer incoming to the Indexstores as well as the capacity needed by in order to transfer data to the Manager at search time. To benchmark your network you can follow the steps <a href="technology-benchmarking.html">here</a>. For this scenario we will assume each Indexstore is connected via two fibre channel connections which are bonded for an estimated bandwidth of 2.5gb/sec.</p><strong>Rough Manager Specs</strong>
-                <table>
-                  <tbody>
-                    <tr style="background-color:#333;color:#CCC">
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Device </td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Reccomendation </td>
-                    </tr>
-                    <tr>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Disk</td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">RAID 5(4+1), Disks with at least 500mb/sec R/W</td>
-                    </tr>
-                    <tr>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">CPU</td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">52 core modern CPU</td>
-                    </tr>
-                    <tr>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Memory</td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">
-                        28GB, Minimum of 8GB allocated to the Dashboard process
                         
                         
                       </td>
                     </tr>
                   </tbody>
                 </table>
-                <p> <br/>Managing sizing is dependant upon the average size of a search, the number of concurrent users, as well as the amount of pre-configured alerts. Genral advice is that the system should have enough RAM to allow for caching of search time data, whilst also allowing an additional 5-10mb per dashboard search, and alert.</p><strong>What the environment will look like</strong><em> <br/>The below image reflects what a large environment utilising the built in Load balancing, and indexstores will look like</em>
+                <p>The inclusion of 6 Indexstores reduces our Input requirements to an insignificant 12mb/sec, however even with the data spread evenly between each host, at maximum capacity a host will be responsible for searching 5TB of data, so disk speed, and in-memory caching are still a concern.</p><strong>Network Stats</strong>
+                <p>Network requirements will vary upon the individual IO capability of your Indexstores, but must be configured in such a way to take into account both data transfer incoming to the Indexstores as well as the capacity needed by in order to transfer data to the Manager at search time. To benchmark your network you can follow the steps <a href="technology-benchmarking.html">here</a>. For this scenario we will assume each Indexstore is connected via two fibre channel connections which are bonded for an estimated bandwidth of 2.5gb/sec.</p><strong>Rough Specifications</strong>
+                <table>
+                  <tbody>
+                    <tr style="background-color:#333;color:#CCC">
+                      <td style="width: 25%; border-top:1px solid #ddd">Device </td>
+                      <td style="width: 25%; border-top:1px solid #ddd">Manager</td>
+                      <td style="width: 25%; border-top:1px solid #ddd">IndexStore</td>
+                      <td style="width: 25%; border-top:1px solid #ddd">Forwarder</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 25%; border-top:1px solid #ddd">Disk</td>
+                      <td style="width: 25%; border-top:1px solid #ddd">RAID 5(4+1), Disks with at least 500mb/sec R/W</td>
+                      <td style="width: 25%; border-top:1px solid #ddd">RAID 5(4+1), Disks with at least 500mb/sec R/W</td>
+                      <td style="width: 25%; border-top:1px solid #ddd">-</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 25%; border-top:1px solid #ddd">CPU</td>
+                      <td style="width: 25%; border-top:1px solid #ddd">64 core modern CPU</td>
+                      <td style="width: 25%; border-top:1px solid #ddd">64 core modern CPU</td>
+                      <td style="width: 25%; border-top:1px solid #ddd">-</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 25%; border-top:1px solid #ddd">Memory</td>
+                      <td style="width: 25%; border-top:1px solid #ddd">64GB, Minimum of 8GB allocated to the Dashboard/Aggspace process</td>
+                      <td style="width: 25%; border-top:1px solid #ddd">64GB</td>
+                      <td style="width: 25%; border-top:1px solid #ddd">
+                        512MB
+                        
+                        
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p> <br/>Manager sizing is dependant upon the average size of a search, the number of concurrent users, as well as the amount of pre-configured alerts. General advice is that the system should have enough RAM to allow for caching of search time data, whilst also allowing an additional 5-10mb per dashboard search, and alert.</p>
+                <p>Indexstores require high read speeds in order to search their indexes for data requested by searches. Ideally every Indexstore should feature a similar read potential as due to the Load Balanced nature of a Logscape deployment, searches will be held up by a single Indexstore with a slower read capability.</p>
+                <p>Forwarders are a lightweight agent where Disk and CPU are of little concern as long as Disk I/O and CPU resources are not at 100% values. The agent itself is designed to use a minimum amount of RAM, and is operationally capable while sized as low as 256MB.</p>
+                <p> <br/>The key value to note here is the search speed. The input requirements for 1 TB of data are relatively low, however serving 30 days worth of collated storage back in the form of a search in a short span of time requires multiple indexstores.</p><strong> <br/>Environment Mock-Up</strong><em> <br/>The below image reflects what a large environment utilising the built in Load Balancing, and Indexstores will look like</em><br/>
                 <image src="images/IndexstoreDeployment.png"></image>
               </div>
             </div>

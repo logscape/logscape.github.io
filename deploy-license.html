@@ -258,76 +258,21 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-11">
-                <h3>Sizing for Ingesting 1 TB Daily</h3>
-                <p>1TB is a daunting amount of data, however with a small amount of pre-planning ingesting, indexing and searching this data is a simple task when using Logscape.</p>
-                <p>While one Indexstore could theoretically ingest and index 1 TB per day, the issues begin to appear when searchinging this data. Introducing additional Indexstores allows the data to be seperated and the IO capabilities of multiple servers brought to bear. </p>
-                <p>Because of this multiple Indexstores will be utilized, for this specific deployment 6 well provisioned Indexstores will be included.</p><strong>Assumptions</strong>
+                <h3>The Logscape License</h3>
+                <p>A license file is required in order to mark your environment as a licensed installation. A licensed environment is not subject to the restrictions of an unlicensed one, the lifted restrictions are as follows.</p>
                 <ul>
-                  <li>1 TB a day inbound traffic</li>
-                  <li>50 Users throughout the organization</li>
-                  <li>Not all 1 TB of data will be searched on a daily basis</li>
-                  <li>No <a href="deploy-arch_zoning.html">Zoning </a>will be used.</li>
-                  <li>Data arrives at a uniform rate
-                    <ul>
-                      <li>(In a real world scenario bursts would be backfilled over time)</li>
-                    </ul>
-                  </li>
-                  <li>30 day retention</li>
+                  <li>Ability to use Indexstores</li>
+                  <li>Ability to use Failovers</li>
+                  <li>Lift on the 5gb/day limit</li>
+                  <li>Use of alerting</li>
                 </ul>
-                <p>The inclusion of 6 Indexstores reduces our Input requirements to an insignificant 12mb/sec, however even with the data spread evenly between each host, at maximum capacity a host will be responsible for searching 5TB of data, so disk speed, and in memory caching are still a concern.</p><strong>Rough Indexer Specs</strong>
-                <p>Specific server specifications will vary however see below for rough dimensions on what is reccomended for a set up on this scale.</p>
-                <table>
-                  <tbody>
-                    <tr style="background-color:#333;color:#CCC">
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Device </td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Reccomendation </td>
-                    </tr>
-                    <tr>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Disk</td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">RAID 5(4+1), Disks with at least 500mb/sec R/W</td>
-                    </tr>
-                    <tr>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">CPU</td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">.....</td>
-                    </tr>
-                    <tr>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Memory</td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">
-                        24GB
-                        
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <p>The above specification allows for approximately 2GB/second of Read/Write operations while also having a sizeable amount of RAM for in memory caching.</p><strong>Network Stats</strong>
-                <p>Network requirements will vary upon the individual IO capability of your Indexstores, but must be configured in such a way to take into account both data transfer incoming to the Indexstores as well as the capacity needed by in order to transfer data to the Manager at search time. To benchmark your network you can follow the steps </p><a href="technology-benchmarking.html">
-                  here
-                  .</a><strong>Rough Manager Specs</strong>
-                <table>
-                  <tbody>
-                    <tr style="background-color:#333;color:#CCC">
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Device </td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Reccomendation </td>
-                    </tr>
-                    <tr>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Disk</td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">RAID 5(4+1), Disks with at least 500mb/sec R/W</td>
-                    </tr>
-                    <tr>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">CPU</td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">.....</td>
-                    </tr>
-                    <tr>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Memory</td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">
-                        28GB, Minimum of 8GB allocated to the Dashboard process
-                        
-                        
-                        
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <p>Logscape is licensed on a per "Adminsitrative Agent" basis, Adminsitrative Agents include,</p>
+                <ul>
+                  <li>Manager</li>
+                  <li>Failover</li>
+                  <li>Indexstore</li>
+                </ul>
+                <p>Logscape is licensed on a perpetual basis, with a yearly fee for support - For full pricing information please contact support@logscape.com</p>
               </div>
             </div>
             <div class="row">
