@@ -255,74 +255,85 @@
           </div>
         </div>
         <div class="col-md-9 content-area"> 
-          <div class="container-fluid"> 
-            <div class="row"> 
-              <div class="col-md-11"> 
-                <h3>Summary Storage </h3>
-                <p>Every search analytic that builds a search visualization processes the data according to its algorithm in order to create it (count, avg etc). The problem is that if you have searches that run over the same data again and again for long periods of time, i.e 3 months, or 6 months, then these searches will be very slow due to the volume of data. The introduction of 'summary.index()' allows for pre-built search results at a particular granularity (10 minute default). When searching against a summary index, these 10 minute buckets are read, and turned into hour buckets, as all this data is pre-compiled there is no expensive searches taking place, instead Logscape is simply fetching from the index. </p><strong>The Benefit</strong>
-                <p>You've been writing to an index to track CPU Usage throughout your environment, you've been doing so for the past 12 months, ordinarily performing a search over this data would be expensive, meaning it would take an incredibly long time. In comparison, a search that used to take 1 minute to return, will on average return in 10 seconds when using a summary, allowing you to easily spot long running trends.</p>
-                <p>Due to how the summary index works however, neither facets or replay events are available, instead analysis must be based upon the visual graph, with indepth searches coming later. </p><br/><strong>How do you use it? </strong>
-                <ol> 
-                  <li> 
-                    <p>Execute desired search with summary.index(write) </p>
-                    <pre>* | _type.equals(UNX-Cpu) CpuUserPct.avg(server) chart(line) ttl(10) summary.index(write) </pre>
-                  </li>
-                  <li> 
-                    <p>With the identical search use summary.index(read). </p>
-                    <pre>* | _type.equals(UNX-Cpu) CpuUserPct.avg(server) chart(line) ttl(10) summary.index(read) </pre>
-                  </li>
-                  <li> 
-                    <p>summary.index(delete) will delete the whole index regardless of time-period </p>
-                    <pre>* | _type.equals(UNX-Cpu) CpuUserPct.avg(server) chart(line) ttl(10) summary.index(delete)</pre>
-                  </li>
-                </ol><br/>
-                <p>To maintain the Index, schedule a periodic search that uses the 'summary.index(write)' command to keep extending the indexed timeframe, this can be achieved by saving your 'summary.index(write)' search and including it in an alert as the alert trigger, there is no need to set any actions. </p>
-                <p>Alternatively you can make use of summary.index(auto) where an index is not discovered, an index will be created. If an index exists, data will be read from it, and any data missing will automatically be added to the index, making maintaing your index easier.</p><br/><img src="images/searching-summary_index_write.png"/>
-                <p> <br/>The summary index makes use of a bloom filter to prevent over-writing, so when in doubt you can execute a long 'write' to fill in any gaps that may have occurred, when performing this action it is advised to override Logscape's default time to to live, by including 'ttl(time in minutes)' in your search. </p>
-                <p>Due to the nature of the summary which does not provide facets or replay events, you will likely wish to remove the summary when linking through your workspaces to allow for proper root cause analysis.</p><strong>Debugging the summary index </strong>
-                <p>By setting the flag "sidx.xstream" to true in the agent.properties file, '-Dsidx.xstream=true', you can change your summary data to being output in XML format, your 'work/DB/sidx' folder should be clean before doing so. This allows you to see what data is being written to file in a human readable format, however it will use more disk space, as well as slowing search speeds so should only be used for debugging purposes. </p>
-                <ol>
-                  <li>
-                    <p>Turn off the Logscape instance</p>
-                  </li>
-                  <li>
-                    <p>Delete the '/work/DB/six' folder</p>
-                  </li>
-                  <li>
-                    <p>Modify the agent.properties file to include '-Dsidx.xstream=true'</p>
-                  </li>
-                  <li>
-                    <p>Restart the Logscape instance</p>
-                  </li>
-                </ol>
-                <p>It is also possible to set a log4j logging level in order to monitor the process of writing to, and reading from the summary index, this can be achieved by modifying the 'agent-log4j.properties' file to include ' <em>com.liquidlabs.log.search.summaryindex=DEBUG </em>' </p>
-                <ol>
-                  <li>
-                    <p>Turn off the Logscape instance</p>
-                  </li>
-                  <li>
-                    <p>Modify the agent-log4j.properties file to include 'com.liquidlabs.log.search.summaryindex=DEBUG'</p>
-                  </li>
-                  <li>
-                    <p>Restart the Logscape instance</p>
-                  </li>
-                </ol>
-              </div>
-            </div>
-            <div class="row"> 
-              <div class="col-md-11"> <br/><br/><br/>
-                <div id="disqus_thread">
-                  <script>
-                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                    var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
-                    /* * * DON'T EDIT BELOW THIS LINE * * */
-                    (function() {
-                    	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                    	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                    })();
-                  </script>
-                </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-11">
+                <h3>Hardware/Network Benchmarking</h3>
+                <p>This page is a collection of methods for benchmarking your environment prior to the additional of a Logscape instance. These tools will help with the proper sizing of your Logscape environment as well as helping you understand where the bottlenecks are within your infrastructure.</p>
+                <h3>Disk Benchmarking</h3>
+                <p>A healthy Logscape environment should be CPU bound rather than IO bound. For that reason it's important to test the IO speed of your disks, to do this we're going to use a tool called iozone. IOzone is fully configurable and used for performing disk benchmarking, allowing for a variety of test formats with fully customizable datasets.</p>
+                <p>IOzone can be downloaded for free <a href="http://www.iozone.org/" target="_blank">here</a>.</p>
+                <p>Once IOzone has been downloaded and installed it can be ran with the following arguements to give insight into how the disk is currently performing</p>
+                <pre>iozone -T -t16 -r64k -S20480 -l -i 0 -i 1 -i 2</pre>
+                <p>Once all the tests have been complete you will have a full run down of operations, as well as the speed at which this was performed.</p>
+                <table>
+                  <tbody>
+                    <tr style="background-color:#333;color:#CCC">
+                      <td style="width: 50%; border-top:1px solid #ddd">Device</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">Expected Speed</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 50%; border-top:1px solid #ddd">Hard Drive</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">30mb/sec</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 50%; border-top:1px solid #ddd">SSD</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">300mb/sec</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 50%; border-top:1px solid #ddd">RAID-5</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">1.8Gb/sec</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <h3>SAN Benchmarking</h3>
+                <p>Using a SAN will requires sufficient I/O performance in order to saturate the CPU's. To benchmark a SAN the goals of the CPU performance should be understood. For example a set of 10 48 core IndexStores will require 10 x 2GB/s sustained throughput (20GB/sec). This may exceed to performance for many SAN or VM environments. </p>
+                <p>For benchmarking your SAN device, there are various tools available. Windows:  <a href="http://crystalmark.info/software/CrystalDiskMark/index-e.html" target="_blank">CrystalDiskMark </a> or Linux:<a href="http://www.iozone.org/" target="_blank">Iozone.</a></p>
+                <p>Crystal Bench Mark will produce, read and write a series of random files which can be configured via the user interface.</p>
+                <p>Benchmarks will vary on a case by case basis however below are some base figures as to what to expect.</p>
+                <table>
+                  <tbody>
+                    <tr style="background-color:#333;color:#CCC">
+                      <td style="width: 50%; border-top:1px solid #ddd">Device</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">Expected Speed</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 50%; border-top:1px solid #ddd">iSCSI 1x1gb</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">90mb/sec</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 50%; border-top:1px solid #ddd">iSCSI 2x1gb</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">150mb/sec</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 50%; border-top:1px solid #ddd">iSCSI 1x8GFC FCP</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">750mb/sec	</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 50%; border-top:1px solid #ddd">iSCSI 1x10gb</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">800mb/sec</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 50%; border-top:1px solid #ddd">iSCSI 1x16GFC FCP</td>
+                      <td style="width: 50%; border-top:1px solid #ddd">1500mb/sec</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p>The configuration for CrystalDiskMark is as follows -</p>
+                <image src="/images/crystaldiskmark.png"></image>
+                <p>5 - the number of test passes to run. </p>
+                <p>4000MB - The test file size, using a larger file size reduces the chance of obtaining cached data which will artificially bloat the results.</p>
+                <p>E: - The drive to test <b>NOTE: </b>make sure the drive contains enough space for your test data.</p>
+                <p>After you have configured the tool, press "All" to begin. Below is an explanation of each result.</p>
+                <ul>
+                  <li>Seq - Long sequential operations</li>
+                  <li>512k - Large operations</li>
+                  <li>4k - Small operations - 1 at a time</li>
+                  <li>4k QD32 - Small operations - many at a time</li>
+                </ul>
+                <p>When searching Logscape you will buffer log lines to be transferred, as such 'Seq' is the most relevant value.</p>
+                <p>Iozone is a simple command line utility that will work on UNIX and Windows operating system, or reccomended command line is as follows.</p>
+                <blockquote>iozone -t 32 -s 2G -r 8k -r 16k</blockquote>
               </div>
             </div>
           </div>
