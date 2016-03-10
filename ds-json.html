@@ -258,16 +258,42 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-11">
-                <h>JSON Expansion</h>
+                <h3>JSON Expansion</h3>
                 <p>When dealing with JSON Logscape is able to automatically extract your data into a format that can immediately be put to use in logscape.</p>
-                <p>Today we're going to talk through uploading a log file containing JSON records to Logscape, and extracting value from them.</p>
-                <p>Records in the same format to what I will be using are available from <a href="https://redisq.zkillboard.com/listen.php" target="_blank">this website</a>.</p>
-                <p>However feel free to use whatever data you choose.</p>
-                <h2>Step One</h2>
-                <p>Set up a datasource pointed to where you JSON logs are located.</p>
-                <image src="/images/redisq.png"></image>
-                <h2>Step Two</h2>
-                <p>Search your JSON data</p>
+                <p>At search time the fields within your data are exposed on the left hand menu. For example</p>
+                <pre>{
+	 "glossary": {
+		"title": "example glossary",
+		"GlossDiv": {
+			"title": "S",
+			 "GlossList": {
+				"GlossEntry": {
+				"ID": "SGML",
+				"SortAs": "SGML",
+				"GlossTerm": "Standard Generalized Markup Language",
+				"Acronym": "SGML",
+				"Abbrev": "ISO 8879:1986",
+				"GlossDef": {
+					"para": "A meta-markup language, used to create markup languages such as DocBook.",
+				 	"GlossSeeAlso": ["GML", "XML"]
+				 },
+				"GlossSee": "markup"
+				}
+			}
+		}
+	}
+}</pre>
+                <p>Values are exposed based upon their location in the tree, so title would be available as</p>
+                <pre>glossary_title</pre>
+                <p>Whilst values nested deeper are expressed as</p>
+                <pre>glossary_GlossDiv_GlossList_GlossEntry_ID</pre>
+                <p>If a value makes use of an array, it can be accessed via the [] notation, i.e if there were multiple GlossDef's in the above data, we could access all of the values with</p>
+                <pre>glossary_GlossDiv_GlossList_GlossEntry_GlossDef_[]_para</pre>
+                <p>The ability to refer to a specific value however is retained.</p>
+                <pre>glossary_GlossDiv_GlossList_GlossEntry_GlossDef_1_para</pre>
+                <p>Due to current limitations, it is not possible to map values against each other - I.E</p>
+                <pre>glossary_title_GlossDiv_GlossList_GlossDef_[]_para.count(glossary_title_GlossDiv_GlossList_GlossDef_[]_GlossSeeAlso[1],)</pre>
+                <p>This is due to the fact values are not mapped against each other when being discovered inside arrays</p>
               </div>
             </div>
             <div class="row">

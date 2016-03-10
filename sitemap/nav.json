@@ -156,6 +156,10 @@
 				"url":"ds-add.html"
 			},
 			{
+				"display":"JSON",
+				"url":"ds-json.html"
+			},
+			{
 				"display":"Tagging",
 				"url":"ds-tags.html"
 			},
