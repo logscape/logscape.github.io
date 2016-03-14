@@ -308,6 +308,16 @@
                 <p>type='www-xlf'  | userAgents.count(_host,)  top(7)</p>
               </div>
             </li>
+            <li>
+              <p>
+                <h4><a name="bottom"></a><strong>bottom(NUM,)</strong></h4>This function sorts the incoming data and returns the lowest values. Non numerical values are ranked by quantity.
+              </p>
+              <p>Examples:</p>
+              <div class="block"> 
+                <p>type='agent-stats' | cpu.avg(_host) bottom(5) chart(pie) buckets(1)</p>
+                <p>type='www-xlf'  | userAgents.count(_host,)  bottom(5)</p>
+              </div>
+            </li>
           </ul><a name="aggFunctions"></a>
           <h6 id="breadcrumb">Aggregrate Functions</h6>
           <ul>
