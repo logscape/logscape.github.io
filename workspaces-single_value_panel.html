@@ -290,10 +290,10 @@ myWidget.css('background','#933')
 }
 var firstName = e.points[0].name 
 var firstHit = e.points[0].hits
-var fhtml = First Error:' + firstName + ' :' + firstHit + '%'
+var fhtml = 'First Error:' + firstName + ' :' + firstHit + '%'
 var lastName = e.points[e.points.length-1].name
 var lastHit = e.points[e.points.length-1].hits
-var ehtml = Last Error:' + lastName + ' :' + lastHit + '%'
+var ehtml = 'Last Error:' + lastName + ' :' + lastHit + '%'
 myWidget.find('#valueData').html(fhtml + ehtml)
 changeColor(lastHit)</pre>
                 <p>Hopefully this has shone some light on how the Single Value Panel works.</p>
