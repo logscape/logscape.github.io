@@ -259,41 +259,44 @@
             <div class="row">
               <div class="col-md-11">
                 <h3>JSON Expansion</h3>
-                <p>When dealing with JSON Logscape is able to automatically extract your data into a format that can immediately be put to use in logscape.</p>
+                <p>When dealing with JSON Logscape is able to automatically extract your data into a format that can immediately be put to use. In order for this extraction to take place the entire event must be JSON, as Logscape will attempt to convert the entire event into a JSON object.</p>
                 <p>At search time the fields within your data are exposed on the left hand menu. For example</p>
                 <pre>{
-	 "glossary": {
-		"title": "example glossary",
-		"GlossDiv": {
-			"title": "S",
-			 "GlossList": {
-				"GlossEntry": {
-				"ID": "SGML",
-				"SortAs": "SGML",
-				"GlossTerm": "Standard Generalized Markup Language",
-				"Acronym": "SGML",
-				"Abbrev": "ISO 8879:1986",
-				"GlossDef": {
-					"para": "A meta-markup language, used to create markup languages such as DocBook.",
-				 	"GlossSeeAlso": ["GML", "XML"]
-				 },
-				"GlossSee": "markup"
-				}
-			}
-		}
+	 "Apple": {
+		"Variety": {
+			"Granny-Smith": {
+				"Colour":"Green",
+				"Number": 5
+			},
+			"Cox": {
+				"Color":"Red",
+				"Number": 3
+			}	
+		}	
 	}
 }</pre>
-                <p>Values are exposed based upon their location in the tree, so title would be available as</p>
-                <pre>glossary_title</pre>
-                <p>Whilst values nested deeper are expressed as</p>
-                <pre>glossary_GlossDiv_GlossList_GlossEntry_ID</pre>
-                <p>If a value makes use of an array, it can be accessed via the [] notation, i.e if there were multiple GlossDef's in the above data, we could access all of the values with</p>
-                <pre>glossary_GlossDiv_GlossList_GlossEntry_GlossDef_[]_para</pre>
+                <p>Values are exposed based upon their location in the tree, so we could access values through syntax such as</p>
+                <pre>Apple_Variety_Granny-Smith_Colour</pre>
+                <p>If a value makes use of an array, it can be accessed via the [] notation, i.e if we wanted to perform operations on all varieties of Apple</p>
+                <pre>Apple_Variety_[]_Number</pre>
                 <p>The ability to refer to a specific value however is retained.</p>
-                <pre>glossary_GlossDiv_GlossList_GlossEntry_GlossDef_1_para</pre>
-                <p>Due to current limitations, it is not possible to map values against each other - I.E</p>
-                <pre>glossary_title_GlossDiv_GlossList_GlossDef_[]_para.count(glossary_title_GlossDiv_GlossList_GlossDef_[]_GlossSeeAlso[1],)</pre>
-                <p>This is due to the fact values are not mapped against each other when being discovered inside arrays</p>
+                <pre>Apple_Variety_1_Number</pre>
+                <p>Due to current limitations, it is not possible to map values against each other, so I couldn't map the colour against the number for all varieties of apple using the [] notation.</p>
+                <p>This is due to the fact values are not mapped against each other when the JSON is denormalized.</p>
+                <p>The JSON implementation also supports wildcarding values, so if this record was added</p>
+                <pre>"blue-Cox"{
+	"Color":"Blue",
+	"Number":4
+}</pre>
+                <p>To the data, it could then be accessed via</p>
+                <pre>*cox_Color.count() </pre>
+                <p>And get stats for both the Cox, and the Blue-Cox. Similarly if the following were added</p>
+                <pre>"blue-Granny-Smith"{
+	"Color":"Blue",
+	"Number":5
+}</pre>
+                <p>Wildcarding could then capture all the blue fruit using</p>
+                <pre>*blue*.count()</pre>
               </div>
             </div>
             <div class="row">
