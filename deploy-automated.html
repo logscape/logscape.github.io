@@ -256,7 +256,16 @@
         </div>
         <div class="col-md-9 content-area"> 
           <p>In order to aid with the automated deployment of Logscape, both of Logscape's configure scripts can be ran in an automatic mode, thus removing the need for human input during installations. Below will be a brief run through of both the Windows and Unix automation steps,</p><br/>
-          <p><strong>Duration:  </strong>30 seconds</p><strong>Unix</strong>
+          <p><strong>Duration:  </strong>30 seconds</p><strong>Windows</strong>
+          <ol>
+            <li> 
+              <p>Locate the configure.bat script in %LOGSCAPE_HOME%/scripts</p>
+            </li>
+            <li> 
+              <p>Invoke configure.bat with the following arguments.</p>
+              <pre>./configure.bat -a [agent role i.e Dev.Forwarder] [Manager Host/IP] [Manager Port]</pre>
+            </li>
+          </ol><strong>Unix</strong>
           <ol> 
             <li> 
               <p>Locate the configure.sh script in %LOGSCAPE_HOME%/scripts</p>
