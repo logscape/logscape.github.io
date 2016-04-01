@@ -78,6 +78,10 @@
 				"url":"searching-defaults.html"
 			},
 			{
+				"display":"c3 charts",
+				"url":"searching-c3.html"
+			},
+			{
 				"display":"Tables",
 				"url":"searching-Tables.html"
 			},
@@ -94,9 +98,22 @@
 				"url":"searching-charttypes.html"
 			},
 			{
+				"display":"Event Analyser",
+				"url":"searching-event_analyser.html"
+			},
+			{
+				"display":"Exceptions",
+				"url":"searching-exceptions.html"
+			},
+			{
 				"display":"Searching Concat",
 				"url":"searching-concat.html"
+			},
+			{
+				"display":"Searching KV's",
+				"url":"searching-kv.html"
 			}
+
 		]
 	},
 	{
@@ -154,7 +171,7 @@
 			{
 				"display":"Add Data Source",
 				"url":"ds-add.html"
-			},
+			},			
 			{
 				"display":"JSON",
 				"url":"ds-json.html"
@@ -186,8 +203,24 @@
 		],
 		"hiddenchildren":[
 			{
+				"display":"Host Filter",
+				"url":"ds-add-host_filter.html"
+			},
+			{
 				"display":"",
 				"url":"ds-add-host_filter.html"
+			},
+			{	
+				"display":"System Logs",
+				"url":"ds-system_logs.html"
+			},
+			{	
+				"display":"Add CSV",
+				"url":"ds-add_csv.html"
+			},
+			{	
+				"display":"CSV",
+				"url":"ds-csv.html"
 			},
 			{
 				"display":"",
@@ -292,6 +325,10 @@
 				"url":"deploy-Deploying_Apps.html"
 			},
 			{
+				"display":"Automated Deployment",
+				"url":"deploy-automated.html"
+			},
+			{
 				"display":"Centralized Log Management ",
 				"url":"deploy-arch_clm.html"
 			},
@@ -331,6 +368,10 @@
 				"display":"Installing a Indexer",
 				"url":"deploy-indexer.html"
 			},
+			{	
+				"display":"Deploy License",
+				"url":"deploy-license.html"
+			},
 			{
 				"display":"Deploy your License",
 				"url":"deploy-add_license.html"
@@ -350,12 +391,28 @@
 			{
 				"display":"Hawt IO",
 				"url":"deploy-hawt_io.html"
+			},
+			{
+				"display":"Deployment tutorial",
+				"url":"deploy-Installation_Tutorial.html"
 			}
 		],
 		"hiddenchildren":[
 			{	
 				"display":"Administration",
 				"url":"deploy-administration.html"
+			},
+			{	
+				"display":"Teams",
+				"url":"deploy-teams.html"
+			},
+			{	
+				"display":"Modular Configs",
+				"url":"deploy-config-modular.html"
+			},
+			{	
+				"display":"Long running searches",
+				"url":"deploy-long_running_searhes.html"
 			},
 			{	
 				"display":"Application Properties",
@@ -452,6 +509,18 @@
 			{	
 				"display":"Backup",
 				"url":"deploy-backup.html"
+			},
+			{	
+				"display":"Backup Home",
+				"url":"deploy-backup-home.html"
+			},
+			{	
+				"display":"Backup Import",
+				"url":"deploy-backup-import.html"
+			},
+			{	
+				"display":"Backup Partial",
+				"url":"deploy-backup-partial.html"
 			},
 			{	
 				"display":"Dashboard",
@@ -677,10 +746,6 @@
 			{
 				"display":"Message Actions",
 				"url":"alerts-messageaction.html"
-			},
-			{
-				"display":"Report Actions",
-				"url":"alerts-reportaction.html"
 			},
 			{
 				"display":"Schedules",
