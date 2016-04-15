@@ -262,24 +262,25 @@
                 <p>When dealing with JSON Logscape is able to automatically extract your data into a format that can immediately be put to use. In order for this extraction to take place the entire event must be JSON, as Logscape will attempt to convert the entire event into a JSON object.</p>
                 <p>At search time the fields within your data are exposed on the left hand menu. For example</p>
                 <pre>{
-	 "Apple": {
-		"Variety": {
-			"Granny-Smith": {
-				"Colour":"Green",
-				"Number": 5
-			},
-			"Cox": {
-				"Color":"Red",
-				"Number": 3
-			}	
-		}	
-	}
+    "Apple": {
+        "Variety": [{
+            "Granny-Smith": {
+                "Colour": "Green",
+                "Number": 5
+            }
+        }, {
+            "Cox": {
+                "Color": "Red",
+               "Number": 3
+            }	
+        }]
+    }
 }</pre>
                 <p>Values are exposed based upon their location in the tree, so we could access values through syntax such as</p>
                 <pre>Apple_Variety_Granny-Smith_Colour</pre>
                 <p>If a value makes use of an array, it can be accessed via the [] notation, i.e if we wanted to perform operations on all varieties of Apple</p>
                 <pre>Apple_Variety_[]_Number</pre>
-                <p>The ability to refer to a specific value however is retained.</p>
+                <p>Due to the fact that Logscape treats each individual entry in the JSON array as an individual event, the ability to refer to a specific value is retained.</p>
                 <pre>Apple_Variety_1_Number</pre>
                 <p>Due to current limitations, it is not possible to map values against each other, so I couldn't map the colour against the number for all varieties of apple using the [] notation.</p>
                 <p>This is due to the fact values are not mapped against each other when the JSON is denormalized.</p>
