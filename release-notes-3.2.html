@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>	Logscape 3.2	</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.js"></script>
+  </head>
+  <body>
+    <div style="padding-left:30px;" class="container">		
+      <div class="row">
+        <div class="col-md-11">
+          <h3>Release,  3.2</h3>
+          <h3>18 April 2016</h3>
+          <h2>New Feature - Explorer</h2>
+          <p><br>The purpose of the Explorer view is to allow the user to easily browse the file system of every agent in their environments, inspect the files by hand, as well as tail any live additions to the file.</p>
+          <p>Full documentation on the Explorer view can be found on the <a href="">Logscape Support Site</a>.</p><img src="/images/explorer_1.png" style="width:1000px;"><img src="/images/explorer_2.png" style="width:1000px;padding-top:15px">
+          <h2>JSON Multievent support</h2>
+          <p><br>JSON Support has been extended to include support for full json arrays, systems which generate multiple events and log this to one large json objects are now fully supported via the Logscpae JSON syntax.
+            <p>A guide for use of the new extended JSON functionality can be found on the </p><a href="http://logscape.github.io/ds-json.html" target="_blank">Logscape Support</a>site.
+          </p>
+          <h2>Dashboard Reload Loop Fixed</h2>
+          <p><br>Fixed an existing issue whereby an invalid session could cause the dashboard to enter a refresh loop preventing user interaction.</p>
+          <h2>Failover Iteration One</h2>
+          <p><br>Re-added the functionality for Failovers within an environment. In Iteration one, the environment will fall back to a failover node when the manager becomes available, but will require manual intervention in order to swap back to the main manager when service is renewed. Interation two will see the introduction of failback once the manager is viewed as being stable.</p>
+          <p>In order to add failover to your environment -</p>
+          <ul>
+            <li>Introduce a failover agent to your environment in the appropriate zone.</li>
+            <li>Deploy a connection.properties file to your environment which contains</li>
+            <ul>
+              <li>manager.address=""</li>
+              <li>failover.address=""</li>
+            </ul>
+          </ul>
+          <h2>Performance and Stability Improvements</h2>
+          <p><br>A number of small stability and performance issues have been rectified in the continueing effort to make Logscape as stable and as efficient as possible.</p><br><br><br><br><br><br><br>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
