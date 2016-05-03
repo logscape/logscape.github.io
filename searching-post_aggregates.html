@@ -269,6 +269,9 @@
                 <p>We can perform a similar example using the WindowsApp.</p>
                 <pre>*| _type.equals(win-procpref) threads.sum(_host,THREADS) +THREADS.max(,Max) +THREADS.min(,Min) +THREADS.avg(,Avg) bucketWidth (1m) chart(c3.area)</pre>
                 <p>This search will show the minimum, average and maximum running threads on the system, looking at the graph below it is strikingly obvious when a large program is closed, releasing the threads.</p><img src="images/post_agg_search2.png" width="600"/><br/>
+                <p><br/>Using post aggregates it is of course possible to filter as per usual. Which means for example.</p>
+                <pre>Agent and cpu | CPU.max(_host,POST) +POST.gt(75)</pre>
+                <p>Would limit to only showing me information when the post aggregated value is above 75.</p>
                 <p> <br/>Hopefully this has allowed you to understand the power of Post Aggregates in Logscape.</p>
               </div>
             </div>
