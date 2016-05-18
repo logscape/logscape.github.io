@@ -258,11 +258,15 @@
           <div class="container-fluid">
             <div class="row"></div>
             <h3>Role Based Boot Properties</h3>
-            <p>Agents can be managed centrally by using a role aware boot properties file</p>
-            <p>explain that agents can have roles</p>
-            <P>EXPLAIN THE  name substring method of it being applied </P>
-            <p>GIVE AN EXAMPLE</p>
-            <div class="image"><img src="images/deploy-role_based_boot_properties-intro" width="400" height="400"/></div><strong>acme.uk.IndexStore - </strong><strong>acme.uk.Forwarder </strong><br/><br/><br/>
+            <p>All Logscape agents have a <a href="install-components.html" target="_blank">role</a>, that determines the agent's function. For example, a Management agent will run dashboard and indexing services, whilst a Forwarder will simply send data to another host. This role is determined <a href="deploy.html" target="_blank">during installation</a> and is stored in the <a href="deploy-boot_properties.html" target="_blank">boot.properties</a> file. It is this file which controls many of the agents base parameters. For more information, check out <a href="http://blog.logscape.com/2016/01/boot-properties-5-useful-tips-for-enterprise-logscape-environments/" target="_blank">this handy blog post</a>.</p>
+            <p>In a large environment, it is likely you will have multiple agents with similar roles - each of which should have similar boot.properties. To ensure consistency, you should centrally deploy your boot.properties files - so that all agents with a single role use the same file.</p>
+            <P>For example, you have an environment with 5 Forwarders, each named acme.uk.Forwarder. Each will have a file named boot.properties found in the Logscape home directory.</P>
+            <ol>
+              <li>Take a copy of the boot.properties file.</li>
+              <li>Rename it acme.dev.Forwarder.boot.properties</li>
+              <li>Upload this newly named file to the Logscape Manager.</li>
+            </ol>
+            <p>When an agent with the role acme.dev.Forwarder next boots, it will check the downloads folder for a boot.properties matching that role. If one exists, it will use the centrally distributed copy. If it does not exist, it will use the local copy. If you later need to make any changes to the boot.properties, you can now upload a fresh copy which will affect all agents, rather than manually reconfiguring each machine.  </p><br/><br/><br/>
             <div id="disqus_thread">
               <script>
                 /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
