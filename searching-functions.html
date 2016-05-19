@@ -550,7 +550,10 @@
               </p>
               <p>Examples:</p>
               <div class="block"> 
-                <p>* | _type.contains(UNX) _type.equals(unx-ps) usedMB.avg(server,UsedKB) RSZ_MB.avg(server,rszKB) eval(EACH * 1024) chart(table) buckets(1)</p>
+                <p>Eval a host grouped by another value</p>
+                <p>CPU | CPU.max(_host,M)  eval(EACH * 100)</p>
+                <p>Single Value Support</p>
+                <p>CPU | CPU.max(,CPU_MAX)  eval(CPU_MAX * 100)</p>
               </div>
             </li>
             <li>
