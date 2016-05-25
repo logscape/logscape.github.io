@@ -66,7 +66,63 @@
               -->
             </div>
           </div>
-          <hr/>
+          <hr id="collectors"/>
+          <h3>Log Collectors</h3>
+          <div style="padding-left:25px" class="row">
+            <div class="col-md-11"></div>
+            <!--
+            h6a(href="#/grid") [ Grid View |
+            a(href="#/list")  List View ]  
+            -->
+            <div ng-controller="docListCtrl" class="ng-scope">
+              <!--
+              div(ng-repeat="c in getCategories")input(ng-model="{{c}}",type="checkbox",value="true")
+              span {{c}}
+              -->
+              <!-- ngView: undefined-->
+              <div class="ng-view ng-scope">
+                <div ng-controller="docListCtrl" class="ng-scope">
+                  <filter:query></filter:query>
+                  <div ng-repeat="doc in documents | filter:filterByCategory | filter:query" class="ng-scope">
+                    <div style="width:300px;float:left;margin: 5px 5px 5px 5px">
+                      <div style="background-color:#EEE;border: 1px solid #CCC;width:300px;height:300px;padding: 10px 10px 10px 10px">
+                        <center>
+                          <div style="float:center;"><img src="images/collectd_logo.png" style="height:80px"/></div>
+                        </center>
+                        <p></p>
+                        <h3 class="ng-binding"> Visualize Collectd Metrics</h3>
+                        <p></p>
+                        <!-- span.category  >> {{doc.docType}}-->
+                        <p class="ng-binding">Aggregate collectd metrics across several hosts and visualize system health and performance metrics on custom Collectd Workspaces.</p>
+                        <div style="float:left;padding-left:10px" class="grid"><a style="color:fe4800" href="https://github.com/logscape/CollectdApp" target="_blank">Github Repo | </a></div>
+                        <div style="color:fe4800;float:left;padding-left:10px"><a style="color:fe4800" href="https://github.com/logscape/CollectdApp/blob/master/dist/CollectdApp-0.5.zip?raw=true">Download </a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <filter:query></filter:query>
+                  <div ng-repeat="doc in documents | filter:filterByCategory | filter:query" class="ng-scope">
+                    <div style="width:300px;float:left;margin: 5px 5px 5px 5px">
+                      <div style="background-color:#EEE;border: 1px solid #CCC;width:300px;height:300px;padding: 10px 10px 10px 10px">
+                        <center>
+                          <div style="float:center;"><img src="images/nuget-icon.png" style="height:80px"/></div>
+                        </center>
+                        <p></p>
+                        <h3 class="ng-binding"> Capture with Telegraf</h3>
+                        <p></p>
+                        <!-- span.category  >> {{doc.docType}}-->
+                        <p class="ng-binding">Telegraf is an agent written in Go for collecting metrics from the system it's running on, or from other services, and writing them into a variety of different output formats.</p>
+                        <div style="float:left;padding-left:10px" class="grid"><a style="color:fe4800" href="https://github.com/logscape/CollectdApp" target="_blank">Github Repo | </a></div>
+                        <div style="color:fe4800;float:left;padding-left:10px"><a style="color:fe4800" href="https://github.com/logscape/CollectdApp/blob/master/dist/CollectdApp-0.5.zip?raw=true">Download |</a></div>
+                        <div style="color:fe4800;float:left;padding-left:10px"><a style="color:fe4800" href="https://docs.influxdata.com/telegraf/v0.13/introduction/installation/" target="_blank">Docs</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr id="apps"/>
+          <h3>Application Monitoring</h3>
           <div style="padding-left:25px" class="row">
             <div class="col-md-11"></div>
             <!--
@@ -110,7 +166,7 @@
                         <!-- span.category  >> {{doc.docType}}-->
                         <p class="ng-binding">This version of the Windows App is for Logscape 3.0 Onwards. Monitor Unix, Solaris and OS X operating systems. Get insights on operating system KPIs with detailed charts and alerts</p>
                         <div style="float:left;padding-left:10px" class="grid"><a style="color:fe4800" href="https://github.com/logscape/Unix3" target="_blank">Github Repo | </a></div>
-                        <div style="color:fe4800;float:left;padding-left:10px"><a style="color:fe4800" href="https://github.com/logscape/Unix3/blob/master/UnixApp-1.5.zip?raw=true">Download </a></div>
+                        <div style="color:fe4800;float:left;padding-left:10px"><a style="color:fe4800" href="https://github.com/logscape/Unix3/blob/master/UnixApp-1.6.zip?raw=true">Download </a></div>
                       </div>
                     </div>
                   </div>
@@ -185,23 +241,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- end ngRepeat: doc in documents | filter:filterByCategory | filter:query-->
-                  <div ng-repeat="doc in documents | filter:filterByCategory | filter:query" class="ng-scope">
-                    <div style="width:300px;float:left;margin: 5px 5px 5px 5px">
-                      <div style="background-color:#EEE;border: 1px solid #CCC;width:300px;height:300px;padding: 10px 10px 10px 10px">
-                        <center>
-                          <div style="float:center;"><img src="images/collectd_logo.png" style="height:80px"/></div>
-                        </center>
-                        <p></p>
-                        <h3 class="ng-binding"> Visualize Collectd Metrics</h3>
-                        <p></p>
-                        <!-- span.category  >> {{doc.docType}}-->
-                        <p class="ng-binding">Aggregate collectd metrics across several hosts and visualize system health and performance metrics on custom Collectd Workspaces.</p>
-                        <div style="float:left;padding-left:10px" class="grid"><a style="color:fe4800" href="https://github.com/logscape/CollectdApp" target="_blank">Github Repo | </a></div>
-                        <div style="color:fe4800;float:left;padding-left:10px"><a style="color:fe4800" href="https://github.com/logscape/CollectdApp/blob/master/dist/CollectdApp-0.5.zip?raw=true">Download </a></div>
-                      </div>
-                    </div>
-                  </div>
+                  <!-- end ngRepeat: doc in documents | filter:filterByCategory | -->
                   <!-- end ngRepeat: doc in documents | filter:filterByCategory | filter:query-->
                   <div ng-repeat="doc in documents | filter:filterByCategory | filter:query" class="ng-scope">
                     <div style="width:300px;float:left;margin: 5px 5px 5px 5px">
