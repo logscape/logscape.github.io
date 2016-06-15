@@ -259,7 +259,7 @@
             <div class="row">
               <div class="col-md-11">
                 <h3>Troubleshooting: I can't see my Data.</h3>
-                <p>There a few reasons why you may not be able to see data within your environment. This guide aims to walk you through a debugging process in order to isolate, and fix any faults.</p>
+                <p>The troubleshooting series aims to help you diagnose problems within your environments, this guide aims to help you diagnose a scenario whereby data is not appearing in your environment. Diagnosis will begin on your forwarding agents and then move to your Indexstore/Management agents.</p>
                 <h2>Debugging Process</h2>
                 <ol>
                   <li>Check the Forwarder's Filesystem - Is your search configured to capture when the file was last active?</li>
@@ -273,6 +273,19 @@
                   <p>The most interesting fields here are age, and Times. Age simply tells you in days, how old the file is, while Times is the time window the Index exists between, check the second value in the times field, does it match with the LastTimeParsed from the tailer?</p><strong>My last time parsed doesnt match my time field - </strong>If your lastTimeParsed field is up to date, but your times field is behind, and remains behind for a protracted period of time, it is likely your index has somehow become corrupt. Simply reindexing the datasource should rectify any problems.<br/><strong>My file isn't listed - </strong>The three most common culprits for a tailed file not showing in the Index, the file is new and the index hasn't been created, just be patient and allow a few minutes. The Indexer service isn't running, a simple bounce will restart all of your JVM processes and your data will begin Indexing. If the previous have no affect, it is possible the Index is corrupt, a simple re-index will rectify this issue.
                   <p><br/></p>
                   <p>If you have got this far, then your issue may lie on your Indexstore/Manager, repeat the above troubleshooting steps, instead utilizing the JMX URL of the host wheree your data is stored.</p>
+                  <h2>Logscape Data Ingestion Process</h2>
+                  <p>The following is that the process that all data within your environment goes through in order to become searchable.</p>
+                  <ul>
+                    <li>The Forwarder detects data in a path defined by a datasource.</li>
+                    <li>A new forwarder is spawned in order to ingest the data.</li>
+                    <li>As the data is ingested the forwarder builds an Index of the data.</li>
+                    <li>Indexed data is forwarded to the data storage agent.</li>
+                    <li>The data storage agent detects new data based upon the datasource.</li>
+                    <li>The data storage agent spawns a new tailer.</li>
+                    <li>As the tailer ingests data the Index is built.</li>
+                    <li>Once the Index exists the data is searchable.</li>
+                    <li>For live files the tailer will stay active and continue to ingest data.</li>
+                  </ul>
                 </ol>
               </div>
             </div>
