@@ -258,35 +258,11 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-11">
-                <h3>Troubleshooting: I can't see my Data.</h3>
-                <p>The troubleshooting series aims to help you diagnose problems within your environments, this guide aims to help you diagnose a scenario whereby data is not appearing in your environment. Diagnosis will begin on your forwarding agents and then move to your Indexstore/Management agents.</p>
-                <h2>Debugging Process</h2>
-                <ol>
-                  <li>Check the Forwarder's Filesystem - Is your search configured to capture when the file was last active?</li>
-                  <p>It sounds simple, but it happens to everyone, compare the files you are interested in, with your search parameters, is the time window large enough to include last time the file was active?</p><strong>Solution -</strong> Expand your search Window.
-                  <li>Is the file being tailed?</li>
-                  <p>The easiest way to check if your file is being tailed is to utilize the JMX page of your forwarder. The easiest way to find the JMX url is to simply highlight the forwarder in question on the agents page, and filter the results by JMX.</p><img src="images/troubleshooting-jmxUrl.png" width="1000"/>
-                  <p>From here, visit the JMX page, by default the credentials are username:sysadmin, password:ll4bs. Once the page has loaded select <strong>Service=Indexer </strong></p>The function you are interested in is ListTailers, enter your file name as an argument, and then press the ListTailers button, you should see output similar to the following.<img src="images/troubleshooting-ListTailers.png" width="1000"/>
-                  <p>Take note of the LastTimeParsed value, as we'll be using it later.</p><strong>File not displayed?</strong> If your file isn't displaying the most common suspect is simply that their is no datasource set up for your data.
-                  <li>Is the file indexed?</li>
-                  <p>Again on the JMX page of forwarder, this time we're going to check whether the file is indexed. Instead of using the listTailers function this time we're going to use the IndexedFiles function. In the same way you did for listTailers provide the filename you are interested in as your argument, and then click the IndexedFiles button, your output should look like the following.</p><img src="images/troubleshooting-IndexedFiles.png" width="1000"/>
-                  <p>The most interesting fields here are age, and Times. Age simply tells you in days, how old the file is, while Times is the time window the Index exists between, check the second value in the times field, does it match with the LastTimeParsed from the tailer?</p><strong>My last time parsed doesnt match my time field - </strong>If your lastTimeParsed field is up to date, but your times field is behind, and remains behind for a protracted period of time, it is likely your index has somehow become corrupt. Simply reindexing the datasource should rectify any problems.<br/><strong>My file isn't listed - </strong>The three most common culprits for a tailed file not showing in the Index, the file is new and the index hasn't been created, just be patient and allow a few minutes. The Indexer service isn't running, a simple bounce will restart all of your JVM processes and your data will begin Indexing. If the previous have no affect, it is possible the Index is corrupt, a simple re-index will rectify this issue.
-                  <p><br/></p>
-                  <p>Once these steps have been performed it can be discerned that the problemn does not lie within the forwarder, instead it must be with the Indexstore or Manager where the data is being stored. To this effect, your first step should be to check that the data is arriving on the agent as expected. Check the agents filesystem for the presence of the expected files, if the files are presents as expected, then the above steps should be repeated on the Indexstore/Manager.</p>
-                  <h2>Logscape Data Ingestion Process</h2>
-                  <p>The following is that the process that all data within your environment goes through in order to become searchable.</p>
-                  <ul>
-                    <li>The Forwarder detects data in a path defined by a datasource.</li>
-                    <li>A new tailer is created in order to ingest the data.</li>
-                    <li>As the data is ingested the forwarder builds an Index of the data.</li>
-                    <li>Indexed data is forwarded to a Manager or Indexstore.</li>
-                    <li>The agent detects new data based upon the datasource.</li>
-                    <li>The agent spawns a new tailer.</li>
-                    <li>As the tailer ingests data the Index is built.</li>
-                    <li>Once the Index exists the data is searchable.</li>
-                    <li>For live files the tailer will stay active and continue to ingest data.</li>
-                  </ul>
-                </ol>
+                <h3>Troubleshooting</h3>
+                <p>The troubleshooting section is a work in progress section to assist users with the debugging of their own environments. </p>
+                <li>
+                  <ul><a href="troubleshooting-Data_Not_Visible.html"></a></ul>
+                </li>
               </div>
             </div>
           </div>

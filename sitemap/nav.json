@@ -774,7 +774,7 @@
 		"url":"technology.html",
 		"children":[
 			{
-				"display":"Sizing Guide",
+				"display":"Sizing",
 				"url":"technology-sizing.html"
 			},
 			{
@@ -853,6 +853,16 @@
 				"display":"Anomaly Detection",
 				"url":"Advanced-Analytics_Anom.html"
 			}
+		]
+	},
+	{
+		"display":"Troubleshooting",
+		"url":"troubleshooting.html",
+		"children":[
+		{
+			"display":"Data not searchable",
+			"url":"troubleshooting-Data_Not_Visible.html"
+		}
 		]
 	},
 	{
