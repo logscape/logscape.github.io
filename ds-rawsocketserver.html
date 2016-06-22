@@ -266,18 +266,12 @@
                   <li>Splunk forwarders</li>
                   <li>netcat - Unix system commands that writes text to an ip address and port </li>
                 </ul>
-                <h4>Data Sources </h4>
-                <p>The raw socket servers default data source is 
-                  <blockquote>socket-server 	</blockquote>
-                </p>
-                <p>which points to the ./work/SyslogServer_SERVER_/  by default, which is where it will generate the data.</p>
                 <p> </p><strong>Configure Logscape Socket Server </strong>
                 <p>Logscape runs a TCP SocketServer by default on port 9991.  To change the default port update the sysprops section with the following system property in the boot.properties file
                   <blockquote>	-Dsocket.server.port=22222</blockquote>
                   <blockquote>	-Dsocket.server.mapping=mapping.csv</blockquote>and then bounce the system.
                 </p>
-                <p>The Socket Server logs to the file ./work/socketserver.log. To change the directory where the Socket Server stores files update this property. </p>
-                <blockquote>	 -Dsocket.server.root=/data/SocketServer </blockquote>
+                <p>The Socket Server logs to the /work/Logserver_SERVER_/ folder, where it will be stored in a subdirectory based off the hostname/ip </p>
                 <p>By default the Socket Server will store the raw socket stream before demultiplexing in a raw file. This can be disabled by using the following system property</p>
                 <blockquote> -Dsocket.server.dump.raw=false</blockquote>
                 <h3>How the Log TCP  Streaming works </h3>
