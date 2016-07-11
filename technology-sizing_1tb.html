@@ -258,7 +258,7 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-11">
-                <h3>Sizing for Ingesting 1 TB Daily</h3>
+                <h3>Sizing to Ingest 1 TB Daily</h3>
                 <p>1TB is a daunting amount of data, however with a small amount of pre-planning ingesting, indexing and searching this data is a simple task when using Logscape.</p>
                 <p>Whilst a single Indexstore could theoretically ingest and index 1 TB per day, we would suffer severe performance issues when running searches. Introducing additional Indexstores allows the data volume to be separated in to manageable clusters, allowing us to leverage the increased processing and Disk I/O capacity. For this specific deployment, we will install 6 well provisioned Indexstores.</p><strong>Assumptions</strong>
                 <ul>
@@ -301,14 +301,15 @@
                       </td>
                     </tr>
                   </tbody>
-                </table><br/><strong>User Experience</strong><br/><strong>Mechanical disk:</strong>
+                </table><br/><strong>User Experience</strong>
+                <p>A general benchmark for optimal user experience is that searches will return within 10 seconds - Below are some example times to search 10 Gb of data</p><br/><strong>Mechanical disk:</strong>
                 <p>10GB/ 0.15GBs = 66 seconds</p><strong>SSD:</strong>
                 <p>10GB/ 0.5GBs = 20 seconds</p><strong>SSD x 2 (AWS):</strong>
                 <p>10GB/ 1GBs = 10 seconds</p><strong>SSD RAID 5+1:</strong>
                 <p>10GB/ 2.5GBs = 4 seconds</p><br/><strong>NOTE: </strong>
-                <p>- realworld performance depends upon the processors ability to cope with throughput. </p>
+                <p>- Realworld performance depends upon the processors ability to cope with throughput. </p>
                 <p>- OS kernel caching will improve performance where enough memory is left free (50%)</p>
-                <p>- larger deployments will see users searching different sets of data</p>
+                <p>- Larger deployments will see users searching different sets of data</p>
                 <p>- NFS mounted drives will be dependent upon sharing and latency</p>
                 <p>- The load of virtualised infrastructure may impact performance and suffer latency</p><strong>Network Stats</strong>
                 <p>Network requirements will vary upon the individual IO capability of your Indexstores, but must be configured in such a way to take into account both data transfer incoming to the Indexstores as well as the capacity needed by in order to transfer data to the Manager at search time. To benchmark your network you can follow the steps <a href="technology-benchmarking.html">here</a>. For this scenario we will assume each Indexstore is connected via two fibre channel connections which are bonded for an estimated bandwidth of 2.5gb/sec.</p><strong>Rough Specifications</strong>
