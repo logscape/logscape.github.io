@@ -325,10 +325,6 @@
 				"url":"deploy-Deploying_Apps.html"
 			},
 			{
-				"display":"SSL Encryption",
-				"url":"deploy-ssl"
-			},
-			{
 				"display":"Automated Deployment",
 				"url":"deploy-automated.html"
 			},
@@ -774,6 +770,10 @@
 		"url":"technology.html",
 		"children":[
 			{
+				"display":"Sizing 1TB",
+				"url":"technology-sizing_1tb.html"
+			},
+			{
 				"display":"Sizing",
 				"url":"technology-sizing.html"
 			},
@@ -853,16 +853,6 @@
 				"display":"Anomaly Detection",
 				"url":"Advanced-Analytics_Anom.html"
 			}
-		]
-	},
-	{
-		"display":"Troubleshooting",
-		"url":"troubleshooting.html",
-		"children":[
-		{
-			"display":"Data not searchable",
-			"url":"troubleshooting-Data_Not_Visible.html"
-		}
 		]
 	},
 	{
