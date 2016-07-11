@@ -260,20 +260,16 @@
               <div class="col-md-11">
                 <h3>Sizing Guide</h3>
                 <p>Logscape performance is dependent upon the following factors. </p>
-                <ol>
-                  <li>The volume of data being searched, this is generally related to time (i.e. last 24hours) as well as volume indexed per day.</li>
+                <ul>
+                  <li>The volume of data being searched</li>
                   <li>The number of concurrent users</li>
                   <li>The number of alerts and their frequency </li>
-                  <li>The number of auto-running workspaces being updated </li>
-                  <li>The style of search being executed 
-                    <ul>
-                      <li>adhoc, summary index based, workspace (i.e. no replays), or complex datatypes (i.e. groovy-script) or if fields are indexed.</li>
-                    </ul>
-                  </li>
-                </ol>
-                <p>Each of the above have a different cost but all rely mostly on the performance of the underlying filesystem. Where the filesystem is performant enough then the application will become CPU bound. Searches can then be further optimised to reduce CPU load by using IndexedFields or Summary Indexing.</p>
-                <p>To size the system you need to benchmark the performance of each layer as follows:</p>
-                <p> <b>File System:</b> The filesystem can be benchmarked using iozone or any similar tool. The system needs sufficient Disk IO to saturate the CPU cores.</p>
+                  <li>The style of search being executed </li>
+                </ul>
+                <p>From a hardware standpoint CPU, Memory and Disk IO are all equally important. To maintain an acceptable user experience, the Disks must be capable of accessing the data fast enough, the CPU able to perform the needed operations on the supplied data and finally there must be enough RAM for both the Logscape processes and OS Kernel caching.</p>
+                <p>In every environment the ultimate goal is to have a CPU limited environment with enough memory to allow for off-heap useage by Logscape as well as OS kernel caching.</p><strong>What is the User Experience?</strong>
+                <p>The most common action a user will perform within any given Logscape environment, is search. To guarentee a pleasant experience we recommend sizing your environment so that searches over the last 24 hours worth of generated data, return within 10 seconds.</p><strong>File System</strong>
+                <p>In order to gather accurate metrics it is reccomended that you use a tool such as <a href="http://www.iozone.org/" target="_blank">ioZone</a>. However rough assumptions can be made based upon disk type.</p>
                 <table>
                   <tbody>
                     <tr style="background-color:#333;color:#CCC">
@@ -294,27 +290,52 @@
                     </tr>
                     <tr style="color=#666;">
                       <td style="width: 20%; border-top:1px solid #ddd">(SSD)RAID 5+1</td>
-                      <td style="width: 20%; border-top:1px solid #ddd">
-                        2.5Gb/sec
-                        
-                        
-                        
-                      </td>
+                      <td style="width: 20%; border-top:1px solid #ddd">2.5Gb/sec</td>
                     </tr>
                   </tbody>
-                </table><br/><strong>User Experience</strong>
-                <p>A general benchmark for optimal user experience is that searches will return within 10 seconds.</p><strong>Mechanical disk:</strong>
-                <p>10GB/ 0.15GBs = 66 seconds</p><strong>SSD:</strong>
-                <p>10GB/ 0.5GBs = 20 seconds</p><strong>SSD x 2 (AWS):</strong>
-                <p>10GB/ 1GBs = 10 seconds</p><strong>SSD RAID 5+1:</strong>
-                <p>10GB/ 2.5GBs = 4 seconds</p><br/><strong>NOTE: </strong>
+                </table><br/>
+                <p>Using these device speeds, in a scenario where we are searching 10 GB of data, we get the following search times.</p>
+                <table>
+                  <tbody>
+                    <tr style="background-color:#333;color:#CCC">
+                      <td style="width: 20%; border-top:1px solid #ddd">Device</td>
+                      <td style="width: 20%; border-top:1px solid #ddd">Dataset Size</td>
+                      <td style="width: 20%; border-top:1px solid #ddd">IO Rate</td>
+                      <td style="width: 20%; border-top:1px solid #ddd">Search Duration</td>
+                    </tr>
+                    <tr style="">
+                      <td style="width: 20%; border-top:1px solid #ddd">Mechanical Disk</td>
+                      <td style="width: 20%; border-top:1px solid #ddd">10Gb</td>
+                      <td style="width: 20%; border-top:1px solid #ddd">150Mbs</td>
+                      <td style="width: 20%; border-top:1px solid #ddd">66 Seconds</td>
+                    </tr>
+                    <tr style="">
+                      <td style="width: 20%; border-top:1px solid #ddd">SSD</td>
+                      <td style="width: 20%; border-top:1px solid #ddd">10Gb</td>
+                      <td style="width: 20%; border-top:1px solid #ddd">500MBs</td>
+                      <td style="width: 20%; border-top:1px solid #ddd">20 Seconds  </td>
+                    </tr>
+                    <tr style="">
+                      <td style="width: 20%; border-top:1px solid #ddd">SSDx2</td>
+                      <td style="width: 20%; border-top:1px solid #ddd">10Gb</td>
+                      <td style="width: 20%; border-top:1px solid #ddd">1GBs</td>
+                      <td style="width: 20%; border-top:1px solid #ddd">10 Seconds</td>
+                    </tr>
+                    <tr style="">
+                      <td style="width: 20%; border-top:1px solid #ddd">(SSD) RAID 5+1</td>
+                      <td style="width: 20%; border-top:1px solid #ddd">10Gb</td>
+                      <td style="width: 20%; border-top:1px solid #ddd">2.5GBs</td>
+                      <td style="width: 20%; border-top:1px solid #ddd">4 Seconds                   </td>
+                    </tr>
+                  </tbody>
+                </table><strong>NOTE: </strong>
                 <ul>
                   <li>Realworld performance depends upon the processors ability to cope with throughput. </li>
                   <li>OS kernel caching will improve performance where enough memory is left free (50%)</li>
                   <li>Larger deployments will see users searching different sets of data</li>
                   <li>NFS mounted drives will be dependent upon sharing and latency</li>
                   <li>The load of virtualised infrastructure may impact performance and suffer latency</li>
-                </ul><em>[1] On the free download version of Logscape the IndexStore can not run on a separate host from the Manager. Scaling out is disabled. In this case the sizing requirements for the Index Store also apply for the host running the Manager</em><br/><em>[2] Swap usage - it is important that your memory usage does not enter swap. The swappiness kernel property is used to control when the kernel starts to use swap. It is recommended to switch swap off entirely and to size the system correctly.</em><br/>
+                </ul>
                 <h3><br/>Measuring Cache Performance</h3>
                 <p>Linux cache performance can be monitored using the 'perf' command line tool, you can read more about perf <a href="https://perf.wiki.kernel.org/index.php/Tutorial" target="_blank">here</a>.</p>
                 <p>Perf provides metrics about many parts of an application. For this scenario we are interested in "cache misses", a cache miss is generated when the application is forced to read from disk, rather than RAM or the cache. Ideally we would never read from the disk, but this scenario is unlikely, so we're going to aim for below 5% cache misses.</p>
