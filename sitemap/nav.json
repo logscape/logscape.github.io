@@ -171,7 +171,7 @@
 			{
 				"display":"Add Data Source",
 				"url":"ds-add.html"
-			},			
+			},
 			{
 				"display":"JSON",
 				"url":"ds-json.html"
@@ -210,15 +210,15 @@
 				"display":"",
 				"url":"ds-add-host_filter.html"
 			},
-			{	
+			{
 				"display":"System Logs",
 				"url":"ds-system_logs.html"
 			},
-			{	
+			{
 				"display":"Add CSV",
 				"url":"ds-add_csv.html"
 			},
-			{	
+			{
 				"display":"CSV",
 				"url":"ds-csv.html"
 			},
@@ -368,7 +368,7 @@
 				"display":"Installing a Indexer",
 				"url":"deploy-indexer.html"
 			},
-			{	
+			{
 				"display":"Deploy License",
 				"url":"deploy-license.html"
 			},
@@ -380,7 +380,7 @@
 				"display":"Boot properties",
 				"url":"deploy-boot_properties.html"
 			},
-			{	
+			{
 				"display":"Update Logscape",
 				"url":"deploy-update.html"
 			},
@@ -398,171 +398,171 @@
 			}
 		],
 		"hiddenchildren":[
-			{	
+			{
 				"display":"Administration",
 				"url":"deploy-administration.html"
 			},
-			{	
+			{
 				"display":"Teams",
 				"url":"deploy-teams.html"
 			},
-			{	
+			{
 				"display":"Modular Configs",
 				"url":"deploy-config-modular.html"
 			},
-			{	
+			{
 				"display":"Long running searches",
 				"url":"deploy-long_running_searhes.html"
 			},
-			{	
+			{
 				"display":"Application Properties",
 				"url":"deploy-administration-appsproperties.html"
 			},
-			{	
+			{
 				"display":"Application Updating",
 				"url":"deploy-administration-appupdating.html"
 			},
-			{	
+			{
 				"display":"Centralized Config",
 				"url":"deploy-administration-centralizedconfig.html"
 			},
-			{	
+			{
 				"display":"Offsets",
 				"url":"deploy-administration-dsoffsets.html"
 			},
-			{	
+			{
 				"display":"Grokit Configuration",
 				"url":"deploy-administration-grokitconfig.html"
 			},
-			{	
+			{
 				"display":"Home Configuration",
 				"url":"deploy-administration-homeconfig.html"
 			},
-			{	
+			{
 				"display":"Importing/Exporting",
 				"url":"deploy-administration-importexport.html"
 			},
-			{	
+			{
 				"display":"Memory",
 				"url":"deploy-administration-memory.html"
 			},
-			{	
+			{
 				"display":"Monitoring Alerts",
 				"url":"deploy-administration-monitoring-alerts.html"
 			},
-			{	
+			{
 				"display":"Monitoring Data",
 				"url":"deploy-administration-monitoringdata.html"
 			},
-			{	
+			{
 				"display":"Monitoring Health",
 				"url":"deploy-administration-monitoringhealth.html"
 			},
-			{	
+			{
 				"display":"Monitoring System",
 				"url":"deploy-administration-monitoring-system.html"
 			},
-			{	
+			{
 				"display":"Priority",
 				"url":"deploy-administration-priority.html"
 			},
-			{	
+			{
 				"display":"Roles",
 				"url":"deploy-administration-role.html"
 			},
-			{	
+			{
 				"display":"Timezones",
 				"url":"deploy-administration-timezones.html"
 			},
-			{	
+			{
 				"display":"Validation",
 				"url":"deploy-administration-validate.html"
 			},
-			{	
+			{
 				"display":"Agents",
 				"url":"deploy-agents.html"
 			},
-			{	
+			{
 				"display":"Application",
 				"url":"deploy-app.html"
 			},
-			{	
+			{
 				"display":"Default",
 				"url":"deploy-architectures-default.html"
 			},
-			{	
+			{
 				"display":"Failover",
 				"url":"deploy-architectures-failover.html"
 			},
-			{	
+			{
 				"display":"Indexstores",
 				"url":"deploy-architectures-indexstores.html"
 			},
-			{	
+			{
 				"display":"Tenured",
 				"url":"deploy-architectures-tenured.html"
 			},
-			{	
+			{
 				"display":"Zones",
 				"url":"deploy-architectures-zones.html"
 			},
-			{	
+			{
 				"display":"Backup",
 				"url":"deploy-backup.html"
 			},
-			{	
+			{
 				"display":"Backup Home",
 				"url":"deploy-backup-home.html"
 			},
-			{	
+			{
 				"display":"Backup Import",
 				"url":"deploy-backup-import.html"
 			},
-			{	
+			{
 				"display":"Backup Partial",
 				"url":"deploy-backup-partial.html"
 			},
-			{	
+			{
 				"display":"Dashboard",
 				"url":"deploy-dashboard.html"
 			},
-			{	
+			{
 				"display":"Deployment Ports",
 				"url":"deploy-ports.html"
 			},
-			{	
+			{
 				"display":"Deployment Pre-Requisites",
 				"url":"deploy-prerequisites.html"
 			},
-			{	
+			{
 				"display":"Deployment Port Pre-requisites",
 				"url":"deploy-prerequisites-ports.html"
 			},
-			{	
+			{
 				"display":"TCP Server",
 				"url":"deploy-rawtcpserver.html"
 			},
-			{	
+			{
 				"display":"Requirements",
 				"url":"deploy-requirements.html"
 			},
-			{	
+			{
 				"display":"Role based boot properties",
 				"url":"deploy-role_based_boot_properties.html"
 			},
-			{	
+			{
 				"display":"Security",
 				"url":"deploy-security.html"
 			},
-			{	
+			{
 				"display":"Keystores",
 				"url":"deploy-security-keystores.html"
 			},
-			{	
+			{
 				"display":"Partial update",
 				"url":"deploy-update_partial.html"
 			},
-			{	
+			{
 				"display":"Zones",
 				"url":"deploy-zones.html"
 			},
@@ -770,11 +770,11 @@
 		"url":"technology.html",
 		"children":[
 			{
-				"display":"Sizing",
+				"display":"Sizing Guide",
 				"url":"technology-sizing.html"
 			},
 			{
-				"display":"Sizing 1TB",
+				"display":"Sizing for 1TB",
 				"url":"technology-sizing_1tb.html"
 			},
 			{
