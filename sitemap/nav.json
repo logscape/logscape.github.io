@@ -770,12 +770,12 @@
 		"url":"technology.html",
 		"children":[
 			{
-				"display":"Sizing 1TB",
-				"url":"technology-sizing_1tb.html"
-			},
-			{
 				"display":"Sizing",
 				"url":"technology-sizing.html"
+			},
+			{
+				"display":"Sizing 1TB",
+				"url":"technology-sizing_1tb.html"
 			},
 			{
 				"display":"Benchmarking",

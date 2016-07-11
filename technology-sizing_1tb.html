@@ -302,16 +302,18 @@
                     </tr>
                   </tbody>
                 </table><br/><strong>User Experience</strong>
-                <p>A general benchmark for optimal user experience is that searches will return within 10 seconds - Below are some example times to search 10 Gb of data</p><br/><strong>Mechanical disk:</strong>
+                <p>A general benchmark for optimal user experience is that searches will return within 10 seconds.</p><br/><strong>Mechanical disk:</strong>
                 <p>10GB/ 0.15GBs = 66 seconds</p><strong>SSD:</strong>
                 <p>10GB/ 0.5GBs = 20 seconds</p><strong>SSD x 2 (AWS):</strong>
                 <p>10GB/ 1GBs = 10 seconds</p><strong>SSD RAID 5+1:</strong>
                 <p>10GB/ 2.5GBs = 4 seconds</p><br/><strong>NOTE: </strong>
-                <p>- Realworld performance depends upon the processors ability to cope with throughput. </p>
-                <p>- OS kernel caching will improve performance where enough memory is left free (50%)</p>
-                <p>- Larger deployments will see users searching different sets of data</p>
-                <p>- NFS mounted drives will be dependent upon sharing and latency</p>
-                <p>- The load of virtualised infrastructure may impact performance and suffer latency</p><strong>Network Stats</strong>
+                <ul>
+                  <li>Realworld performance depends upon the processors ability to cope with throughput. </li>
+                  <li>OS kernel caching will improve performance where enough memory is left free (50%)</li>
+                  <li>Larger deployments will see users searching different sets of data</li>
+                  <li>NFS mounted drives will be dependent upon sharing and latency</li>
+                  <li>The load of virtualised infrastructure may impact performance and suffer latency</li>
+                </ul><strong>Network Stats</strong>
                 <p>Network requirements will vary upon the individual IO capability of your Indexstores, but must be configured in such a way to take into account both data transfer incoming to the Indexstores as well as the capacity needed by in order to transfer data to the Manager at search time. To benchmark your network you can follow the steps <a href="technology-benchmarking.html">here</a>. For this scenario we will assume each Indexstore is connected via two fibre channel connections which are bonded for an estimated bandwidth of 2.5gb/sec.</p><strong>Rough Specifications</strong>
                 <table>
                   <tbody>
