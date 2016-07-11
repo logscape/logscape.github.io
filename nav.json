@@ -1,0 +1,873 @@
+{"index":[
+	{
+		"display":"Tutorials",
+		"url":"tutorials-tutorials.html",
+		"children":[
+			{
+				"display":"Search Videos",
+				"url":"searching-video.html"
+			},
+			{
+				"display":"Getting Started",
+				"url":"gettingstarted.html"
+			}
+		],
+		"hiddenchildren":[
+			{
+				"display":"",
+				"url":""
+			}
+			]
+	},
+	{
+		"display":"Search",
+		"url":"searching.html",
+		"children":[
+			{
+				"display":"Your First Search",
+				"url":"search-First_Search.html"
+			},
+			{
+				"display":"Search Basics",
+				"url":"searching-pattern.html"
+			},
+			{
+				"display":"Chart Types",
+				"url":"searching-Search_Types.html"
+			},
+			{
+				"display":"Search Performance",
+				"url":"searching-search_performance.html"
+			},
+			{
+				"display":"Summary Index",
+				"url":"searching-Summary_Index.html"
+			},
+			{
+				"display":"Overlay Searches",
+				"url":"searching-overlays.html"
+			},
+			{
+				"display":"Function Reference",
+				"url":"searching-functions.html"
+			},
+			{
+				"display":"Cheatsheet",
+				"url":"searching-cheatsheet.html"
+			},
+			{
+				"display":"Heatmaps",
+				"url":"searching-heatmaps.html"
+			},
+			{
+				"display":"Geo-IP",
+				"url":"searching-geoip.html"
+			},
+			{
+				"display":"Time Offsets",
+				"url":"searching-offsets.html"
+			},
+			{
+				"display":"Post-Agg",
+				"url":"searching-post_aggregates.html"
+			}
+		],
+		"hiddenchildren":[
+			{
+				"display":"Logscape Workspaces",
+				"url":"searching-defaults.html"
+			},
+			{
+				"display":"c3 charts",
+				"url":"searching-c3.html"
+			},
+			{
+				"display":"Tables",
+				"url":"searching-Tables.html"
+			},
+			{
+				"display":"API",
+				"url":"searching-api.html"
+			},
+			{
+				"display":"Workspaces",
+				"url":"searching-workspaces.html"
+			},
+			{
+				"display":"Chart Types",
+				"url":"searching-charttypes.html"
+			},
+			{
+				"display":"Event Analyser",
+				"url":"searching-event_analyser.html"
+			},
+			{
+				"display":"Exceptions",
+				"url":"searching-exceptions.html"
+			},
+			{
+				"display":"Searching Concat",
+				"url":"searching-concat.html"
+			},
+			{
+				"display":"Searching KV's",
+				"url":"searching-kv.html"
+			}
+
+		]
+	},
+	{
+		"display":"Workspaces",
+		"url":"workspaces.html",
+		"children":[
+			{
+				"display":"Your First Workspace",
+				"url":"workspaces-First_Workspace.html"
+			},
+			{
+				"display":"Linking Overview",
+				"url":"workspaces-linking-concept.html"
+			},
+			{
+				"display":"Linking Walkthrough",
+				"url":"workspaces-linking_walkthrough.html"
+			},
+			{
+				"display":"Widgets",
+				"url":"workspaces-widgets.html"
+			},
+			{
+				"display":"Single Value Panel",
+				"url":"workspaces-single_value_panel.html"
+			}
+		],
+		"hiddenchildren":[
+			{
+				"display":"Workspaces Linking Overview",
+				"url":"workspaces-linking_overview.html"
+			},
+			{
+				"display":"Workspaces Linking Walkthrough",
+				"url":"workspaces-linking.html"
+			},
+			{
+				"display":"Workspaces Linking Workflow",
+				"url":"workspaces-linking_workflow.html"
+			}
+		]
+	},
+	{
+		"display":"Data Sources",
+		"url":"ds.html",
+		"children":[
+			{
+				"display":"Syslog Tutorial",
+				"url":"ds-Syslog_Tutorial.html"
+			},
+			{
+				"display":"Importing Data",
+				"url":"ds-importing_data.html"
+			},
+			{
+				"display":"Add Data Source",
+				"url":"ds-add.html"
+			},
+			{
+				"display":"JSON",
+				"url":"ds-json.html"
+			},
+			{
+				"display":"Tagging",
+				"url":"ds-tags.html"
+			},
+			{
+				"display":"Searching with tags",
+				"url":"ds-searching.html"
+			},
+			{
+				"display":"Intelligent Field Discovery",
+				"url":"ds-intelligent_field_discovery.html"
+			},
+			{
+				"display":"Data Flow Overview",
+				"url":"data-flow.html"
+			},
+			{
+				"display":"Using Multi tags",
+				"url":"ds-multitags.html"
+			},
+			{
+				"display":"Syslog Clients",
+				"url":"ds-syslog.html"
+			}
+		],
+		"hiddenchildren":[
+			{
+				"display":"Host Filter",
+				"url":"ds-add-host_filter.html"
+			},
+			{
+				"display":"",
+				"url":"ds-add-host_filter.html"
+			},
+			{
+				"display":"System Logs",
+				"url":"ds-system_logs.html"
+			},
+			{
+				"display":"Add CSV",
+				"url":"ds-add_csv.html"
+			},
+			{
+				"display":"CSV",
+				"url":"ds-csv.html"
+			},
+			{
+				"display":"",
+				"url":"ds-add-wildcards.html"
+			},
+			{
+				"display":"",
+				"url":"ds-advanced_settings.html"
+			},
+			{
+				"display":"",
+				"url":"ds-application_logs.html"
+			},
+			{
+				"display":"",
+				"url":"ds-archiving.html"
+			},
+			{
+				"display":"",
+				"url":"ds-archiving_overview.html"
+			},
+			{
+				"display":"",
+				"url":"ds-dateformats.html"
+			},
+			{
+				"display":"",
+				"url":"ds-field_discovery.html"
+			},
+			{
+				"display":"",
+				"url":"ds-field_grokit.html"
+			},
+			{
+				"display":"",
+				"url":"ds-new.html"
+			},
+			{
+				"display":"",
+				"url":"ds-rawsocketserver.html"
+			}
+		]
+	},
+	{
+		"display":"Data Types",
+		"url":"types.html",
+		"children":[
+			{
+				"display":"Types Tutorial",
+				"url":"types-tutorial.html"
+			},
+			{
+				"display":"Fields",
+				"url":"types-fields.html"
+			},
+			{
+				"display":"Field Discovery",
+				"url":"types-field_discovery.html"
+			},
+			{
+				"display":"Grokit Fields",
+				"url":"types-field_grokit.html"
+			},
+			{
+				"display":"System Fields",
+				"url":"types-system_fields.html"
+			},
+			{
+				"display":"Synthetic Fields",
+				"url":"types-synthetics.html"
+			},
+			{
+				"display":"Searching with Types",
+				"url":"types-searching.html"
+			}
+		],
+		"hiddenchildren":[
+			{
+				"display":"CSV",
+				"url":"types-examples-csvdata.html"
+			},
+			{
+				"display":"Groovy",
+				"url":"types-groovy.html"
+			},
+			{
+				"display":"Overview",
+				"url":"types-overview.html"
+			},
+			{
+				"display":"Patterns",
+				"url":"types-patterns.html"
+			}
+		]
+	},
+	{
+		"display":"Deployment",
+		"url":"deploy.html",
+		"children":[
+			{
+				"display":"How to deploy an App",
+				"url":"deploy-Deploying_Apps.html"
+			},
+			{
+				"display":"Automated Deployment",
+				"url":"deploy-automated.html"
+			},
+			{
+				"display":"Centralized Log Management ",
+				"url":"deploy-arch_clm.html"
+			},
+			{
+				"display":"Scale with Index Stores",
+				"url":"deploy-arch_indexstores.html"
+			},
+			{
+				"display":"Syslog Server Usage",
+				"url":"deploy-syslog_server.html"
+			},
+			{
+				"display":"Socket Server",
+				"url":"deploy-socket_server.html"
+			},
+			{
+				"display":"Mapping.csv",
+				"url":"deploy-mapping_csv.html"
+			},
+			{
+				"display":"Installing a Manager",
+				"url":"deploy-manager.html"
+			},
+			{
+				"display":"Installing an Index Store",
+				"url":"deploy-indexstore.html"
+			},
+			{
+				"display":"Installing a Forwarder",
+				"url":"deploy-forwarder.html"
+			},
+			{
+				"display":"Installing a Failover",
+				"url":"deploy-failover.html"
+			},
+			{
+				"display":"Installing a Indexer",
+				"url":"deploy-indexer.html"
+			},
+			{
+				"display":"Deploy License",
+				"url":"deploy-license.html"
+			},
+			{
+				"display":"Deploy your License",
+				"url":"deploy-add_license.html"
+			},
+			{
+				"display":"Boot properties",
+				"url":"deploy-boot_properties.html"
+			},
+			{
+				"display":"Update Logscape",
+				"url":"deploy-update.html"
+			},
+			{
+				"display":"Centralized Configs",
+				"url":"deploy-centralconfigs.html"
+			},
+			{
+				"display":"Hawt IO",
+				"url":"deploy-hawt_io.html"
+			},
+			{
+				"display":"Deployment tutorial",
+				"url":"deploy-Installation_Tutorial.html"
+			}
+		],
+		"hiddenchildren":[
+			{
+				"display":"Administration",
+				"url":"deploy-administration.html"
+			},
+			{
+				"display":"Teams",
+				"url":"deploy-teams.html"
+			},
+			{
+				"display":"Modular Configs",
+				"url":"deploy-config-modular.html"
+			},
+			{
+				"display":"Long running searches",
+				"url":"deploy-long_running_searhes.html"
+			},
+			{
+				"display":"Application Properties",
+				"url":"deploy-administration-appsproperties.html"
+			},
+			{
+				"display":"Application Updating",
+				"url":"deploy-administration-appupdating.html"
+			},
+			{
+				"display":"Centralized Config",
+				"url":"deploy-administration-centralizedconfig.html"
+			},
+			{
+				"display":"Offsets",
+				"url":"deploy-administration-dsoffsets.html"
+			},
+			{
+				"display":"Grokit Configuration",
+				"url":"deploy-administration-grokitconfig.html"
+			},
+			{
+				"display":"Home Configuration",
+				"url":"deploy-administration-homeconfig.html"
+			},
+			{
+				"display":"Importing/Exporting",
+				"url":"deploy-administration-importexport.html"
+			},
+			{
+				"display":"Memory",
+				"url":"deploy-administration-memory.html"
+			},
+			{
+				"display":"Monitoring Alerts",
+				"url":"deploy-administration-monitoring-alerts.html"
+			},
+			{
+				"display":"Monitoring Data",
+				"url":"deploy-administration-monitoringdata.html"
+			},
+			{
+				"display":"Monitoring Health",
+				"url":"deploy-administration-monitoringhealth.html"
+			},
+			{
+				"display":"Monitoring System",
+				"url":"deploy-administration-monitoring-system.html"
+			},
+			{
+				"display":"Priority",
+				"url":"deploy-administration-priority.html"
+			},
+			{
+				"display":"Roles",
+				"url":"deploy-administration-role.html"
+			},
+			{
+				"display":"Timezones",
+				"url":"deploy-administration-timezones.html"
+			},
+			{
+				"display":"Validation",
+				"url":"deploy-administration-validate.html"
+			},
+			{
+				"display":"Agents",
+				"url":"deploy-agents.html"
+			},
+			{
+				"display":"Application",
+				"url":"deploy-app.html"
+			},
+			{
+				"display":"Default",
+				"url":"deploy-architectures-default.html"
+			},
+			{
+				"display":"Failover",
+				"url":"deploy-architectures-failover.html"
+			},
+			{
+				"display":"Indexstores",
+				"url":"deploy-architectures-indexstores.html"
+			},
+			{
+				"display":"Tenured",
+				"url":"deploy-architectures-tenured.html"
+			},
+			{
+				"display":"Zones",
+				"url":"deploy-architectures-zones.html"
+			},
+			{
+				"display":"Backup",
+				"url":"deploy-backup.html"
+			},
+			{
+				"display":"Backup Home",
+				"url":"deploy-backup-home.html"
+			},
+			{
+				"display":"Backup Import",
+				"url":"deploy-backup-import.html"
+			},
+			{
+				"display":"Backup Partial",
+				"url":"deploy-backup-partial.html"
+			},
+			{
+				"display":"Dashboard",
+				"url":"deploy-dashboard.html"
+			},
+			{
+				"display":"Deployment Ports",
+				"url":"deploy-ports.html"
+			},
+			{
+				"display":"Deployment Pre-Requisites",
+				"url":"deploy-prerequisites.html"
+			},
+			{
+				"display":"Deployment Port Pre-requisites",
+				"url":"deploy-prerequisites-ports.html"
+			},
+			{
+				"display":"TCP Server",
+				"url":"deploy-rawtcpserver.html"
+			},
+			{
+				"display":"Requirements",
+				"url":"deploy-requirements.html"
+			},
+			{
+				"display":"Role based boot properties",
+				"url":"deploy-role_based_boot_properties.html"
+			},
+			{
+				"display":"Security",
+				"url":"deploy-security.html"
+			},
+			{
+				"display":"Keystores",
+				"url":"deploy-security-keystores.html"
+			},
+			{
+				"display":"Partial update",
+				"url":"deploy-update_partial.html"
+			},
+			{
+				"display":"Zones",
+				"url":"deploy-zones.html"
+			},
+			{
+				"display":"Socket Server",
+				"url":"deploy-socket_server.html"
+			}
+		]
+	},
+	{
+		"display":"Users",
+		"url":"users.html",
+		"children":[
+			{
+				"display":"Change Default Login",
+				"url":"users-ldap-defaultuser.html"
+			},
+			{
+				"display":"Users Overview",
+				"url":"users-overview.html"
+			},
+			{
+				"display":"Create User",
+				"url":"users-create.html"
+			},
+			{
+				"display":"Teams",
+				"url":"users-teams.html"
+			},
+			{
+				"display":"Create a Team",
+				"url":"users-teams-create_team.html"
+			},
+			{
+				"display":"Multitenancy",
+				"url":"users-multitenancy.html"
+			},
+			{
+				"display":"Setting up LDAP",
+				"url":"users-ldap.html"
+			},
+			{
+				"display":"Managing through LDAP",
+				"url":"users-ldap-teams.html"
+			},
+
+			{
+				"display":"Testing connectivity",
+				"url":"users-ldap-connectivity.html"
+			},
+			{
+				"display":"Syncing Behaviour",
+				"url":"users-ldap-sync.html"
+			},
+			{
+				"display":"F.A.Q",
+				"url":"users-faq.html"
+			}
+		],
+		"hiddenchildren":[
+			{
+				"display":"Configuration",
+				"url":"users-config.html"
+			},
+			{
+				"display":"Datagroups Configuration",
+				"url":"users-config-datagroups.html"
+			},
+			{
+				"display":"Users Configuration",
+				"url":"users-config-users.html"
+			},
+			{
+				"display":"Users Configuration",
+				"url":"users-config-users2.html"
+			},
+			{
+				"display":"Datagroups",
+				"url":"users-datagroups.html"
+			},
+			{
+				"display":"Datagroups Examples",
+				"url":"users-datagroups-example.html"
+			},
+			{
+				"display":"Directory Services",
+				"url":"users-directoryservices.html"
+			},
+			{
+				"display":"Acitve Directory",
+				"url":"users-directoryservices-activedirectory.html"
+			},
+			{
+				"display":"LDAP Directory Services",
+				"url":"users-directoryservices-ldap.html"
+			},
+			{
+				"display":"LDAP ActiveDirectory",
+				"url":"users-ldap-activedirectory.html"
+			},
+			{
+				"display":"LDAP",
+				"url":"users-ldap-ldap.html"
+			},
+			{
+				"display":"Permissions",
+				"url":"users-permissions.html"
+			},
+			{
+				"display":"Teams Home",
+				"url":"users-teams-home.html"
+			},
+			{
+				"display":"Teams",
+				"url":"users-teams.html"
+			},
+			{
+				"display":"Teams - Data partitioning",
+				"url":"users-teams-data_partitioning.html"
+			},
+			{
+				"display":"Teams",
+				"url":"users-teams-home.html"
+			}
+		]
+	},
+	{
+		"display":"Alerts",
+		"url":"alerts.html",
+		"children":[
+			{
+				"display":"General Tab",
+				"url":"alerts-general_tab.html"
+			},
+			{
+				"display":"Trigger Tab",
+				"url":"alerts-trigger_tab.html"
+			},
+			{
+				"display":"Streaming Tab",
+				"url":"alerts-streaming.html"
+			},
+			{
+				"display":"Actions Tab",
+				"url":"alerts-actions_tab.html"
+			},
+			{
+				"display":"Correlated Events",
+				"url":"alerts-correlated_alerts.html"
+			}
+		],
+		"hiddenchildren":[
+			{
+				"display":"Custom Alerts",
+				"url":"alerts-customalerts.html"
+			},
+			{
+				"display":"Email Actions",
+				"url":"alerts-emailaction.html"
+			},
+			{
+				"display":"Dead Agents",
+				"url":"alerts-examples-agentdied.html"
+			},
+			{
+				"display":"High CPU",
+				"url":"alerts-examples-highcpualert.html"
+			},
+			{
+				"display":"Triggers",
+				"url":"alerts-general_trigger.html"
+			},
+			{
+				"display":"Groovy Actions",
+				"url":"alerts-groovyaction.html"
+			},
+			{
+				"display":"Log Action",
+				"url":"alerts-logaction.html"
+			},
+			{
+				"display":"Message Actions",
+				"url":"alerts-messageaction.html"
+			},
+			{
+				"display":"Schedules",
+				"url":"alerts-schedules.html"
+			},
+			{
+				"display":"Reporting actions",
+				"url":"alerts-reportaction.html"
+			},
+			{
+				"display":"Groovy Streaming",
+				"url":"alerts-streaming-clients-groovy.html"
+			},
+			{
+				"display":"Javascript Streaming",
+				"url":"alerts-streaming-clients-js.html"
+			}
+		]
+	},
+	{
+		"display":"Technology",
+		"url":"technology.html",
+		"children":[
+			{
+				"display":"Sizing Guide",
+				"url":"technology-sizing.html"
+			},
+			{
+				"display":"Sizing for 1TB",
+				"url":"technology-sizing_1tb.html"
+			},
+			{
+				"display":"Benchmarking",
+				"url":"technology-benchmarking.html"
+			},
+			{
+				"display":"Indexing",
+				"url":"technology-Indexing.html"
+			},
+			{
+				"display":"Search Performance",
+				"url":"technology-search_performance.html"
+			},
+			{
+				"display":"VScape",
+				"url":"technology-vscape.html"
+			}
+		],
+		"hiddenchildren":[
+			{
+				"display":"Apps",
+				"url":"technology-apps.html"
+			},
+			{
+				"display":"App Bundles",
+				"url":"technology-apps-bundle.html"
+			},
+			{
+				"display":"App config",
+				"url":"technology-apps-config.html"
+			},
+			{
+				"display":"App Services",
+				"url":"technology-apps-services.html"
+			},
+			{
+				"display":"Vscape Intro",
+				"url":"technology-vscape-intro.html"
+			}
+		]
+	},
+	{
+		"display":"Advanced Analytics",
+		"url":"Advanced-Analytics_Home.html",
+		"children":[
+			{
+				"display":"Trend",
+				"url":"Advanced-Analytics_Trending.html"
+			},
+			{
+				"display":"Overlay",
+				"url":"Advanced-Analytics_Overlays.html"
+			},
+			{
+				"display":"Percentile",
+				"url":"Advanced-Analytics_Percentile.html"
+			},
+			{
+				"display":"Concatenation",
+				"url":"Advanced-Analytics_Field_Concatenation.html"
+			},
+			{
+				"display":"Post Aggregation",
+				"url":"Advanced-Analytics_Post_Aggregation.html"
+			},
+			{
+				"display":"Post-Search Evaluation",
+				"url":"Advanced-Analytics_Post_Eval.html"
+			},
+			{
+				"display":"Boolean Indicators",
+				"url":"Advanced-Analytics_Booleans.html"
+			},
+			{
+				"display":"Anomaly Detection",
+				"url":"Advanced-Analytics_Anom.html"
+			}
+		]
+	},
+	{
+		"display":"Release Notes",
+		"url":"release-notes.html",
+		"children":""
+	},
+	{
+		"display":"Sitemap",
+		"url":"sitemap.html",
+		"children":""
+	},
+	{
+		"display":"Follow logscape",
+		"url":"https://twitter.com/logscape",
+		"children":""
+	}
+]}
