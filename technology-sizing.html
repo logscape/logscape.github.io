@@ -277,7 +277,7 @@
                 <table>
                   <tbody>
                     <tr style="background-color:#333;color:#CCC">
-                      <td style="width: 20%; border-top:1px solid #ddd"></td>
+                      <td style="width: 20%; border-top:1px solid #ddd">Type</td>
                       <td style="width: 20%; border-top:1px solid #ddd">Disk Speed</td>
                     </tr>
                     <tr style="color=#666;">
@@ -302,9 +302,16 @@
                       </td>
                     </tr>
                   </tbody>
-                </table><br/>
-                <p>If we look at the above scenario's, we can compare the performance of the environment when searching 10Gb of data, presuming that the CPU of the machines in question can keep up with the data rate provided by the Disk I/O. Using the equation [Total Data] / [Disk speed] = [Search Duration]</p><strong>Mechanical Disk</strong><br/><em>10 / 0.15 = 66 Seconds</em><br/><strong>SSD </strong><br/><em>10 / 0.5 = 20 Seconds</em><br/><strong>SSD x 2 </strong><br/><em>10 / 1 = 10 Seconds</em><br/><strong>RAID</strong><br/><em>10 / 2.5 = 4 Seconds</em><br/>
-                <p>This shows the vast difference that your environments I/O capabilities can have on search responsiveness.</p><em>[1] On the free download version of Logscape the IndexStore can not run on a separate host from the Manager. Scaling out is disabled. In this case the sizing requirements for the Index Store also apply for the host running the Manager</em><br/><em>[2] Swap usage - it is important that your memory usage does not enter swap. The swappiness kernel property is used to control when the kernel starts to use swap. It is recommended to switch swap off entirely and to size the system correctly.</em><br/>
+                </table><br/><strong>User Experience</strong><br/><strong>Mechanical disk:</strong>
+                <p>10GB/ 0.15GBs = 66 seconds</p><strong>SSD:</strong>
+                <p>10GB/ 0.5GBs = 20 seconds</p><strong>SSD x 2 (AWS):</strong>
+                <p>10GB/ 1GBs = 10 seconds</p><strong>SSD RAID 5+1:</strong>
+                <p>10GB/ 2.5GBs = 4 seconds</p><br/><strong>NOTE: </strong>
+                <p>- realworld performance depends upon the processors ability to cope with throughput. </p>
+                <p>- OS kernel caching will improve performance where enough memory is left free (50%)</p>
+                <p>- larger deployments will see users searching different sets of data</p>
+                <p>- NFS mounted drives will be dependent upon sharing and latency</p>
+                <p>- The load of virtualised infrastructure may impact performance and suffer latency</p><em>[1] On the free download version of Logscape the IndexStore can not run on a separate host from the Manager. Scaling out is disabled. In this case the sizing requirements for the Index Store also apply for the host running the Manager</em><br/><em>[2] Swap usage - it is important that your memory usage does not enter swap. The swappiness kernel property is used to control when the kernel starts to use swap. It is recommended to switch swap off entirely and to size the system correctly.</em><br/>
                 <h3><br/>Measuring Cache Performance</h3>
                 <p>Linux cache performance can be monitored using the 'perf' command line tool, you can read more about perf <a href="https://perf.wiki.kernel.org/index.php/Tutorial" target="_blank">here</a>.</p>
                 <p>Perf provides metrics about many parts of an application. For this scenario we are interested in "cache misses", a cache miss is generated when the application is forced to read from disk, rather than RAM or the cache. Ideally we would never read from the disk, but this scenario is unlikely, so we're going to aim for below 5% cache misses.</p>
