@@ -303,14 +303,42 @@
                     <tr>
                       <td style="width: 33.333333333333336%; border-top:1px solid #ddd">Events Per Second(2KB per Event)           </td>
                       <td style="width: 33.333333333333336%; border-top:1px solid #ddd">1,000,000</td>
-                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">
-                        12,000,000
+                      <td style="width: 33.333333333333336%; border-top:1px solid #ddd">12,000,000</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p>The inclusion of 6 Indexstores reduces our Input requirements to an insignificant 12mb/sec, however even with the data spread evenly between each host, at maximum capacity a host will be responsible for searching 5TB of data, so disk speed, and in-memory caching are still a concern.</p><strong>Disk Comparison</strong>
+                <table>
+                  <tbody>
+                    <tr style="background-color:#333;color:#CCC">
+                      <td style="width: 20%; border-top:1px solid #ddd"></td>
+                      <td style="width: 20%; border-top:1px solid #ddd">Disk Speed</td>
+                    </tr>
+                    <tr style="color=#666;">
+                      <td style="width: 20%; border-top:1px solid #ddd">Mechanical Drive</td>
+                      <td style="width: 20%; border-top:1px solid #ddd">150Mb/sec</td>
+                    </tr>
+                    <tr style="color=#666;">
+                      <td style="width: 20%; border-top:1px solid #ddd">SSD</td>
+                      <td style="width: 20%; border-top:1px solid #ddd">500Mb/sec</td>
+                    </tr>
+                    <tr style="color=#666;">
+                      <td style="width: 20%; border-top:1px solid #ddd">SSD x2 </td>
+                      <td style="width: 20%; border-top:1px solid #ddd">1Gb/sec</td>
+                    </tr>
+                    <tr style="color=#666;">
+                      <td style="width: 20%; border-top:1px solid #ddd">(SSD)RAID 5+1</td>
+                      <td style="width: 20%; border-top:1px solid #ddd">
+                        2.5Gb/sec
+                        
+                        
                         
                       </td>
                     </tr>
                   </tbody>
                 </table><br/>
-                <p>The inclusion of 6 Indexstores reduces our Input requirements to an insignificant 12mb/sec, however even with the data spread evenly between each host, at maximum capacity a host will be responsible for searching 5TB of data, so disk speed, and in-memory caching are still a concern.</p><strong>Network Stats</strong>
+                <p>If we look at the above scenario's, we can compare the performance of the environment when searching 10Gb of data, presuming that the CPU of the machines in question can keep up with the data rate provided by the Disk I/O. Using the equation [Total Data] / [Disk speed] = [Search Duration]</p><strong>Mechanical Disk</strong><br/><em>10 / 0.15 = 66 Seconds</em><br/><strong>SSD </strong><br/><em>10 / 0.5 = 20 Seconds</em><br/><strong>SSD x 2 </strong><br/><em>10 / 1 = 10 Seconds</em><br/><strong>RAID</strong><br/><em>10 / 2.5 = 4 Seconds</em><br/>
+                <p>This shows the vast difference that your environments I/O capabilities can have on search responsiveness.</p><strong>Network Stats</strong>
                 <p>Network requirements will vary upon the individual IO capability of your Indexstores, but must be configured in such a way to take into account both data transfer incoming to the Indexstores as well as the capacity needed by in order to transfer data to the Manager at search time. To benchmark your network you can follow the steps <a href="technology-benchmarking.html">here</a>. For this scenario we will assume each Indexstore is connected via two fibre channel connections which are bonded for an estimated bandwidth of 2.5gb/sec.</p><strong>Rough Specifications</strong>
                 <table>
                   <tbody>
@@ -348,7 +376,7 @@
                 <p>Indexstores require high read speeds in order to search their indexes for data requested by searches. Ideally every Indexstore should feature a similar read potential as due to the Load Balanced nature of a Logscape deployment, searches will be held up by a single Indexstore with a slower read capability.</p>
                 <p>Forwarders are a lightweight agent where Disk and CPU are of little concern as long as Disk I/O and CPU resources are not at 100% values. The agent itself is designed to use a minimum amount of RAM, and is operationally capable while sized as low as 256MB.</p>
                 <p> <br/>The key value to note here is the search speed. The input requirements for 1 TB of data are relatively low, however serving 30 days worth of collated storage back in the form of a search in a short span of time requires multiple indexstores.</p><strong> <br/>Environment Mock-Up</strong><em> <br/>The below image reflects what a large environment utilising the built in Load Balancing, and Indexstores will look like</em><br/>
-                <image style="width:100%;" src="images/Logscape - Deployment.png"></image>
+                <image src="images/IndexstoreDeployment.png"></image>
               </div>
             </div>
             <div class="row">
