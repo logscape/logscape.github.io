@@ -256,46 +256,38 @@
         </div>
         <div class="col-md-9 content-area"> 
           <div class="container-fluid">
-            <div class="row"></div>
-            <h3>Backup</h3>
-            <p><strong>Backing up Config - </strong>Go to the Backup page in the Configure section and click EXPORT. This will export all your Searches, Workspaces, Alerts, Users etc into an config file. LDAP credentials however will not be exported, this is for security reasons. This file can be used for restoring a deployment on a new server. </p>
-            <p><strong>Restoring backup config -</strong>  Go to Configure/Backup section and click on Overwrite. Select your logscape config to restore. This will overwrite your current Logscape configuration with the config file. </p>
-            <h3>Partial Exports  </h3>
-            <p>
-               
-              To selectively export the Manager's configuration type a comma separated list of text in the filter, then click on Download. The resulting config file will contain all the Workspaces, Searches , dashboards , types that contain the text in the title of the component substring. 
-            </p>
-            <p><strong>Exporting Workspaces,Searches and Datatypes -  </strong>Configuration can also be selectively exported by another method, and that is by type, using the following syntax:
-              <blockquote>	$COMPONENT:substring</blockquote>The $COMPONENT can be any of the following:
-              <ul>
-                <li>Workspace</li>
-                <li>Search</li>
-                <li>Alert</li>
-                <li>Datasource</li>
-              </ul>The example below exports the Home Workspace:
-              <blockquote>Workspace:Home </blockquote>
-            </p>
-            <h3>Restoring Partial Configs</h3>
-            <p>If you want to restore a partial config at a later date it is import to understand the difference between the <em>MERGE </em>and <em>OVERWRITE </em>options.  The <em>MERGE </em>and <em>OVERWRITE </em>options are the same operations with the exception of how they deal with data sources. Under the <em>MERGE </em>option data sources are installed along side each other if they have identical names. Under the <em>OVERWRITE </em>option a data source will overwrite any existing data source with the same tag. 
-              <blockquote>NOTE: Whenever restoring a complete back up always use the overwrite option </blockquote>
-            </p>
             <div class="row">
-              <div class="col-md-11"><br/><br/><br/>
-                <div id="disqus_thread">
-                  <script>
-                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                    var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
-                    /* * * DON'T EDIT BELOW THIS LINE * * */
-                    (function() {
-                    	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                    	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                    })();
-                  </script>
-                </div>
+              <div class="col-md-11">
+                <h3>Troubleshooting: Steps to check after an Upgrade</h3>
+                <p>The troubleshooting series aims to help you diagnose problems within your environments, this guide aims to help you diagnose the most common issues caused as a result of an upgrade.</p>
+                <h2>Debugging Process</h2>
+                <p>The logs included in Logscape tend to be quite verbose about errors that the Logscape process encounters, in this trouble shooting guide we're going to presume you've just upgraded your environment, and take a quick look at them to determine that your environment is running as expected.</p>
+                <ol>
+                  <li>If your upgrade steps included clearing the DB folder, check to make sure the entire folder has been properly removed</li>
+                  <li>Check your CPU Load, is it higher than expected?</li>
+                  <li>Check your boot.log, has the agent succesfully started?</li>
+                  <li>Check the agent-spawned.log is there any exceptions?</li>
+                </ol>
+                <p>These logs will often contain the most relevant error messages when dealing with a system upgrade.</p>
+                <p>Many people will focus entirely on their management agent, however these steps should be performed on agents, especially if they appear in the agents lost list of the manager.</p>
               </div>
             </div>
           </div>
+          <row>
+            <div class="col-md-11"></div><br/><br/><br/>
+            <div id="disqus_thread">
+              <script>
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+              </script>
+            </div>
+          </row>
         </div>
       </div>
       <!--

@@ -257,28 +257,19 @@
         <div class="col-md-9 content-area"> 
           <div class="container-fluid">
             <div class="row"></div>
-            <h3>Backup</h3>
-            <p><strong>Backing up Config - </strong>Go to the Backup page in the Configure section and click EXPORT. This will export all your Searches, Workspaces, Alerts, Users etc into an config file. LDAP credentials however will not be exported, this is for security reasons. This file can be used for restoring a deployment on a new server. </p>
-            <p><strong>Restoring backup config -</strong>  Go to Configure/Backup section and click on Overwrite. Select your logscape config to restore. This will overwrite your current Logscape configuration with the config file. </p>
-            <h3>Partial Exports  </h3>
-            <p>
-               
-              To selectively export the Manager's configuration type a comma separated list of text in the filter, then click on Download. The resulting config file will contain all the Workspaces, Searches , dashboards , types that contain the text in the title of the component substring. 
-            </p>
-            <p><strong>Exporting Workspaces,Searches and Datatypes -  </strong>Configuration can also be selectively exported by another method, and that is by type, using the following syntax:
-              <blockquote>	$COMPONENT:substring</blockquote>The $COMPONENT can be any of the following:
-              <ul>
-                <li>Workspace</li>
-                <li>Search</li>
-                <li>Alert</li>
-                <li>Datasource</li>
-              </ul>The example below exports the Home Workspace:
-              <blockquote>Workspace:Home </blockquote>
-            </p>
-            <h3>Restoring Partial Configs</h3>
-            <p>If you want to restore a partial config at a later date it is import to understand the difference between the <em>MERGE </em>and <em>OVERWRITE </em>options.  The <em>MERGE </em>and <em>OVERWRITE </em>options are the same operations with the exception of how they deal with data sources. Under the <em>MERGE </em>option data sources are installed along side each other if they have identical names. Under the <em>OVERWRITE </em>option a data source will overwrite any existing data source with the same tag. 
-              <blockquote>NOTE: Whenever restoring a complete back up always use the overwrite option </blockquote>
-            </p>
+            <h3>Migrate to Logscape 3</h3>
+            <p>When upgrading to Logscape 3.X from Logscape 2.X we reccomend performing a fresh installation rather than an inplace upgrade. This will result in no old configuration files being left, as well as rebuilding your DB in the Logscape 3 format. Before beginning your should extract a Logscape 3 installation in Tamdem to your Logscape 2.X installation.</p>
+            <ol>
+              <li>Export the configuration from your old manager, you can find a guide on using the export feature <a href="http://logscape.github.io/deploy-backup.htm">Here</a>. You'll want all of the data from your manager so you don't need to enter a value into the export field.</li>
+              <li>Turn off the manager. If running as a service this can be done by stopping the service, else run ./logscape.sh stop in the Logscape home directory</li>
+              <li>Configure your new manager, this can be done via the configure.bat/configure.sh scripts located in your /scripts/ folder. A guide on these scripts can be found <a href="http://logscape.github.io/deploy-manager.html">here</a>.</li>
+              <li>Start your new manager</li>
+              <li>Import the config file you exported from your old environment</li>
+              <li>Confirm Datasources, Tags and searches are present</li>
+              <li>Copy the contents of the /work/LogServer_SERVER/ folder from your old installation to the new one</li>
+              <li>Your data should begin indexing</li>
+            </ol>
+            <p>Congratulations on upgrading to Logscape 3.X</p>
             <div class="row">
               <div class="col-md-11"><br/><br/><br/>
                 <div id="disqus_thread">

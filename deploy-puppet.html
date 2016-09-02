@@ -256,29 +256,23 @@
         </div>
         <div class="col-md-9 content-area"> 
           <div class="container-fluid">
-            <div class="row"></div>
-            <h3>Backup</h3>
-            <p><strong>Backing up Config - </strong>Go to the Backup page in the Configure section and click EXPORT. This will export all your Searches, Workspaces, Alerts, Users etc into an config file. LDAP credentials however will not be exported, this is for security reasons. This file can be used for restoring a deployment on a new server. </p>
-            <p><strong>Restoring backup config -</strong>  Go to Configure/Backup section and click on Overwrite. Select your logscape config to restore. This will overwrite your current Logscape configuration with the config file. </p>
-            <h3>Partial Exports  </h3>
-            <p>
-               
-              To selectively export the Manager's configuration type a comma separated list of text in the filter, then click on Download. The resulting config file will contain all the Workspaces, Searches , dashboards , types that contain the text in the title of the component substring. 
-            </p>
-            <p><strong>Exporting Workspaces,Searches and Datatypes -  </strong>Configuration can also be selectively exported by another method, and that is by type, using the following syntax:
-              <blockquote>	$COMPONENT:substring</blockquote>The $COMPONENT can be any of the following:
-              <ul>
-                <li>Workspace</li>
-                <li>Search</li>
-                <li>Alert</li>
-                <li>Datasource</li>
-              </ul>The example below exports the Home Workspace:
-              <blockquote>Workspace:Home </blockquote>
-            </p>
-            <h3>Restoring Partial Configs</h3>
-            <p>If you want to restore a partial config at a later date it is import to understand the difference between the <em>MERGE </em>and <em>OVERWRITE </em>options.  The <em>MERGE </em>and <em>OVERWRITE </em>options are the same operations with the exception of how they deal with data sources. Under the <em>MERGE </em>option data sources are installed along side each other if they have identical names. Under the <em>OVERWRITE </em>option a data source will overwrite any existing data source with the same tag. 
-              <blockquote>NOTE: Whenever restoring a complete back up always use the overwrite option </blockquote>
-            </p>
+            <div class="row">
+              <div class="col-md-11">
+                <h3>Deploying via Puppet</h3>
+                <p>Deploying Logscape via Puppet is as simple as creating your puppet file and deploying it to your environment, however there are a few key aspects you should keep in mind when designing your puppet file. </p>
+                <ul>
+                  <li>The Logscape deployments should be pre-configured to your manager, or your puppet file should contain a script to make these adjustments. The file of note is the setup.conf file.</li>
+                  <li>The SSL folder should match the state of your manager, if you are not using SSL in your environment then the p2p files must be removed from the SSL folder</li>
+                  <li>Several Logscape folders are expected to change and therefor should be excluded from the puppet config. These are.</li>
+                  <ul>
+                    <li>/work/</li>
+                    <li>/deployed-bundles/</li>
+                    <li>/system-bundles/</li>
+                    <li>/downloads/</li>
+                  </ul>
+                </ul>
+              </div>
+            </div>
             <div class="row">
               <div class="col-md-11"><br/><br/><br/>
                 <div id="disqus_thread">

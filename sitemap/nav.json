@@ -333,6 +333,10 @@
 				"url":"deploy-arch_clm.html"
 			},
 			{
+				"display":"Migrate to Logscape 3",
+				"url":"deploy-upgrading-2-to-3.html"
+			},
+			{
 				"display":"Scale with Index Stores",
 				"url":"deploy-arch_indexstores.html"
 			},
@@ -395,6 +399,10 @@
 			{
 				"display":"Deployment tutorial",
 				"url":"deploy-Installation_Tutorial.html"
+			},
+			{
+				"display":"Deploy via Puppet",
+				"url":"deploy-puppet.html"
 			}
 		],
 		"hiddenchildren":[
