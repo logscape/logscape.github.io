@@ -385,6 +385,10 @@
 				"url":"deploy-boot_properties.html"
 			},
 			{
+				"display":"Configure Network Interface",
+				"url":"deploy-network_interface.html"
+			},
+			{
 				"display":"Update Logscape",
 				"url":"deploy-update.html"
 			},
