@@ -280,7 +280,7 @@
                 </div>
                 <p>'e', contains an array of points, each point is a value returned from your search, take the below image, this is an example from the search '* | _filename.count()', you can see the the points array with 29 entries, I'm looking at entry 0, the name variable shows me that I'm currently looking at UNIX_BANDWIDTH_wHOST_wTSTAMP.out, and that there was 180 hits for this file.</p>
                 <p>Once you've manipulated the data how you want, the next step is to manipulate the widget to display your data, the widget you are working inside is stored in the 'myWidget' variable, you can use javascript manipulate the HTML or CSS however you wish.</p>
-                <p>As an example, the below javascript heatmaps the Single Value panel</p>
+                <p>As an example, the below javascript heatmaps the Single Value panel, when used with the search * | _filename.count()</p>
                 <pre>function changeColor(value) {
 if (value > 10) {
 myWidget.css('background','#933')
