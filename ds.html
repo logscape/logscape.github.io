@@ -264,7 +264,7 @@
                 </div>
                 <p>Logscape can source its data from many different locations: your applications, <a href="ds-syslog.html">Syslog</a>  and <a href="http://apps.logscape.com">Logscape apps,</a> as well as a variety of other sources. The key characteristic each source has in common is that the data is written to file and ingested. A Datasource specifies a directory, tag and file mask; which determines the files it should contain. Once declared, every Agent will begin to monitor the location within their file system for any matching files. Once a matching file is found, any existing data will be ingested and <a href="#indexing">Indexed</a>, and the file tailed to capture additional data in real time, once ingested it is forwarded to and indexed by an indexstore, and becomes searchable by the end user.</p>
                 <div class="image">
-                  <center><img src="images/datasources_diagram.png" width="800"/></center>
+                  <center><img src="images/logscape-datasources.png" width="800"/></center>
                 </div>
                 <h4>Indexing</h4><a name="indexing"></a>
                 <p>All data that is searchable within logscape is ingested using the indexing process. Indexing is configured through Data sources. The process is to</p>
