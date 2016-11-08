@@ -321,6 +321,10 @@
 		"url":"deploy.html",
 		"children":[
 			{
+				"display":"Deploy via MSI",
+				"url":"deploy-MSI_Installation.html"
+			},
+			{
 				"display":"How to deploy an App",
 				"url":"deploy-Deploying_Apps.html"
 			},
