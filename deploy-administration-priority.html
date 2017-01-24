@@ -1,13 +1,24 @@
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html lang="en">
   <head>
-    <title>	Logscape 2.0 	</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    <title>	Logscape Documentation </title>
+    <script src="js/kiss.js"> </script>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <!--link(href="css/font-awesome-4.0.3/css/font-awesome.min.css",rel="stylesheet")-->
+    <link href="css/style-app.css" rel="stylesheet"/>
+    <link href="css/app.css" rel="stylesheet"/>
+    <link href="//vjs.zencdn.net/4.9/video-js.css" rel="stylesheet"/>
+    <script src="//vjs.zencdn.net/4.9/video.js"></script>
     <script src="js/jquery-1.11.0.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/navigation.js"></script>
+    <script>
+      function googleTranslateElementInit() {
+      	new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+      }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
       var breadcrumbs={
       	"gettingstarted":"Getting Started" 
@@ -37,7 +48,7 @@
       		,"architectures_tenured":"Tenured Data"
       		,"architectures_zones":" Zones" 
       		,"Backup": "Backup" 
-      			,"home":" The Home WorkspacE"
+      			,"home":" The Home Workspace"
       			,"import":" Restoring from Backup"
       			,"partial": " Selective Import"
       
@@ -53,6 +64,7 @@
       	,"users":"Users"
       		,"datagroups": "Data Groups"
       			,"nested": "Nested Groups"
+      		,"faq":"Frequently Asked Questions" 
       	,"ldap":"Active Directory" 
       };
       $(window).load(function(){
@@ -65,34 +77,39 @@
       		return l.substring(0,l.length-1) + ".html";
       	}
       
+      	function upperFirst(string){
+      		return string.charAt(0).toUpperCase() + string.slice(1);
+      	}
+      
       	function renderCrumbs(page){
-      		console.log("rendering breadcrumbs for page:" + page)
+      		//console.log("rendering breadcrumbs for page:" + page)
       		if (page.indexOf("-") < 0){
-      			return ""
+      			//console.log("<a href='/index.html'> Home </a> > <a href=" + page + ".html>" + page);
+      			return ("<a href='/index.html'> Home </a> > <a href=" + page + ".html>" + upperFirst(page));
       		}
       		var parts=page.split("-");
       		var idx=0;
-      		console.log("rendering  " + parts);
-      		var html="<a href='"+genLink(parts,-1)+"'> / Home </a>";
+      		//console.log("rendering  " + parts);
+      		var html="<a href='"+genLink(parts,-1)+"'> Home </a>";
       		for(idx=0;idx<parts.length;idx++){
       			k=parts[idx];
       		
       			html=html + "<a href="+ genLink(parts,idx) + ">";
       			if (breadcrumbs.hasOwnProperty(k)){
-      				html=html + " / " + breadcrumbs[k];
+      				html=html + " >> " + breadcrumbs[k];
       			}else{
-      				
-      				html=html + " / " + k[0].toUpperCase() + k.substring(1,k.length);
+      				//console.log("nathen - " + k[0]);
+      				html=html + " >> " + upperFirst(k.replace(/_/g, ' '));
       			}
-      			console.log(".");
+      			//console.log(".");
       		}
-      		console.log("this far!!!");
+      		//console.log("this far!!!");
       		return html
       	}
       	
       	var elems=window.location.href.split('?')[0].split('/');
       	var currentPage=elems[elems.length-1].split('.')[0]
-      	console.log("crumb>" + renderCrumbs(currentPage));	
+      	//console.log("crumb>" + renderCrumbs(currentPage));	
       	$('#widget-bc').html(renderCrumbs(currentPage));
       });
       
@@ -134,7 +151,7 @@
       function submit_form(){
       	var q=$("#searchBox").val() 
       	q=encodeURIComponent(q)
-      	var query="https://www.google.com/?gws_rd=cr&q=site:logscape.github.io++"+q+"#q=site:logscape.github.io++"+q
+      	var query="https://www.google.com/?gws_rd=cr&q=site:logscape.github.io+#q=site:logscape.github.io+"+q
       	var location = window.location.href;
       	console.log("back:" + location);
       	history.pushState({},"",location); 
@@ -144,74 +161,150 @@
     </script>
   </head>
   <body>
-    <div style="min-height:30px;margin-bottom:5px;" class="container-fluid navbar">
-      <div style="height:5px" class="row"> </div>
-      <div class="row navbar-inner">
-        <div style="width:10px" class="col-md-1"> </div>
-        <div class="col-md-11">
-          <form id="cse-search-box" action="" style="position:right;padding-top:5px;padding-bottom:5px" onSubmit="submit_form()"><a href="/"><img src="images/logo.png" style="padding-top:0px,padding-right:15px" width="150"></a>
-            <input type="hidden" name="cx" value="partner-pub-2789521296837340:9402765321">
-            <input type="hidden" name="ie" value="UTF-8">
-            <input id="searchBox" type="text" name="q" size="31" style="margin-left:15px">
-            <input id="cseSubmit" type="submit" value=" " class="btn-search">&nbsp;&nbsp;<a href="http://apps.logscape.com">Apps |  </a><a href="http://support.liquidlabs.co.uk">Release 1.3 | </a><a href="http://logscape.activeboard.com/">Forums </a>
+    <div style="width:100%;height:85px;background-color:#2980B9;">
+      <!--div
+      a(href="/") Documentation
+      a(href="")  Forums 	| 
+      a(href="") Getting Started	|
+      a(href="") Logscape  	| 
+      
+      
+      -->
+      <div style="padding-left:100px;padding-top:25px"><a href="/index.html"> <img src="images/logscapeSupport.png" style="height:45px"/></a>
+        <div style="float:right" class="col-md-3">
+          <form id="cse-search-box" action="" style="position:right;padding-top:5px;padding-bottom:5px" onSubmit="submit_form()">
+            <input type="hidden" name="cx" value="015161349156186070243:ktxh8djpql8"/>
+            <input type="hidden" name="ie" value="UTF-8"/>
+            <input id="searchBox" type="text" name="q" size="31" style="margin-left:15px"/>
+            <input id="cseSubmit" type="submit" value=" " class="btn-search"/>
           </form>
         </div>
       </div>
     </div>
+    <div id="navdiv" style="width:100%;height:40px;background-color:#373737;box-shadow: 0 0 2px #999;color:white;">
+      <div style="padding-left:70px;padding-top:10px"><a href="/Cloud-Introduction.html">Cloud  | </a><a href="http://blog.logscape.com/dwqa-questions/">Forums   | </a><a href="/apps.html">Apps   | </a><a href="http://www.logscape.com">Logscape.com	</a>
+        <div id="google_translate_element" class="float-right display-inline"></div><img style="height:0;width:0" src="http://logscape.com/images/track.png?version=support"/>
+      </div>
+    </div>
+    <!--.container-fluid.navbar(style="min-height:30px;margin-bottom:5px;")
+    .row(style="height:5px") 
+    .row
+    	.col-md-8
+    	.col-md-1
+    -->
     <div class="container-fluid">
+      <!--.row
+      .col-md-7
+      	form#cse-search-box(action="",style="position:right;padding-top:5px;padding-bottom:5px",onSubmit="submit_form()")
+      		a(href="/")
+      			img(src="images/logo.png",style="padding-top:0px,padding-right:15px",width="150") 
+      		input(type="hidden",name="cx",value="partner-pub-2789521296837340:9402765321")
+      		input(type="hidden",name="ie",value="UTF-8")
+      		input#searchBox(type="text",name="q",size="31",style="margin-left:15px")
+      		input.btn-search#cseSubmit(type="submit",value=" ")
+      		&nbsp;&nbsp;
+      		a(href="http://apps.logscape.com") Apps |  
+      		a(href="http://support.liquidlabs.co.uk") Release 1.3 | 
+      		a(href="http://logscape.activeboard.com/") Forums  | 
+      		a(href="gettingstarted.html") Getting Started 
+      
+      -->
       <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-5">
-          <div id="widget-bc" padding-left:150px class="breadcrumbs style">&nbsp;</div>
+          <div id="widget-bc" padding-left:150px="padding-left:150px" class="breadcrumbs style">&nbsp;</div>
         </div>
-        <!--
-        p 
-        	a(href="") >> Home 
-        	a(href="")  / Searches
-        	a(href="")  / Overlaying Searches 
-        
-        
-        -->
       </div>
       <div class="row">
-        <div style="width:10px" class="col-md-1">
-          <p></p>
-        </div>
         <div class="col-md-2 nav-padding">
-          <ul class="nav nav-tabs nav-stacked"> 
-            <li><a href="searching.html">Search</a></li>
-            <li> </li>
-            <!--a(href="workspaces.html") WorkSpaces
-            -->
-            <li> <a href="ds.html">Data Sources</a></li>
-            <li> <a href="types.html">Data Types </a></li>
-            <li><a href="deploy.html">Deployment</a></li>
-            <li><a href="users.html">Users </a></li>
-            <li><a href="alerts.html">Alerts 	</a></li>
-            <li><a href="technology.html">Technology</a></li>
-          </ul>
+          <ul class="nav nav-tabs nav-stacked"></ul>
+          <!--ul.nav.nav-tabs.nav-stacked  
+          li
+          	a(href="searching.html")&#9654; Search
+          
+          li 
+          	a(href="workspaces.html")&#9654; WorkSpaces
+          	ul
+          
+          li 
+          	a(href="ds.html")&#9654; Data Sources
+          li 
+          	a(href="types.html")&#9654; Data Types 
+          li
+          	a(href="deploy.html")&#9654; Deployment
+          li
+          	a(href="users.html")&#9654; Users 
+          li 
+          	a(href="alerts.html")&#9654; Alerts 	
+          li
+          	a(href="technology.html")&#9654; Technology
+          li
+          	a(href="release-notes.html") Release Notes
+          
+          li
+          	a.twitter-follow-button(href="https://twitter.com/logscape",data-show-count="false",data-size="large") Follow @logscape
+          	script. 
+          		=!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+          -->
+          <div style="padding-left:50px"> 
+            <h4>Articles </h4>
+          </div>
+          <hr/>
+          <div class="resource-list">
+            <ul style="list-style:none;padding-left:10px;background-color:#FFFEE7"> </ul>
+          </div>
         </div>
-        <!--
-        .resource-list
-        	ul(style="list-style:none;padding-left:0px") 
-        		h4 Blog Feed
-        -->
         <div class="col-md-9 content-area"> 
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-11">
                 <h3>Priority </h3>
-                <p>For most use cases Logscape can run with default  the Process Priority on a host. Some environments produce a large volume of data </p>
+                <p>
+                  For most use cases Logscape can run with default  the Process Priority on a host. Some environments produce a large volume of data 
+                  and Logscape takes more cpu time to provide real time analytics. Logscape can be configured to run with a lower priority on servers running other
+                  applications producing large quantities of data. 
+                </p>
+                <p>An example where this is appropriate is on servers where Logscape share's a host with a heavily cpu-bound application like a grid engine. </p>
+                <pre>vmargs=-Xms128M -Xmx1024M -XX:MaxPermSize=256m -XX:+HeapDumpOnOutOfMemoryError -Xrs -Xss128k -XX:CompileCommand=exclude,jregex/Pretokenizer,next
+                  <div id="-Xdebug">-Xrunjdwp:transport=dt_socket,address=8990,server=y,suspend=n</div>sysprops=-DLOGSCAPE -Dvso.base.port=11000 -Dvso.boot.lookup.replication.port=15000 -Dvso.lookup.peers=stcp://localhost:15000,stcp://localhost:25000 -Dvso.resource.type=Management -Dlog4j.configuration=./agent-log4j.properties -Dweb.app.port=8080 -Dfile.encoding=ISO-8859-1 -Dvso.zone=LOGSCAPE1  
+mainclass=com.liquidlabs.vso.VSOMain
+sys-bundles=system-bundles
+deploy=downloads
+sharedConfig=downloads
+pre-cp=foo.jar
+post-cp=blah.jar
+# LOW or NORMAL process priority (applies to all platforms)
+#priority=LOW</pre>
+                <p>Uncomment the line </p>
+                <blockquote>#priority=LOW</blockquote>
+                <p>The priority can be set to LOW,NORMAL or HIGH </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8"><br/><br/><br/>
+                <div id="disqus_thread">
+                  <script>
+                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                    	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                  </script>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <hr class="dark">
-        <div class="col-md-3"></div>
-        <Logscape>Copyright 2014(c) Registered Trademark </Logscape>
-      </div>
+      <!--
+      hr.dark 
+      .col-md-3
+      Logscape Copyright 2014(c) Registered Trademark 
+      
+      -->
     </div>
     <script>
       $( document ).ready(function() {
@@ -228,6 +321,14 @@
       	}); 
       });
       
+    </script>
+    <script>
+      (function(g,i,a,n,t,s){g['SeeYourVisitors']=n;g[n]=g[n]||function(){
+      (g[n].q=g[n].q||[]).push(arguments)},g[n].l=1*new Date();t=i.createElement(a),
+      s=i.getElementsByTagName(a)[0];t.async=1;t.src='//seeyourvisitors2.appspot.com/gg.js';
+      s.parentNode.insertBefore(t,s)})(window,document,'script','gg');
+      gg('create', 'd1a8b082-8806-4793-936f-35f5e41b3592');
+      gg('track');
     </script>
     <script src="js/ga.js"> </script>
   </body>

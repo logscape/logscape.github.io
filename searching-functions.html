@@ -546,14 +546,23 @@
             </li>
             <li>
               <p>
-                <h4><a name="eval"></a><strong>eval()</strong></h4>Apply a post search evaluation, the EACH keyword will result in it being applied to every field returned
+                <h4><a name="eval"></a><strong>eval()</strong></h4>Apply commands to the results of the original search, using either alias'd fields or, the EACH keyword. The purpose of EACH is to apply the operation to every piece of data returned. i.e
               </p>
               <p>Examples:</p>
               <div class="block"> 
                 <p>Eval a host grouped by another value</p>
-                <p>CPU | CPU.max(_host,M)  eval(EACH * 100)</p>
-                <p>Single Value Support</p>
-                <p>CPU | CPU.max(,CPU_MAX)  eval(CPU_MAX * 100)</p>
+                <p>CPU | CPU.max(_host,M)  eval(EACH * 100)
+                  <p>This will multiply the Max CPU for each host, resulting in </p>
+                  <div class="image"> 
+                    <center> <a href="images/searching-eval-each.png" target="_blank"><img src="images/searching-eval-each.png" style="width:700px;"/></a></center>
+                  </div>
+                </p>
+                <p>You can also use eval on alias fieleds, such as</p>
+                <p>CPU | CPU.max(,CPU_MAX)  eval(CPU_MAX * 100)
+                  <div class="image"> 
+                    <center> <a href="images/searching-eval-alias.png" target="_blank"><img src="images/searching-eval-alias.png" style="width:700px;"/></a></center>
+                  </div>
+                </p>
               </div>
             </li>
             <li>

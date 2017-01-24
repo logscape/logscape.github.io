@@ -8,6 +8,10 @@
 				"url":"searching-video.html"
 			},
 			{
+				"display":"F.A.Q",
+				"url":"home_faq.html"
+			},
+			{
 				"display":"Getting Started",
 				"url":"gettingstarted.html"
 			}
@@ -94,16 +98,8 @@
 				"url":"searching-workspaces.html"
 			},
 			{
-				"display":"Chart Types",
-				"url":"searching-charttypes.html"
-			},
-			{
 				"display":"Event Analyser",
 				"url":"searching-event_analyser.html"
-			},
-			{
-				"display":"Exceptions",
-				"url":"searching-exceptions.html"
 			},
 			{
 				"display":"Searching Concat",
@@ -207,14 +203,6 @@
 				"url":"ds-add-host_filter.html"
 			},
 			{
-				"display":"",
-				"url":"ds-add-host_filter.html"
-			},
-			{
-				"display":"System Logs",
-				"url":"ds-system_logs.html"
-			},
-			{
 				"display":"Add CSV",
 				"url":"ds-add_csv.html"
 			},
@@ -223,43 +211,31 @@
 				"url":"ds-csv.html"
 			},
 			{
-				"display":"",
+				"display":"Wildcarding Datasources",
 				"url":"ds-add-wildcards.html"
 			},
 			{
-				"display":"",
+				"display":"Advanced Datsource Settings",
 				"url":"ds-advanced_settings.html"
 			},
 			{
-				"display":"",
+				"display":"Application Logs",
 				"url":"ds-application_logs.html"
 			},
 			{
-				"display":"",
+				"display":"Datasource Archiving",
 				"url":"ds-archiving.html"
 			},
 			{
-				"display":"",
+				"display":"Datasource Archiving Overview",
 				"url":"ds-archiving_overview.html"
 			},
 			{
-				"display":"",
+				"display":"Datasource Time formats",
 				"url":"ds-dateformats.html"
 			},
 			{
-				"display":"",
-				"url":"ds-field_discovery.html"
-			},
-			{
-				"display":"",
-				"url":"ds-field_grokit.html"
-			},
-			{
-				"display":"",
-				"url":"ds-new.html"
-			},
-			{
-				"display":"",
+				"display":"Datasource Raw Socket Server",
 				"url":"ds-rawsocketserver.html"
 			}
 		]
@@ -423,12 +399,8 @@
 				"url":"deploy-teams.html"
 			},
 			{
-				"display":"Modular Configs",
-				"url":"deploy-config-modular.html"
-			},
-			{
 				"display":"Long running searches",
-				"url":"deploy-long_running_searhes.html"
+				"url":"deploy-long_running_searches.html"
 			},
 			{
 				"display":"Application Properties",
@@ -451,16 +423,8 @@
 				"url":"deploy-administration-grokitconfig.html"
 			},
 			{
-				"display":"Home Configuration",
-				"url":"deploy-administration-homeconfig.html"
-			},
-			{
 				"display":"Importing/Exporting",
 				"url":"deploy-administration-importexport.html"
-			},
-			{
-				"display":"Memory",
-				"url":"deploy-administration-memory.html"
 			},
 			{
 				"display":"Monitoring Alerts",
@@ -473,10 +437,6 @@
 			{
 				"display":"Monitoring Health",
 				"url":"deploy-administration-monitoringhealth.html"
-			},
-			{
-				"display":"Monitoring System",
-				"url":"deploy-administration-monitoring-system.html"
 			},
 			{
 				"display":"Priority",
@@ -525,18 +485,6 @@
 			{
 				"display":"Backup",
 				"url":"deploy-backup.html"
-			},
-			{
-				"display":"Backup Home",
-				"url":"deploy-backup-home.html"
-			},
-			{
-				"display":"Backup Import",
-				"url":"deploy-backup-import.html"
-			},
-			{
-				"display":"Backup Partial",
-				"url":"deploy-backup-partial.html"
 			},
 			{
 				"display":"Dashboard",
@@ -738,10 +686,6 @@
 			{
 				"display":"Email Actions",
 				"url":"alerts-emailaction.html"
-			},
-			{
-				"display":"Dead Agents",
-				"url":"alerts-examples-agentdied.html"
 			},
 			{
 				"display":"High CPU",

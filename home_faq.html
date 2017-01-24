@@ -257,24 +257,28 @@
         <div class="col-md-9 content-area"> 
           <div class="container-fluid">
             <div class="row">
-              <div class="col-md-8">
-                <h3>Trigger Tab </h3>
-                <p>These settings define the trigger conditions for an alert. When the trigger condition is met, the alert is fired and any configured alert actions are executed. </p><strong> Numeric Trigger Condition </strong>
-                <p>This is the minimum number of events required to trigger the alert. In the example below, if the search returns 3 events or more then the alert is triggered.  </p>
-                <div class="image"> <img src="images/alerts-numericform.png"/></div>
-                <p>In this example, the alert will fire when 3 valid events are discovered by the trigger search. </p><strong> Expression</strong>
-                <p>A search expression can be used as a trigger condition for the alert. Any of the fields available from the search that evaluate to true or false can be entered in this field. The example below shows a cpu based search. </p>
-                <div class="image"><img src="images/alerts-expressionform.png"/></div>
-                <p>The alert will trigger when the cpu field value is greater than 80%.</p><strong>Correlatation</strong>
-                <p>Correlated events are used to study a time window for a sequence of values, or average. While correlated events can be used on almost any form of data, they’re at their best when dealing with data such as audit or webserver logs due to the nature of key value pair error codes, but they will excel in any environment that makes use of error messages or codes.</p>
-                <p>Correlation events have the following fields</p>
-                <blockquote>Time Window - The window in seconds to look for your event value<br/>Type - Sequence or Average<br/>Event Value - The sequence(comma seperated or average value to look for)<br/>Correlation Field - The field to check<br/>Correlation Key - Additional field, Allows you to group values, i.e _host, would mean all values would need to be from one host</blockquote>
-                <div class="image"><img src="images/alerts-correlated.png"/></div>
-                <p>Specifying your type as sequence means that the event must occur N times in a row, without another event inbetween, using the correlation field it is possible to group the events, by for example host, meaning N events in a row must originate from the same host, and events from other hosts will not infringe upon this, When choosing sequence, the values to look for must be added to the event value field and seperated by comma's. Choosing avg will simply average the value over the duration of your capture period.</p>
+              <div class="col-md-11">
+                <h3>Frequently Asked Questions.</h3>
+                <p>Q. What platforms does Logscape support?</p>
+                <p>A. Since Logscape is a Java based application it is expected to run anywhere the JVM is capable of running, if you experience any problems, let us know and we'll do our best to help.</p>
+                <p>Q. Does Logscape support real-time alerting?</p>
+                <p>A. Yes, real time alerting is supported in all versions of Logscape, read more about alerting <a href="tutorials-First_Alert.html">here</a></p>
+                <p>Q. I just loaded my workspace, and can't see any data, what's wrong?</p>
+                <p>A. The most common cause for this is you've got a filter entered without noticing. To remove this, check the filter box at the top of screen and make sure it was left blank. It could also been caused by data not showing up in a datasource correctly, to verify this, search the datasource in question with no filters.</p>
+                <p>Q. How do I add new data?</p>
+                <p>A. As long as you've got a Logscape agent running on the machine, getting new data into Logscape is easy, simple create a datasource, navigate to where your data is, and select the directory. For more information on datasources, give the <a href="ds.html">datasources</a> page a read.</p>
+                <p>Q. How do I set up an alert to trigger every 5 minutes?</p>
+                <p>A. Alerting in Logscape uses standard CRON notation, fortunately for those that aren't used to CRON there is a simple pre-populated drop down to get you started.</p>
+                <p>Q. When I save a workspace I always see [name]. added to it, why is this?</p>
+                <p>A. The [name]. is your team name, and is what limits the visibility of the workspace to your team. Workspaces without this are globally visible and only creatable by admins.</p>
+                <p>Q. How do I see only a certain server when searching?</p>
+                <p>A. Simply include _hostname.equals(serverName) in your search to limit the search.</p>
+                <p>Q. How do I see only one specific type of data?</p>
+                <p>A. Depending on how your data is formatted you can either included a </p>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-11"><br/><br/><br/>
+            <div class="row"> 
+              <div class="col-md-11"> <br/><br/><br/>
                 <div id="disqus_thread">
                   <script>
                     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

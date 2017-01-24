@@ -257,39 +257,27 @@
         <div class="col-md-9 content-area"> 
           <div class="container-fluid">
             <div class="row">
-              <div class="col-md-8">
-                <h3>Trigger Tab </h3>
-                <p>These settings define the trigger conditions for an alert. When the trigger condition is met, the alert is fired and any configured alert actions are executed. </p><strong> Numeric Trigger Condition </strong>
-                <p>This is the minimum number of events required to trigger the alert. In the example below, if the search returns 3 events or more then the alert is triggered.  </p>
-                <div class="image"> <img src="images/alerts-numericform.png"/></div>
-                <p>In this example, the alert will fire when 3 valid events are discovered by the trigger search. </p><strong> Expression</strong>
-                <p>A search expression can be used as a trigger condition for the alert. Any of the fields available from the search that evaluate to true or false can be entered in this field. The example below shows a cpu based search. </p>
-                <div class="image"><img src="images/alerts-expressionform.png"/></div>
-                <p>The alert will trigger when the cpu field value is greater than 80%.</p><strong>Correlatation</strong>
-                <p>Correlated events are used to study a time window for a sequence of values, or average. While correlated events can be used on almost any form of data, they’re at their best when dealing with data such as audit or webserver logs due to the nature of key value pair error codes, but they will excel in any environment that makes use of error messages or codes.</p>
-                <p>Correlation events have the following fields</p>
-                <blockquote>Time Window - The window in seconds to look for your event value<br/>Type - Sequence or Average<br/>Event Value - The sequence(comma seperated or average value to look for)<br/>Correlation Field - The field to check<br/>Correlation Key - Additional field, Allows you to group values, i.e _host, would mean all values would need to be from one host</blockquote>
-                <div class="image"><img src="images/alerts-correlated.png"/></div>
-                <p>Specifying your type as sequence means that the event must occur N times in a row, without another event inbetween, using the correlation field it is possible to group the events, by for example host, meaning N events in a row must originate from the same host, and events from other hosts will not infringe upon this, When choosing sequence, the values to look for must be added to the event value field and seperated by comma's. Choosing avg will simply average the value over the duration of your capture period.</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-11"><br/><br/><br/>
-                <div id="disqus_thread">
-                  <script>
-                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                    var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
-                    /* * * DON'T EDIT BELOW THIS LINE * * */
-                    (function() {
-                    	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                    	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                    })();
-                  </script>
-                </div>
+              <div class="col-md-11">
+                <h3>Operating System Differences with Logscape</h3>
+                <p>Logscape is able to run on any Unix or Windows based OS as long as they are capable of creating a standard Java runtime environment, Logscape can, and has ran against smaller JVM's such as the IBM JVM however it's not a tested, nor official supported JVM.</p>
               </div>
             </div>
           </div>
+          <row>
+            <div class="col-md-11"></div><br/><br/><br/>
+            <div id="disqus_thread">
+              <script>
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                var disqus_shortname = 'logscape'; // required: replace example with your forum shortname
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+              </script>
+            </div>
+          </row>
         </div>
       </div>
       <!--

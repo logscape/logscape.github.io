@@ -259,16 +259,14 @@
             <div class="row">
               <div class="col-md-8">
                 <h3>Groovy Script Action </h3>
-                <p>When an alert is fired a groovy script is executed when scripts actions are enabled. The groovy script has access to all the event details related to the triggering alert. A HashMap <em>sortedEvents </em>is made available to the groovy script and can used to siphon data out of Logscape into other systems, e.g tickets systems, message buses databases and so on.</p>
-                <h4>Sorted Events Key Map</h4>
-                <p>The events key map contains the following the keys: </p>
+                <p>When an alert is fired a groovy script is executed when scripts actions are enabled. The groovy script has access to the following variables - </p>
                 <ul> <strong>Alert Details </strong>
                   <li>name - Alert name </li>
                   <li>triggerSearch - The trigger search assigned to the alert</li>
                   <li>triggerCount - the number of events need to trigger the alert </li><strong> Trigger Events </strong>
-                  <li>event  - all the trigger events as a map</li>
-                  <li>textEvents - the raw trigger events as it appears in the original data</li>
-                  <li>sortedEvents - the events sorted</li>
+                  <li>event  - all the trigger events as an array</li>
+                  <li>textEvents - the raw trigger events as it appears in the original data, stored asn array</li>
+                  <li>sortedEvents - the events sorted, as an arrya</li>
                   <li>sortedMap - a key value sorted list of the events</li><strong> Other  </strong>
                   <li>sysout -  use this to print to the Logscape system console</li>
                   <li>log  - use this to output data into Logscape log file </li>

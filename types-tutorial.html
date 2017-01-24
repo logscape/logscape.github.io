@@ -266,7 +266,7 @@
                 <div class="image"> <img src="images/types-tutorial-dirmask.png"/></div>
                 <p>On the data types page, the Dir/Tag option can be a comma-separated list of directories and tags. Example below assigns the datatype to the logscape-logs data source and a custom application log directory</p>
                 <blockquote>	tag:logscape-logs,/opt/vserver/logs</blockquote>
-                <h4> <a name="patterns">Patterns </a><a href="#top">^ </a></h4>
+                <h4> <a name="patterns">Patterns  </a></h4>
                 <p>The structure of the data is defined using patterns or a split function. The diagram below shows the basic structure of a java application log. The first column refers to the timestamp, the second the level and so on. A regular expression pattern is used to assign matches to Fields. </p>
                 <div class="image"><img src="images/types-tutorial-log4j.png" width="800"/>
                   <div style="padding-left:300px;color:#333"> 
@@ -288,14 +288,16 @@
                     <p>Log4j Example </p>
                   </div>
                 </div>
-                <h4><a name="fields">Fields</a><a href="#top">^ </a></h4>
+                <h4><a name="fields">Fields </a></h4>
                 <p>Each Field group is mapped onto a field in a sequential order. Each field can be configured by clicking on the Field name. The example below shows the mapping for a java application log. </p>
                 <div class="image"><img src="/images/types-tutorial-table.png"/></div>
-                <h4><a name="search">Search </a><a href="#top">^	</a></h4>
+                <h4><a name="search">Search </a></h4>
                 <p>Once you are happy with the data type click save and explore the data from the search page. 	The following search will search all log4j data ingested by Logscape.  </p>
                 <blockquote>	|  _type.equals(log4j)</blockquote>
                 <p>The fields defined in the type will appear on the fields section of the search page. </p>
-                <div class="image"> <img src="/images/types-tutorial-facets.png"/></div><br/><br/><br/>
+                <div class="image"> <img src="/images/types-tutorial-facets.png"/></div>
+                <h4>Index</h4>
+                <p>When creating a field it is possible to select the "index" option. Selecting this means that the field will be computed and indexed at injest time, rather than at search time, this will result in a much higher search speed. But will also mean the value is only possible when looking at the data via the raw table view, rather than the Event or Table views.</p><br/><br/><br/>
                 <div id="disqus_thread">
                   <script>
                     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
