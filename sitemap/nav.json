@@ -297,6 +297,10 @@
 		"url":"deploy.html",
 		"children":[
 			{
+				"display":"Update your Environment",
+				"url":"deploy-update.html"
+			},
+			{
 				"display":"Deploy via MSI",
 				"url":"deploy-MSI_Installation.html"
 			},
@@ -367,10 +371,6 @@
 			{
 				"display":"Configure Network Interface",
 				"url":"deploy-network_interface.html"
-			},
-			{
-				"display":"Update Logscape",
-				"url":"deploy-update.html"
 			},
 			{
 				"display":"Centralized Configs",
