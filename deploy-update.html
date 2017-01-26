@@ -258,23 +258,59 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-11">
-                <h3>How to update Logscape</h3>
+                <h3>Types of Upgrade</h3>
                 <p>We refer to Logscape updates in three different forms, Minor, Major and Binary.</p>
                 <ul>
-                  <li> 
-                    <p>Minor - Small quality of life, or bug fixes. Agents that are offline at the time of the patch will be able to reconnect at any time. Lib files from the /downloads/ folder can be ignored.</p>
+                  <li> <strong>Minor</strong>
+                    <ul>
+                      <li>
+                        <p>Small quality of life, or bug fixes.</p>
+                      </li>
+                      <li>
+                        <p>Agents that are offline at the time of the patch will be able to reconnect at any time.</p>
+                      </li>
+                      <li>
+                        <p>Lib files from the /downloads/ folder can be ignored to save time on deployment.</p>
+                      </li>
+                    </ul>
                   </li>
-                  <li>
-                    <p>Major - Large scale change, often effecting how data is stored on disk. All agents should be online to guarentee parity between agent versions. All files from the /downloads/ folder should be included. Likely to either cause, or require a full re-index.</p>
+                  <li><strong>Major </strong>
+                    <ul>
+                      <li>
+                        <p>Large scale change, often effecting how data is stored on disk.</p>
+                      </li>
+                      <li>
+                        <p>All agents should be online to guarentee parity between agent versions.</p>
+                      </li>
+                      <li>
+                        <p>All files from the /downloads/ folder should be included.</p>
+                      </li>
+                      <li>
+                        <p>Likely to either cause, or require a full re-index.</p>
+                      </li>
+                    </ul>
                   </li>
-                  <li>
-                    <p>Binary - A change has been made to network layer affecting how agents communicate. All agents MUST be online, as agents running older versions will be unable to communicate with the upgraded agents. Libs can be excluded from the upgrade to save time.</p>
+                  <li><strong>Binary</strong>
+                    <ul>
+                      <li>
+                        <p>A change has been made to network layer affecting how agents communicate.</p>
+                      </li>
+                      <li>
+                        <p>All agents MUST be online, as agents running older versions will be unable to communicate with the upgraded agents.</p>
+                      </li>
+                      <li>
+                        <p>Lib files from the /downloads/ folder can be ignored to save time on deployment.</p>
+                      </li>
+                    </ul>
                   </li>
                 </ul>
+                <h3>Performing an Upgrade</h3>
                 <p>The steps to performing an upgrade are as follows,</p>
                 <OL>
                   <li>
-                    <p>Export Config - <em> Export your config by going to the Backup Page and export everything by clicking download. The logscape-all.config file contains your entire system configuration your users and resource groups. Keep this file safe as it can be used to reinstate your system should an error occur.</em>
+                    <p>
+                      Export Config - 
+                      Export your config by going to the Backup Page and export everything by clicking download. The logscape-all.config file contains your entire system configuration your users and resource groups. Keep this file safe as it can be used to reinstate your system should an error occur.
                       <div class="image"><img src="images/deploy-upgrade-backup.png"/></div>
                     </p>
                   </li>
@@ -285,16 +321,16 @@
                     </p>
                   </li>
                   <li> 
-                    <p>If the upgrade has been classified as a Major, or Binary upgrade, confirm that all of your agents are online.<em> Using the Agents page confirm all your Agents are online</em></p>
+                    <p><strong>If the upgrade has been classified as a Major, or Binary upgrade, confirm that all of your agents are online.</strong></p>
                   </li>
                   <li>
                     <p>Unpack the new version - <em> Unpack the freshly downloaded Logscape zip wherever you wish.</em></p>
                   </li>
                   <li>
-                    <p>Upload the contents of Downloads via the manager (If the update is classified as Minor or Binary, then there is no need to upload *-lib.zip files, as these will be unmodified, and are large)<em> Using the deployment page upload the contents of the downloads folder</em></p>
+                    <p>Upload the contents of Downloads via the manager <strong>(If the update is classified as Minor or Binary, then there is no need to upload *-lib.zip files, as these will be unmodified)</strong></p>
                   </li>
                   <li>
-                    <p>Allow a moment for all your agents to download the new files - <em> It may take a few moments for all the agents in your environment to download the new files</em></p>
+                    <p>Allow a moment for all your agents to download the new files - <em>It may take a few moments for all the agents in your environment to download the new files</em></p>
                   </li>
                   <li>
                     <p>Bounce your System - <em> Once all your agents have a copy of the new files bounce the system</em></p>
