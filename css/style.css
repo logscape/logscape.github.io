@@ -459,3 +459,12 @@ i
 	padding-bottom: 0;
 	padding-top: 0;
 }
+
+
+div.tileItem {
+  background-color:#EEE;
+  border: 1px solid #CCC;
+}
+
+img.tileImage { 
+}
