@@ -337,6 +337,10 @@
 				"url":"deploy-mapping_csv.html"
 			},
 			{
+				"display":"Deploy with RabbitMQ",
+				"url":"deploy-rabbitmq.html"
+			},
+			{
 				"display":"Installing a Manager",
 				"url":"deploy-manager.html"
 			},
