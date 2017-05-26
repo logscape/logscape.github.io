@@ -259,21 +259,20 @@
             <div class="row">
               <div class="col-md-11">
                 <h3>RabbitMQ</h3>
-                <p>RabbitMQ is open source message broker software that implements the Advanced Message Queuing Protocol.</p>
-                <p>Its use in Logscape allows one Logscape environment to span multiple datacenters, or even run as a cloud based solution.</p>
+                <p>RabbitMQ is an open source message broker software that implements the Advanced Message Queuing Protocol, this allows Logscape deployments to span multiple datacenters.</p>
                 <h3>Download</h3>
                 <p>RabbitMQ and the surrounding documentation is available from their <a href="https://www.rabbitmq.com/" target="_blank">website.</a></p>
                 <h3>Configuration</h3>
-                <p>In order to run Logscape with RabbitMQ we will be modifying the system properties located in the boot.properties file.</p>
+                <p>In order to run Logscape with RabbitMQ modify the system properties located in the boot.properties file.</p>
                 <ul>
                   <li> 
-                    <p>-Dtransport=RABBIT - This specifies the transport logic to be used, in this case RabbitMQ</p>
+                    <p>-Dtransport=RABBIT - Specifies the transport logic to be used, in this case RabbitMQ</p>
                   </li>
                   <li>
-                    <p>-Drabbit.broker=localhost - This value specifies where the rabbit instance can be found, if unspecified this value defaults to localhost</p>
+                    <p>-Drabbit.broker=localhost - Specifies where the rabbit instance can be found, defaults to localhost</p>
                   </li>
                   <li>
-                    <p>-Drabbit.broker.port=5672 - This value specifies the port on the rabbit broker, if unspecified this value defaults to 5672</p>
+                    <p>-Drabbit.broker.port=5672 - Specifies the port on the rabbit broker, defaults to 5672</p>
                   </li>
                   <li>
                     <p>-Drabbit.user - Username to log into the Rabbit instance, defaults to "Guest"</p>
@@ -282,7 +281,7 @@
                     <p>-Drabbit.pwd - Password to log into the Rabbit instance, defaults to "Guest"</p>
                   </li>
                 </ul>
-                <p>Your agents can now be run as normal, but will use the RabbitMQ instance for all of their inter-agent communication.</p>
+                <p>Once configured agents will continue to operate as normal, but use the provided RabbitMQ instance for all inter-agent communication.</p>
               </div>
               <div class="row">
                 <div class="col-md-11"><br/><br/><br/>
